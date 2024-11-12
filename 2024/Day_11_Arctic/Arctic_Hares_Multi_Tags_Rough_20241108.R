@@ -82,3 +82,106 @@ tag_summary <- hare_tracking_data %>%
 
 # View the summary of tag counts
 print(tag_summary)
+
+# --- Create an Interactive Map with Matching Colors for Points and Lines ---
+# Initialize the leaflet map
+map <- leaflet(hare_sf_filtered) %>%
+  addTiles()  # Add OpenStreetMap tiles as the base map layer
+
+# Loop through each unique tag_local_identifier to add lines and points in different colors
+unique_ids <- unique(hare_sf_filtered$tag_local_identifier)
+for (tag_id in unique_ids) {
+  # Subset data for the current tag ID
+  data_subset <- hare_sf_filtered %>% filter(tag_local_identifier == tag_id)
+  
+  # Add a line connecting the points for each tag ID
+  map <- map %>%
+    addPolylines(
+      data = data_subset,
+      lng = ~long, lat = ~lat,
+      color = color_palette(tag_id),  # Apply color based on tag ID
+      weight = 2,  # Thickness of the line
+      opacity = 0.7  # Slight transparency for the line
+    ) %>%
+    
+    # Add points for each tag ID with matching colors
+    addCircleMarkers(
+      data = data_subset,
+      lng = ~long, lat = ~lat,
+      color = color_palette(tag_id),  # Matching color for each tag ID
+      radius = 5,  # Set the size of the circle markers for visibility
+      stroke = FALSE,  # Remove the circle marker borders
+      fillOpacity = 0.7,  # Set opacity of markers (slightly transparent)
+      popup = ~paste("Timestamp: ", timestamp,  # Popup with info
+                     "<br>Tag: ", tag_local_identifier,
+                     "<br>Latitude: ", lat,
+                     "<br>Longitude: ", long)
+    )
+}
+
+# Add a legend for the color-coded tag IDs
+map <- map %>%
+  addLegend("bottomright",  # Position the legend at the bottom-right corner of the map
+            pal = color_palette,  # Use the color palette for the legend
+            values = hare_sf_filtered$tag_local_identifier,  # Use tag IDs as legend values
+            title = "Tag ID")  # Title of the legend
+
+# Display the map
+map
+
+
+# --- Filter Data for the Specific Hares ---
+# Filter the data to include the specific tag_local_identifiers
+hare_sf_filtered <- hare_sf %>%
+  filter(tag_local_identifier %in% c(153546, 144894, 153525, 153542))  # Include all four specified tags
+
+# --- Create Color Palette ---
+# Update the color palette to cover all the tag IDs present in hare_sf_filtered
+color_palette <- colorFactor(palette = "Set1", domain = hare_sf_filtered$tag_local_identifier)
+
+# --- Create an Interactive Map with Matching Colors for Points and Lines ---
+# Initialize the leaflet map
+map <- leaflet(hare_sf_filtered) %>%
+  addTiles()  # Add OpenStreetMap tiles as the base map layer
+
+# Loop through each unique tag_local_identifier to add lines and points in different colors
+unique_ids <- unique(hare_sf_filtered$tag_local_identifier)
+for (tag_id in unique_ids) {
+  # Subset data for the current tag ID
+  data_subset <- hare_sf_filtered %>% filter(tag_local_identifier == tag_id)
+  
+  # Add a line connecting the points for each tag ID
+  map <- map %>%
+    addPolylines(
+      data = data_subset,
+      lng = ~long, lat = ~lat,
+      color = color_palette(tag_id),  # Apply color based on tag ID
+      weight = 2,  # Thickness of the line
+      opacity = 0.7  # Slight transparency for the line
+    ) %>%
+    
+    # Add points for each tag ID with matching colors
+    addCircleMarkers(
+      data = data_subset,
+      lng = ~long, lat = ~lat,
+      color = color_palette(tag_id),  # Matching color for each tag ID
+      radius = 5,  # Set the size of the circle markers for visibility
+      stroke = FALSE,  # Remove the circle marker borders
+      fillOpacity = 0.7,  # Set opacity of markers (slightly transparent)
+      popup = ~paste("Timestamp: ", timestamp,  # Popup with info
+                     "<br>Tag: ", tag_local_identifier,
+                     "<br>Latitude: ", lat,
+                     "<br>Longitude: ", long)
+    )
+}
+
+# Add a legend for the color-coded tag IDs
+map <- map %>%
+  addLegend("bottomright",  # Position the legend at the bottom-right corner of the map
+            pal = color_palette,  # Use the color palette for the legend
+            values = hare_sf_filtered$tag_local_identifier,  # Use tag IDs as legend values
+            title = "Tag ID")  # Title of the legend
+
+# Display the map
+map
+
