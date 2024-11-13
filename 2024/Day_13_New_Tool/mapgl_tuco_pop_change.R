@@ -7,26 +7,26 @@ options(tigris_use_cache = TRUE)
 # Fetch Population Density for 2000 Census (Decennial)
 popdensity_00 <- get_decennial(
   geography = "tract",
-  state = "NV",  # Nevada
-  county = "Clark",  # Las Vegas is in Clark County
+  state = "CA",  # California
+  county = "Tuolumne",  # Tuolumne County
   variables = "P001001",  # Total population variable
   sumfile = "sf1",  # Summary file
   year = 2000,
   geometry = TRUE
 ) %>%
-  st_transform(26911) %>%  # Use a relevant CRS for Nevada (NAD83 / UTM zone 11N)
+  st_transform(26910) %>%  # Use a relevant CRS for California (NAD83 / UTM zone 10N)
   mutate(pop_density = as.numeric(value / (st_area(.) / 2589989.1738453)))  # Area in square miles
 
 # Fetch Population Density for 2022 ACS (American Community Survey)
 popdensity_22 <- get_acs(
   geography = "tract",
-  state = "NV",  # Nevada
-  county = "Clark",  # Las Vegas is in Clark County
+  state = "CA",  # California
+  county = "Tuolumne",  # Tuolumne County
   variables = "B01001_001",  # Total population variable
   year = 2022,
   geometry = TRUE
 ) %>%
-  st_transform(26911) %>%  # Use same CRS
+  st_transform(26910) %>%  # Use same CRS
   mutate(pop_density = as.numeric(estimate / (st_area(.) / 2589989.1738453)))  # Area in square miles
 
 # Map for 2000 Census Population Density
@@ -64,5 +64,4 @@ map2 <- mapboxgl(bounds = popdensity_22) %>%
 
 # Compare the two maps (2000 and 2022 data)
 comp <- compare(map1, map2)
-
 
