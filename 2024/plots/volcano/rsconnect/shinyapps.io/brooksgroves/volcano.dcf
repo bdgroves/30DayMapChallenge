@@ -1,0 +1,12 @@
+name: volcano
+title: volcano
+username: brooksgroves
+account: brooksgroves
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 13388631
+bundleId: 9387230
+url: https://brooksgroves.shinyapps.io/volcano/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
