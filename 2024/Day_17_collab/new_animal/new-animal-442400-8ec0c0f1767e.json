@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "new-animal-442400",
+  "private_key_id": "8ec0c0f1767e077be49aba8d777a3a2b29e6aef7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC6B0fvr3imj7tp\nSnV6FZWoYrSWaaElVzSNZt8XkaDS8pkl5HuzIoFxyiYjBijdNPnF56yT9Ulhniu4\nVxDXJPS+IoX4FLcRA254LGYuP8Qe9ayaVXMylrjetIty10dJ6iff77dUz18qBzlM\nI4EjLVRX8KY7e3Q+7JGlIDOrfq2Vkttd00KpcyDLiPlcvCVMyo9EMnbw4/7M2pt/\n4F4qti0Y2Se1CXnd+E+/5yUC8IEO4aTAhoql0zZU0p8UMAvtYfXeMKEOEBmdOZun\nhBK2GAO+4evxNdIVDfF5Mngbbzu0RP45p0YlnzEbnZF5GnEZL9C+mTqibAw2POvf\nYrlK+U7nAgMBAAECggEAMrhefDLG/f7NVclX22f8LHNxEluNdL1gljcYl3f8tdcw\nO10e/vnm+ivoFv+Mb7eMbFGcw6CKl+OEvxd5/3bThe2qwjd/rFNXsMtGNtDq+5f3\nLgMjTAU9NXdbV/3rMXN22L8mqKh7pV1f2WsKwBkRWILECA7CZI+irDdp7xW0ZUW0\nqBJbywEq8DiFufJUtVh72BC9+lfWaJtYr5GLTxI8JOUWzyS+P5A18Gg67hrZeA33\nK3ACXeIXHIMTISekGuHbRxKjfGjeOjIsErYb8h9L5/AJA6BYzuargqE5glVxONnc\nLak4qlnZyZAorZs5KK+5Ab6NH4RC5GyKXk0E8DR6VQKBgQDdJUaK0uc9U8oxULXk\nDMkkYKmJqEUqA90peqarYH3+iI8b32aI07jQUrUQwdvyWwKo23lh0LKnjGkg/ans\njxKEK3b6uCat1TifwFcIaC+aEmUlfbkhmSoaZJrzEd6zmci0AEnUfB0gkojF5R77\nXOjaDg1G1LxZtBZ2+E7P0I3HewKBgQDXWRt5IZkxHv91/1DPTkW5tR1RJ7qB03lB\nERAx9fzLOe46vMdRr1DcpmEELotiMpCMVv2Wx1LnCszayW1TfUHH+cX/qb2SVYE6\nLwXNxu5HfIlBLhqbw4KrV+OZwqeC3N8dy800EAnH/hUg4jrfw0yQC4zdL//DsNtZ\n1ZJqPrxEhQKBgD6FK0xUE8vixGbsyn+Onc8LBONGD0exj/UKF9SbkwNC2DKpFfPY\n54b92vLB28zIrhfO9KISvm9f4tjQ3hli2XlEUH7RUR4UCc4gMnrN+ac1TCMtSAmX\no6+Sgbv2cV+VOoipDDZmYFW1F7Xa8MdfnPUIw/gibJ1vrGo2CRH3hB3BAoGACXC9\nlJTVe2LJfinAKCZdRiPbcihUs8ZKhYCy/g2zlFEo0WhfMISH/fRJQn6r25Ut4wkZ\nOtfoGXrOujSkV0mhbZvUgz20ssqOzLctAPVcksOx3KqhvfxXKR3EO4ReBY2bNlot\n179wPlU0Jenk/NQ58gKfnT6ybqi9JPYI4iF37WUCgYB5wbgI+Iisl179GkcNHVi4\njRC+tlHqZB0XK2eerL0OWrA9D8o7mWZ8NTg2YqnPzBJYlPp8hrqn5A4rm583JsEo\nVSnhxA0NUVu6DThw6ACCPMnpphkjRa+iMJb1yW5GgN2g7He/4i0I/ADr4VU5V8uf\nGYHsYVtXIHc5EuImT+h3wA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "new-animal@new-animal-442400.iam.gserviceaccount.com",
+  "client_id": "103937782096061428060",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/new-animal%40new-animal-442400.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

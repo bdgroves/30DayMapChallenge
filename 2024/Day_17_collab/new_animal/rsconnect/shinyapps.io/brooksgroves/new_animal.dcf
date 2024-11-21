@@ -1,0 +1,13 @@
+name: new_animal
+title: new_animal
+username: brooksgroves
+account: brooksgroves
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 13408175
+bundleId: 9394476
+url: https://brooksgroves.shinyapps.io/new_animal/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: app_works_20241120.R

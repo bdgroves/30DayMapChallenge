@@ -1,0 +1,12 @@
+name: collaboration
+title: collaboration
+username: brooksgroves
+account: brooksgroves
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 13403169
+bundleId: 9392967
+url: https://brooksgroves.shinyapps.io/collaboration/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
