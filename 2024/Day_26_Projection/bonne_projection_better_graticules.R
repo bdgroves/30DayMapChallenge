@@ -7,7 +7,7 @@ library(rnaturalearth)
 world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
 
 # Transform the world data to Bonne (heart-shaped)
-bonne_crs <- "+proj=bonne +lat_1=45 +lon_0=0"  # Define the Bonne projection CRS
+bonne_crs <- "+proj=bonne +lat_1=60 +lon_0=0"  # Define the Bonne projection CRS
 world_heart <- st_transform(world, crs = bonne_crs)
 
 # Generate graticules (gridlines) and reproject them into Bonne projection
