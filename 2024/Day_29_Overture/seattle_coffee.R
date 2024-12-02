@@ -31,7 +31,7 @@ seattle_places <- places_dataset |>
 seattle_places$Name <- seattle_places$names$primary
 
 # Set Mapbox token (replace with your actual token)
-Sys.setenv(MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoiYnJvb2tzZyIsImEiOiJjbHh4d2FqYWQxZWl1MmlvZnF1N2JjZncxIn0.z3NeBZnns3sUZlHFo_jfow")
+Sys.setenv(MAPBOX_ACCESS_TOKEN = "your_key")
 
 # Create the map visualization for Seattle
 seattle_map <- rdeck(map_style = mapbox_dark(), 
