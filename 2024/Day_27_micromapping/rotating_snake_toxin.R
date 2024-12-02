@@ -24,10 +24,10 @@ frames_sorted <- frames[order(frames)]  # Ensure frames are in the correct order
 
 # Create the GIF
 gif <- image_read(frames_sorted) %>% 
-  image_animate(fps = 15, loop = 0)  # 10 frames per second, loop forever
+  image_animate(fps = 10, loop = 0)  # 10 frames per second, loop forever
 
 # Save the GIF
-gif_output <- "C:/data/R_Projects/30DayMapChallenge/2024/Day_27_micromapping/rotating_molecule.gif"
+gif_output <- "C:/data/R_Projects/30DayMapChallenge/2024/Day_27_micromapping/rotating_molecule_10fps.gif"
 image_write(gif, gif_output)
 
 cat("GIF saved to:", gif_output, "\n")
