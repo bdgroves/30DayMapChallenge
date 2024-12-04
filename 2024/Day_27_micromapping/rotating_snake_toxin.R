@@ -5,7 +5,7 @@ output_dir <- "C:/data/R_Projects/30DayMapChallenge/2024/Day_27_micromapping/fra
 dir.create(output_dir, showWarnings = FALSE)
 
 # Check if the file exists
-if(file.exists("C:/data/R_Projects/30DayMapChallenge/2024/Day_27_micromapping/1muq.pdb")) {
+if(file.exists("C:/data/R_Projects/30DayMapChallenge/2024/Day_27_micromapping/1a31.pdb")) {
   # Loop through angles and save each frame
   for(i in seq(0, 360, by = 10)) {  # Rotate in 10-degree increments
     output_file <- sprintf("%s/frame_%03d.png", output_dir, i)
