@@ -161,6 +161,7 @@ days:
     tools: [MapLibre GL JS, NLDI API]
     prep: "Drafted as an interactive page (day-13-interactions/index.html). Needs a still image for social posts."
     status: draft
+    link: day-13-interactions/
 
   - day: 14
     theme: Borgesian map

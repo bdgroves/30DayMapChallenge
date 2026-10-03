@@ -66,8 +66,8 @@ def write_readme(folder: Path, block: str) -> None:
 
 def thumb(png: Path) -> Path | None:
     t = png.parent / "thumb.jpg"
-    if t.exists() and t.stat().st_mtime >= png.stat().st_mtime:
-        return t
+    # always remade: a fresh checkout gives every file the same time, so timestamps can't say
+    # whether the map changed. JPEG output is deterministic, so an unchanged map makes no diff.
     try:
         from PIL import Image
     except ImportError:
@@ -104,6 +104,7 @@ def main() -> None:
             "thumb": f"{RAW}/{rel}/out/thumb.jpg" if t else None,
             "alt": alt.read_text(encoding="utf-8").strip() if alt.exists() else "",
             "post": d.get("post"),
+            "link": d.get("link"),
         })
     counts = {s: sum(1 for x in out if x["status"] == s) for s in ORDER}
     manifest = {"year": plan["year"], "start": start.isoformat(), "hashtag": plan["hashtag"],
