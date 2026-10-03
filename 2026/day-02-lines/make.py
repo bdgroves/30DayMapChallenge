@@ -83,18 +83,10 @@ segs = [g for s in segs for g in getattr(s.intersection(near), "geoms", [s.inter
         if g.geom_type == "LineString" and g.length > 0]
 W = gpd.GeoSeries(segs, crs=4326).to_crs(UTM)
 total_ways_km = W.length.sum() / 1000
-# where there are separate walking and cycling paths, measure the route once: a 25 m band around
-# every path, divided by its width, is the length of the route itself
+# a 25 m band around every path, divided by its width: a check on the route length
 band = unary_union(W.buffer(12.5))
 band_km = band.area / 25 / 1000
 # the walking and cycling routes measured separately, from the ways' own tags
-tags = [el.get("tags", {}) for el in wall.get("elements", []) if el.get("type") == "way"]
-for el in wall.get("elements", [])[:60]:
-    t = el.get("tags", {})
-    print("  way", el.get("id"), t.get("highway"), "foot=" + t.get("foot", ""), "bicycle=" + t.get("bicycle", ""),
-          "seg=" + t.get("segregated", ""), "oneway=" + t.get("oneway", ""), t.get("name"))
-
-
 def km_of(pred):
     ls = []
     for el in wall.get("elements", []):
@@ -108,7 +100,7 @@ def km_of(pred):
 foot_km = km_of(lambda t: t.get("highway") in ("footway", "pedestrian", "path") and t.get("bicycle") not in ("designated",))
 bike_km = km_of(lambda t: t.get("highway") == "cycleway" or t.get("bicycle") == "designated")
 print(f"= walking ways {foot_km:.2f} km, cycling ways {bike_km:.2f} km, 25 m band {band_km:.2f} km")
-route_km = band_km
+route_km = bike_km                                      # the cycling path goes all the way round
 print(f"= {len(segs)} pieces in the park: {total_ways_km:.2f} km of path, the route about {route_km:.2f} km")
 
 # ── map ──────────────────────────────────────────────────────────────────────
@@ -157,7 +149,7 @@ dmc.frame(
     subtitle=(f"The path around Stanley Park in Vancouver, about {route_km:.1f} km between the forest and the sea.\n"
               f"Walked, run, cycled and skated, all the way round."),
     source="OpenStreetMap contributors (Overpass API)" + (" · " + basemap.CREDIT if drawn else ""),
-    note="Where walkers and cyclists have separate paths, both are drawn and the route is measured once.",
+    note="Where walkers and cyclists have separate paths, both are drawn; the length is the cycling route, which goes all the way round.",
 )
 dmc.save(fig, DAY, alt=(
     f"Map of Stanley Park in Vancouver with the Seawall drawn as a red line around its shore, about {route_km:.1f} km, "
