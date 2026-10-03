@@ -97,7 +97,7 @@ days:
       - name: "USGS GNIS domestic names"
         url: https://www.usgs.gov/us-board-on-geographic-names/download-gnis-data
     tools: [Python, geopandas]
-    prep: "Download the national GNIS file."
+    prep: "Drafted from the GNIS national file."
     status: draft
 
   - day: 9
@@ -110,7 +110,7 @@ days:
       - name: "GHSL built-up surface"
         url: https://human-settlement.emergency.copernicus.eu/
     tools: [Python, rasterio, matplotlib]
-    prep: "Pull Pierce County blocks."
+    prep: "Drafted (2020 census blocks, Copernicus DEM)."
     status: draft
 
   - day: 10
@@ -148,7 +148,7 @@ days:
       - name: "SFPUC Hetch Hetchy Regional Water System"
         url: https://www.sfpuc.gov/
     tools: [Python, geopandas]
-    prep: "Download EIA layers for California."
+    prep: "Drafted from OpenStreetMap (Overpass)."
     status: draft
 
   - day: 13
@@ -159,7 +159,7 @@ days:
       - name: "USGS NLDI (Network-Linked Data Index)"
         url: https://labs.waterdata.usgs.gov/about-nldi/
     tools: [MapLibre GL JS, NLDI API]
-    prep: "Prototype one click-to-trace in October."
+    prep: "Drafted as an interactive page (day-13-interactions/index.html). Needs a still image for social posts."
     status: draft
 
   - day: 14
@@ -181,7 +181,7 @@ days:
       - name: "USGS ComCat (HVO-located earthquakes)"
         url: https://earthquake.usgs.gov/fdsnws/event/1/
     tools: [Python, matplotlib or forge3d]
-    prep: "None; ties in with PELE."
+    prep: "Drafted from ComCat since 2019."
     status: draft
 
   - day: 16
@@ -213,7 +213,7 @@ days:
       - name: "Census 2020 blocks with P1 population"
         url: https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
     tools: [Python, geopandas]
-    prep: "Download Nevada block shapes with population."
+    prep: "Drafted (2020 TIGER/Line blocks)."
     status: draft
 
   - day: 19
@@ -237,8 +237,8 @@ days:
       - name: "GBIF occurrence download (genus Dipodomys)"
         url: https://www.gbif.org/
     tools: [Python, h3]
-    prep: "Request the GBIF download (needs a free account)."
-    status: idea
+    prep: "Drafted from the GBIF search API (no account needed). Before posting: run a GBIF download with Brooks's account so the map can cite its DOI."
+    status: draft
 
   - day: 21
     theme: OpenStreetMap
@@ -259,7 +259,7 @@ days:
       - name: "Natural Earth"
         url: https://www.naturalearthdata.com/
     tools: [Python, cartopy or pyproj]
-    prep: "List the places."
+    prep: "Drafted. Add every place Brooks has been to day-22-projections/places.csv and re-render."
     status: draft
 
   - day: 23
@@ -282,7 +282,7 @@ days:
       - name: "USGS NLDI upstream navigation (NHDPlus flowlines)"
         url: https://labs.waterdata.usgs.gov/about-nldi/
     tools: [Python, geopandas]
-    prep: "None."
+    prep: "Drafted (NLDI flowlines; Strahler order computed on the network)."
     status: draft
 
   - day: 25
@@ -293,7 +293,7 @@ days:
       - name: "EarthScope FDSN dataselect (station UW.RCM)"
         url: https://service.earthscope.org/
     tools: [Python, ObsPy]
-    prep: "None; the lahar-watch code already draws these."
+    prep: "Drafted: UW.RCM on July 8, 2025."
     status: draft
 
   - day: 26
@@ -306,8 +306,8 @@ days:
       - name: "USGS Lake Tahoe bathymetry"
         url: https://www.usgs.gov/
     tools: [Python, forge3d]
-    prep: "Find the bathymetry grid."
-    status: idea
+    prep: "Depth drafted from the 1998 USGS multibeam grid. Still to add: clarity (Secchi depth) from the SECCHI project."
+    status: draft
 
   - day: 27
     theme: New tool
