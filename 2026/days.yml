@@ -98,7 +98,7 @@ days:
         url: https://www.usgs.gov/us-board-on-geographic-names/download-gnis-data
     tools: [Python, geopandas]
     prep: "Download the national GNIS file."
-    status: idea
+    status: draft
 
   - day: 9
     theme: Urban-rural
@@ -111,7 +111,7 @@ days:
         url: https://human-settlement.emergency.copernicus.eu/
     tools: [Python, rasterio, matplotlib]
     prep: "Pull Pierce County blocks."
-    status: idea
+    status: draft
 
   - day: 10
     theme: Prompting only
@@ -149,7 +149,7 @@ days:
         url: https://www.sfpuc.gov/
     tools: [Python, geopandas]
     prep: "Download EIA layers for California."
-    status: idea
+    status: draft
 
   - day: 13
     theme: Interactions
@@ -160,7 +160,7 @@ days:
         url: https://labs.waterdata.usgs.gov/about-nldi/
     tools: [MapLibre GL JS, NLDI API]
     prep: "Prototype one click-to-trace in October."
-    status: idea
+    status: draft
 
   - day: 14
     theme: Borgesian map
@@ -182,7 +182,7 @@ days:
         url: https://earthquake.usgs.gov/fdsnws/event/1/
     tools: [Python, matplotlib or forge3d]
     prep: "None; ties in with PELE."
-    status: idea
+    status: draft
 
   - day: 16
     theme: Collaborative map
@@ -214,7 +214,7 @@ days:
         url: https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
     tools: [Python, geopandas]
     prep: "Download Nevada block shapes with population."
-    status: idea
+    status: draft
 
   - day: 19
     theme: Smell
@@ -260,7 +260,7 @@ days:
         url: https://www.naturalearthdata.com/
     tools: [Python, cartopy or pyproj]
     prep: "List the places."
-    status: idea
+    status: draft
 
   - day: 23
     theme: Taste
@@ -283,7 +283,7 @@ days:
         url: https://labs.waterdata.usgs.gov/about-nldi/
     tools: [Python, geopandas]
     prep: "None."
-    status: idea
+    status: draft
 
   - day: 25
     theme: Is this a map?
@@ -294,7 +294,7 @@ days:
         url: https://service.earthscope.org/
     tools: [Python, ObsPy]
     prep: "None; the lahar-watch code already draws these."
-    status: idea
+    status: draft
 
   - day: 26
     theme: Water

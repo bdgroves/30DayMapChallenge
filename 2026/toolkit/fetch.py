@@ -51,7 +51,13 @@ def get(url: str, path: Path, timeout: int = 600, tries: int = 4) -> bytes:
 def json_get(url: str, params: dict | None = None, timeout: int = 120, tries: int = 4):
     if params:
         url += ("&" if "?" in url else "?") + urllib.parse.urlencode(params)
-    return json.loads(_open(url, timeout, tries))
+    for i in range(tries):                     # a reply cut off mid-stream is retried too
+        try:
+            return json.loads(_open(url, timeout, tries))
+        except json.JSONDecodeError:
+            if i == tries - 1:
+                raise
+            time.sleep(4 * (i + 1))
 
 
 def shapes(url: str, path: Path):
