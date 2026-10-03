@@ -1,0 +1,1 @@
+Shaded-relief map from San Francisco east to Yosemite. Gold lines are San Francisco's power lines running from powerhouses below Groveland to the Bay Area; blue is the Hetch Hetchy aqueduct; grey is every other high-voltage line in the region.
