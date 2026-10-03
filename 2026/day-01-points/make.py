@@ -117,14 +117,14 @@ countries = fetch.shapes(fetch.COUNTRIES, DATA / "countries.zip")
 states = fetch.shapes(fetch.STATES, DATA / "states.zip")
 
 # ── main map: where most of them are ────────────────────────────────────────
-box = (-125.6, 32.4, -113.8, 50.6)                  # the West Coast: BC to Southern California, and Nevada
+box = (-125.4, 32.6, -114.6, 50.4)                  # the West Coast: BC to Southern California, and Nevada
 lon0, lat0 = (box[0] + box[2]) / 2, (box[1] + box[3]) / 2
 MAPBOX = basemap.available()                       # Mapbox basemaps are Web Mercator
 CRS = "EPSG:3857" if MAPBOX else f"+proj=aea +lat_1={box[1] + 1} +lat_2={box[3] - 1} +lat_0={lat0} +lon_0={lon0} +datum=WGS84 +units=m"
 inside = g.cx[box[0]:box[2], box[1]:box[3]]
 print(f"= main map {box[0]:.1f},{box[1]:.1f} to {box[2]:.1f},{box[3]:.1f}: {len(inside)} finds")
 
-MAP_BOX = (0.05, 0.315, 0.90, 0.47)
+MAP_BOX = (0.05, 0.10, 0.52, 0.70)
 fig, ax = dmc.figure("portrait", map_box=MAP_BOX)
 norm = Normalize(g["year"].min(), g["year"].max())
 col = lambda y: dmc.SEQ_HEAT(0.28 + 0.72 * norm(y))  # noqa: E731
@@ -151,7 +151,7 @@ for sp in ax.spines.values():
 
 # ── the world: every find ───────────────────────────────────────────────────
 WORLD = "+proj=eqearth +lon_0=-150 +datum=WGS84 +units=m"     # Pacific-centred: home, Australia, NZ together
-wax = fig.add_axes((0.05, 0.095, 0.47, 0.185))
+wax = fig.add_axes((0.60, 0.55, 0.35, 0.22))
 wax.set_axis_off()
 land = countries[countries["ADM0_A3"] != "ATA"].copy()
 land["geometry"] = land.geometry.buffer(0)
@@ -166,10 +166,10 @@ pad = 1_200_000
 wax.set_xlim(x0 - pad, x1 + pad)
 wax.set_ylim(min(y0 - pad, -6_500_000), y1 + pad)
 wax.set_aspect("equal")
-fig.text(0.05, 0.288, f"EVERY FIND · {n_countries} COUNTRIES", family=dmc.MONO, size=6.8, color=dmc.STONE)
+fig.text(0.60, 0.785, f"EVERY FIND · {n_countries} COUNTRIES", family=dmc.MONO, size=6.8, color=dmc.STONE)
 
 # ── finds per year and where ────────────────────────────────────────────────
-yax = fig.add_axes((0.585, 0.205, 0.365, 0.07))
+yax = fig.add_axes((0.60, 0.40, 0.35, 0.08))
 per = g.groupby("year").size().reindex(range(g["year"].min(), g["year"].max() + 1), fill_value=0)
 yax.bar(per.index, per.values, color=[col(y) for y in per.index], width=0.8)
 for sp in ("top", "right", "left"):
@@ -181,11 +181,11 @@ yax.tick_params(labelsize=6.5, colors=dmc.STONE, length=2)
 for t in yax.get_xticklabels():
     t.set_fontfamily(dmc.MONO)
 best = int(per.idxmax())
-fig.text(0.585, 0.288, f"FINDS PER YEAR · MOST IN {best}: {per.max()}", family=dmc.MONO, size=6.8, color=dmc.STONE)
-fig.text(0.585, 0.172, "MOST FINDS", family=dmc.MONO, size=6.8, color=dmc.STONE)
-for i, (k, c) in enumerate(places.most_common(5)):
-    y = 0.152 - i * 0.0155
-    fig.text(0.585, y, k, size=8, va="center")
+fig.text(0.60, 0.495, f"FINDS PER YEAR · MOST IN {best}: {per.max()}", family=dmc.MONO, size=6.8, color=dmc.STONE)
+fig.text(0.60, 0.335, "MOST FINDS", family=dmc.MONO, size=6.8, color=dmc.STONE)
+for i, (k, c) in enumerate(places.most_common(10)):
+    y = 0.31 - i * 0.02
+    fig.text(0.60, y, k, size=8, va="center")
     fig.text(0.95, y, f"{c:,}", family=dmc.MONO, size=7.5, color=dmc.LAVA, ha="right", va="center")
 
 types = Counter(df["type"])

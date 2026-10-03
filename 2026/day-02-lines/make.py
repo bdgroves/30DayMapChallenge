@@ -43,7 +43,7 @@ bb = ",".join(map(str, BBOX))
 wall = overpass(f'way["highway"]["name"~"seawall",i]({bb});', "seawall.json")
 park = overpass(f'nwr["leisure"="park"]["name"="Stanley Park"]({bb});', "park.json")
 names = "|".join(n.replace("'", ".") for n in LANDMARKS)
-marks = overpass(f'nwr["name"~"^({names})$"]({bb});', "landmarks.json")
+marks = overpass(f'nwr["name"~"^({names})$"]({bb});', "landmarks2.json")
 green = overpass(f'(way["natural"="wood"]({bb});way["landuse"="forest"]({bb});'
                  f'way["natural"="water"]({bb});relation["natural"="water"]({bb}););', "green.json")
 
@@ -86,7 +86,29 @@ total_ways_km = W.length.sum() / 1000
 # where there are separate walking and cycling paths, measure the route once: a 25 m band around
 # every path, divided by its width, is the length of the route itself
 band = unary_union(W.buffer(12.5))
-route_km = band.area / 25 / 1000
+band_km = band.area / 25 / 1000
+# the walking and cycling routes measured separately, from the ways' own tags
+tags = [el.get("tags", {}) for el in wall.get("elements", []) if el.get("type") == "way"]
+for el in wall.get("elements", [])[:60]:
+    t = el.get("tags", {})
+    print("  way", el.get("id"), t.get("highway"), "foot=" + t.get("foot", ""), "bicycle=" + t.get("bicycle", ""),
+          "seg=" + t.get("segregated", ""), "oneway=" + t.get("oneway", ""), t.get("name"))
+
+
+def km_of(pred):
+    ls = []
+    for el in wall.get("elements", []):
+        t = el.get("tags", {})
+        if el.get("type") == "way" and "geometry" in el and pred(t):
+            g = LineString([(p["lon"], p["lat"]) for p in el["geometry"]]).intersection(near)
+            ls += [x for x in getattr(g, "geoms", [g]) if x.geom_type == "LineString"]
+    return gpd.GeoSeries(ls, crs=4326).to_crs(UTM).length.sum() / 1000 if ls else 0
+
+
+foot_km = km_of(lambda t: t.get("highway") in ("footway", "pedestrian", "path") and t.get("bicycle") not in ("designated",))
+bike_km = km_of(lambda t: t.get("highway") == "cycleway" or t.get("bicycle") == "designated")
+print(f"= walking ways {foot_km:.2f} km, cycling ways {bike_km:.2f} km, 25 m band {band_km:.2f} km")
+route_km = band_km
 print(f"= {len(segs)} pieces in the park: {total_ways_km:.2f} km of path, the route about {route_km:.2f} km")
 
 # ── map ──────────────────────────────────────────────────────────────────────
