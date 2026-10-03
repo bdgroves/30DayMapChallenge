@@ -179,7 +179,7 @@
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-08-utopia",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-08-utopia/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-08-utopia/out/thumb.jpg",
-   "alt": "Map of the lower 48 states dotted with 836 places named Paradise, Eden, Arcadia, Utopia or Shangri-La. Paradise (501) is the most common, then Eden (243). Only 264 are towns; the most common kinds are civils, streams, valleys.",
+   "alt": "Map of the lower 48 states dotted with 836 places named Paradise, Eden, Arcadia, Utopia or Shangri-La. Paradise (501) is the most common, then Eden (243). Only 264 are towns; the most common kinds are townships and other civil divisions, streams, valleys.",
    "post": null
   },
   {
@@ -200,9 +200,9 @@
     "GHSL built-up surface"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-09-urban-rural",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-09-urban-rural/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-09-urban-rural/out/thumb.jpg",
+   "alt": "A map of the straight line from the Port of Tacoma to Paradise on Mount Rainier over shaded relief and census population, with two profiles below: people per square kilometre, high in Tacoma and Puyallup and falling to almost none after about km 29, and elevation rising to 8,850 ft at Paradise.",
    "post": null
   },
   {
@@ -265,9 +265,9 @@
     "SFPUC Hetch Hetchy Regional Water System"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-12-power",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-12-power/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-12-power/out/thumb.jpg",
+   "alt": "Shaded-relief map from San Francisco east to Yosemite. Gold lines are San Francisco's power lines running from powerhouses below Groveland to the Bay Area; blue is the Hetch Hetchy aqueduct; grey is every other high-voltage line in the region.",
    "post": null
   },
   {
@@ -330,7 +330,7 @@
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-15-inside-out",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-15-inside-out/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-15-inside-out/out/thumb.jpg",
-   "alt": "Left, a shaded-relief map of Kīlauea's summit dotted with 19,466 earthquake epicentres since 2019; right, a north-south cross-section through Halemaʻumaʻu showing where the earthquakes cluster with depth.",
+   "alt": "Left, a shaded-relief map of Kīlauea's summit dotted with 19,466 earthquake epicentres since 2019; right, a north-south cross-section through Halema‘uma‘u showing where the earthquakes cluster with depth.",
    "post": null
   },
   {
@@ -391,7 +391,7 @@
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-18-null",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-18-null/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-18-null/out/thumb.jpg",
-   "alt": "Map of Nevada's census blocks: almost all pale, meaning nobody lives there, with black specks for Las Vegas, Reno and the small towns along the highways. 77% of the land had a population of zero in 2020.",
+   "alt": "Map of Nevada's census blocks: 77% of the land is pale, where nobody lived in 2020; light grey blocks hold a few people each; black specks around Las Vegas, Reno and the towns hold nine in ten Nevadans on 0.4% of the land.",
    "post": null
   },
   {
@@ -473,9 +473,9 @@
     "Natural Earth"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-22-projections",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-22-projections/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-22-projections/out/thumb.jpg",
+   "alt": "A round world map centred on Lakewood, Washington, in an azimuthal equidistant projection, with red lines out to Groveland (1,054 km), Reno (877 km), Ruby Mountains (923 km), Namibia (15,332 km), Guadeloupe (6,491 km).",
    "post": null
   },
   {
@@ -514,9 +514,9 @@
     "USGS NLDI upstream navigation (NHDPlus flowlines)"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-24-network",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-24-network/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-24-network/out/thumb.jpg",
+   "alt": "Map of the Tuolumne River basin above Modesto, 4,742 square kilometres of the Sierra Nevada, with 3,825 kilometres of streams drawn thicker by stream order up to order 6, and the five SIERRA-FLOW gages marked.",
    "post": null
   },
   {
@@ -535,9 +535,9 @@
     "EarthScope FDSN dataselect (station UW.RCM)"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-25-is-this-a-map",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-25-is-this-a-map/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-25-is-this-a-map/out/thumb.jpg",
+   "alt": "A helicorder: 24 horizontal wiggly lines, one per hour of July 8, 2025, recorded at Camp Muir on Mount Rainier, in alternating ink, red, blue and green. Gold dots mark the 352 earthquakes located nearby that day.",
    "post": null
   },
   {
