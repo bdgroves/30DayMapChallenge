@@ -151,7 +151,7 @@ for sp in ax.spines.values():
 
 # ── the world: every find ───────────────────────────────────────────────────
 WORLD = "+proj=eqearth +lon_0=-150 +datum=WGS84 +units=m"     # Pacific-centred: home, Australia, NZ together
-wax = fig.add_axes((0.60, 0.55, 0.35, 0.22))
+wax = fig.add_axes((0.60, 0.62, 0.35, 0.17))
 wax.set_axis_off()
 land = countries[countries["ADM0_A3"] != "ATA"].copy()
 land["geometry"] = land.geometry.buffer(0)
@@ -166,12 +166,15 @@ pad = 1_200_000
 wax.set_xlim(x0 - pad, x1 + pad)
 wax.set_ylim(min(y0 - pad, -6_500_000), y1 + pad)
 wax.set_aspect("equal")
-fig.text(0.60, 0.785, f"EVERY FIND · {n_countries} COUNTRIES", family=dmc.MONO, size=6.8, color=dmc.STONE)
+fig.text(0.60, 0.795, f"EVERY FIND · {n_countries} COUNTRIES", family=dmc.MONO, size=6.8, color=dmc.STONE)
 
 # ── finds per year and where ────────────────────────────────────────────────
 yax = fig.add_axes((0.60, 0.40, 0.35, 0.08))
 per = g.groupby("year").size().reindex(range(g["year"].min(), g["year"].max() + 1), fill_value=0)
-yax.bar(per.index, per.values, color=[col(y) for y in per.index], width=0.8)
+yax.bar(per.index, per.values, color=dmc.ASH, width=0.8)    # height is the count; colour is only for the map
+for y in per.sort_values(ascending=False).index[:3]:
+    yax.text(y, per[y] + per.max() * 0.03, f"{per[y]}", ha="center", va="bottom", family=dmc.MONO, size=6, color=dmc.INK)
+yax.set_ylim(0, per.max() * 1.18)
 for sp in ("top", "right", "left"):
     yax.spines[sp].set_visible(False)
 yax.spines["bottom"].set_color(dmc.MIST)
@@ -182,6 +185,18 @@ for t in yax.get_xticklabels():
     t.set_fontfamily(dmc.MONO)
 best = int(per.idxmax())
 fig.text(0.60, 0.495, f"FINDS PER YEAR · MOST IN {best}: {per.max()}", family=dmc.MONO, size=6.8, color=dmc.STONE)
+# the dots' colour key: year found
+kax = fig.add_axes((0.60, 0.565, 0.35, 0.012))
+kax.imshow(np.linspace(0.28, 1, 256)[None, :], aspect="auto", cmap=dmc.SEQ_HEAT, vmin=0, vmax=1,
+           extent=(g["year"].min(), g["year"].max(), 0, 1))
+kax.set_yticks([])
+kax.set_xticks([g["year"].min(), 2010, 2020, g["year"].max()])
+kax.tick_params(labelsize=6.5, colors=dmc.STONE, length=2)
+for t in kax.get_xticklabels():
+    t.set_fontfamily(dmc.MONO)
+for sp in kax.spines.values():
+    sp.set_visible(False)
+fig.text(0.60, 0.585, "DOT COLOUR · YEAR FOUND", family=dmc.MONO, size=6.8, color=dmc.STONE)
 fig.text(0.60, 0.335, "MOST FINDS", family=dmc.MONO, size=6.8, color=dmc.STONE)
 for i, (k, c) in enumerate(places.most_common(10)):
     y = 0.31 - i * 0.02

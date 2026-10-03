@@ -44,6 +44,7 @@ wall = overpass(f'way["highway"]["name"~"seawall",i]({bb});', "seawall.json")
 park = overpass(f'nwr["leisure"="park"]["name"="Stanley Park"]({bb});', "park.json")
 names = "|".join(n.replace("'", ".") for n in LANDMARKS)
 marks = overpass(f'nwr["name"~"^({names})$"]({bb});', "landmarks2.json")
+paths = overpass(f'way["highway"~"^(footway|path|pedestrian|cycleway|steps)$"]({bb});', "paths.json")
 green = overpass(f'(way["natural"="wood"]({bb});way["landuse"="forest"]({bb});'
                  f'way["natural"="water"]({bb});relation["natural"="water"]({bb}););', "green.json")
 
@@ -103,6 +104,48 @@ print(f"= walking ways {foot_km:.2f} km, cycling ways {bike_km:.2f} km, 25 m ban
 route_km = bike_km                                      # the cycling path goes all the way round
 print(f"= {len(segs)} pieces in the park: {total_ways_km:.2f} km of path, the route about {route_km:.2f} km")
 
+# ── closing the loop ────────────────────────────────────────────────────────
+# The Seawall leaves the park at Coal Harbour and at English Bay. Its two loose ends are the endpoints
+# in the south of the park that no other piece of Seawall comes near; the loop closes along the park's
+# own footpaths between them, the way walkers come back past Lost Lagoon.
+import networkx as nx  # noqa: E402
+from pyproj import Transformer  # noqa: E402
+to_utm = Transformer.from_crs(4326, UTM, always_xy=True)
+Wl = list(W)
+south = park_poly.bounds[1] + (park_poly.bounds[3] - park_poly.bounds[1]) * 0.35
+ends = []
+for i, ln in enumerate(Wl):
+    for pt in (Point(ln.coords[0]), Point(ln.coords[-1])):
+        others = min((o.distance(pt) for j, o in enumerate(Wl) if j != i), default=1e9)
+        lat = gpd.GeoSeries([pt], crs=UTM).to_crs(4326).iloc[0].y
+        if others > 30 and lat < south:
+            ends.append(pt)
+connector = None
+if len(ends) >= 2:
+    a, b = max(((p, q) for p in ends for q in ends), key=lambda pq: pq[0].distance(pq[1]))
+    G = nx.Graph()
+    for el in paths.get("elements", []):
+        t = el.get("tags", {})
+        if el.get("type") != "way" or "geometry" not in el or "seawall" in (t.get("name") or "").lower():
+            continue
+        xs, ys = to_utm.transform([q["lon"] for q in el["geometry"]], [q["lat"] for q in el["geometry"]])
+        nodes = [(round(x, 1), round(y, 1)) for x, y in zip(xs, ys)]
+        for u, v in zip(nodes, nodes[1:]):
+            G.add_edge(u, v, weight=((u[0] - v[0]) ** 2 + (u[1] - v[1]) ** 2) ** 0.5)
+    if G.number_of_nodes():
+        nodes = np.array(list(G.nodes))
+        snap = lambda pt: tuple(nodes[np.argmin((nodes[:, 0] - pt.x) ** 2 + (nodes[:, 1] - pt.y) ** 2)])  # noqa: E731
+        na, nb = snap(a), snap(b)
+        gap = (Point(na).distance(a), Point(nb).distance(b))
+        try:
+            route = nx.shortest_path(G, na, nb, weight="weight")
+            connector = LineString([(a.x, a.y)] + [tuple(n) for n in route] + [(b.x, b.y)])
+        except nx.NetworkXNoPath:
+            pass
+    print(f"= loose ends {len(ends)}; closing path "
+          + (f"{connector.length / 1000:.2f} km (snapped {gap[0]:.0f} m and {gap[1]:.0f} m)" if connector else "not found"))
+loop_km = route_km + (connector.length / 1000 if connector else 0)
+
 # ── map ──────────────────────────────────────────────────────────────────────
 MAPBOX = basemap.available()
 CRS = "EPSG:3857" if MAPBOX else UTM
@@ -113,7 +156,7 @@ pad = (x1 - x0) * 0.12
 ax.set_xlim(x0 - pad, x1 + pad)
 ax.set_ylim(y0 - pad, y1 + pad)
 ax.set_aspect("equal")
-drawn = MAPBOX and basemap.mapbox(ax)
+drawn = MAPBOX and basemap.mapbox(ax, style="mapbox/outdoors-v12")
 if not drawn:
     ax.set_facecolor("#cfe0e6")
     P.plot(ax=ax, color=dmc.CREAM, zorder=0)
@@ -121,6 +164,10 @@ if not drawn:
     G.to_crs(CRS).plot(ax=ax, color="#cdd8bf", lw=0, zorder=1)
     Wt = gpd.GeoSeries(polys(green, lambda t: t.get("natural") == "water"), crs=4326)
     Wt.to_crs(CRS).plot(ax=ax, color="#a9c4cf", lw=0, zorder=1)
+if connector is not None:
+    C = gpd.GeoSeries([connector], crs=UTM).to_crs(CRS)
+    C.plot(ax=ax, color=dmc.PARCHMENT, lw=4.0, zorder=4)
+    C.plot(ax=ax, color=dmc.LAVA, lw=1.8, ls=(0, (2, 1.6)), zorder=5)
 gpd.GeoSeries(segs, crs=4326).to_crs(CRS).plot(ax=ax, color=dmc.PARCHMENT, lw=5.2, zorder=4, capstyle="round")
 gpd.GeoSeries(segs, crs=4326).to_crs(CRS).plot(ax=ax, color=dmc.LAVA, lw=2.4, zorder=5, capstyle="round")
 
@@ -146,10 +193,12 @@ dmc.scalebar(ax, 1, loc=(0.05, 0.05), crs_units_per_km=k_m)
 
 dmc.frame(
     fig, DAY,
-    subtitle=(f"The path around Stanley Park in Vancouver, about {route_km:.1f} km between the forest and the sea.\n"
-              f"Walked, run, cycled and skated, all the way round."),
+    subtitle=(f"The path around Stanley Park in Vancouver: {route_km:.1f} km between the forest and the sea,\n"
+              + (f"and {connector.length / 1000:.1f} km back past Lost Lagoon to close the loop, {loop_km:.1f} km all the way round."
+                 if connector is not None else "walked, run, cycled and skated.")),
     source="OpenStreetMap contributors (Overpass API)" + (" · " + basemap.CREDIT if drawn else ""),
-    note="Where walkers and cyclists have separate paths, both are drawn; the length is the cycling route, which goes all the way round.",
+    note=("The Seawall is solid; the dashed line is the park's footpath back to the start. Where walkers and cyclists "
+          "have separate paths, both are drawn and the cycling route is measured."),
 )
 dmc.save(fig, DAY, alt=(
     f"Map of Stanley Park in Vancouver with the Seawall drawn as a red line around its shore, about {route_km:.1f} km, "
