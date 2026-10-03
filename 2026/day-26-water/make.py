@@ -48,14 +48,36 @@ if not grid.exists():
         raise SystemExit("could not find lt_bathy.e00.gz on the USGS pages")
     print(f"= bathymetry from {url}")
     grid.write_bytes(gzip.decompress(fetch.get(url, DATA / "lt_bathy.e00.gz")))
-head = grid.read_bytes()[:400]
-print("= e00 starts: " + head[:120].decode("latin-1").replace("\n", " | "))
-try:
-    with rasterio.open(grid) as src:
-        elev = src.read(1, masked=True).astype(float)
-        tf = src.transform
-except Exception as e:  # noqa: BLE001
-    raise SystemExit(f"GDAL can't read the e00 grid ({e}); see the first bytes above")
+def read_e00_grid(path):
+    """An uncompressed ARC/INFO export (E00) grid: header, then each row as fixed-width numbers."""
+    from rasterio.transform import from_origin
+    num = re.compile(r"-?\d\.\d+E[+-]\d+")
+    lines = path.read_text(encoding="latin-1").splitlines()
+    i = next(k for k, ln in enumerate(lines) if ln.startswith("GRD"))
+    hdr = lines[i + 1].split()
+    ncols, nrows = int(hdr[0]), int(hdr[1])
+    kind = hdr[2][0]                                  # 2 = single precision, 3 = double
+    nodata = float(num.findall(lines[i + 1])[0])
+    cell = [float(v) for v in num.findall(lines[i + 2])]
+    lo = [float(v) for v in num.findall(lines[i + 3])]
+    hi = [float(v) for v in num.findall(lines[i + 4])]
+    width = 14 if kind == "2" else 21
+    per = 5 if kind == "2" else 3
+    rows_per = -(-ncols // per)
+    k = i + 5
+    out = np.empty((nrows, ncols), dtype="float32")
+    for r in range(nrows):
+        vals = []
+        for ln in lines[k:k + rows_per]:
+            vals += [float(ln[j:j + width]) for j in range(0, len(ln.rstrip()), width)]
+        k += rows_per
+        out[r] = vals[:ncols]
+    out = np.ma.masked_where(out <= nodata * 0.999 if nodata < 0 else out == nodata, out)
+    print(f"= e00 grid {ncols}x{nrows}, cell {cell[0]:g} m, x {lo[0]:.0f}-{hi[0]:.0f}, y {lo[1]:.0f}-{hi[1]:.0f}")
+    return out, from_origin(lo[0], hi[1], cell[0], cell[1] if len(cell) > 1 else cell[0])
+
+
+elev, tf = read_e00_grid(grid)
 depth = SURFACE - elev
 depth = np.ma.masked_where(elev.mask | (elev > SURFACE + 5) | (elev < 1000), depth)
 print(f"= grid {elev.shape}, elevation {elev.min():.0f}-{elev.max():.0f} m; deepest {depth.max():.0f} m")
