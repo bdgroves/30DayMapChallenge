@@ -13,7 +13,7 @@ A 24-hour helicorder from Camp Muir on Rainier, one line per hour. A map of time
 
 **Tools:** Python, ObsPy
 
-**Prep:** None; the lahar-watch code already draws these.
+**Prep:** Drafted: UW.RCM on July 8, 2025.
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

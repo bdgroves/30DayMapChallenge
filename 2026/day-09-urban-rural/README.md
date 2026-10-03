@@ -14,7 +14,7 @@ One line from the Port of Tacoma to Paradise on Rainier, and what changes along 
 
 **Tools:** Python, rasterio, matplotlib
 
-**Prep:** Pull Pierce County blocks.
+**Prep:** Drafted (2020 census blocks, Copernicus DEM).
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

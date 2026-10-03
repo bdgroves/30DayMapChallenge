@@ -13,7 +13,7 @@ Every place in the United States named Paradise, Eden, Utopia, Arcadia or Shangr
 
 **Tools:** Python, geopandas
 
-**Prep:** Download the national GNIS file.
+**Prep:** Drafted from the GNIS national file.
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

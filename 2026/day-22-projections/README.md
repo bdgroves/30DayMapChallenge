@@ -13,7 +13,7 @@ An azimuthal equidistant map centred on Lakewood, where straight lines from the 
 
 **Tools:** Python, cartopy or pyproj
 
-**Prep:** List the places.
+**Prep:** Drafted. Add every place Brooks has been to day-22-projections/places.csv and re-render.
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

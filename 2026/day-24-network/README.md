@@ -13,7 +13,7 @@ The whole Tuolumne river network above Modesto, by stream order, with the SIERRA
 
 **Tools:** Python, geopandas
 
-**Prep:** None.
+**Prep:** Drafted (NLDI flowlines; Strahler order computed on the network).
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

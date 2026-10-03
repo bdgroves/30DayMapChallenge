@@ -13,7 +13,7 @@ Nevada's 2020 census blocks with a population of zero. Most of the state is null
 
 **Tools:** Python, geopandas
 
-**Prep:** Download Nevada block shapes with population.
+**Prep:** Drafted (2020 TIGER/Line blocks).
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

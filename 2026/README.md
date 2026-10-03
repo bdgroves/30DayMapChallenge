@@ -79,7 +79,7 @@ The gallery picks it up from `days.json` within a few minutes.
 ## The month
 
 <!-- table:start -->
-**0 of 30 done** · 💡 idea 17 · 📦 data in hand 0 · ✏️ draft 13 · ✅ done 0 · 📣 posted 0
+**0 of 30 done** · 💡 idea 15 · 📦 data in hand 0 · ✏️ draft 15 · ✅ done 0 · 📣 posted 0
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -102,13 +102,13 @@ The gallery picks it up from `days.json` within a few minutes.
 | 17 | Tue Nov 17 | Light & dark | [Great Basin's dark sky](day-17-light-and-dark/) | 💡 idea |
 | 18 | Wed Nov 18 | NULL | [Nobody lives here](day-18-null/) | ✏️ draft |
 | 19 | Thu Nov 19 | Smell | [What the Yakima Valley smells like](day-19-smell/) | 💡 idea |
-| 20 | Fri Nov 20 | Hexagons | [Kangaroo rats in hexagons](day-20-hexagons/) | 💡 idea |
+| 20 | Fri Nov 20 | Hexagons | [Kangaroo rats in hexagons](day-20-hexagons/) | ✏️ draft |
 | 21 | Sat Nov 21 | OpenStreetMap | [Groveland, by volunteers](day-21-openstreetmap/) | 💡 idea |
 | 22 | Sun Nov 22 | Projections | [The world from Lakewood](day-22-projections/) | ✏️ draft |
 | 23 | Mon Nov 23 | Taste | [Every brewery I've checked into](day-23-taste/) | 💡 idea |
 | 24 | Tue Nov 24 | Network | [Every stream that reaches Modesto](day-24-network/) | ✏️ draft |
 | 25 | Wed Nov 25 | Is this a map? | [A day of ground motion](day-25-is-this-a-map/) | ✏️ draft |
-| 26 | Thu Nov 26 | Water | [Lake Tahoe, clear and deep](day-26-water/) | 💡 idea |
+| 26 | Thu Nov 26 | Water | [Lake Tahoe, clear and deep](day-26-water/) | ✏️ draft |
 | 27 | Fri Nov 27 | New tool | [Something I've never used](day-27-new-tool/) | 💡 idea |
 | 28 | Sat Nov 28 | Feeling | [Did you feel it? Nisqually, 2001](day-28-feeling/) | ✏️ draft |
 | 29 | Sun Nov 29 | Raster | [Rainier's snow from space](day-29-raster/) | 💡 idea |

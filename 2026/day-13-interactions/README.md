@@ -13,7 +13,7 @@ Click anywhere in the Sierra and watch where the water goes, river by river, to 
 
 **Tools:** MapLibre GL JS, NLDI API
 
-**Prep:** Prototype one click-to-trace in October.
+**Prep:** Drafted as an interactive page (day-13-interactions/index.html). Needs a still image for social posts.
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

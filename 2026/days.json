@@ -5,9 +5,9 @@
  "author": "Brooks Groves",
  "repo": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026",
  "counts": {
-  "idea": 17,
+  "idea": 15,
   "data": 0,
-  "draft": 13,
+  "draft": 15,
   "done": 0,
   "posted": 0
  },
@@ -422,7 +422,7 @@
    "theme": "Hexagons",
    "title": "Kangaroo rats in hexagons",
    "pitch": "Every Dipodomys observation across the Southwest and Great Basin, binned into H3 hexagons. A return to my 2023 Day 1.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "h3"
@@ -547,7 +547,7 @@
    "theme": "Water",
    "title": "Lake Tahoe, clear and deep",
    "pitch": "Tahoe's depth and its clarity: how far down a Secchi disk can be seen, from the SECCHI dashboard's data.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "forge3d"

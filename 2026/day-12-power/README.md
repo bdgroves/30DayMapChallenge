@@ -14,7 +14,7 @@ Hetch Hetchy's dams, the powerhouse at Moccasin just below Groveland, and the li
 
 **Tools:** Python, geopandas
 
-**Prep:** Download EIA layers for California.
+**Prep:** Drafted from OpenStreetMap (Overpass).
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
