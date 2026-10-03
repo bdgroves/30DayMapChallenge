@@ -51,7 +51,7 @@ def project(gdf):
 landp = project(land)
 ctry = project(countries)
 
-fig, ax = dmc.figure("square", map_box=(0.06, 0.07, 0.88, 0.74))
+fig, ax = dmc.figure("square", map_box=(0.08, 0.075, 0.84, 0.70))
 ax.add_patch(Circle((0, 0), R, color=dmc.CREAM, zorder=0))
 for km in (5000, 10000, 15000):
     ax.add_patch(Circle((0, 0), km * 1000, fill=False, ec=dmc.MIST, lw=0.6, ls=(0, (2, 3)), zorder=1))
@@ -66,9 +66,17 @@ for _, p in places.iterrows():
     ax.plot([0, x], [0, y], color=dmc.LAVA, lw=0.9, zorder=5)
     ax.scatter([x], [y], s=18, color=dmc.LAVA, edgecolor=dmc.PARCHMENT, lw=0.6, zorder=6)
     ang = np.arctan2(y, x)
+    if p["km"] < 2500:
+        continue
     dmc.label(ax, x + 300_000 * np.cos(ang), y + 300_000 * np.sin(ang), f"{p['name']}\n{p['km']:,.0f} km", size=7,
               ha="left" if np.cos(ang) >= 0 else "right", va="center", zorder=7)
 ax.scatter([0], [0], s=30, color=dmc.INK, zorder=7)
+near = places[places["km"] < 2500].sort_values("km")
+if len(near):
+    fig.text(0.08, 0.20, "CLOSE TO HOME", family=dmc.MONO, size=6.8, color=dmc.STONE)
+    for i, (_, p) in enumerate(near.iterrows()):
+        fig.text(0.08, 0.175 - i * 0.022, f"{p['name']}", size=8, va="center")
+        fig.text(0.27, 0.175 - i * 0.022, f"{p['km']:,.0f} km", family=dmc.MONO, size=7.5, va="center", ha="right", color=dmc.STONE)
 dmc.label(ax, 250_000, -350_000, "Lakewood", size=8, weight="bold", zorder=7)
 ax.set_xlim(-R * 1.03, R * 1.03)
 ax.set_ylim(-R * 1.03, R * 1.03)
@@ -76,8 +84,8 @@ ax.set_aspect("equal")
 
 dmc.frame(
     fig, DAY,
-    subtitle=(f"The whole Earth as seen from Lakewood. Every line from the centre is the shortest route and true to scale;\n"
-              f"the farthest place I've been, {far['name']}, is {far['km']:,.0f} km away. The rim is the far side of the planet."),
+    subtitle=(f"The Earth as seen from Lakewood: every straight line from the centre is the shortest route, true to scale.\n"
+              f"{far['name']} is {far['km']:,.0f} km away. The rim is the far side of the planet."),
     source="Natural Earth · azimuthal equidistant projection centred on 47.17° N, 122.52° W",
     note="Only distances from the centre are true. Shapes stretch more the farther out they are.",
 )

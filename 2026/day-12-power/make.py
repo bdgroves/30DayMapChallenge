@@ -72,7 +72,7 @@ print(f"= {len(hv_s):,} regional HV lines ({km(hv_s):,.0f} km); SFPUC power {len
 fig, ax = dmc.figure("wide", map_box=(0.03, 0.08, 0.94, 0.72))
 x0, y0 = to.transform(BBOX[1], BBOX[0])
 x1, y1 = to.transform(BBOX[3], BBOX[2])
-z, tf = terrain.dem((BBOX[1], BBOX[0], BBOX[3], BBOX[2]), crs=CRS, res=180, src_res=90)
+z, tf = terrain.dem((BBOX[1] - 0.25, BBOX[0] - 0.25, BBOX[3] + 0.25, BBOX[2] + 0.25), crs=CRS, res=180, src_res=90)
 ax.imshow(terrain.relief(z, 180, strength=0.45, exaggerate=1.5, water="#dfe6e3"), extent=terrain.extent(tf, z.shape),
           interpolation="bilinear", zorder=0)
 ax.add_collection(LineCollection(hv_s, colors=dmc.STONE, linewidths=0.35, alpha=0.6, zorder=1))
@@ -80,8 +80,10 @@ ax.add_collection(LineCollection(sf_water, colors=dmc.LAKE, linewidths=1.6, zord
 ax.add_collection(LineCollection(sf_power, colors=dmc.GOLD, linewidths=1.8, zorder=3))
 for name, x, y in pl:
     ax.scatter([x], [y], s=40, marker="s", color=dmc.LAVA, edgecolor=dmc.PARCHMENT, lw=0.8, zorder=5)
-    dmc.label(ax, x + 2500, y - 3500, name.replace(" Powerhouse", "").replace(" Power House", ""), size=7.5, zorder=6)
-for name, (lon, lat), ha in [("San Francisco", (-122.42, 37.77), "right"), ("Hetch Hetchy", (-119.75, 37.95), "left"),
+    nm = name.replace(" Powerhouse", "").replace(" Power House", "")
+    dx, dy, ha = {"Holm": (-2500, 2500, "right"), "Kirkwood": (2500, -3500, "left")}.get(nm.split()[0], (2500, -3500, "left"))
+    dmc.label(ax, x + dx, y + dy, nm, size=7.5, ha=ha, zorder=6)
+for name, (lon, lat), ha in [("San Francisco", (-122.42, 37.77), "left"), ("Hetch Hetchy", (-119.75, 37.95), "left"),
                              ("Groveland", (-120.231, 37.838), "left"), ("Modesto", (-120.997, 37.639), "left"),
                              ("Newark", (-122.04, 37.53), "right"), ("Oakdale", (-120.847, 37.767), "left")]:
     x, y = to.transform(lon, lat)

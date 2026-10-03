@@ -113,7 +113,7 @@ print(f"= {len(lines):,} flowlines, {km:,.0f} km of stream, {heads:,} headwaters
 fig, ax = dmc.figure("wide", map_box=(0.03, 0.08, 0.70, 0.72))
 x0, y0, x1, y1 = basin.total_bounds
 pad = 8000
-bb = gpd.GeoSeries.from_xy([x0 - pad, x1 + pad], [y0 - pad, y1 + pad], crs=CRS).to_crs(4326).total_bounds
+bb = gpd.GeoSeries.from_xy([x0 - 4 * pad, x1 + 4 * pad], [y0 - 4 * pad, y1 + 4 * pad], crs=CRS).to_crs(4326).total_bounds
 z, tf = terrain.dem(tuple(bb), crs=CRS, res=120, src_res=90)
 ax.imshow(terrain.relief(z, 120, strength=0.5, exaggerate=1.4), extent=terrain.extent(tf, z.shape),
           interpolation="bilinear", zorder=0)
@@ -130,8 +130,9 @@ ours = gages[gages["identifier"].str.replace("USGS-", "").isin(GAGES)]
 for _, g in ours.iterrows():
     sid = g["identifier"].replace("USGS-", "")
     ax.scatter([g.geometry.x], [g.geometry.y], s=26, marker="s", color=dmc.LAVA, edgecolor=dmc.PARCHMENT, lw=0.8, zorder=20)
-    dmc.label(ax, g.geometry.x + 2500, g.geometry.y + 2500, GAGES[sid], size=7, color=dmc.INK, zorder=21)
-for name, (lon, lat) in {"Hetch Hetchy": (-119.75, 37.96), "Don Pedro": (-120.40, 37.72), "Cherry Lake": (-119.91, 38.02),
+    gx, gy, gha = {"11289650": (2500, -4500, "left"), "11276500": (0, -5000, "center")}.get(sid, (2500, 2500, "left"))
+    dmc.label(ax, g.geometry.x + gx, g.geometry.y + gy, GAGES[sid] + " gage", size=7, color=dmc.INK, ha=gha, zorder=21)
+for name, (lon, lat) in {"Hetch Hetchy Reservoir": (-119.75, 37.985), "Don Pedro Reservoir": (-120.36, 37.75), "Cherry Lake": (-119.91, 38.02),
                           "Groveland": (-120.231, 37.838), "Tuolumne Meadows": (-119.36, 37.87)}.items():
     x, y = to.transform(lon, lat)
     dmc.label(ax, x, y - 3500, name, size=7, style="italic", color=dmc.STONE, ha="center", zorder=21)

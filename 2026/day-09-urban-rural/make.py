@@ -75,7 +75,7 @@ print(f"= {total:,.0f} people within 1 km; density ≥100/km² until km {last:.1
       f"{(dens < 1).sum() * STEP / 1000:.1f} km of the line with under 1 person/km²; top {elev.max():,.0f} ft")
 
 # ── figure ───────────────────────────────────────────────────────────────────
-fig = dmc.figure("wide", map_box=(0.05, 0.50, 0.90, 0.29))[0]
+fig = dmc.figure("wide", map_box=(0.04, 0.08, 0.36, 0.72))[0]
 mx = fig.axes[0]
 pad = 6000
 mz, mtf = z, tf
@@ -86,9 +86,9 @@ vb = blocks[blocks.intersects(view) & (blocks["dens"] > 0)]
 vb.plot(ax=mx, column="dens", cmap=dmc.SEQ_HEAT, vmin=0, vmax=4000, alpha=0.55, lw=0, zorder=1)
 gpd.GeoSeries([line.buffer(HALF, cap_style=2)], crs=CRS).boundary.plot(ax=mx, color=dmc.INK, lw=0.6, zorder=3)
 mx.plot([ax_, bx_], [ay_, by_], color=dmc.INK, lw=0.8, ls=(0, (3, 2)), zorder=3)
-for name, (lon, lat), ha in [("Port of Tacoma", A, "right"), ("Paradise", B, "left"), ("Puyallup", (-122.293, 47.185), "left"),
-                             ("Orting", (-122.204, 47.098), "left"), ("Eatonville", (-122.266, 46.867), "right"),
-                             ("Ashford", (-122.03, 46.758), "right")]:
+for name, (lon, lat), ha in [("Port of Tacoma", A, "left"), ("Paradise", B, "right"), ("Puyallup", (-122.293, 47.185), "left"),
+                             ("Orting", (-122.204, 47.098), "left"), ("Eatonville", (-122.266, 46.867), "left"),
+                             ("Ashford", (-122.03, 46.758), "left")]:
     x, y = to.transform(lon, lat)
     mx.scatter([x], [y], s=10, color=dmc.INK, zorder=4)
     dmc.label(mx, x + (1500 if ha == "left" else -1500), y, name, size=7.5, ha=ha, va="center", zorder=5)
@@ -115,19 +115,19 @@ def panel(rect, y, colour, label, fmt, log=False):
     return a
 
 
-p1 = panel((0.07, 0.29, 0.88, 0.15), dens, dmc.LAVA, "PEOPLE PER KM², WITHIN 1 KM OF THE LINE  (LOG SCALE)",
+p1 = panel((0.47, 0.47, 0.49, 0.26), dens, dmc.LAVA, "PEOPLE PER KM², WITHIN 1 KM OF THE LINE  (LOG SCALE)",
            lambda v, _: f"{v:,.0f}", log=True)
-p2 = panel((0.07, 0.10, 0.88, 0.13), elev, dmc.LAKE, "GROUND ELEVATION, FEET", lambda v, _: f"{v:,.0f}")
+p2 = panel((0.47, 0.13, 0.49, 0.24), elev, dmc.LAKE, "GROUND ELEVATION, FEET", lambda v, _: f"{v:,.0f}")
 p2.set_xlabel("km from the Port of Tacoma", family=dmc.MONO, fontsize=7.5, color=dmc.STONE)
 
 dmc.frame(
     fig, DAY,
     subtitle=(f"A straight line from the Port of Tacoma to Paradise on Rainier: {L / 1000:.0f} km, {total:,.0f} people living within a\n"
-              f"kilometre of it, and {elev.max():,.0f} ft of climb. The city thins out about {last:.0f} km in; the last stretch is forest and mountain."),
+              f"kilometre of it. The city thins out about {last:.0f} km in; the line tops out at {elev.max():,.0f} ft on Rainier's flank."),
     source="U.S. Census Bureau, 2020 Census blocks (POP20) · Copernicus DEM GLO-30",
     note="People are spread evenly across each census block, so the density is smoothed where blocks are large.",
 )
 dmc.save(fig, DAY, alt=(
     f"A map of the straight line from the Port of Tacoma to Paradise on Mount Rainier over shaded relief and census "
     f"population, with two profiles below: people per square kilometre, high in Tacoma and Puyallup and falling to "
-    f"almost none after about km {last:.0f}, and elevation rising to {elev.max():,.0f} ft at Paradise."))
+    f"almost none after about km {last:.0f}, and elevation rising to {elev.max():,.0f} ft on Rainier's flank before Paradise."))

@@ -68,7 +68,7 @@ q = pd.read_csv(io.BytesIO(qcsv)) if qcsv.strip() else pd.DataFrame(columns=["ti
 print(f"= {len(q)} located earthquakes within 15 km, largest M{q['mag'].max() if len(q) else 0:.1f}")
 
 # ── draw ─────────────────────────────────────────────────────────────────────
-fig, ax = dmc.figure("portrait", map_box=(0.10, 0.07, 0.84, 0.74))
+fig, ax = dmc.figure("portrait", map_box=(0.10, 0.115, 0.84, 0.70))
 per = int(3600 * srate)
 scale = np.percentile(np.abs(data[data != 0]), 99.5) * 2.2 if np.any(data) else 1
 colours = [dmc.INK, dmc.LAVA, dmc.LAKE, dmc.SAGE]
