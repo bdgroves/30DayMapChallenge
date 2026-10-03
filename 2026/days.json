@@ -177,9 +177,9 @@
     "USGS GNIS domestic names"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-08-utopia",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-08-utopia/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-08-utopia/out/thumb.jpg",
+   "alt": "Map of the lower 48 states dotted with 836 places named Paradise, Eden, Arcadia, Utopia or Shangri-La. Paradise (501) is the most common, then Eden (243). Only 264 are towns; the most common kinds are civils, streams, valleys.",
    "post": null
   },
   {
@@ -328,9 +328,9 @@
     "USGS ComCat (HVO-located earthquakes)"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-15-inside-out",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-15-inside-out/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-15-inside-out/out/thumb.jpg",
+   "alt": "Left, a shaded-relief map of Kīlauea's summit dotted with 19,466 earthquake epicentres since 2019; right, a north-south cross-section through Halemaʻumaʻu showing where the earthquakes cluster with depth.",
    "post": null
   },
   {
@@ -389,9 +389,9 @@
     "Census 2020 blocks with P1 population"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-18-null",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-18-null/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-18-null/out/thumb.jpg",
+   "alt": "Map of Nevada's census blocks: almost all pale, meaning nobody lives there, with black specks for Las Vegas, Reno and the small towns along the highways. 77% of the land had a population of zero in 2020.",
    "post": null
   },
   {
