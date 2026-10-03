@@ -48,10 +48,14 @@ if not grid.exists():
         raise SystemExit("could not find lt_bathy.e00.gz on the USGS pages")
     print(f"= bathymetry from {url}")
     grid.write_bytes(gzip.decompress(fetch.get(url, DATA / "lt_bathy.e00.gz")))
-with rasterio.open(grid) as src:
-    elev = src.read(1, masked=True).astype(float)
-    tf = src.transform
-    nod = src.nodata
+head = grid.read_bytes()[:400]
+print("= e00 starts: " + head[:120].decode("latin-1").replace("\n", " | "))
+try:
+    with rasterio.open(grid) as src:
+        elev = src.read(1, masked=True).astype(float)
+        tf = src.transform
+except Exception as e:  # noqa: BLE001
+    raise SystemExit(f"GDAL can't read the e00 grid ({e}); see the first bytes above")
 depth = SURFACE - elev
 depth = np.ma.masked_where(elev.mask | (elev > SURFACE + 5) | (elev < 1000), depth)
 print(f"= grid {elev.shape}, elevation {elev.min():.0f}-{elev.max():.0f} m; deepest {depth.max():.0f} m")

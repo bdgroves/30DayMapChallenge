@@ -63,32 +63,51 @@ up = defaultdict(list)
 for i, ds in down.items():
     for j in ds:
         up[j].append(i)
-order = {}
-pending = {i: len(up[i]) for i in range(len(lines))}
-q = deque(i for i, n in pending.items() if n == 0)
+# Braids and reservoir paths split and rejoin; counted naively, every rejoin would bump the order.
+# So keep one path to the outlet per line: walk up from the outlet, breadth first, and give each
+# line the downstream neighbour it was first reached from. A braid's other branch becomes a side
+# stream of order 1, which never raises the order of the river it joins.
+outlets = [i for i in range(len(lines)) if not down[i]]
+outlet = max(outlets, key=lambda i: len(up[i])) if outlets else 0
+parent = {outlet: None}
+q = deque([outlet])
 while q:
-    i = q.popleft()
-    ups = [order[j] for j in up[i]]
+    j = q.popleft()
+    for i in up[j]:
+        if i not in parent:
+            parent[i] = j
+            q.append(i)
+kids = defaultdict(list)
+for i, j in parent.items():
+    if j is not None:
+        kids[j].append(i)
+order = {}
+stack = [(outlet, False)]
+while stack:                                       # post-order: children before parents
+    i, done = stack.pop()
+    if not done:
+        stack.append((i, True))
+        stack.extend((k, False) for k in kids[i])
+        continue
+    ups = [order[k] for k in kids[i]]
     if not ups:
         order[i] = 1
     else:
         m = max(ups)
         order[i] = m + 1 if ups.count(m) >= 2 else m
-    for j in down[i]:
-        pending[j] -= 1
-        if pending[j] == 0:
-            q.append(j)
 missing = len(lines) - len(order)
 for i in range(len(lines)):
     order.setdefault(i, 1)
 maxo = max(order.values())
-heads = sum(1 for i in range(len(lines)) if not up[i])
+heads = sum(1 for i in range(len(lines)) if not kids[i])
+splits = sum(1 for i in range(len(lines)) if len(down[i]) > 1)
 to = Transformer.from_crs(4326, CRS, always_xy=True)
 xy = [list(zip(*to.transform(*zip(*c)))) for c in lines]
 km = sum(sum(((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2) ** 0.5 for a, b in zip(s, s[1:])) for s in xy) / 1000
 area = basin.area.sum() / 1e6
 print(f"= {len(lines):,} flowlines, {km:,.0f} km of stream, {heads:,} headwaters, order up to {maxo}; "
-      f"basin {area:,.0f} km²; {missing} lines outside the topology")
+      f"basin {area:,.0f} km²; {missing} lines not connected to the outlet; {splits} splits; "
+      f"lines by order {[sum(1 for v in order.values() if v == o) for o in range(1, maxo + 1)]}")
 
 # ── map ──────────────────────────────────────────────────────────────────────
 fig, ax = dmc.figure("wide", map_box=(0.03, 0.08, 0.70, 0.72))

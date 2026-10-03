@@ -57,7 +57,8 @@ jobs:
           git add day-*/out days.json README.md day-*/README.md pixi.lock
           git diff --staged --quiet && exit 0
           git commit -q -m "2026: render day ${{ inputs.day }} [skip ci]"
-          git pull -q --rebase && git push -q
+          # the build job may have just rebuilt days.json/README; our regenerated copies win
+          for i in 1 2 3; do git pull -q --rebase -X theirs && git push -q && break; sleep 5; done
       - name: Save downloaded data for next time (even if a day failed)
         if: always()
         uses: actions/cache/save@v4

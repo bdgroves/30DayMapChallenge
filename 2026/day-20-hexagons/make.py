@@ -27,6 +27,7 @@ from shapely.geometry import Polygon  # noqa: E402
 DAY = 20
 HERE = Path(__file__).resolve().parent
 DATA = HERE / "data"
+DATA.mkdir(exist_ok=True)
 API = "https://api.gbif.org/v1"
 RES = 4
 CRS = "+proj=lcc +lat_1=25 +lat_2=45 +lat_0=33 +lon_0=-110 +datum=WGS84 +units=m"
