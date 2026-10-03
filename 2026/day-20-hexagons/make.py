@@ -122,15 +122,17 @@ norm = LogNorm(1, max(10, hx["n"].max()))
 hx.plot(ax=ax, column="n", cmap=dmc.SEQ_HEAT, norm=norm, edgecolor=dmc.PARCHMENT, lw=0.25, zorder=3)
 x0, y0, x1, y1 = hx.total_bounds
 pad = 150_000
-ax.set_xlim(x0 - pad, x1 + pad)
-ax.set_ylim(y0 - pad, y1 + pad)
+cx_, cy_ = (x0 + x1) / 2, (y0 + y1) / 2
+half = max(x1 - x0, (y1 - y0) * 0.92 / 0.70) / 2 + pad      # fill the frame's shape
+ax.set_xlim(cx_ - half, cx_ + half)
+ax.set_ylim(cy_ - half * 0.70 / 0.92, cy_ + half * 0.70 / 0.92)
 ax.set_aspect("equal")
 gpt = gpd.GeoSeries(gpd.points_from_xy([-116.87], [36.46]), crs=4326).to_crs(CRS).iloc[0]   # Furnace Creek
 dmc.label(ax, gpt.x + 60000, gpt.y - 40000, "Death Valley", size=7.5, style="italic", zorder=5)
 ax.scatter([gpt.x], [gpt.y], s=10, color=dmc.INK, zorder=5)
-dmc.scalebar(ax, 500, loc=(0.05, 0.05))
+dmc.scalebar(ax, 500, loc=(0.78, 0.05))
 
-lx = fig.add_axes((0.62, 0.115, 0.30, 0.018))
+lx = fig.add_axes((0.08, 0.135, 0.26, 0.016))
 grad = np.linspace(0, 1, 256)[None, :]
 lx.imshow(grad, aspect="auto", cmap=dmc.SEQ_HEAT, extent=(0, 1, 0, 1))
 lx.set_yticks([])
@@ -140,13 +142,13 @@ lx.set_xticklabels([f"{v:,}" for v in ticks], family=dmc.MONO, fontsize=7, color
 lx.tick_params(length=2)
 for sp in lx.spines.values():
     sp.set_visible(False)
-fig.text(0.62, 0.142, "RECORDS PER HEXAGON", family=dmc.MONO, size=6.8, color=dmc.STONE)
+fig.text(0.08, 0.16, "RECORDS PER HEXAGON", family=dmc.MONO, size=6.8, color=dmc.STONE)
 
 dmc.frame(
     fig, DAY,
     subtitle=(f"{len(df):,} kangaroo rat records from GBIF, {df['species'].nunique()} species, binned into hexagons of about\n"
-              f"1,770 km². {spec:.0%} are museum specimens and {inat:.0%} are people's sightings, mostly on iNaturalist."),
-    source=f"GBIF.org occurrence search, genus Dipodomys ({pd.Timestamp.now():%B %Y}) · Natural Earth · U.S. Census",
+              f"1,770 km². {spec:.0%} are museum specimens; only {inat:.0%} are people's sightings."),
+    source=f"GBIF.org, genus Dipodomys ({pd.Timestamp.now():%b %Y}) · Natural Earth · U.S. Census",
     note="Where kangaroo rats were recorded, which is also where people went looking. Uber H3 grid, resolution 4.",
 )
 dmc.save(fig, DAY, alt=(
