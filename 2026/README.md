@@ -6,19 +6,37 @@ Earlier years are in [`../2023`](../2023) and [`../2024`](../2024).
 
 ## Getting ready (October)
 
-The days that need something done before November:
+### Mapbox basemaps (this year's sponsor)
 
-- **Day 1**: run the Geocaching *My Finds* pocket query (premium; once every 3 days).
-- **Day 2**: request the Strava archive (arrives by email, sometimes hours later).
-- **Day 6**: find and georeference the Tasman and Cook charts. The slowest prep of the month.
-- **Day 11**: track down Pierce County's lahar siren locations (fallback: Puget Sound depth).
-- **Day 13**: prototype the click-to-trace raindrop with the USGS NLDI.
-- **Day 16**: pick the collaborator, or open the form a week early.
-- **Day 17**: Black Marble night lights need an Earthdata login.
-- **Day 20**: request the GBIF *Dipodomys* download.
-- **Day 21**: spend an evening adding Groveland to OpenStreetMap.
-- **Day 23**: export Untappd check-ins.
-- **Day 27**: do the lonboard tutorial.
+Days 1, 2 and 28 draw on a Mapbox basemap when a token is set, and fall back to plain outlines without one. Mapbox static maps are Web Mercator, carry the Mapbox wordmark, and get "© Mapbox © OpenStreetMap" in the credit line; `toolkit/basemap.py` does all three.
+
+- [ ] Make a free account at [account.mapbox.com](https://account.mapbox.com) and copy the **default public token** (starts `pk.`).
+- [ ] GitHub: repo **Settings → Secrets and variables → Actions → New repository secret**, name `MAPBOX_TOKEN`.
+- [ ] On your PC, for renders there: `setx MAPBOX_TOKEN "pk...."` in PowerShell, then open a new window. Never put the token in a file in the repo.
+- [ ] Optional, for the house look: Mapbox Studio → **New style → Upload**, choose `toolkit/mapbox/brooks-parchment.json`, publish, then add a repo **variable** (same page, Variables tab) `MAPBOX_STYLE` = `yourusername/styleid`. Until then maps use Mapbox Light.
+
+### Data to request now (it takes time to arrive)
+
+- [ ] **Day 1**: Geocaching *My Finds* pocket query (premium; once every 3 days). Save the .zip in `day-01-points/data/`.
+- [ ] **Day 2**: Strava archive (Settings → My Account → Download your data; arrives by email). Unzip into `day-02-lines/data/`.
+- [ ] **Day 20**: GBIF download of genus *Dipodomys* (free account at gbif.org).
+- [ ] **Day 23**: Untappd check-in export (Supporter feature).
+- [ ] **Day 17**: NASA Earthdata login works for Black Marble night lights.
+
+### Things only you can do
+
+- [ ] **Day 6**: find the Tasman (1642) and Cook (1769–70) charts and georeference them. The slowest prep of the month.
+- [ ] **Day 11**: track down Pierce County's lahar siren locations (or settle on the fallback: Puget Sound by depth).
+- [ ] **Day 16**: pick the collaborator, or open the trailhead form a week early.
+- [ ] **Day 21**: an evening adding Groveland to OpenStreetMap.
+- [ ] **Day 27**: the lonboard tutorial.
+- [ ] **Day 30**: don't look at a map of Groveland in November.
+
+### Where the maps stand
+
+- Drafted from real data: **3, 4, 5, 28**.
+- Script ready, waiting for your export: **1, 2**.
+- To build in October, a few each week: the rest. Public-data days first (8, 9, 12, 15, 18, 22, 24, 25), then the ones that need your data or prep.
 
 ## Make a map
 
