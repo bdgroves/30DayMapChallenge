@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Follow a Raindrop · Day 13 · #30DayMapChallenge</title>
+<meta name="description" content="Click anywhere in the lower 48 and follow the water downhill, river by river, to the sea, along the USGS river network.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Libre+Baskerville:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<style>
+:root{--ink:#1c1a16;--parchment:#f5f0e8;--cream:#ede8dc;--white:#fdfaf4;--stone:#7a7268;--mist:#d6d0c4;--lava:#c0392b;--gold:#c8922a;--lake:#3f6f8a}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--parchment);color:var(--ink);font-family:'Libre Baskerville',Georgia,serif}
+#map{position:absolute;inset:0}
+.panel{position:absolute;top:16px;left:16px;width:min(380px,calc(100% - 32px));background:var(--white);border:1px solid var(--mist);
+  box-shadow:0 6px 24px rgba(28,26,22,.12);padding:18px 18px 16px;z-index:2}
+.k{font:500 11px 'DM Mono',monospace;letter-spacing:.12em;color:var(--lava);text-transform:uppercase}
+h1{font:900 30px/1.05 'Playfair Display',serif;margin:.35rem 0 .5rem}
+p{font-size:13.5px;line-height:1.6;color:#3d3830}
+.how{color:var(--stone);font-style:italic;margin-top:.4rem}
+#out{margin-top:.8rem;border-top:1px solid var(--mist);padding-top:.7rem;font:12px/1.7 'DM Mono',monospace;color:var(--stone);min-height:1.7em}
+#out b{color:var(--ink);font-weight:500}
+#out .big{font:900 26px/1 'Playfair Display',serif;color:var(--lake);display:block;margin:.2rem 0}
+#rivers{margin-top:.4rem;font-size:12px;color:var(--ink);line-height:1.6;max-height:30vh;overflow:auto}
+#rivers li{list-style:none;display:flex;justify-content:space-between;gap:1rem;border-bottom:1px dotted var(--mist)}
+.foot{position:absolute;right:10px;bottom:28px;z-index:2;font:10.5px 'DM Mono',monospace;color:var(--stone);background:rgba(253,250,244,.9);padding:4px 8px;border:1px solid var(--mist)}
+.foot a{color:var(--stone)}
+@media(max-width:560px){.panel{top:auto;bottom:16px}.panel h1{font-size:24px}#rivers{max-height:18vh}}
+</style>
+</head>
+<body>
+<div id="map" role="application" aria-label="Map. Click a place to trace where its rain flows."></div>
+<div class="panel">
+  <div class="k">#30DayMapChallenge · Day 13 · Interactions</div>
+  <h1>Follow a raindrop</h1>
+  <p>Click anywhere in the lower 48. The USGS river network finds the nearest stream and follows the water downhill, river by river, until it reaches the sea or a lake with no outlet.</p>
+  <p class="how">Try Groveland, Lakewood, or the middle of Nevada.</p>
+  <div id="out" aria-live="polite"></div>
+</div>
+<div class="foot">Data <a href="https://waterdata.usgs.gov/blog/nldi-intro/" target="_blank" rel="noopener">USGS NLDI</a> (NHDPlus V2) · Basemap <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a> © OpenStreetMap · <a href="../">All 30 days</a> · Brooks Groves</div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>
+const NLDI = 'https://api.water.usgs.gov/nldi/linked-data';
+const out = document.getElementById('out');
+const map = new maplibregl.Map({
+  container: 'map', style: 'https://tiles.openfreemap.org/styles/positron',
+  center: [-120.23, 37.84], zoom: 6.2, attributionControl: {compact: true}
+});
+map.addControl(new maplibregl.NavigationControl({showCompass: false}), 'top-right');
+
+const R = 6371.0088;
+const hav = (a, b) => { const r = Math.PI/180, dl = (b[1]-a[1])*r, dn = (b[0]-a[0])*r;
+  const h = Math.sin(dl/2)**2 + Math.cos(a[1]*r)*Math.cos(b[1]*r)*Math.sin(dn/2)**2; return 2*R*Math.asin(Math.sqrt(h)); };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// order the downstream flowlines into one path: each line's last point is the next one's first
+function chain(features){
+  const lines = features.map(f => ({f, c: f.geometry.type === 'MultiLineString' ? f.geometry.coordinates.flat() : f.geometry.coordinates}));
+  const key = p => p[0].toFixed(5) + ',' + p[1].toFixed(5);
+  const byStart = new Map(lines.map(l => [key(l.c[0]), l]));
+  const ends = new Set(lines.map(l => key(l.c[l.c.length-1])));
+  let cur = lines.find(l => !ends.has(key(l.c[0]))) || lines[0];
+  const path = [], seen = new Set();
+  while (cur && !seen.has(cur)){ seen.add(cur); path.push(cur); cur = byStart.get(key(cur.c[cur.c.length-1])); }
+  return path;
+}
+
+let anim = null;
+async function trace(lngLat){
+  cancelAnimationFrame(anim);
+  out.innerHTML = 'Finding the nearest stream…';
+  try {
+    const pos = await fetch(`${NLDI}/comid/position?f=json&coords=POINT(${lngLat.lng.toFixed(5)}%20${lngLat.lat.toFixed(5)})`).then(r => { if (!r.ok) throw new Error('outside the network'); return r.json(); });
+    const comid = pos.features?.[0]?.properties?.identifier || pos.features?.[0]?.properties?.comid;
+    if (!comid) throw new Error('no stream found here');
+    out.innerHTML = 'Following the water downhill…';
+    const fl = await fetch(`${NLDI}/comid/${comid}/navigation/DM/flowlines?f=json&distance=9999`).then(r => r.json());
+    const path = chain(fl.features || []);
+    if (!path.length) throw new Error('no downstream path');
+    const coords = path.flatMap(l => l.c);
+    let km = 0; for (let i = 1; i < coords.length; i++) km += hav(coords[i-1], coords[i]);
+    // the rivers it runs through, by name, in order, with the distance on each
+    const named = [];
+    path.forEach(l => { const n = l.f.properties?.gnis_name || l.f.properties?.name || ''; let d = 0;
+      for (let i = 1; i < l.c.length; i++) d += hav(l.c[i-1], l.c[i]);
+      if (n && named.length && named[named.length-1].n === n) named[named.length-1].d += d; else if (n) named.push({n, d}); });
+    const end = coords[coords.length-1];
+    show(coords, lngLat);
+    out.innerHTML = `<span class="big">${Math.round(km).toLocaleString()} km</span> to the end of the line at ${end[1].toFixed(2)}°, ${end[0].toFixed(2)}°` +
+      (named.length ? `<ul id="rivers">${named.map(r => `<li><b>${esc(r.n)}</b><span>${Math.round(r.d).toLocaleString()} km</span></li>`).join('')}</ul>` : '');
+  } catch (e){
+    out.innerHTML = `Couldn't trace from there: ${esc(e.message)}. The network covers the lower 48 only.`;
+  }
+}
+
+function show(coords, start){
+  const src = map.getSource('drop');
+  const data = {type:'FeatureCollection', features:[{type:'Feature', geometry:{type:'LineString', coordinates:[coords[0]]}}]};
+  src.setData(data);
+  map.getSource('start').setData({type:'Feature', geometry:{type:'Point', coordinates:[start.lng, start.lat]}});
+  const b = coords.reduce((bb, c) => bb.extend(c), new maplibregl.LngLatBounds(coords[0], coords[0]));
+  map.fitBounds(b, {padding: {top: 80, bottom: 80, left: Math.min(420, innerWidth*0.4), right: 60}, duration: 1200, maxZoom: 10});
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let i = 1; const step = Math.max(1, Math.ceil(coords.length / 240));
+  const tick = () => {
+    i = reduce ? coords.length : Math.min(coords.length, i + step);
+    data.features[0].geometry.coordinates = coords.slice(0, i);
+    src.setData(data);
+    map.getSource('head').setData({type:'Feature', geometry:{type:'Point', coordinates:coords[i-1]}});
+    if (i < coords.length) anim = requestAnimationFrame(tick);
+  };
+  tick();
+}
+
+map.on('load', () => {
+  map.addSource('drop', {type:'geojson', data:{type:'FeatureCollection', features:[]}});
+  map.addSource('start', {type:'geojson', data:{type:'FeatureCollection', features:[]}});
+  map.addSource('head', {type:'geojson', data:{type:'FeatureCollection', features:[]}});
+  map.addLayer({id:'drop-halo', type:'line', source:'drop', paint:{'line-color':'#fdfaf4', 'line-width':6, 'line-opacity':.8}});
+  map.addLayer({id:'drop', type:'line', source:'drop', paint:{'line-color':'#3f6f8a', 'line-width':3}, layout:{'line-cap':'round', 'line-join':'round'}});
+  map.addLayer({id:'start', type:'circle', source:'start', paint:{'circle-radius':6, 'circle-color':'#c0392b', 'circle-stroke-color':'#fdfaf4', 'circle-stroke-width':2}});
+  map.addLayer({id:'head', type:'circle', source:'head', paint:{'circle-radius':5, 'circle-color':'#3f6f8a', 'circle-stroke-color':'#fdfaf4', 'circle-stroke-width':2}});
+  map.on('click', e => trace(e.lngLat));
+  map.getCanvas().style.cursor = 'crosshair';
+  trace({lng: -120.2313, lat: 37.8385});     // start at Groveland
+});
+</script>
+</body>
+</html>
