@@ -1,0 +1,98 @@
+# #30DayMapChallenge 2026
+
+Thirty maps in November, one a day, on the [official 2026 themes](https://30daymapchallenge.com/). The plan lives in [`days.yml`](days.yml); every day has a folder with its idea, data sources and prep, and finished maps show up in the gallery at **[brooksgroves.com/30daymapchallenge.html](https://brooksgroves.com/30daymapchallenge.html)**.
+
+Earlier years are in [`../2023`](../2023) and [`../2024`](../2024).
+
+## Getting ready (October)
+
+The days that need something done before November:
+
+- **Day 1**: run the Geocaching *My Finds* pocket query (premium; once every 3 days).
+- **Day 2**: request the Strava archive (arrives by email, sometimes hours later).
+- **Day 6**: find and georeference the Tasman and Cook charts. The slowest prep of the month.
+- **Day 11**: track down Pierce County's lahar siren locations (fallback: Puget Sound depth).
+- **Day 13**: prototype the click-to-trace raindrop with the USGS NLDI.
+- **Day 16**: pick the collaborator, or open the form a week early.
+- **Day 17**: Black Marble night lights need an Earthdata login.
+- **Day 20**: request the GBIF *Dipodomys* download.
+- **Day 21**: spend an evening adding Groveland to OpenStreetMap.
+- **Day 23**: export Untappd check-ins.
+- **Day 27**: do the lonboard tutorial.
+
+## Make a map
+
+Each day's folder holds a `make.py` (or `make.R`) that writes `out/map.png` and `out/alt.txt`. The toolkit gives every map the same look as brooksgroves.com: parchment and ink, Playfair Display titles, a header with the day and theme, and a credit line.
+
+```python
+import sys; sys.path.insert(0, "../toolkit")
+import dmc
+
+fig, ax = dmc.figure("square")            # or "portrait" (4:5) or "wide" (16:9)
+# ... plot on ax ...
+dmc.frame(fig, 28, subtitle="One line about the map.", source="USGS")
+dmc.save(fig, 28, alt="What the map shows, for screen readers.")
+```
+
+In R, `source("../toolkit/dmc.R")` gives the same palette, fonts and caption for ggplot2.
+
+### On Windows (PowerShell)
+
+```powershell
+cd 2026
+pixi install                  # Python + R + GDAL from conda-forge, the first time
+pixi run render 28            # runs day-28-feeling/make.py, then rebuilds the plan
+pixi run build                # just rebuild READMEs, days.json and thumbnails
+```
+
+### In GitHub
+
+- **Build the 2026 plan** runs on every push to `2026/`: it rebuilds the day READMEs, `days.json` and thumbnails and commits them.
+- **Render a 2026 map** (Actions → Run workflow → day number) runs that day's script in the cloud, where the data downloads happen, and commits the map. Handy when the laptop's network blocks a data source.
+
+## When a map is done
+
+1. Set the day's `status` to `done` in `days.yml` (or `posted`, with `post:` set to the link).
+2. Check `out/alt.txt`: one or two sentences saying what the map shows.
+3. Post with **#30DayMapChallenge** and the day's theme, the map, and the alt text.
+
+The gallery picks it up from `days.json` within a few minutes.
+
+## The month
+
+<!-- table:start -->
+**0 of 30 done** · 💡 idea 29 · 📦 data in hand 0 · ✏️ draft 1 · ✅ done 0 · 📣 posted 0
+
+| Day | Date | Theme | Map | Status |
+|---:|---|---|---|---|
+| 1 | Sun Nov 1 | Points | [1,201 finds](day-01-points/) | 💡 idea |
+| 2 | Mon Nov 2 | Lines | [Under my own power](day-02-lines/) | 💡 idea |
+| 3 | Tue Nov 3 | Polygons | [Every fire around Groveland](day-03-polygons/) | 💡 idea |
+| 4 | Wed Nov 4 | Clusters | [Rainier's swarms](day-04-clusters/) | 💡 idea |
+| 5 | Thu Nov 5 | Sight | [Where you can see Rainier from](day-05-sight/) | 💡 idea |
+| 6 | Fri Nov 6 | Vintage | [Tasman to Cook](day-06-vintage/) | 💡 idea |
+| 7 | Sat Nov 7 | 10 minute map | [Ten minutes, on the clock](day-07-10-minute-map/) | 💡 idea |
+| 8 | Sun Nov 8 | Utopia | [Paradise, Eden, Utopia](day-08-utopia/) | 💡 idea |
+| 9 | Mon Nov 9 | Urban-rural | [Tacoma to Paradise](day-09-urban-rural/) | 💡 idea |
+| 10 | Tue Nov 10 | Prompting only | [A map made only by asking](day-10-prompting-only/) | 💡 idea |
+| 11 | Wed Nov 11 | Sound | [Where the lahar sirens reach](day-11-sound/) | 💡 idea |
+| 12 | Thu Nov 12 | Power | [The Tuolumne powers San Francisco](day-12-power/) | 💡 idea |
+| 13 | Fri Nov 13 | Interactions | [Follow a raindrop](day-13-interactions/) | 💡 idea |
+| 14 | Sat Nov 14 | Borgesian map | [1:1](day-14-borgesian-map/) | 💡 idea |
+| 15 | Sun Nov 15 | Inside out | [Inside Kīlauea](day-15-inside-out/) | 💡 idea |
+| 16 | Mon Nov 16 | Collaborative map | [Where we've been](day-16-collaborative-map/) | 💡 idea |
+| 17 | Tue Nov 17 | Light & dark | [Great Basin's dark sky](day-17-light-and-dark/) | 💡 idea |
+| 18 | Wed Nov 18 | NULL | [Nobody lives here](day-18-null/) | 💡 idea |
+| 19 | Thu Nov 19 | Smell | [What the Yakima Valley smells like](day-19-smell/) | 💡 idea |
+| 20 | Fri Nov 20 | Hexagons | [Kangaroo rats in hexagons](day-20-hexagons/) | 💡 idea |
+| 21 | Sat Nov 21 | OpenStreetMap | [Groveland, by volunteers](day-21-openstreetmap/) | 💡 idea |
+| 22 | Sun Nov 22 | Projections | [The world from Lakewood](day-22-projections/) | 💡 idea |
+| 23 | Mon Nov 23 | Taste | [Every brewery I've checked into](day-23-taste/) | 💡 idea |
+| 24 | Tue Nov 24 | Network | [Every stream that reaches Modesto](day-24-network/) | 💡 idea |
+| 25 | Wed Nov 25 | Is this a map? | [A day of ground motion](day-25-is-this-a-map/) | 💡 idea |
+| 26 | Thu Nov 26 | Water | [Lake Tahoe, clear and deep](day-26-water/) | 💡 idea |
+| 27 | Fri Nov 27 | New tool | [Something I've never used](day-27-new-tool/) | 💡 idea |
+| 28 | Sat Nov 28 | Feeling | [Did you feel it? Nisqually, 2001](day-28-feeling/) | ✏️ draft |
+| 29 | Sun Nov 29 | Raster | [Rainier's snow from space](day-29-raster/) | 💡 idea |
+| 30 | Mon Nov 30 | Pen & paper | [Groveland from memory](day-30-pen-and-paper/) | 💡 idea |
+<!-- table:end -->

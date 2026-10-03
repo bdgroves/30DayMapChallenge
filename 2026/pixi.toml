@@ -1,0 +1,37 @@
+[workspace]
+name = "30daymapchallenge-2026"
+description = "#30DayMapChallenge 2026: maps, toolkit and plan"
+authors = ["Brooks Groves"]
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "osx-arm64"]
+
+[tasks]
+build = "python toolkit/build.py"
+render = "python toolkit/render.py"
+
+[dependencies]
+python = "3.12.*"
+geopandas = "*"
+matplotlib = "*"
+rasterio = "*"
+gdal = "*"
+pyproj = "*"
+shapely = "*"
+pyyaml = "*"
+pillow = "*"
+requests = "*"
+scikit-learn = "*"
+h3-py = "*"
+osmnx = "*"
+cartopy = "*"
+contextily = "*"
+duckdb = "*"
+obspy = "*"
+r-base = "*"
+r-sf = "*"
+r-terra = "*"
+r-ggplot2 = "*"
+r-dplyr = "*"
+r-readr = "*"
+r-yaml = "*"
+r-showtext = "*"

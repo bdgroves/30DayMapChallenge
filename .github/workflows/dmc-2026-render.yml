@@ -1,0 +1,39 @@
+name: Render a 2026 map
+
+on:
+  workflow_dispatch:
+    inputs:
+      day:
+        description: Day number (1-30)
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dmc-2026
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: 2026
+    steps:
+      - uses: actions/checkout@v4
+      - uses: prefix-dev/setup-pixi@v0.8.8
+        with:
+          manifest-path: 2026/pixi.toml
+          locked: false
+          cache: true
+      - name: Render day ${{ inputs.day }}
+        run: pixi run render ${{ inputs.day }}
+      - name: Commit the map (and the pixi lock, so Windows gets the same versions)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add day-*/out days.json README.md day-*/README.md pixi.lock
+          git diff --staged --quiet && exit 0
+          git commit -q -m "2026: render day ${{ inputs.day }} [skip ci]"
+          git pull -q --rebase && git push -q

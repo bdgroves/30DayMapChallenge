@@ -1,0 +1,33 @@
+name: Build the 2026 plan
+
+on:
+  push:
+    branches: [main]
+    paths: ['2026/**', '.github/workflows/dmc-2026-build.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dmc-2026
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -q pyyaml pillow
+      - name: Build READMEs, days.json and thumbnails from days.yml
+        run: python 2026/toolkit/build.py
+      - name: Commit if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add 2026
+          git diff --staged --quiet && exit 0
+          git commit -q -m "2026: rebuild plan [skip ci]"
+          git pull -q --rebase && git push -q

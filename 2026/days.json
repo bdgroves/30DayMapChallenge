@@ -1,0 +1,650 @@
+{
+ "year": 2026,
+ "start": "2026-11-01",
+ "hashtag": "#30DayMapChallenge",
+ "author": "Brooks Groves",
+ "repo": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026",
+ "counts": {
+  "idea": 29,
+  "data": 0,
+  "draft": 1,
+  "done": 0,
+  "posted": 0
+ },
+ "days": [
+  {
+   "day": 1,
+   "date": "2026-11-01",
+   "weekday": "Sun",
+   "theme": "Points",
+   "title": "1,201 finds",
+   "pitch": "Every geocache I've found as Hipparchus, one dot each, coloured by year. Twenty-odd years of where curiosity has taken me.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "geopandas",
+    "matplotlib"
+   ],
+   "data": [
+    "Geocaching \"My Finds\" pocket query (GPX)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-01-points",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 2,
+   "date": "2026-11-02",
+   "weekday": "Mon",
+   "theme": "Lines",
+   "title": "Under my own power",
+   "pitch": "Every run, ride and swim from my Strava archive, drawn as faint lines that stack into a heatmap of the South Sound.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "geopandas",
+    "matplotlib"
+   ],
+   "data": [
+    "Strava bulk export (Settings → My Account → Download your data)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-02-lines",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 3,
+   "date": "2026-11-03",
+   "weekday": "Tue",
+   "theme": "Polygons",
+   "title": "Every fire around Groveland",
+   "pitch": "Every recorded fire perimeter in Tuolumne County since the early 1900s, oldest faint, newest bright, with the Rim Fire (2013) wrapped around Groveland.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "geopandas"
+   ],
+   "data": [
+    "CAL FIRE FRAP fire perimeters"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-03-polygons",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 4,
+   "date": "2026-11-04",
+   "weekday": "Wed",
+   "theme": "Clusters",
+   "title": "Rainier's swarms",
+   "pitch": "Earthquakes within 30 km of Mount Rainier since 2000, grouped into swarms by space and time. The July 2025 swarm, the largest ever recorded there, stands out.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "scikit-learn (DBSCAN)",
+    "matplotlib"
+   ],
+   "data": [
+    "USGS ComCat earthquake catalog (API, no key)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-04-clusters",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 5,
+   "date": "2026-11-05",
+   "weekday": "Thu",
+   "theme": "Sight",
+   "title": "Where you can see Rainier from",
+   "pitch": "A viewshed from the summit of Mount Rainier over 30 m terrain, with Earth's curvature and refraction, showing every place in Washington with a line of sight to the mountain.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "rasterio",
+    "a viewshed routine (GDAL gdal_viewshed)"
+   ],
+   "data": [
+    "Copernicus DEM GLO-30 (AWS open data)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-05-sight",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 6,
+   "date": "2026-11-06",
+   "weekday": "Fri",
+   "theme": "Vintage",
+   "title": "Tasman to Cook",
+   "pitch": "New Zealand's coast as Abel Tasman charted it in 1642 and James Cook in 1769–70, over the modern coastline, engraved in an 18th-century style. A map version of my Cartographic Perspectives article.",
+   "status": "idea",
+   "tools": [
+    "QGIS georeferencer",
+    "Python"
+   ],
+   "data": [
+    "David Rumsey Map Collection (Tasman and Cook charts, georeferenced)",
+    "Natural Earth coastline"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-06-vintage",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 7,
+   "date": "2026-11-07",
+   "weekday": "Sat",
+   "theme": "10 minute map",
+   "title": "Ten minutes, on the clock",
+   "pitch": "Whatever the day brings, made in ten minutes with a timer visible in the corner of the screenshot.",
+   "status": "idea",
+   "tools": [
+    "Whatever is open"
+   ],
+   "data": [],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-07-10-minute-map",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 8,
+   "date": "2026-11-08",
+   "weekday": "Sun",
+   "theme": "Utopia",
+   "title": "Paradise, Eden, Utopia",
+   "pitch": "Every place in the United States named Paradise, Eden, Utopia, Arcadia or Shangri-La, from Paradise on Rainier to Utopia, Texas.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "geopandas"
+   ],
+   "data": [
+    "USGS GNIS domestic names"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-08-utopia",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 9,
+   "date": "2026-11-09",
+   "weekday": "Mon",
+   "theme": "Urban-rural",
+   "title": "Tacoma to Paradise",
+   "pitch": "One line from the Port of Tacoma to Paradise on Rainier, and what changes along it: people, buildings, trees and elevation.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "rasterio",
+    "matplotlib"
+   ],
+   "data": [
+    "Census 2020 blocks and population",
+    "GHSL built-up surface"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-09-urban-rural",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 10,
+   "date": "2026-11-10",
+   "weekday": "Tue",
+   "theme": "Prompting only",
+   "title": "A map made only by asking",
+   "pitch": "A map of Big Creek's watershed near Groveland where every line of code came from prompts, with the prompts posted alongside.",
+   "status": "idea",
+   "tools": [
+    "Claude",
+    "prompts only"
+   ],
+   "data": [
+    "USGS NLDI (basin boundary for gage 11284400)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-10-prompting-only",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 11,
+   "date": "2026-11-11",
+   "weekday": "Wed",
+   "theme": "Sound",
+   "title": "Where the lahar sirens reach",
+   "pitch": "Pierce County's lahar warning sirens and how far each can be heard, over the lahar zones they protect. Fallback, if the siren locations can't be found: Puget Sound by depth.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "geopandas"
+   ],
+   "data": [
+    "Pierce County outdoor warning system",
+    "NOAA Puget Sound coastal elevation model (fallback)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-11-sound",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 12,
+   "date": "2026-11-12",
+   "weekday": "Thu",
+   "theme": "Power",
+   "title": "The Tuolumne powers San Francisco",
+   "pitch": "Hetch Hetchy's dams, the powerhouse at Moccasin just below Groveland, and the lines that carry the Tuolumne's power to San Francisco.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "geopandas"
+   ],
+   "data": [
+    "EIA U.S. Energy Atlas (power plants, transmission lines)",
+    "SFPUC Hetch Hetchy Regional Water System"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-12-power",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 13,
+   "date": "2026-11-13",
+   "weekday": "Fri",
+   "theme": "Interactions",
+   "title": "Follow a raindrop",
+   "pitch": "Click anywhere in the Sierra and watch where the water goes, river by river, to the sea, using the USGS's navigation service.",
+   "status": "idea",
+   "tools": [
+    "MapLibre GL JS",
+    "NLDI API"
+   ],
+   "data": [
+    "USGS NLDI (Network-Linked Data Index)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-13-interactions",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 14,
+   "date": "2026-11-14",
+   "weekday": "Sat",
+   "theme": "Borgesian map",
+   "title": "1:1",
+   "pitch": "Borges's map the size of the empire, made literal. Big Creek's watershed at full scale as a page you can scroll for miles, with a counter showing how far you've gone.",
+   "status": "idea",
+   "tools": [
+    "HTML",
+    "canvas"
+   ],
+   "data": [
+    "USGS NLDI basin for Big Creek (11284400)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-14-borgesian-map",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 15,
+   "date": "2026-11-15",
+   "weekday": "Sun",
+   "theme": "Inside out",
+   "title": "Inside Kīlauea",
+   "pitch": "The earthquakes beneath Kīlauea's summit in cross-section, sketching the magma plumbing that the surface hides.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "matplotlib or forge3d"
+   ],
+   "data": [
+    "USGS ComCat (HVO-located earthquakes)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-15-inside-out",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 16,
+   "date": "2026-11-16",
+   "weekday": "Mon",
+   "theme": "Collaborative map",
+   "title": "Where we've been",
+   "pitch": "A map made with someone else. One option is a trip map built together; another is a public form asking people for their favourite Sierra trailhead, mapped as the answers come in.",
+   "status": "idea",
+   "tools": [
+    "Google Sheets or a form",
+    "Python or mapgl"
+   ],
+   "data": [],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-16-collaborative-map",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 17,
+   "date": "2026-11-17",
+   "weekday": "Tue",
+   "theme": "Light & dark",
+   "title": "Great Basin's dark sky",
+   "pitch": "Night lights across Nevada and Utah, with Great Basin National Park's dark sky set against the glow of Las Vegas and Salt Lake City.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "rasterio"
+   ],
+   "data": [
+    "NASA Black Marble (VIIRS night lights)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-17-light-and-dark",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 18,
+   "date": "2026-11-18",
+   "weekday": "Wed",
+   "theme": "NULL",
+   "title": "Nobody lives here",
+   "pitch": "Nevada's 2020 census blocks with a population of zero. Most of the state is null.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "geopandas"
+   ],
+   "data": [
+    "Census 2020 blocks with P1 population"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-18-null",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 19,
+   "date": "2026-11-19",
+   "weekday": "Thu",
+   "theme": "Smell",
+   "title": "What the Yakima Valley smells like",
+   "pitch": "Washington's hop acreage by variety, coloured by aroma (citrus, pine, tropical, earthy) from HopLore.",
+   "status": "idea",
+   "tools": [
+    "Python"
+   ],
+   "data": [
+    "USDA NASS National Hop Report (acreage by variety and state)",
+    "HopLore aroma descriptors"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-19-smell",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 20,
+   "date": "2026-11-20",
+   "weekday": "Fri",
+   "theme": "Hexagons",
+   "title": "Kangaroo rats in hexagons",
+   "pitch": "Every Dipodomys observation across the Southwest and Great Basin, binned into H3 hexagons. A return to my 2023 Day 1.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "h3"
+   ],
+   "data": [
+    "GBIF occurrence download (genus Dipodomys)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-20-hexagons",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 21,
+   "date": "2026-11-21",
+   "weekday": "Sat",
+   "theme": "OpenStreetMap",
+   "title": "Groveland, by volunteers",
+   "pitch": "Everything OpenStreetMap knows about Groveland and Big Oak Flat, after I add what's missing.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "osmnx"
+   ],
+   "data": [
+    "OpenStreetMap (Overpass API or Geofabrik extract)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-21-openstreetmap",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 22,
+   "date": "2026-11-22",
+   "weekday": "Sun",
+   "theme": "Projections",
+   "title": "The world from Lakewood",
+   "pitch": "An azimuthal equidistant map centred on Lakewood, where straight lines from the centre are true distances, to everywhere I've been, from Namibia to Guadeloupe.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "cartopy or pyproj"
+   ],
+   "data": [
+    "Natural Earth"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-22-projections",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 23,
+   "date": "2026-11-23",
+   "weekday": "Mon",
+   "theme": "Taste",
+   "title": "Every brewery I've checked into",
+   "pitch": "My Untappd check-ins, mapped by brewery, sized by how many beers.",
+   "status": "idea",
+   "tools": [
+    "Python"
+   ],
+   "data": [
+    "Untappd check-in export"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-23-taste",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 24,
+   "date": "2026-11-24",
+   "weekday": "Tue",
+   "theme": "Network",
+   "title": "Every stream that reaches Modesto",
+   "pitch": "The whole Tuolumne river network above Modesto, by stream order, with the SIERRA-FLOW gages on it.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "geopandas"
+   ],
+   "data": [
+    "USGS NLDI upstream navigation (NHDPlus flowlines)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-24-network",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 25,
+   "date": "2026-11-25",
+   "weekday": "Wed",
+   "theme": "Is this a map?",
+   "title": "A day of ground motion",
+   "pitch": "A 24-hour helicorder from Camp Muir on Rainier, one line per hour. A map of time, or of a place?",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "ObsPy"
+   ],
+   "data": [
+    "EarthScope FDSN dataselect (station UW.RCM)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-25-is-this-a-map",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 26,
+   "date": "2026-11-26",
+   "weekday": "Thu",
+   "theme": "Water",
+   "title": "Lake Tahoe, clear and deep",
+   "pitch": "Tahoe's depth and its clarity: how far down a Secchi disk can be seen, from the SECCHI dashboard's data.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "forge3d"
+   ],
+   "data": [
+    "SECCHI (TEON + USGS)",
+    "USGS Lake Tahoe bathymetry"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-26-water",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 27,
+   "date": "2026-11-27",
+   "weekday": "Fri",
+   "theme": "New tool",
+   "title": "Something I've never used",
+   "pitch": "Every building in Washington from Overture Maps, queried with DuckDB's spatial extension and drawn with lonboard. Both new to me.",
+   "status": "idea",
+   "tools": [
+    "DuckDB spatial",
+    "lonboard"
+   ],
+   "data": [
+    "Overture Maps buildings"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-27-new-tool",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 28,
+   "date": "2026-11-28",
+   "weekday": "Sat",
+   "theme": "Feeling",
+   "title": "Did you feel it? Nisqually, 2001",
+   "pitch": "The M6.8 Nisqually earthquake of February 28, 2001, as the people who felt it reported it, from USGS \"Did You Feel It?\".",
+   "status": "draft",
+   "tools": [
+    "Python",
+    "geopandas",
+    "matplotlib"
+   ],
+   "data": [
+    "USGS ComCat event uw10530748, DYFI product"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-28-feeling",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 29,
+   "date": "2026-11-29",
+   "weekday": "Sun",
+   "theme": "Raster",
+   "title": "Rainier's snow from space",
+   "pitch": "A season of snow cover on Rainier from satellite, draped over the mountain.",
+   "status": "idea",
+   "tools": [
+    "Python",
+    "forge3d"
+   ],
+   "data": [
+    "MODIS / Sentinel-2 snow cover (via the Rainier Snowpack Tracker)"
+   ],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-29-raster",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  },
+  {
+   "day": 30,
+   "date": "2026-11-30",
+   "weekday": "Mon",
+   "theme": "Pen & paper",
+   "title": "Groveland from memory",
+   "pitch": "Groveland drawn by hand from memory, then laid over the real map to see what I remembered and what I didn't.",
+   "status": "idea",
+   "tools": [
+    "Pen",
+    "paper",
+    "a scanner"
+   ],
+   "data": [],
+   "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-30-pen-and-paper",
+   "image": null,
+   "thumb": null,
+   "alt": "",
+   "post": null
+  }
+ ]
+}

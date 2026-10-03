@@ -3,3 +3,8 @@
 .RData
 .Ruserdata
 google_auth
+
+# 2026: downloads and environments stay local
+2026/day-*/data/
+2026/.pixi/
+__pycache__/

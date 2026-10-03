@@ -1,0 +1,353 @@
+# #30DayMapChallenge 2026 — the plan. One entry per day; everything else is built from this file.
+# status: idea → data (data in hand) → draft → done → posted
+# Run `pixi run build` (or the GitHub Action does it) to regenerate the day READMEs, days.json and the 2026 README.
+
+year: 2026
+start: 2026-11-01
+hashtag: "#30DayMapChallenge"
+author: Brooks Groves
+site: https://brooksgroves.com
+gallery: https://brooksgroves.com/30daymapchallenge.html
+
+days:
+  - day: 1
+    theme: Points
+    title: "1,201 finds"
+    pitch: "Every geocache I've found as Hipparchus, one dot each, coloured by year. Twenty-odd years of where curiosity has taken me."
+    data:
+      - name: "Geocaching \"My Finds\" pocket query (GPX)"
+        url: https://www.geocaching.com/pocket/
+        note: "Premium feature; can be run once every 3 days. Request it in October."
+    tools: [Python, geopandas, matplotlib]
+    prep: "Run the My Finds pocket query and drop the GPX in day-01-points/data/."
+    status: idea
+
+  - day: 2
+    theme: Lines
+    title: "Under my own power"
+    pitch: "Every run, ride and swim from my Strava archive, drawn as faint lines that stack into a heatmap of the South Sound."
+    data:
+      - name: "Strava bulk export (Settings → My Account → Download your data)"
+        url: https://www.strava.com/
+        note: "The archive arrives by email, sometimes hours later. FIT/GPX files."
+    tools: [Python, geopandas, matplotlib]
+    prep: "Request the Strava archive in October."
+    status: idea
+
+  - day: 3
+    theme: Polygons
+    title: "Every fire around Groveland"
+    pitch: "Every recorded fire perimeter in Tuolumne County since the early 1900s, oldest faint, newest bright, with the Rim Fire (2013) wrapped around Groveland."
+    data:
+      - name: "CAL FIRE FRAP fire perimeters"
+        url: https://www.fire.ca.gov/what-we-do/fire-resource-assessment-program/fire-perimeters
+    tools: [Python, geopandas]
+    prep: "Download the latest perimeter geodatabase."
+    status: idea
+
+  - day: 4
+    theme: Clusters
+    title: "Rainier's swarms"
+    pitch: "Earthquakes within 30 km of Mount Rainier since 2000, grouped into swarms by space and time. The July 2025 swarm, the largest ever recorded there, stands out."
+    data:
+      - name: "USGS ComCat earthquake catalog (API, no key)"
+        url: https://earthquake.usgs.gov/fdsnws/event/1/
+    tools: [Python, scikit-learn (DBSCAN), matplotlib]
+    prep: "None; the API is open. Can be drafted any time."
+    status: idea
+
+  - day: 5
+    theme: Sight
+    title: "Where you can see Rainier from"
+    pitch: "A viewshed from the summit of Mount Rainier over 30 m terrain, with Earth's curvature and refraction, showing every place in Washington with a line of sight to the mountain."
+    data:
+      - name: "Copernicus DEM GLO-30 (AWS open data)"
+        url: https://registry.opendata.aws/copernicus-dem/
+    tools: [Python, rasterio, a viewshed routine (GDAL gdal_viewshed)]
+    prep: "Fetch DEM tiles for western Washington; test gdal_viewshed on a small area."
+    status: idea
+
+  - day: 6
+    theme: Vintage
+    title: "Tasman to Cook"
+    pitch: "New Zealand's coast as Abel Tasman charted it in 1642 and James Cook in 1769–70, over the modern coastline, engraved in an 18th-century style. A map version of my Cartographic Perspectives article."
+    data:
+      - name: "David Rumsey Map Collection (Tasman and Cook charts, georeferenced)"
+        url: https://www.davidrumsey.com/
+      - name: "Natural Earth coastline"
+        url: https://www.naturalearthdata.com/
+    tools: [QGIS georeferencer, Python]
+    prep: "Find and georeference the two charts; the slowest prep of the month."
+    status: idea
+
+  - day: 7
+    theme: 10 minute map
+    title: "Ten minutes, on the clock"
+    pitch: "Whatever the day brings, made in ten minutes with a timer visible in the corner of the screenshot."
+    data: []
+    tools: [Whatever is open]
+    prep: "Nothing. That's the point."
+    status: idea
+
+  - day: 8
+    theme: Utopia
+    title: "Paradise, Eden, Utopia"
+    pitch: "Every place in the United States named Paradise, Eden, Utopia, Arcadia or Shangri-La, from Paradise on Rainier to Utopia, Texas."
+    data:
+      - name: "USGS GNIS domestic names"
+        url: https://www.usgs.gov/us-board-on-geographic-names/download-gnis-data
+    tools: [Python, geopandas]
+    prep: "Download the national GNIS file."
+    status: idea
+
+  - day: 9
+    theme: Urban-rural
+    title: "Tacoma to Paradise"
+    pitch: "One line from the Port of Tacoma to Paradise on Rainier, and what changes along it: people, buildings, trees and elevation."
+    data:
+      - name: "Census 2020 blocks and population"
+        url: https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
+      - name: "GHSL built-up surface"
+        url: https://human-settlement.emergency.copernicus.eu/
+    tools: [Python, rasterio, matplotlib]
+    prep: "Pull Pierce County blocks."
+    status: idea
+
+  - day: 10
+    theme: Prompting only
+    title: "A map made only by asking"
+    pitch: "A map of Big Creek's watershed near Groveland where every line of code came from prompts, with the prompts posted alongside."
+    data:
+      - name: "USGS NLDI (basin boundary for gage 11284400)"
+        url: https://labs.waterdata.usgs.gov/about-nldi/
+    tools: [Claude, prompts only]
+    prep: "Decide the rules (no hand edits) before the day."
+    status: idea
+
+  - day: 11
+    theme: Sound
+    title: "Where the lahar sirens reach"
+    pitch: "Pierce County's lahar warning sirens and how far each can be heard, over the lahar zones they protect. Fallback, if the siren locations can't be found: Puget Sound by depth."
+    data:
+      - name: "Pierce County outdoor warning system"
+        url: https://www.piercecountywa.gov/5888/Outdoor-Warning-System
+        note: "Siren locations may need a county GIS layer or a records request. Find out in October."
+      - name: "NOAA Puget Sound coastal elevation model (fallback)"
+        url: https://www.ncei.noaa.gov/products/coastal-elevation-models
+    tools: [Python, geopandas]
+    prep: "Track down siren locations."
+    status: idea
+
+  - day: 12
+    theme: Power
+    title: "The Tuolumne powers San Francisco"
+    pitch: "Hetch Hetchy's dams, the powerhouse at Moccasin just below Groveland, and the lines that carry the Tuolumne's power to San Francisco."
+    data:
+      - name: "EIA U.S. Energy Atlas (power plants, transmission lines)"
+        url: https://atlas.eia.gov/
+      - name: "SFPUC Hetch Hetchy Regional Water System"
+        url: https://www.sfpuc.gov/
+    tools: [Python, geopandas]
+    prep: "Download EIA layers for California."
+    status: idea
+
+  - day: 13
+    theme: Interactions
+    title: "Follow a raindrop"
+    pitch: "Click anywhere in the Sierra and watch where the water goes, river by river, to the sea, using the USGS's navigation service."
+    data:
+      - name: "USGS NLDI (Network-Linked Data Index)"
+        url: https://labs.waterdata.usgs.gov/about-nldi/
+    tools: [MapLibre GL JS, NLDI API]
+    prep: "Prototype one click-to-trace in October."
+    status: idea
+
+  - day: 14
+    theme: Borgesian map
+    title: "1:1"
+    pitch: "Borges's map the size of the empire, made literal. Big Creek's watershed at full scale as a page you can scroll for miles, with a counter showing how far you've gone."
+    data:
+      - name: "USGS NLDI basin for Big Creek (11284400)"
+        url: https://labs.waterdata.usgs.gov/about-nldi/
+    tools: [HTML, canvas]
+    prep: "None."
+    status: idea
+
+  - day: 15
+    theme: Inside out
+    title: "Inside Kīlauea"
+    pitch: "The earthquakes beneath Kīlauea's summit in cross-section, sketching the magma plumbing that the surface hides."
+    data:
+      - name: "USGS ComCat (HVO-located earthquakes)"
+        url: https://earthquake.usgs.gov/fdsnws/event/1/
+    tools: [Python, matplotlib or forge3d]
+    prep: "None; ties in with PELE."
+    status: idea
+
+  - day: 16
+    theme: Collaborative map
+    title: "Where we've been"
+    pitch: "A map made with someone else. One option is a trip map built together; another is a public form asking people for their favourite Sierra trailhead, mapped as the answers come in."
+    data: []
+    tools: [Google Sheets or a form, Python or mapgl]
+    prep: "Pick the collaborator and open the form a week early."
+    status: idea
+
+  - day: 17
+    theme: Light & dark
+    title: "Great Basin's dark sky"
+    pitch: "Night lights across Nevada and Utah, with Great Basin National Park's dark sky set against the glow of Las Vegas and Salt Lake City."
+    data:
+      - name: "NASA Black Marble (VIIRS night lights)"
+        url: https://blackmarble.gsfc.nasa.gov/
+        note: "Needs an Earthdata login (the same account as rainier-snowpack's secrets)."
+    tools: [Python, rasterio]
+    prep: "Download an annual composite."
+    status: idea
+
+  - day: 18
+    theme: "NULL"
+    title: "Nobody lives here"
+    pitch: "Nevada's 2020 census blocks with a population of zero. Most of the state is null."
+    data:
+      - name: "Census 2020 blocks with P1 population"
+        url: https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
+    tools: [Python, geopandas]
+    prep: "Download Nevada block shapes with population."
+    status: idea
+
+  - day: 19
+    theme: Smell
+    title: "What the Yakima Valley smells like"
+    pitch: "Washington's hop acreage by variety, coloured by aroma (citrus, pine, tropical, earthy) from HopLore."
+    data:
+      - name: "USDA NASS National Hop Report (acreage by variety and state)"
+        url: https://www.nass.usda.gov/
+      - name: "HopLore aroma descriptors"
+        url: https://github.com/bdgroves/hoplore
+    tools: [Python]
+    prep: "Decide the geography (county or AVA) the acreage supports."
+    status: idea
+
+  - day: 20
+    theme: Hexagons
+    title: "Kangaroo rats in hexagons"
+    pitch: "Every Dipodomys observation across the Southwest and Great Basin, binned into H3 hexagons. A return to my 2023 Day 1."
+    data:
+      - name: "GBIF occurrence download (genus Dipodomys)"
+        url: https://www.gbif.org/
+    tools: [Python, h3]
+    prep: "Request the GBIF download (needs a free account)."
+    status: idea
+
+  - day: 21
+    theme: OpenStreetMap
+    title: "Groveland, by volunteers"
+    pitch: "Everything OpenStreetMap knows about Groveland and Big Oak Flat, after I add what's missing."
+    data:
+      - name: "OpenStreetMap (Overpass API or Geofabrik extract)"
+        url: https://download.geofabrik.de/north-america/us/california.html
+    tools: [Python, osmnx]
+    prep: "Spend an October evening editing OSM around Groveland."
+    status: idea
+
+  - day: 22
+    theme: Projections
+    title: "The world from Lakewood"
+    pitch: "An azimuthal equidistant map centred on Lakewood, where straight lines from the centre are true distances, to everywhere I've been, from Namibia to Guadeloupe."
+    data:
+      - name: "Natural Earth"
+        url: https://www.naturalearthdata.com/
+    tools: [Python, cartopy or pyproj]
+    prep: "List the places."
+    status: idea
+
+  - day: 23
+    theme: Taste
+    title: "Every brewery I've checked into"
+    pitch: "My Untappd check-ins, mapped by brewery, sized by how many beers."
+    data:
+      - name: "Untappd check-in export"
+        url: https://untappd.com/
+        note: "Export is a Supporter feature."
+    tools: [Python]
+    prep: "Export check-ins; geocode breweries without coordinates."
+    status: idea
+
+  - day: 24
+    theme: Network
+    title: "Every stream that reaches Modesto"
+    pitch: "The whole Tuolumne river network above Modesto, by stream order, with the SIERRA-FLOW gages on it."
+    data:
+      - name: "USGS NLDI upstream navigation (NHDPlus flowlines)"
+        url: https://labs.waterdata.usgs.gov/about-nldi/
+    tools: [Python, geopandas]
+    prep: "None."
+    status: idea
+
+  - day: 25
+    theme: Is this a map?
+    title: "A day of ground motion"
+    pitch: "A 24-hour helicorder from Camp Muir on Rainier, one line per hour. A map of time, or of a place?"
+    data:
+      - name: "EarthScope FDSN dataselect (station UW.RCM)"
+        url: https://service.earthscope.org/
+    tools: [Python, ObsPy]
+    prep: "None; the lahar-watch code already draws these."
+    status: idea
+
+  - day: 26
+    theme: Water
+    title: "Lake Tahoe, clear and deep"
+    pitch: "Tahoe's depth and its clarity: how far down a Secchi disk can be seen, from the SECCHI dashboard's data."
+    data:
+      - name: "SECCHI (TEON + USGS)"
+        url: https://brooksgroves.com/secchi
+      - name: "USGS Lake Tahoe bathymetry"
+        url: https://www.usgs.gov/
+    tools: [Python, forge3d]
+    prep: "Find the bathymetry grid."
+    status: idea
+
+  - day: 27
+    theme: New tool
+    title: "Something I've never used"
+    pitch: "Every building in Washington from Overture Maps, queried with DuckDB's spatial extension and drawn with lonboard. Both new to me."
+    data:
+      - name: "Overture Maps buildings"
+        url: https://overturemaps.org/
+    tools: [DuckDB spatial, lonboard]
+    prep: "Do the lonboard tutorial in October."
+    status: idea
+
+  - day: 28
+    theme: Feeling
+    title: "Did you feel it? Nisqually, 2001"
+    pitch: "The M6.8 Nisqually earthquake of February 28, 2001, as the people who felt it reported it, from USGS \"Did You Feel It?\"."
+    data:
+      - name: "USGS ComCat event uw10530748, DYFI product"
+        url: https://earthquake.usgs.gov/earthquakes/eventpage/uw10530748/dyfi/intensity
+    tools: [Python, geopandas, matplotlib]
+    prep: "Drafted already, as the toolkit's test map."
+    status: draft
+    script: make.py
+
+  - day: 29
+    theme: Raster
+    title: "Rainier's snow from space"
+    pitch: "A season of snow cover on Rainier from satellite, draped over the mountain."
+    data:
+      - name: "MODIS / Sentinel-2 snow cover (via the Rainier Snowpack Tracker)"
+        url: https://brooksgroves.com/rainier-snowpack
+    tools: [Python, forge3d]
+    prep: "Reuse the snowpack tracker's pipeline."
+    status: idea
+
+  - day: 30
+    theme: Pen & paper
+    title: "Groveland from memory"
+    pitch: "Groveland drawn by hand from memory, then laid over the real map to see what I remembered and what I didn't."
+    data: []
+    tools: [Pen, paper, a scanner]
+    prep: "Don't look at a map of Groveland in November."
+    status: idea
