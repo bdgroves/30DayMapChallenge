@@ -134,7 +134,10 @@ for o in range(1, maxo + 1):
     n_o = sum(1 for v in order.values() if v == o)
     fig.text(px + 0.065, yy, f"{o}", family=dmc.MONO, size=7.5, va="center")
     fig.text(0.965, yy, f"{n_o:,} lines", family=dmc.MONO, size=7, va="center", ha="right", color=dmc.STONE)
-fig.text(px, 0.49 - maxo * 0.032 - 0.02, "■ SIERRA-FLOW gages", family=dmc.MONO, size=7, color=dmc.LAVA)
+gy = 0.49 - maxo * 0.032 - 0.02
+fig.add_artist(__import__("matplotlib").lines.Line2D([px + 0.006], [gy], marker="s", ms=5, color=dmc.LAVA, lw=0,
+                                                      transform=fig.transFigure))
+fig.text(px + 0.02, gy, "SIERRA-FLOW gages", family=dmc.MONO, size=7, color=dmc.STONE, va="center")
 
 dmc.frame(
     fig, DAY,

@@ -83,7 +83,7 @@ for k, (_, colour) in sorted(WORDS.items(), key=lambda kv: -counts.get(kv[0], 0)
                alpha=0.75, lw=0, zorder=3)
 # a few the map should name
 for nm, st_, dx, dy, ha in [("Paradise", "Washington", 0, 60000, "center"), ("Utopia", "Texas", 0, -70000, "center"),
-                            ("Paradise", "California", -40000, 0, "right"), ("Arcadia", "California", -40000, -40000, "right"),
+                            ("Paradise", "California", 45000, 20000, "left"), ("Arcadia", "California", 45000, -40000, "left"),
                             ("Eden", "Utah", 40000, 30000, "left"), ("Shangri-La", "Tennessee", 0, -60000, "center")]:
     hit = in48[(in48["feature_name"] == nm) & (in48["state_name"] == st_)
                & (in48["feature_class"].str.lower() == "populated place")]
@@ -99,7 +99,9 @@ ax.set_aspect("equal")
 px = 0.755
 fig.text(px, 0.79, f"{len(names):,}", family=dmc.TITLE, weight=900, size=36, color=dmc.LAVA, va="top")
 def plural(w):
-    w = w.lower()
+    w = {"civil": "township or other civil division", "locale": "locale"}.get(w.lower(), w.lower())
+    if w.startswith("township"):
+        return "townships and other civil divisions"
     if w.endswith(("ch", "sh", "s", "x")):
         return w + "es"
     if w.endswith("y") and w[-2:-1] not in "aeiou":
@@ -119,7 +121,7 @@ for k, (_, colour) in WORDS.items():
 fig.text(px, y - 0.02, "MOST COMMON KINDS", family=dmc.MONO, size=6.8, color=dmc.STONE)
 y -= 0.055
 for k, v in cls.head(5).items():
-    fig.text(px, y, k, size=8, va="center")
+    fig.text(px, y, {"Civil": "Township, civil division"}.get(k, k), size=8, va="center")
     fig.text(0.965, y, f"{v:,}", family=dmc.MONO, size=7.5, ha="right", va="center", color=dmc.STONE)
     y -= 0.032
 

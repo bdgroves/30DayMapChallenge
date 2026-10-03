@@ -2,7 +2,7 @@
 Day 15 · Inside out — Inside Kīlauea
 
 Every earthquake the USGS has located within 20 km of Kīlauea's summit since 2019, seen from
-above and then from the side: a north-south slice through Halemaʻumaʻu, 4 km thick, showing
+above and then from the side: a north-south slice through Halema‘uma‘u, 4 km thick, showing
 how deep they are. The volcano's plumbing doesn't show at the surface; its earthquakes outline it.
 
 Downloads (cached in data/): USGS ComCat, a year at a time; Copernicus 30 m DEM.
@@ -26,7 +26,7 @@ DAY = 15
 HERE = Path(__file__).resolve().parent
 DATA = HERE / "data"
 CRS = "EPSG:32605"
-SUMMIT = (-155.2834, 19.4069)                  # Halemaʻumaʻu
+SUMMIT = (-155.2834, 19.4069)                  # Halema‘uma‘u
 RADIUS = 20
 HALF = 2.0                                     # km either side of the slice
 FIRST = 2019
@@ -67,7 +67,7 @@ ax.add_patch(__import__("matplotlib").patches.Rectangle((sx - HALF * 1000, sy - 
              ec=dmc.INK, lw=0.8, ls="dashed", zorder=4))
 dmc.label(ax, sx, sy + R - 1200, "N", size=9, weight="bold", ha="center", zorder=5)
 dmc.label(ax, sx, sy - R + 1200, "S", size=9, weight="bold", ha="center", zorder=5)
-dmc.label(ax, sx + 2600, sy + 600, "Halemaʻumaʻu", size=7.5, style="italic", zorder=5)
+dmc.label(ax, sx + 2600, sy + 600, "Halema‘uma‘u", size=7.5, style="italic", zorder=5)
 ax.set_xlim(sx - R, sx + R)
 ax.set_ylim(sy - R, sy + R)
 ax.set_aspect("equal")
@@ -80,7 +80,7 @@ cx.imshow(H.T, origin="upper", extent=(-RADIUS, RADIUS, 12, -1), aspect="auto", 
 cx.set_ylim(12, -1)
 cx.set_xlim(-RADIUS, RADIUS)
 cx.axhline(0, color=dmc.STONE, lw=0.6)
-cx.set_xlabel("km south ←    → km north of Halemaʻumaʻu", family=dmc.MONO, fontsize=7.5, color=dmc.STONE)
+cx.set_xlabel("km south of Halema‘uma‘u (-)   ·   km north (+)", family=dmc.MONO, fontsize=7.5, color=dmc.STONE)
 cx.set_ylabel("depth below sea level, km", family=dmc.MONO, fontsize=7.5, color=dmc.STONE)
 cx.tick_params(labelsize=7, colors=dmc.STONE)
 for t in cx.get_xticklabels() + cx.get_yticklabels():
@@ -99,4 +99,4 @@ dmc.frame(
 )
 dmc.save(fig, DAY, alt=(
     f"Left, a shaded-relief map of Kīlauea's summit dotted with {len(q):,} earthquake epicentres since {FIRST}; "
-    f"right, a north-south cross-section through Halemaʻumaʻu showing where the earthquakes cluster with depth."))
+    f"right, a north-south cross-section through Halema‘uma‘u showing where the earthquakes cluster with depth."))

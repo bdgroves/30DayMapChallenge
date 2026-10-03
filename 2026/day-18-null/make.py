@@ -15,6 +15,8 @@ import dmc  # noqa: E402
 import fetch  # noqa: E402
 
 import geopandas as gpd  # noqa: E402
+import numpy as np  # noqa: E402
+from matplotlib.patches import Patch  # noqa: E402
 from pyproj import Transformer  # noqa: E402
 
 DAY = 18
@@ -36,13 +38,25 @@ pop = b["POP20"].sum()
 d = b[b["ALAND20"] > 0].assign(den=lambda x: x["POP20"] / x["ALAND20"]).sort_values("den", ascending=False)
 d["cpop"] = d["POP20"].cumsum() / pop
 d["cland"] = d["ALAND20"].cumsum() / land
-half = d[d["cpop"] >= 0.9].iloc[0]["cland"]
+cut = int((d["cpop"] < 0.9).sum()) + 1                      # densest blocks holding 90% of the people
+dense_ids = set(d.iloc[:cut]["GEOID20"])
+half = d.iloc[cut - 1]["cland"]
+b["cls"] = np.where(b["POP20"] == 0, 0, np.where(b["GEOID20"].isin(dense_ids), 2, 1))
+few = b[b["cls"] == 1]
+dense = b[b["cls"] == 2]
+few_pop = few["POP20"].sum() / pop
+few_land = few["ALAND20"].sum() / land
 print(f"= {len(b):,} blocks, {len(empty):,} empty ({pct_blocks:.0%}); empty land {pct_area:.1%}; "
       f"90% of {pop:,} people on {half:.2%} of the land")
 
 fig, ax = dmc.figure("portrait", map_box=(0.05, 0.08, 0.90, 0.74))
 empty.plot(ax=ax, color=dmc.CREAM, edgecolor=dmc.MIST, lw=0.08)
-lived.plot(ax=ax, color=dmc.INK, edgecolor=dmc.INK, lw=0.15)
+few.plot(ax=ax, color="#c9bfae", edgecolor="#c9bfae", lw=0.1)
+dense.plot(ax=ax, color=dmc.INK, edgecolor=dmc.INK, lw=0.25)
+ax.legend(handles=[Patch(color=dmc.CREAM, ec=dmc.MIST, label=f"Nobody: {pct_area:.0%} of the land"),
+                   Patch(color="#c9bfae", label=f"Some people, {few_pop:.0%} of Nevadans: {few_land:.0%} of the land"),
+                   Patch(color=dmc.INK, label=f"Nine in ten Nevadans: {half:.1%} of the land")],
+          loc="lower left", bbox_to_anchor=(0.0, 0.08), fontsize=8, frameon=False, handlelength=1.4)
 b.dissolve().boundary.plot(ax=ax, color=dmc.INK, lw=0.8)
 ax.set_aspect("equal")
 to = Transformer.from_crs(4326, CRS, always_xy=True)
@@ -58,11 +72,11 @@ dmc.scalebar(ax, 100, loc=(0.06, 0.04))
 dmc.frame(
     fig, DAY,
     subtitle=(f"Nevada's {len(b):,} census blocks. In {len(empty):,} of them, {pct_blocks:.0%}, nobody lived on April 1, 2020:\n"
-              f"{pct_area:.0%} of the state's land. Nine in ten Nevadans live on {half:.1%} of it, the black specks."),
+              f"{pct_area:.0%} of the state's land. Nine in ten Nevadans live on {half:.1%} of it, in black."),
     source="U.S. Census Bureau, 2020 Census TIGER/Line tabulation blocks (POP20)",
     note="A block is the smallest area the census counts. In the desert one can be hundreds of square miles.",
 )
 dmc.save(fig, DAY, alt=(
-    f"Map of Nevada's census blocks: almost all pale, meaning nobody lives there, with black specks for "
-    f"Las Vegas, Reno and the small towns along the highways. {pct_area:.0%} of the land had a population "
-    f"of zero in 2020."))
+    f"Map of Nevada's census blocks: {pct_area:.0%} of the land is pale, where nobody lived in 2020; light grey "
+    f"blocks hold a few people each; black specks around Las Vegas, Reno and the towns hold nine in ten "
+    f"Nevadans on {half:.1%} of the land."))
