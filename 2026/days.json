@@ -557,9 +557,9 @@
     "USGS Lake Tahoe bathymetry"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-26-water",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-26-water/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-26-water/out/thumb.jpg",
+   "alt": "Map of Lake Tahoe's floor shaded blue by depth to 497 m, with 100 m contours and the deepest point marked.",
    "post": null
   },
   {
