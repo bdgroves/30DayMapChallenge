@@ -13,7 +13,7 @@ Every recorded fire perimeter in Tuolumne County since the early 1900s, oldest f
 
 **Tools:** Python, geopandas
 
-**Prep:** Download the latest perimeter geodatabase.
+**Prep:** Drafted from the CAL FIRE perimeter service; re-run in November for any late-season fires.
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

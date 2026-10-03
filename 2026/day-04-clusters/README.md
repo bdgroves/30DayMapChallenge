@@ -13,7 +13,7 @@ Earthquakes within 30 km of Mount Rainier since 2000, grouped into swarms by spa
 
 **Tools:** Python, scikit-learn (DBSCAN), matplotlib
 
-**Prep:** None; the API is open. Can be drafted any time.
+**Prep:** Drafted. Re-run in November to pick up the latest earthquakes.
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

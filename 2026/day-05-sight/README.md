@@ -13,7 +13,7 @@ A viewshed from the summit of Mount Rainier over 30 m terrain, with Earth's curv
 
 **Tools:** Python, rasterio, a viewshed routine (GDAL gdal_viewshed)
 
-**Prep:** Fetch DEM tiles for western Washington; test gdal_viewshed on a small area.
+**Prep:** Drafted (Copernicus GLO-90 and gdal_viewshed).
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
