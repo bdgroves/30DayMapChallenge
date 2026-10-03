@@ -1,9 +1,9 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 1 · Points
 
-**Sunday, November 1, 2026** · status: 💡 idea
+**Sunday, November 1, 2026** · status: ✏️ draft
 
-## 1,201 finds
+## 1,190 finds
 
 Every geocache I've found as Hipparchus, one dot each, coloured by year. Twenty-odd years of where curiosity has taken me.
 
@@ -13,7 +13,7 @@ Every geocache I've found as Hipparchus, one dot each, coloured by year. Twenty-
 
 **Tools:** Python, geopandas, matplotlib
 
-**Prep:** Run the My Finds pocket query and drop the GPX in day-01-points/data/. Script ready (make.py): drop the My Finds .zip in data/ and run it.
+**Prep:** Drafted from the My Finds pocket query (October 3). finds.csv holds positions rounded to about a kilometre; the GPX stays out of the repo. To refresh, drop a new pocket query in data/ and run make.py --from-gpx.
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

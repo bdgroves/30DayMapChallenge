@@ -79,12 +79,12 @@ The gallery picks it up from `days.json` within a few minutes.
 ## The month
 
 <!-- table:start -->
-**0 of 30 done** · 💡 idea 15 · 📦 data in hand 0 · ✏️ draft 15 · ✅ done 0 · 📣 posted 0
+**0 of 30 done** · 💡 idea 13 · 📦 data in hand 0 · ✏️ draft 17 · ✅ done 0 · 📣 posted 0
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
-| 1 | Sun Nov 1 | Points | [1,201 finds](day-01-points/) | 💡 idea |
-| 2 | Mon Nov 2 | Lines | [Under my own power](day-02-lines/) | 💡 idea |
+| 1 | Sun Nov 1 | Points | [1,190 finds](day-01-points/) | ✏️ draft |
+| 2 | Mon Nov 2 | Lines | [The Seawall](day-02-lines/) | ✏️ draft |
 | 3 | Tue Nov 3 | Polygons | [Every fire around Groveland](day-03-polygons/) | ✏️ draft |
 | 4 | Wed Nov 4 | Clusters | [Rainier's swarms](day-04-clusters/) | ✏️ draft |
 | 5 | Thu Nov 5 | Sight | [Where you can see Rainier from](day-05-sight/) | ✏️ draft |

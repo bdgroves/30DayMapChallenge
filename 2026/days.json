@@ -5,9 +5,9 @@
  "author": "Brooks Groves",
  "repo": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026",
  "counts": {
-  "idea": 15,
+  "idea": 13,
   "data": 0,
-  "draft": 15,
+  "draft": 17,
   "done": 0,
   "posted": 0
  },
@@ -17,9 +17,9 @@
    "date": "2026-11-01",
    "weekday": "Sun",
    "theme": "Points",
-   "title": "1,201 finds",
+   "title": "1,190 finds",
    "pitch": "Every geocache I've found as Hipparchus, one dot each, coloured by year. Twenty-odd years of where curiosity has taken me.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "geopandas",
@@ -40,16 +40,16 @@
    "date": "2026-11-02",
    "weekday": "Mon",
    "theme": "Lines",
-   "title": "Under my own power",
-   "pitch": "Every run, ride and swim from my Strava archive, drawn as faint lines that stack into a heatmap of the South Sound.",
-   "status": "idea",
+   "title": "The Seawall",
+   "pitch": "The path around Stanley Park in Vancouver: the Seawall, between the forest and the sea, with a marker every kilometre and the landmarks along the way.",
+   "status": "draft",
    "tools": [
     "Python",
     "geopandas",
     "matplotlib"
    ],
    "data": [
-    "Strava bulk export (Settings → My Account → Download your data)"
+    "OpenStreetMap (Overpass API)"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-02-lines",
    "image": null,
