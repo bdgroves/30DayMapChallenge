@@ -103,9 +103,10 @@ function show(coords, start){
   const b = coords.reduce((bb, c) => bb.extend(c), new maplibregl.LngLatBounds(coords[0], coords[0]));
   map.fitBounds(b, {padding: {top: 80, bottom: 80, left: Math.min(420, innerWidth*0.4), right: 60}, duration: 1200, maxZoom: 10});
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let i = 1; const step = Math.max(1, Math.ceil(coords.length / 240));
+  const t0 = performance.now(), dur = 3500;           // the whole trip takes 3.5 s, whatever the frame rate
+  let i = 1;
   const tick = () => {
-    i = reduce ? coords.length : Math.min(coords.length, i + step);
+    i = reduce ? coords.length : Math.max(1, Math.min(coords.length, Math.ceil(coords.length * (performance.now() - t0) / dur)));
     data.features[0].geometry.coordinates = coords.slice(0, i);
     src.setData(data);
     map.getSource('head').setData({type:'Feature', geometry:{type:'Point', coordinates:coords[i-1]}});
