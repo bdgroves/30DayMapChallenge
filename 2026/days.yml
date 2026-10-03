@@ -19,7 +19,7 @@ days:
         url: https://www.geocaching.com/pocket/
         note: "Premium feature; can be run once every 3 days. Request it in October."
     tools: [Python, geopandas, matplotlib]
-    prep: "Run the My Finds pocket query and drop the GPX in day-01-points/data/."
+    prep: "Run the My Finds pocket query and drop the GPX in day-01-points/data/. Script ready (make.py): drop the My Finds .zip in data/ and run it."
     status: idea
 
   - day: 2
@@ -31,7 +31,7 @@ days:
         url: https://www.strava.com/
         note: "The archive arrives by email, sometimes hours later. FIT/GPX files."
     tools: [Python, geopandas, matplotlib]
-    prep: "Request the Strava archive in October."
+    prep: "Request the Strava archive in October. Script ready (make.py): unzip the Strava archive into data/ and run it."
     status: idea
 
   - day: 3
@@ -43,7 +43,7 @@ days:
         url: https://www.fire.ca.gov/what-we-do/fire-resource-assessment-program/fire-perimeters
     tools: [Python, geopandas]
     prep: "Download the latest perimeter geodatabase."
-    status: idea
+    status: draft
 
   - day: 4
     theme: Clusters
@@ -54,7 +54,7 @@ days:
         url: https://earthquake.usgs.gov/fdsnws/event/1/
     tools: [Python, scikit-learn (DBSCAN), matplotlib]
     prep: "None; the API is open. Can be drafted any time."
-    status: idea
+    status: draft
 
   - day: 5
     theme: Sight
@@ -65,7 +65,7 @@ days:
         url: https://registry.opendata.aws/copernicus-dem/
     tools: [Python, rasterio, a viewshed routine (GDAL gdal_viewshed)]
     prep: "Fetch DEM tiles for western Washington; test gdal_viewshed on a small area."
-    status: idea
+    status: draft
 
   - day: 6
     theme: Vintage

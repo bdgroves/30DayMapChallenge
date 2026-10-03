@@ -5,9 +5,9 @@
  "author": "Brooks Groves",
  "repo": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026",
  "counts": {
-  "idea": 29,
+  "idea": 26,
   "data": 0,
-  "draft": 1,
+  "draft": 4,
   "done": 0,
   "posted": 0
  },
@@ -63,7 +63,7 @@
    "theme": "Polygons",
    "title": "Every fire around Groveland",
    "pitch": "Every recorded fire perimeter in Tuolumne County since the early 1900s, oldest faint, newest bright, with the Rim Fire (2013) wrapped around Groveland.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "geopandas"
@@ -84,7 +84,7 @@
    "theme": "Clusters",
    "title": "Rainier's swarms",
    "pitch": "Earthquakes within 30 km of Mount Rainier since 2000, grouped into swarms by space and time. The July 2025 swarm, the largest ever recorded there, stands out.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "scikit-learn (DBSCAN)",
@@ -106,7 +106,7 @@
    "theme": "Sight",
    "title": "Where you can see Rainier from",
    "pitch": "A viewshed from the summit of Mount Rainier over 30 m terrain, with Earth's curvature and refraction, showing every place in Washington with a line of sight to the mountain.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "rasterio",

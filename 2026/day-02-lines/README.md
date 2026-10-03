@@ -13,7 +13,7 @@ Every run, ride and swim from my Strava archive, drawn as faint lines that stack
 
 **Tools:** Python, geopandas, matplotlib
 
-**Prep:** Request the Strava archive in October.
+**Prep:** Request the Strava archive in October. Script ready (make.py): unzip the Strava archive into data/ and run it.
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

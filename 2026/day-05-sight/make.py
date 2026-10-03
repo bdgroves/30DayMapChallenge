@@ -147,7 +147,7 @@ ax.scatter([fx], [fy], s=10, color=dmc.INK, zorder=6)
 # label the farthest view where its line leaves the frame (or at the point if it's inside)
 tx = [(lim - sx) / (fx - sx) for lim in (x0, x1) if fx != sx and 0 < (lim - sx) / (fx - sx) < 1]
 ty = [(lim - sy) / (fy - sy) for lim in (y0, y1) if fy != sy and 0 < (lim - sy) / (fy - sy) < 1]
-tt = min(tx + ty + [1.0]) * 0.93
+tt = min(tx + ty + [1.0]) * 0.82
 dmc.label(ax, sx + (fx - sx) * tt, sy + (fy - sy) * tt, f"farthest view\n{dist[far]/1000:.0f} km",
           size=7, style="italic", ha="center", va="center", zorder=6)
 
