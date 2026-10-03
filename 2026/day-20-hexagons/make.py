@@ -41,26 +41,34 @@ total = fetch.json_get(f"{API}/occurrence/search", dict(genusKey=key, limit=0, *
 print(f"= GBIF genus key {key}: {total:,} georeferenced records")
 
 
-def count(y0, y1):
-    return fetch.json_get(f"{API}/occurrence/search", dict(genusKey=key, year=f"{y0},{y1}", limit=0, **BASE))["count"]
+SMALL = 3000          # GBIF pages deep into a big result take a minute each; keep every query shallow
+
+
+def count(y0, y1, month=None):
+    q = dict(genusKey=key, year=f"{y0},{y1}", limit=0, **BASE)
+    if month:
+        q["month"] = month
+    return fetch.json_get(f"{API}/occurrence/search", q)["count"]
 
 
 def pieces(y0, y1):
     n = count(y0, y1)
-    if n <= 99_000 or y0 == y1:
-        return [(y0, y1, n)]
-    m = (y0 + y1) // 2
-    return pieces(y0, m) + pieces(m + 1, y1)
+    if n <= SMALL:
+        return [(y0, y1, None, n)]
+    if y0 == y1:                                   # one busy year: a month at a time
+        return [(y0, y1, m, count(y0, y1, m)) for m in range(1, 13)]
+    mid = (y0 + y1) // 2
+    return pieces(y0, mid) + pieces(mid + 1, y1)
 
 
 FIELDS = ["lat", "lon", "species", "year", "basis", "uncert_m", "country"]
 
 
-def page(y0, y1, off):
-    js = fetch.json_get(f"{API}/occurrence/search",
-                        dict(genusKey=key, year=f"{y0},{y1}", limit=300, offset=off, **BASE), timeout=60, tries=4)
-    if off % 15000 == 0:
-        print(f"  {y0}-{y1} offset {off:,}", flush=True)
+def page(y0, y1, month, off):
+    q = dict(genusKey=key, year=f"{y0},{y1}", limit=300, offset=off, **BASE)
+    if month:
+        q["month"] = month
+    js = fetch.json_get(f"{API}/occurrence/search", q, timeout=120, tries=4)
     return [(r.get("decimalLatitude"), r.get("decimalLongitude"), r.get("species"), r.get("year"),
              r.get("basisOfRecord"), r.get("coordinateUncertaintyInMeters"), r.get("countryCode")) for r in js["results"]]
 
@@ -68,14 +76,15 @@ def page(y0, y1, off):
 if not cache.exists():
     from concurrent.futures import ThreadPoolExecutor
     parts = []
-    for y0, y1, n in pieces(1800, 2026):
-        part = DATA / f"gbif_{y0}_{y1}.csv.gz"            # each piece saved as it finishes
+    plan = pieces(1700, 2026)
+    print(f"  {len(plan)} queries of at most {SMALL:,} records", flush=True)
+    for y0, y1, month, n in plan:
+        part = DATA / f"gbif_{y0}_{y1}_{month or 0}.csv.gz"     # each piece saved as it finishes
         if n and not part.exists():
-            offs = list(range(0, min(n, 100_000), 300))
-            with ThreadPoolExecutor(8) as pool:
-                rows = [r for pg in pool.map(lambda o: page(y0, y1, o), offs) for r in pg]
+            offs = list(range(0, n, 300))
+            with ThreadPoolExecutor(6) as pool:
+                rows = [r for pg in pool.map(lambda o: page(y0, y1, month, o), offs) for r in pg]
             pd.DataFrame(rows, columns=FIELDS).to_csv(part, index=False)
-            print(f"  years {y0}-{y1}: {n:,} expected, {len(rows):,} fetched", flush=True)
         if part.exists():
             parts.append(pd.read_csv(part))
     pd.concat(parts, ignore_index=True).to_csv(cache, index=False)
