@@ -18,6 +18,7 @@ from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "toolkit"))
+import basemap  # noqa: E402
 import dmc  # noqa: E402
 
 import geopandas as gpd  # noqa: E402
@@ -134,7 +135,8 @@ lo_lat, hi_lat = np.percentile(g["lat"], [5, 95])
 pad_lon, pad_lat = max(1.0, (hi_lon - lo_lon) * 0.15), max(0.8, (hi_lat - lo_lat) * 0.12)
 box = (lo_lon - pad_lon, lo_lat - pad_lat, hi_lon + pad_lon, hi_lat + pad_lat)
 lon0, lat0 = (box[0] + box[2]) / 2, (box[1] + box[3]) / 2
-CRS = f"+proj=aea +lat_1={box[1] + 1} +lat_2={box[3] - 1} +lat_0={lat0} +lon_0={lon0} +datum=WGS84 +units=m"
+MAPBOX = basemap.available()                      # Mapbox basemaps are Web Mercator
+CRS = "EPSG:3857" if MAPBOX else f"+proj=aea +lat_1={box[1] + 1} +lat_2={box[3] - 1} +lat_0={lat0} +lon_0={lon0} +datum=WGS84 +units=m"
 inside = g.cx[box[0]:box[2], box[1]:box[3]]
 outside = j.loc[~j.index.isin(inside.index)]
 
@@ -142,10 +144,6 @@ MAP_BOX = (0.05, 0.25, 0.90, 0.555)
 fig, ax = dmc.figure("portrait", map_box=MAP_BOX)
 gp = g.to_crs(CRS)
 bb = gpd.GeoSeries.from_xy([box[0], box[2]], [box[1], box[3]], crs=4326).to_crs(CRS).total_bounds
-countries.to_crs(CRS).plot(ax=ax, color=dmc.CREAM, edgecolor=dmc.MIST, lw=0.5)
-states[states["admin"].isin(["United States of America", "Canada", "Mexico"])].to_crs(CRS).boundary.plot(
-    ax=ax, color=dmc.MIST, lw=0.5)
-ax.set_facecolor("#e4ebe8")
 norm = Normalize(g["year"].min(), g["year"].max())
 order = gp.sort_values("found")
 ax.scatter(order.geometry.x, order.geometry.y, s=7, c=[dmc.SEQ_HEAT(0.25 + 0.75 * norm(y)) for y in order["year"]],
@@ -157,6 +155,12 @@ bw, bh = (bh * want, bh) if bw / bh < want else (bw, bw / want)
 ax.set_xlim(cx - bw / 2, cx + bw / 2)
 ax.set_ylim(cy - bh / 2, cy + bh / 2)
 ax.set_aspect("equal")
+if not (MAPBOX and basemap.mapbox(ax)):
+    MAPBOX = False
+    countries.to_crs(CRS).plot(ax=ax, color=dmc.CREAM, edgecolor=dmc.MIST, lw=0.5, zorder=0)
+    states[states["admin"].isin(["United States of America", "Canada", "Mexico"])].to_crs(CRS).boundary.plot(
+        ax=ax, color=dmc.MIST, lw=0.5, zorder=1)
+    ax.set_facecolor("#e4ebe8")
 
 # panel: finds per year, top places, elsewhere
 yax = fig.add_axes((0.06, 0.105, 0.42, 0.1))
@@ -188,7 +192,7 @@ dmc.frame(
     fig, DAY, title=f"{n:,} finds",
     subtitle=(f"Every geocache I've found as {FINDER}, from my first in {g['found'].min():%B %Y} to "
               f"{g['found'].max():%B %Y}:\n{n_places} states and countries, coloured by the year I found it."),
-    source=f"Geocaching.com 'My Finds' pocket query · Natural Earth",
+    source="Geocaching.com 'My Finds' pocket query · " + (basemap.CREDIT if MAPBOX else "Natural Earth"),
     note=f"{trad:.0%} traditional caches; the rest multis, mysteries, letterboxes, earthcaches and events.",
 )
 dmc.save(fig, DAY, alt=(

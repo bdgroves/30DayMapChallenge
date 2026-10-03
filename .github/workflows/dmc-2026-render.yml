@@ -28,6 +28,9 @@ jobs:
           locked: false
           cache: ${{ hashFiles('2026/pixi.lock') != '' }}
       - name: Render day ${{ inputs.day }}
+        env:
+          MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}     # Mapbox basemaps; maps still render without it
+          MAPBOX_STYLE: ${{ vars.MAPBOX_STYLE }}        # e.g. bdgroves/<style id> once the house style is uploaded
         run: |
           pixi run render ${{ inputs.day }} > render.log 2>&1 || {
             cat render.log

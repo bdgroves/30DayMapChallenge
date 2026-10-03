@@ -17,6 +17,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "toolkit"))
+import basemap  # noqa: E402
 import dmc  # noqa: E402
 
 import geopandas as gpd  # noqa: E402
@@ -31,7 +32,8 @@ HERE = Path(__file__).resolve().parent
 DATA = HERE / "data"
 DATA.mkdir(exist_ok=True)
 UA = {"User-Agent": "30DayMapChallenge-2026 (github.com/bdgroves/30DayMapChallenge)"}
-CRS = "+proj=lcc +lat_1=45 +lat_2=49 +lat_0=47 +lon_0=-121.5 +datum=WGS84 +units=m"
+MAPBOX = basemap.available()                      # Mapbox basemaps are Web Mercator
+CRS = "EPSG:3857" if MAPBOX else "+proj=lcc +lat_1=45 +lat_2=49 +lat_0=47 +lon_0=-121.5 +datum=WGS84 +units=m"
 EXTENT = (-125.2, 44.6, -116.4, 49.6)                     # lon/lat box shown
 
 
@@ -96,10 +98,16 @@ colors = [dmc.SEQ_HEAT(x) for x in np.linspace(0.12, 1.0, len(names))]
 cmap, norm = ListedColormap(colors), BoundaryNorm(bounds, len(names))
 
 fig, ax = dmc.figure("square", map_box=(0.03, 0.09, 0.94, 0.715))
-canada.plot(ax=ax, color=dmc.CREAM, edgecolor=dmc.MIST, lw=0.5)
-states.plot(ax=ax, color=dmc.CREAM, edgecolor=dmc.MIST, lw=0.5)
+ax.set_xlim(frame_box[0], frame_box[2])
+ax.set_ylim(frame_box[1], frame_box[3])
+ax.set_aspect("equal")
+if not (MAPBOX and basemap.mapbox(ax)):
+    MAPBOX = False
+    canada.plot(ax=ax, color=dmc.CREAM, edgecolor=dmc.MIST, lw=0.5)
+    states.plot(ax=ax, color=dmc.CREAM, edgecolor=dmc.MIST, lw=0.5)
 cells.plot(ax=ax, column="cdi", cmap=cmap, norm=norm, edgecolor="none", alpha=0.95)
-states.boundary.plot(ax=ax, color=dmc.WHITE, lw=0.6)
+if not MAPBOX:
+    states.boundary.plot(ax=ax, color=dmc.WHITE, lw=0.6)
 ax.set_xlim(frame_box[0], frame_box[2])
 ax.set_ylim(frame_box[1], frame_box[3])
 
@@ -136,7 +144,8 @@ dmc.frame(
     subtitle=(f"{when:%B} {when.day}, {when.year}, {when.hour % 12 or 12}:{when:%M} {'a.m' if when.hour < 12 else 'p.m'}. Magnitude {props['mag']:.1f}, "
               f"{depth:.0f} km beneath the south end of Puget Sound.\n"
               f"{responses:,} people told the USGS what they felt, averaged here into 10 km squares."),
-    source=f"USGS Did You Feel It? (event {EVENT}) · U.S. Census Bureau · Natural Earth",
+    source=(f"USGS Did You Feel It? (event {EVENT}) · " +
+            (basemap.CREDIT if MAPBOX else "U.S. Census Bureau · Natural Earth")),
 )
 dmc.save(fig, DAY, alt=(
     f"Map of the Pacific Northwest showing how strongly people felt the magnitude {props['mag']:.1f} "

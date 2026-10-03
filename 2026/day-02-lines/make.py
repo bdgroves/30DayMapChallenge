@@ -16,6 +16,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "toolkit"))
+import basemap  # noqa: E402
 import dmc  # noqa: E402
 
 import numpy as np  # noqa: E402
@@ -130,20 +131,34 @@ for k, a in xy:
 print(f"  {len(segs)} line pieces drawn")
 
 fig, ax = dmc.figure("square", map_box=(0.05, 0.14, 0.90, 0.65))
-ax.add_collection(LineCollection(segs, colors=cols, linewidths=0.6, alpha=0.26, capstyle="round"))
-ax.set_xlim(centre[0] - R, centre[0] + R)
-ax.set_ylim(centre[1] - R * 0.65 / 0.90, centre[1] + R * 0.65 / 0.90)
+# drawing coordinates: Web Mercator under a Mapbox basemap, otherwise the local metric grid
+MAPBOX = basemap.available()
+if MAPBOX:
+    back = Transformer.from_crs(tr.target_crs, 3857, always_xy=True)
+    P = lambda a: np.c_[back.transform(a[:, 0], a[:, 1])]  # noqa: E731
+else:
+    P = lambda a: a  # noqa: E731
+corners = P(np.array([[centre[0] - R, centre[1] - R * 0.65 / 0.90], [centre[0] + R, centre[1] + R * 0.65 / 0.90]]))
+ax.set_xlim(corners[0, 0], corners[1, 0])
+ax.set_ylim(corners[0, 1], corners[1, 1])
 ax.set_aspect("equal")
+if MAPBOX and not basemap.mapbox(ax):
+    MAPBOX, P = False, (lambda a: a)
+    ax.set_xlim(centre[0] - R, centre[0] + R)
+    ax.set_ylim(centre[1] - R * 0.65 / 0.90, centre[1] + R * 0.65 / 0.90)
+ax.add_collection(LineCollection([P(sg) for sg in segs], colors=cols, linewidths=0.6, alpha=0.26,
+                                 capstyle="round", zorder=2))
 
 to_xy = lambda lon, lat: tr.transform(lon, lat)  # noqa: E731
+draw_xy = lambda x, y: tuple(P(np.array([[x, y]]))[0])  # noqa: E731
 for name, (lon, lat) in {"Lakewood": (-122.518, 47.172), "Tacoma": (-122.444, 47.253),
                          "University Place": (-122.548, 47.236), "Steilacoom": (-122.603, 47.170),
                          "DuPont": (-122.631, 47.097), "Puyallup": (-122.293, 47.185),
                          "Gig Harbor": (-122.580, 47.329)}.items():
     x, y = to_xy(lon, lat)
     if abs(x - centre[0]) < R * 0.95 and abs(y - centre[1]) < R * 0.75:
-        dmc.label(ax, x, y, name, size=8, ha="center", va="center", style="italic", color=dmc.STONE)
-dmc.scalebar(ax, 5, loc=(0.86, 0.04))
+        dmc.label(ax, *draw_xy(x, y), name, size=8, ha="center", va="center", style="italic", color=dmc.STONE)
+dmc.scalebar(ax, 5, loc=(0.86, 0.04), crs_units_per_km=1000 / np.cos(np.radians(lat0)) if MAPBOX else 1000)
 
 legend = [(k, c) for k, c in TYPES.items() if k in dist and k != "Hike"]
 for i, (k, c) in enumerate(legend):
@@ -157,7 +172,7 @@ dmc.frame(
     fig, DAY,
     subtitle=(f"Every run, ride and swim in my Strava archive, {len(tracks):,} activities and {total:,.0f} km, drawn as faint\n"
               f"lines. Where I go again and again, they stack up darker."),
-    source="My Strava archive",
+    source="My Strava archive" + (" · " + basemap.CREDIT if MAPBOX else ""),
     note=f"Tracks are trimmed {PRIVACY_M} m around home, as a Strava privacy zone would.",
 )
 dmc.save(fig, DAY, alt=(
