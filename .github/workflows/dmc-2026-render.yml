@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       day:
-        description: Day number (1-30)
+        description: Day number(s), e.g. 28 or "8 15 18"
         required: true
 
 permissions:
@@ -27,17 +27,22 @@ jobs:
           manifest-path: 2026/pixi.toml
           locked: false
           cache: ${{ hashFiles('2026/pixi.lock') != '' }}
-      - name: Render day ${{ inputs.day }}
+      - name: Render day(s) ${{ inputs.day }}
         env:
           MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}     # Mapbox basemaps; maps still render without it
           MAPBOX_STYLE: ${{ vars.MAPBOX_STYLE }}        # e.g. bdgroves/<style id> once the house style is uploaded
         run: |
-          pixi run render ${{ inputs.day }} > render.log 2>&1 || {
-            cat render.log
-            echo "::error title=render day ${{ inputs.day }}::$(tail -25 render.log | sed ':a;N;$!ba;s/%/%25/g;s/\n/%0A/g')"
-            exit 1; }
+          rc=0
+          pixi run render ${{ inputs.day }} > render.log 2>&1 || rc=$?
           cat render.log
-      - name: Commit the map (and the pixi lock, so Windows gets the same versions)
+          # key lines ("= " from make.py) as annotations so each day's outcome is readable from the run page
+          grep -E '^(> |! day|= )' render.log | head -45 | sed 's/^/::notice::/' || true
+          if [ $rc -ne 0 ]; then
+            echo "::error title=render ${{ inputs.day }}::$(tail -40 render.log | sed ':a;N;$!ba;s/%/%25/g;s/\n/%0A/g')"
+          fi
+          echo "RC=$rc" > rc.txt
+      - name: Commit the maps that rendered (and the pixi lock, so Windows gets the same versions)
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -45,3 +50,5 @@ jobs:
           git diff --staged --quiet && exit 0
           git commit -q -m "2026: render day ${{ inputs.day }} [skip ci]"
           git pull -q --rebase && git push -q
+      - name: Fail the run if a day failed
+        run: grep -q 'RC=0' rc.txt
