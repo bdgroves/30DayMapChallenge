@@ -124,7 +124,12 @@ connector = None
 if len(ends) >= 2:
     a, b = max(((p, q) for p in ends for q in ends), key=lambda pq: pq[0].distance(pq[1]))
     G = nx.Graph()
-    inpark = gpd.GeoSeries([park_poly.buffer(0.0002)], crs=4326).to_crs(UTM).iloc[0]   # the park's own paths, not the city's
+    # the park's own paths, and the ones around Lost Lagoon, which OpenStreetMap maps outside the park
+    lagoon = [g for el, g in ((el, polys({"elements": [el]})) for el in green.get("elements", []))
+              if el.get("tags", {}).get("name") == "Lost Lagoon" for g in g]
+    inpark = gpd.GeoSeries([unary_union([park_poly.buffer(0.0002)] + [g.buffer(0.0012) for g in lagoon])],
+                           crs=4326).to_crs(UTM).iloc[0]
+    print(f"= Lost Lagoon polygons: {len(lagoon)}")
     for el in paths.get("elements", []):
         t = el.get("tags", {})
         if el.get("type") != "way" or "geometry" not in el or "seawall" in (t.get("name") or "").lower():
@@ -132,8 +137,9 @@ if len(ends) >= 2:
         xs, ys = to_utm.transform([q["lon"] for q in el["geometry"]], [q["lat"] for q in el["geometry"]])
         nodes = [(round(x, 1), round(y, 1)) for x, y in zip(xs, ys)]
         for u, v in zip(nodes, nodes[1:]):
-            if inpark.contains(Point((u[0] + v[0]) / 2, (u[1] + v[1]) / 2)):
-                G.add_edge(u, v, weight=((u[0] - v[0]) ** 2 + (u[1] - v[1]) ** 2) ** 0.5)
+            d = ((u[0] - v[0]) ** 2 + (u[1] - v[1]) ** 2) ** 0.5
+            inside = inpark.contains(Point((u[0] + v[0]) / 2, (u[1] + v[1]) / 2))
+            G.add_edge(u, v, weight=d if inside else d * 8, inside=inside)
     if G.number_of_nodes():
         nodes = np.array(list(G.nodes))
         snap = lambda pt: tuple(nodes[np.argmin((nodes[:, 0] - pt.x) ** 2 + (nodes[:, 1] - pt.y) ** 2)])  # noqa: E731
@@ -142,6 +148,8 @@ if len(ends) >= 2:
         try:
             route = nx.shortest_path(G, na, nb, weight="weight")
             connector = LineString([(a.x, a.y)] + [tuple(n) for n in route] + [(b.x, b.y)])
+            out = sum(G[u][v]["weight"] / 8 for u, v in zip(route, route[1:]) if not G[u][v]["inside"])
+            print(f"= closing path: {out:.0f} m of it outside the park and lagoon")
         except nx.NetworkXNoPath:
             pass
     print(f"= loose ends {len(ends)}; closing path "
