@@ -12,27 +12,26 @@ gallery: https://brooksgroves.com/30DayMapChallenge/2026/
 days:
   - day: 1
     theme: Points
-    title: "1,201 finds"
+    title: "1,190 finds"
     pitch: "Every geocache I've found as Hipparchus, one dot each, coloured by year. Twenty-odd years of where curiosity has taken me."
     data:
       - name: "Geocaching \"My Finds\" pocket query (GPX)"
         url: https://www.geocaching.com/pocket/
         note: "Premium feature; can be run once every 3 days. Request it in October."
     tools: [Python, geopandas, matplotlib]
-    prep: "Run the My Finds pocket query and drop the GPX in day-01-points/data/. Script ready (make.py): drop the My Finds .zip in data/ and run it."
-    status: idea
+    prep: "Drafted from the My Finds pocket query (October 3). finds.csv holds positions rounded to about a kilometre; the GPX stays out of the repo. To refresh, drop a new pocket query in data/ and run make.py --from-gpx."
+    status: draft
 
   - day: 2
     theme: Lines
-    title: "Under my own power"
-    pitch: "Every run, ride and swim from my Strava archive, drawn as faint lines that stack into a heatmap of the South Sound."
+    title: "The Seawall"
+    pitch: "The path around Stanley Park in Vancouver: the Seawall, between the forest and the sea, with a marker every kilometre and the landmarks along the way."
     data:
-      - name: "Strava bulk export (Settings → My Account → Download your data)"
-        url: https://www.strava.com/
-        note: "The archive arrives by email, sometimes hours later. FIT/GPX files."
+      - name: "OpenStreetMap (Overpass API)"
+        url: https://overpass-api.de/
     tools: [Python, geopandas, matplotlib]
-    prep: "Request the Strava archive in October. Script ready (make.py): unzip the Strava archive into data/ and run it."
-    status: idea
+    prep: "Drafted from OpenStreetMap. (The Strava heatmap idea is kept as make_strava.py for later.)"
+    status: draft
 
   - day: 3
     theme: Polygons
