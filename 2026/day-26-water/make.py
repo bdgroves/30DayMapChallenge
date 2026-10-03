@@ -82,13 +82,15 @@ depth = SURFACE - elev
 depth = np.ma.masked_where(elev.mask | (elev > SURFACE + 5) | (elev < 1000), depth)
 print(f"= grid {elev.shape}, elevation {elev.min():.0f}-{elev.max():.0f} m; deepest {depth.max():.0f} m")
 
-fig, ax = dmc.figure("portrait", map_box=(0.08, 0.07, 0.84, 0.74))
+fig, ax = dmc.figure("portrait", map_box=(0.08, 0.10, 0.84, 0.71))
 l, b, r, t = rasterio.transform.array_bounds(elev.shape[0], elev.shape[1], tf)
 pad = 3000
 bb = Transformer.from_crs(CRS, 4326, always_xy=True).transform_bounds(l - pad, b - pad, r + pad, t + pad)
 z, ztf = terrain.dem(bb, crs=CRS, res=30)
 ax.imshow(terrain.relief(z, 30, strength=0.6, exaggerate=1.2), extent=terrain.extent(ztf, z.shape), interpolation="bilinear")
-ax.imshow(depth, extent=(l, r, b, t), cmap=dmc.SEQ_WATER, vmin=0, vmax=520, interpolation="bilinear")
+from matplotlib.colors import LinearSegmentedColormap  # noqa: E402
+LAKE = LinearSegmentedColormap.from_list("tahoe", ["#cfe3ea", "#7fb0c4", dmc.LAKE, "#1f3a4a", "#0f2230"])  # shallow water stays blue
+ax.imshow(depth, extent=(l, r, b, t), cmap=LAKE, vmin=0, vmax=520, interpolation="antialiased")
 cs = ax.contour(np.flipud(depth.filled(np.nan)), levels=[100, 200, 300, 400, 500], extent=(l, r, b, t),
                 colors=[dmc.PARCHMENT], linewidths=0.4, alpha=0.7)
 ax.clabel(cs, fmt=lambda v: f"{v:.0f} m", fontsize=6, colors=dmc.PARCHMENT)
@@ -105,7 +107,7 @@ dmc.frame(
     fig, DAY,
     subtitle=(f"The floor of Lake Tahoe from the USGS multibeam survey: {depth.max():.0f} m at the deepest point,\n"
               "darker as it gets deeper. Contours every 100 m."),
-    source="USGS Digital Data Series 55 (Lake Tahoe multibeam bathymetry, 1998) · Copernicus DEM GLO-30",
+    source="USGS DDS-55 multibeam bathymetry (1998) · Copernicus DEM GLO-30",
     note="Depth below a lake surface of 1,897 m; the real surface moves a metre or two with the seasons.",
 )
 dmc.save(fig, DAY, alt=f"Map of Lake Tahoe's floor shaded blue by depth to {depth.max():.0f} m, with 100 m contours and the deepest point marked.")
