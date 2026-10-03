@@ -174,5 +174,6 @@ def scalebar(ax, km: float, loc=(0.05, 0.05), color=INK, crs_units_per_km: float
 def label(ax, x, y, text, size=8, color=INK, halo=PARCHMENT, **kw):
     """A place label with a paper-coloured halo so it reads over anything."""
     import matplotlib.patheffects as pe
+    kw.setdefault("clip_on", True)                # labels outside the map aren't drawn
     return ax.text(x, y, text, family=TEXT, size=size, color=color,
                    path_effects=[pe.withStroke(linewidth=2.5, foreground=halo)], **kw)

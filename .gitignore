@@ -9,3 +9,4 @@ google_auth
 2026/.pixi/
 __pycache__/
 render.log
+2026/.cache/
