@@ -18,7 +18,7 @@ if not folders:
 folder = folders[0]
 for script, cmd in (("make.py", [sys.executable, "make.py"]), ("make.R", ["Rscript", "make.R"])):
     if (folder / script).exists():
-        print(f"▶ {folder.name}/{script}")
+        print(f"> {folder.name}/{script}", flush=True)
         rc = subprocess.run(cmd, cwd=folder).returncode
         if rc:
             sys.exit(f"{script} failed with exit code {rc}")
