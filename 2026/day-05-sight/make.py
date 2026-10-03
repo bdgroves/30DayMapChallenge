@@ -70,8 +70,15 @@ with rasterio.open(dem_utm) as src:
     z = src.read(1, out_shape=(h, w), resampling=Resampling.average)
     tf = src.transform * src.transform.scale(src.width / w, src.height / h)
     full_tf, full_shape = src.transform, src.shape
+# gdal_viewshed crops its output to the max distance: paste it back onto the DEM grid
+vis_full = np.zeros(full_shape, dtype=bool)
 with rasterio.open(view) as src:
-    vis_full = src.read(1) == 255
+    vv = src.read(1) == 255
+    c0 = int(round((src.transform.c - full_tf.c) / full_tf.a))
+    r0 = int(round((src.transform.f - full_tf.f) / full_tf.e))
+r1, c1 = max(r0, 0), max(c0, 0)
+r2, c2 = min(r0 + vv.shape[0], full_shape[0]), min(c0 + vv.shape[1], full_shape[1])
+vis_full[r1:r2, c1:c2] = vv[r1 - r0:r2 - r0, c1 - c0:c2 - c0]
 # visible at display size if any full-resolution cell in the block is visible
 v = vis_full[:h * SHOW, :w * SHOW].reshape(h, SHOW, w, SHOW).any(axis=(1, 3))
 
