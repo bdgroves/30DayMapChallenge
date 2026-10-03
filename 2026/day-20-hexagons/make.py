@@ -58,7 +58,9 @@ FIELDS = ["lat", "lon", "species", "year", "basis", "uncert_m", "country"]
 
 def page(y0, y1, off):
     js = fetch.json_get(f"{API}/occurrence/search",
-                        dict(genusKey=key, year=f"{y0},{y1}", limit=300, offset=off, **BASE), timeout=180, tries=6)
+                        dict(genusKey=key, year=f"{y0},{y1}", limit=300, offset=off, **BASE), timeout=60, tries=4)
+    if off % 15000 == 0:
+        print(f"  {y0}-{y1} offset {off:,}", flush=True)
     return [(r.get("decimalLatitude"), r.get("decimalLongitude"), r.get("species"), r.get("year"),
              r.get("basisOfRecord"), r.get("coordinateUncertaintyInMeters"), r.get("countryCode")) for r in js["results"]]
 
