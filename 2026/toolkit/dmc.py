@@ -125,7 +125,7 @@ def frame(fig, day: int, subtitle: str = "", source: str = "", title: str | None
     ink = WHITE if dark else INK
     soft = MIST if dark else STONE
     w, h = fig.get_size_inches()
-    scale = w / 8
+    scale = min(w, h) / 8          # text sized to the short side; positions are fractions of the figure
     left = 0.05
     fig.text(left, 0.965, f"#30DAYMAPCHALLENGE  ·  DAY {day:02d}  ·  {d['theme'].upper()}",
              family=MONO, size=8.5 * scale, color=LAVA, va="top")

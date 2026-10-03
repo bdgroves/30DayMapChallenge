@@ -117,7 +117,8 @@ ax.set_aspect("equal")
 # fade everything outside the county
 outside = gpd.GeoSeries([gpd.GeoSeries.from_xy([x0], [y0], crs=CRS).iloc[0].buffer(1e6).difference(
     county.geometry.iloc[0])], crs=CRS)
-norm = Normalize(FIRST, int(fires["YEAR_"].max()))
+LAST = int(fires["YEAR_"].max())
+norm = Normalize(FIRST, LAST)
 fires.plot(ax=ax, color=[dmc.SEQ_HEAT(0.15 + 0.85 * norm(y)) for y in fires["YEAR_"]], alpha=0.42,
            edgecolor="none", zorder=2)
 outside.plot(ax=ax, color=dmc.PARCHMENT, alpha=0.72, zorder=3)
@@ -149,14 +150,14 @@ lx = fig.add_axes((px, 0.47, 0.25, 0.03))
 grad = np.linspace(0, 1, 256)[None, :]
 lx.imshow(grad, aspect="auto", cmap=dmc.SEQ_HEAT, alpha=0.8, extent=(FIRST, norm.vmax, 0, 1), vmin=-0.18, vmax=1)
 lx.set_yticks([])
-lx.set_xticks([1900, 1950, 2000, norm.vmax])
+lx.set_xticks([1900, 1950, 2000, LAST])
 lx.tick_params(labelsize=7, length=2, colors=dmc.STONE)
 for t in lx.get_xticklabels():
     t.set_fontfamily(dmc.MONO)
 for sp in lx.spines.values():
     sp.set_visible(False)
 fig.text(px, 0.515, "YEAR OF THE FIRE  ·  OVERLAPS SHOW DARKER", family=dmc.MONO, size=6.8, color=dmc.STONE)
-fig.text(px, 0.385, "LARGEST FIRES IN THE RECORD", family=dmc.MONO, size=6.8, color=dmc.STONE)
+fig.text(px, 0.385, "LARGEST FIRES THAT REACHED THE COUNTY", family=dmc.MONO, size=6.8, color=dmc.STONE)
 for i, (_, f) in enumerate(largest.iterrows()):
     y = 0.36 - i * 0.034
     fig.text(px, y, f"{f['YEAR_']}", family=dmc.MONO, size=8, color=dmc.LAVA, va="center")
@@ -172,6 +173,6 @@ dmc.frame(
 )
 dmc.save(fig, DAY, alt=(
     f"Map of Tuolumne County, California, covered in overlapping semi-transparent fire perimeters from {FIRST} to "
-    f"{norm.vmax}, pale for old fires and red for recent ones. The 2013 Rim Fire, outlined with a dashed line, fills "
+    f"{LAST}, pale for old fires and red for recent ones. The 2013 Rim Fire, outlined with a dashed line, fills "
     f"much of the middle of the county east of Groveland. {burned:.0%} of the county has burned at least once and "
     f"{twice:.0%} twice or more."))
