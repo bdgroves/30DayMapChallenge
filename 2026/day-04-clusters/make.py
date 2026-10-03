@@ -78,7 +78,7 @@ dmc.label(ax, sx - RADIUS_KM * 1000 * 0.74, sy + RADIUS_KM * 1000 * 0.70, f"{RAD
 
 bg = q[~in_swarm]
 ax.scatter(bg["x"], bg["y"], s=2 + 1.2 * np.clip(bg["mag"], 0, 4) ** 2, color=dmc.ASH, alpha=0.35, lw=0)
-for d in reversed(top):
+for d in top:                       # largest first, so smaller clusters stay visible on top
     g = q[q["c"] == d["c"]]
     ax.scatter(g["x"], g["y"], s=3 + 1.6 * np.clip(g["mag"], 0, 4) ** 2, color=colour[d["c"]], alpha=0.75,
                lw=0, zorder=3)
@@ -89,7 +89,7 @@ ax.scatter([sx], [sy], marker="^", s=90, color=dmc.INK, edgecolor=dmc.PARCHMENT,
 dmc.label(ax, sx + 1500, sy + 1500, "Mount Rainier", size=8.5, weight="bold")
 for name, (lon, lat) in {"Paradise": (-121.735, 46.786), "Sunrise": (-121.524, 46.915),
                          "Longmire": (-121.811, 46.750), "Ashford": (-122.031, 46.759),
-                         "Carbonado": (-122.050, 47.080), "Packwood": (-121.673, 46.608)}.items():
+                         "Carbonado": (-122.050, 47.080)}.items():
     x, y = to_utm.transform(lon, lat)
     ax.scatter([x], [y], s=6, color=dmc.INK, zorder=4)
     dmc.label(ax, x + 900, y, name, size=7, va="center")
@@ -105,7 +105,7 @@ iax.imshow(terrain.relief(z, 30, strength=0.6), extent=terrain.extent(tf, z.shap
 near = q[(abs(q["x"] - sx) < Z) & (abs(q["y"] - sy) < Z)]
 nb = near[~near["c"].isin(colour)]
 iax.scatter(nb["x"], nb["y"], s=3, color=dmc.ASH, alpha=0.4, lw=0)
-for d in reversed(top):
+for d in top:                       # largest first, so smaller clusters stay visible on top
     g = near[near["c"] == d["c"]]
     iax.scatter(g["x"], g["y"], s=5 + 2 * np.clip(g["mag"], 0, 4) ** 2, color=colour[d["c"]], alpha=0.7, lw=0)
 iax.scatter([sx], [sy], marker="^", s=60, color=dmc.INK, edgecolor=dmc.PARCHMENT, lw=0.8, zorder=5)
