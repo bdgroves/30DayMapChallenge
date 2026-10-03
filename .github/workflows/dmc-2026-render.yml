@@ -26,7 +26,7 @@ jobs:
         with:
           manifest-path: 2026/pixi.toml
           locked: false
-          cache: true
+          cache: ${{ hashFiles('2026/pixi.lock') != '' }}
       - name: Render day ${{ inputs.day }}
         run: pixi run render ${{ inputs.day }}
       - name: Commit the map (and the pixi lock, so Windows gets the same versions)
