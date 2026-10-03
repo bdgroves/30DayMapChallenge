@@ -57,7 +57,7 @@ with rasterio.open(dem_utm) as src:
     row, col = src.index(sx, sy)
     win = src.read(1, window=((row - 3, row + 4), (col - 3, col + 4)))
     ground = float(win.max())
-print(f"  DEM summit {ground:.0f} m; observer raised {SUMMIT_M - ground:.0f} m to {SUMMIT_M:.0f} m")
+print(f"  DEM summit {ground:.0f} m (true summit {SUMMIT_M:.0f} m); observer {max(1.0, SUMMIT_M - ground):.0f} m above the DEM")
 
 if not view.exists():
     run("gdal_viewshed", "-ox", sx, "-oy", sy, "-oz", max(1.0, SUMMIT_M - ground), "-tz", 2,
@@ -72,7 +72,8 @@ with rasterio.open(dem_utm) as src:
     full_tf, full_shape = src.transform, src.shape
 with rasterio.open(view) as src:
     vis_full = src.read(1) == 255
-    v = src.read(1, out_shape=(h, w), resampling=Resampling.max) == 255
+# visible at display size if any full-resolution cell in the block is visible
+v = vis_full[:h * SHOW, :w * SHOW].reshape(h, SHOW, w, SHOW).any(axis=(1, 3))
 
 cell_km2 = 0.09 * 0.09
 area = vis_full.sum() * cell_km2
