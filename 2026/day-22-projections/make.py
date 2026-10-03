@@ -73,10 +73,10 @@ for _, p in places.iterrows():
 ax.scatter([0], [0], s=30, color=dmc.INK, zorder=7)
 near = places[places["km"] < 2500].sort_values("km")
 if len(near):
-    fig.text(0.08, 0.20, "CLOSE TO HOME", family=dmc.MONO, size=6.8, color=dmc.STONE)
+    fig.text(0.05, 0.20, "CLOSE TO HOME", family=dmc.MONO, size=6.8, color=dmc.STONE)
     for i, (_, p) in enumerate(near.iterrows()):
-        fig.text(0.08, 0.175 - i * 0.022, f"{p['name']}", size=8, va="center")
-        fig.text(0.27, 0.175 - i * 0.022, f"{p['km']:,.0f} km", family=dmc.MONO, size=7.5, va="center", ha="right", color=dmc.STONE)
+        fig.text(0.05, 0.175 - i * 0.022, f"{p['name']}", size=8, va="center")
+        fig.text(0.235, 0.175 - i * 0.022, f"{p['km']:,.0f} km", family=dmc.MONO, size=7.5, va="center", ha="right", color=dmc.STONE)
 dmc.label(ax, 250_000, -350_000, "Lakewood", size=8, weight="bold", zorder=7)
 ax.set_xlim(-R * 1.03, R * 1.03)
 ax.set_ylim(-R * 1.03, R * 1.03)
@@ -84,8 +84,8 @@ ax.set_aspect("equal")
 
 dmc.frame(
     fig, DAY,
-    subtitle=(f"The Earth as seen from Lakewood: every straight line from the centre is the shortest route, true to scale.\n"
-              f"{far['name']} is {far['km']:,.0f} km away. The rim is the far side of the planet."),
+    subtitle=(f"Every straight line from Lakewood is the shortest route, true to scale.\n"
+              f"{far['name']} is {far['km']:,.0f} km away; the rim is the far side of the planet."),
     source="Natural Earth · azimuthal equidistant projection centred on 47.17° N, 122.52° W",
     note="Only distances from the centre are true. Shapes stretch more the farther out they are.",
 )
