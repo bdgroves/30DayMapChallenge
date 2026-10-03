@@ -94,9 +94,9 @@
     "USGS ComCat earthquake catalog (API, no key)"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-04-clusters",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-04-clusters/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-04-clusters/out/thumb.jpg",
+   "alt": "Shaded relief map of Mount Rainier with 11,408 earthquakes since 2000 as dots within a 30 km circle. Most are grey background quakes, with coloured clusters marking swarms; the largest, 1,362 quakes in July 2025, sits just under the summit. A bar chart of quakes per month shows a spike for each swarm.",
    "post": null
   },
   {

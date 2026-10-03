@@ -1,0 +1,1 @@
+Shaded relief map of Mount Rainier with 11,408 earthquakes since 2000 as dots within a 30 km circle. Most are grey background quakes, with coloured clusters marking swarms; the largest, 1,362 quakes in July 2025, sits just under the summit. A bar chart of quakes per month shows a spike for each swarm.
