@@ -74,7 +74,7 @@ ax.imshow(terrain.relief(z, 30, strength=0.6), extent=terrain.extent(tf, z.shape
 ax.set_xlim(sx - r, sx + r)
 ax.set_ylim(sy - r, sy + r)
 ax.add_patch(Circle((sx, sy), RADIUS_KM * 1000, fill=False, ec=dmc.STONE, lw=0.6, ls=(0, (3, 3))))
-dmc.label(ax, sx + RADIUS_KM * 1000 * 0.72, sy - RADIUS_KM * 1000 * 0.72, f"{RADIUS_KM} km", size=7, color=dmc.STONE)
+dmc.label(ax, sx - RADIUS_KM * 1000 * 0.74, sy + RADIUS_KM * 1000 * 0.70, f"{RADIUS_KM} km", size=7, color=dmc.STONE)
 
 bg = q[~in_swarm]
 ax.scatter(bg["x"], bg["y"], s=2 + 1.2 * np.clip(bg["mag"], 0, 4) ** 2, color=dmc.ASH, alpha=0.35, lw=0)
@@ -93,6 +93,30 @@ for name, (lon, lat) in {"Paradise": (-121.735, 46.786), "Sunrise": (-121.524, 4
     x, y = to_utm.transform(lon, lat)
     ax.scatter([x], [y], s=6, color=dmc.INK, zorder=4)
     dmc.label(ax, x + 900, y, name, size=7, va="center")
+
+wx, wy = to_utm.transform(-122.06, 46.97)
+dmc.label(ax, wx, wy, "Western Rainier\nseismic zone", size=7.5, style="italic", color=dmc.ASH, ha="center")
+
+# inset: the summit, 10 km across, where four of the clusters overlap
+Z = 5000
+ax.add_patch(plt.Rectangle((sx - Z, sy - Z), 2 * Z, 2 * Z, fill=False, ec=dmc.INK, lw=0.7, zorder=6))
+iax = fig.add_axes((0.625, 0.283, 0.2, 0.2))
+iax.imshow(terrain.relief(z, 30, strength=0.6), extent=terrain.extent(tf, z.shape), interpolation="bilinear")
+near = q[(abs(q["x"] - sx) < Z) & (abs(q["y"] - sy) < Z)]
+nb = near[~near["c"].isin(colour)]
+iax.scatter(nb["x"], nb["y"], s=3, color=dmc.ASH, alpha=0.4, lw=0)
+for d in reversed(top):
+    g = near[near["c"] == d["c"]]
+    iax.scatter(g["x"], g["y"], s=5 + 2 * np.clip(g["mag"], 0, 4) ** 2, color=colour[d["c"]], alpha=0.7, lw=0)
+iax.scatter([sx], [sy], marker="^", s=60, color=dmc.INK, edgecolor=dmc.PARCHMENT, lw=0.8, zorder=5)
+iax.set_xlim(sx - Z, sx + Z)
+iax.set_ylim(sy - Z, sy + Z)
+iax.set_xticks([])
+iax.set_yticks([])
+for sp in iax.spines.values():
+    sp.set_color(dmc.INK)
+    sp.set_linewidth(0.8)
+iax.set_title("THE SUMMIT, 10 KM ACROSS", family=dmc.MONO, size=6.3, color=dmc.INK, pad=3, loc="left")
 
 # legend of swarms
 lx = 0.055
