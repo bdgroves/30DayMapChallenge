@@ -106,7 +106,7 @@ print(f"= {len(segs)} pieces in the park: {total_ways_km:.2f} km of path, the ro
 # ── map ──────────────────────────────────────────────────────────────────────
 MAPBOX = basemap.available()
 CRS = "EPSG:3857" if MAPBOX else UTM
-fig, ax = dmc.figure("square", map_box=(0.05, 0.09, 0.90, 0.72))
+fig, ax = dmc.figure("square", map_box=(0.05, 0.095, 0.90, 0.685))
 P = gpd.GeoSeries([park_poly], crs=4326).to_crs(CRS)
 x0, y0, x1, y1 = P.total_bounds
 pad = (x1 - x0) * 0.12
