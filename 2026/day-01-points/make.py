@@ -172,7 +172,7 @@ fig.text(0.60, 0.795, f"EVERY FIND · {n_countries} COUNTRIES", family=dmc.MONO,
 yax = fig.add_axes((0.60, 0.40, 0.35, 0.08))
 per = g.groupby("year").size().reindex(range(g["year"].min(), g["year"].max() + 1), fill_value=0)
 yax.bar(per.index, per.values, color=dmc.ASH, width=0.8)    # height is the count; colour is only for the map
-for y in per.sort_values(ascending=False).index[:3]:
+for y in per.sort_values(ascending=False).index[:1]:
     yax.text(y, per[y] + per.max() * 0.03, f"{per[y]}", ha="center", va="bottom", family=dmc.MONO, size=6, color=dmc.INK)
 yax.set_ylim(0, per.max() * 1.18)
 for sp in ("top", "right", "left"):

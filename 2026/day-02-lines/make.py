@@ -124,6 +124,7 @@ connector = None
 if len(ends) >= 2:
     a, b = max(((p, q) for p in ends for q in ends), key=lambda pq: pq[0].distance(pq[1]))
     G = nx.Graph()
+    inpark = gpd.GeoSeries([park_poly.buffer(0.0002)], crs=4326).to_crs(UTM).iloc[0]   # the park's own paths, not the city's
     for el in paths.get("elements", []):
         t = el.get("tags", {})
         if el.get("type") != "way" or "geometry" not in el or "seawall" in (t.get("name") or "").lower():
@@ -131,7 +132,8 @@ if len(ends) >= 2:
         xs, ys = to_utm.transform([q["lon"] for q in el["geometry"]], [q["lat"] for q in el["geometry"]])
         nodes = [(round(x, 1), round(y, 1)) for x, y in zip(xs, ys)]
         for u, v in zip(nodes, nodes[1:]):
-            G.add_edge(u, v, weight=((u[0] - v[0]) ** 2 + (u[1] - v[1]) ** 2) ** 0.5)
+            if inpark.contains(Point((u[0] + v[0]) / 2, (u[1] + v[1]) / 2)):
+                G.add_edge(u, v, weight=((u[0] - v[0]) ** 2 + (u[1] - v[1]) ** 2) ** 0.5)
     if G.number_of_nodes():
         nodes = np.array(list(G.nodes))
         snap = lambda pt: tuple(nodes[np.argmin((nodes[:, 0] - pt.x) ** 2 + (nodes[:, 1] - pt.y) ** 2)])  # noqa: E731
@@ -197,8 +199,7 @@ dmc.frame(
               + (f"and {connector.length / 1000:.1f} km back past Lost Lagoon to close the loop, {loop_km:.1f} km all the way round."
                  if connector is not None else "walked, run, cycled and skated.")),
     source="OpenStreetMap contributors (Overpass API)" + (" · " + basemap.CREDIT if drawn else ""),
-    note=("The Seawall is solid; the dashed line is the park's footpath back to the start. Where walkers and cyclists "
-          "have separate paths, both are drawn and the cycling route is measured."),
+    note="Solid: the Seawall, measured along its cycling route. Dashed: the park's own footpath back to the start.",
 )
 dmc.save(fig, DAY, alt=(
     f"Map of Stanley Park in Vancouver with the Seawall drawn as a red line around its shore, about {route_km:.1f} km, "
