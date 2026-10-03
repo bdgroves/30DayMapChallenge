@@ -104,8 +104,10 @@ def day_dir(day: int) -> Path:
     return found[0]
 
 
-def figure(size: str = "square", dark: bool = False, map_box=(0.05, 0.11, 0.90, 0.70)):
-    """A figure in one of SIZES with one map axes inside the frame. Returns (fig, ax)."""
+def figure(size: str = "square", dark: bool = False, map_box=(0.05, 0.10, 0.90, 0.69)):
+    """A figure in one of SIZES with one map axes inside the frame. Returns (fig, ax).
+
+    The default map box leaves room for a two-line subtitle; pass map_box to change it."""
     paper = NIGHT if dark else PARCHMENT
     fig = plt.figure(figsize=SIZES[size], facecolor=paper)
     fig._dmc_dark = dark

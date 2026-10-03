@@ -95,7 +95,7 @@ words = ["weak", "weak", "light", "moderate", "strong", "very strong", "severe"]
 colors = [dmc.SEQ_HEAT(x) for x in np.linspace(0.12, 1.0, len(names))]
 cmap, norm = ListedColormap(colors), BoundaryNorm(bounds, len(names))
 
-fig, ax = dmc.figure("square", map_box=(0.03, 0.10, 0.94, 0.72))
+fig, ax = dmc.figure("square", map_box=(0.03, 0.09, 0.94, 0.715))
 canada.plot(ax=ax, color=dmc.CREAM, edgecolor=dmc.MIST, lw=0.5)
 states.plot(ax=ax, color=dmc.CREAM, edgecolor=dmc.MIST, lw=0.5)
 cells.plot(ax=ax, column="cdi", cmap=cmap, norm=norm, edgecolor="none", alpha=0.95)
@@ -115,12 +115,15 @@ for name, (x, y) in cities.items():
     p = gpd.GeoSeries([Point(x, y)], crs=4326).to_crs(CRS).iloc[0]
     if frame_box[0] < p.x < frame_box[2] and frame_box[1] < p.y < frame_box[3]:
         ax.scatter([p.x], [p.y], s=7, color=dmc.INK, zorder=4)
-        dx, ha = (-7000, "right") if name in ("Lakewood", "Olympia", "Vancouver") else (7000, "left")
-        dmc.label(ax, p.x + dx, p.y, name, size=7.5, ha=ha, va="center")
+        dx, dy, ha = {"Lakewood": (-8000, 9000, "right"), "Olympia": (-7000, -3000, "right"),
+                      "Vancouver": (-7000, 0, "right")}.get(name, (7000, 0, "left"))
+        dmc.label(ax, p.x + dx, p.y + dy, name, size=7.5, ha=ha, va="center")
 
 # legend: intensity scale
-lax = fig.add_axes((0.70, 0.13, 0.25, 0.20))
+lax = fig.add_axes((0.69, 0.115, 0.26, 0.215))
 lax.set_axis_off()
+lax.add_patch(plt.Rectangle((-0.06, -0.04), 1.1, 1.1, color=dmc.PARCHMENT, alpha=0.93, transform=lax.transAxes,
+                            clip_on=False))
 lax.text(0, 1.0, "WHAT PEOPLE FELT", family=dmc.MONO, size=7, color=dmc.STONE, va="top")
 for i, (n, w, c) in enumerate(zip(names, words, colors)):
     y = 0.84 - i * 0.12
@@ -130,9 +133,9 @@ for i, (n, w, c) in enumerate(zip(names, words, colors)):
 
 dmc.frame(
     fig, DAY,
-    subtitle=(f"{when:%B} {when.day}, {when.year}, {when.hour % 12 or 12}:{when:%M} {'a.m.' if when.hour < 12 else 'p.m.'}. Magnitude {props['mag']:.1f}, {depth:.0f} km beneath the\n"
-              f"south end of Puget Sound. {responses:,} people told the USGS what they felt; each\n"
-              f"10 km square shows the average intensity they reported."),
+    subtitle=(f"{when:%B} {when.day}, {when.year}, {when.hour % 12 or 12}:{when:%M} {'a.m' if when.hour < 12 else 'p.m'}. Magnitude {props['mag']:.1f}, "
+              f"{depth:.0f} km beneath the south end of Puget Sound.\n"
+              f"{responses:,} people told the USGS what they felt, averaged here into 10 km squares."),
     source=f"USGS Did You Feel It? (event {EVENT}) · U.S. Census Bureau · Natural Earth",
 )
 dmc.save(fig, DAY, alt=(
