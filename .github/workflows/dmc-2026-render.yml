@@ -28,7 +28,12 @@ jobs:
           locked: false
           cache: ${{ hashFiles('2026/pixi.lock') != '' }}
       - name: Render day ${{ inputs.day }}
-        run: pixi run render ${{ inputs.day }}
+        run: |
+          pixi run render ${{ inputs.day }} > render.log 2>&1 || {
+            cat render.log
+            echo "::error title=render day ${{ inputs.day }}::$(tail -25 render.log | sed ':a;N;$!ba;s/%/%25/g;s/\n/%0A/g')"
+            exit 1; }
+          cat render.log
       - name: Commit the map (and the pixi lock, so Windows gets the same versions)
         run: |
           git config user.name "github-actions[bot]"
