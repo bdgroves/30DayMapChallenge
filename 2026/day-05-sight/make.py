@@ -29,8 +29,8 @@ DATA.mkdir(exist_ok=True)
 CRS = "EPSG:32610"
 SUMMIT = (-121.7603, 46.8529)
 SUMMIT_M = 4392.0                                   # Columbia Crest, NAVD88
-BOUNDS = (-125.6, 43.9, -116.6, 50.2)               # lon/lat area searched
-MAX_KM = 350
+BOUNDS = (-127.0, 42.4, -114.6, 51.3)               # lon/lat area searched
+MAX_KM = 500
 SHOW = 4                                            # display at 4 × 90 m
 
 
@@ -48,9 +48,9 @@ if not dem_utm.exists():
     paths = terrain.tiles(BOUNDS, res=90)
     vrt = DATA / "mosaic.vrt"
     run("gdalbuildvrt", "-q", vrt, *paths)
-    l, b = to_utm.transform(BOUNDS[0] + 1.2, BOUNDS[1] + 0.3)
-    r, t = to_utm.transform(BOUNDS[2] - 1.2, BOUNDS[3] - 0.3)
-    run("gdalwarp", "-q", "-t_srs", CRS, "-tr", 90, 90, "-r", "bilinear", "-te", l - 60000, b, r + 60000, t,
+    l, b = sx - MAX_KM * 1000, sy - MAX_KM * 1000
+    r, t = sx + MAX_KM * 1000, sy + MAX_KM * 1000
+    run("gdalwarp", "-q", "-t_srs", CRS, "-tr", 90, 90, "-r", "bilinear", "-te", l, b, r, t,
         "-wo", "INIT_DEST=0", "-co", "COMPRESS=DEFLATE", "-co", "TILED=YES", "-co", "BIGTIFF=IF_SAFER", vrt, dem_utm)
 
 with rasterio.open(dem_utm) as src:
@@ -66,6 +66,7 @@ if not view.exists():
 
 # ── read at display resolution ───────────────────────────────────────────────
 with rasterio.open(dem_utm) as src:
+    land_full = src.read(1) > 0
     h, w = src.height // SHOW, src.width // SHOW
     z = src.read(1, out_shape=(h, w), resampling=Resampling.average)
     tf = src.transform * src.transform.scale(src.width / w, src.height / h)
@@ -79,6 +80,8 @@ with rasterio.open(view) as src:
 r1, c1 = max(r0, 0), max(c0, 0)
 r2, c2 = min(r0 + vv.shape[0], full_shape[0]), min(c0 + vv.shape[1], full_shape[1])
 vis_full[r1:r2, c1:c2] = vv[r1 - r0:r2 - r0, c1 - c0:c2 - c0]
+vis_full &= land_full                               # ground only: the sea and Puget Sound don't count
+del land_full
 # visible at display size if any full-resolution cell in the block is visible
 v = vis_full[:h * SHOW, :w * SHOW].reshape(h, SHOW, w, SHOW).any(axis=(1, 3))
 
@@ -91,11 +94,13 @@ dist = np.hypot(xs - sx, ys - sy)
 far = int(np.argmax(dist))
 to_ll = Transformer.from_crs(CRS, 4326, always_xy=True)
 far_lon, far_lat = to_ll.transform(xs[far], ys[far])
-print(f"  visible: {area:,.0f} km²; farthest {dist[far]/1000:.0f} km at {far_lat:.3f}, {far_lon:.3f}")
+bearing = (np.degrees(np.arctan2(xs[far] - sx, ys[far] - sy)) + 360) % 360
+compass = ["north", "northeast", "east", "southeast", "south", "southwest", "west", "northwest"][int((bearing + 22.5) // 45) % 8]
+print(f"  visible: {area:,.0f} km²; farthest {dist[far]/1000:.0f} km to the {compass} at {far_lat:.3f}, {far_lon:.3f}")
 
 
-def seen(lon, lat, radius_cells=2):
-    """Is the summit visible from (near) this point, on the full-resolution grid?"""
+def seen(lon, lat, radius_cells=11):
+    """Is the summit visible from somewhere within about 1 km of this point?"""
     x, y = to_utm.transform(lon, lat)
     c = int((x - full_tf.c) / full_tf.a)
     r = int((y - full_tf.f) / full_tf.e)
@@ -139,17 +144,23 @@ for name, (lon, lat) in places.items():
 fx, fy = xs[far], ys[far]
 ax.plot([sx, fx], [sy, fy], color=dmc.INK, lw=0.6, ls=(0, (1, 2)), zorder=5)
 ax.scatter([fx], [fy], s=10, color=dmc.INK, zorder=6)
+# label the farthest view where its line leaves the frame (or at the point if it's inside)
+tx = [(lim - sx) / (fx - sx) for lim in (x0, x1) if fx != sx and 0 < (lim - sx) / (fx - sx) < 1]
+ty = [(lim - sy) / (fy - sy) for lim in (y0, y1) if fy != sy and 0 < (lim - sy) / (fy - sy) < 1]
+tt = min(tx + ty + [1.0]) * 0.93
+dmc.label(ax, sx + (fx - sx) * tt, sy + (fy - sy) * tt, f"farthest view\n{dist[far]/1000:.0f} km",
+          size=7, style="italic", ha="center", va="center", zorder=6)
 
 seen_list = [k for k, s in vis_places.items() if s]
 dmc.frame(
     fig, DAY,
-    subtitle=(f"Every place within {MAX_KM} km with a clear line of sight to the summit: {area:,.0f} km² of ground, "
-              f"in red.\nThe farthest is {dist[far]/1000:.0f} km away. Cities with a view in red, without in white."),
+    subtitle=(f"Every place with a clear line of sight to the summit, in red: {area:,.0f} km² of ground, the farthest\n"
+              f"{dist[far]/1000:.0f} km to the {compass}. Cities in red have a view within a kilometre of downtown."),
     source="Copernicus DEM GLO-90 · gdal_viewshed (Earth curvature, refraction 0.857)",
     note="Terrain only, at 90 m: trees, buildings and weather can hide the mountain from places marked as visible.",
 )
 dmc.save(fig, DAY, alt=(
     f"Shaded relief map of Washington and northern Oregon with the areas that can see Mount Rainier's summit "
-    f"shaded red: {area:,.0f} square kilometres, reaching {dist[far]/1000:.0f} km at the farthest. "
+    f"shaded red: {area:,.0f} square kilometres of land, reaching {dist[far]/1000:.0f} km to the {compass} at the farthest. "
     f"Cities with a line of sight: {', '.join(seen_list)}. "
     f"Cities without: {', '.join(k for k, s in vis_places.items() if not s)}."))
