@@ -2,8 +2,7 @@
 Day 2 · Lines — The Seawall
 
 The path around Stanley Park in Vancouver: the Seawall, about nine kilometres of it between the
-park and the sea. One line, drawn from OpenStreetMap, with a marker every kilometre and the
-landmarks along the way.
+park and the sea. One line, drawn from OpenStreetMap, with the landmarks along the way.
 
 (make_strava.py is the earlier plan for this day, every Strava activity near home, kept for later.)
 
@@ -32,8 +31,7 @@ BBOX = (49.284, -123.165, 49.318, -123.112)        # S, W, N, E
 OVERPASS = "https://overpass-api.de/api/interpreter"
 UTM = "EPSG:32610"
 LANDMARKS = ["Siwash Rock", "Prospect Point", "Brockton Point Lighthouse", "Third Beach", "Second Beach",
-             "Lions Gate Bridge", "Lumberman's Arch", "Lost Lagoon", "Beaver Lake", "Girl in a Wetsuit",
-             "Nine O'Clock Gun", "Hallelujah Point"]
+             "Lumberman's Arch", "Beaver Lake", "Girl in a Wetsuit", "Nine O'Clock Gun"]
 
 
 def overpass(q, name):
@@ -80,18 +78,16 @@ park_poly = unary_union(polys(park))
 segs = lines(wall)
 print(f"= {len(segs)} OSM ways named Seawall; park polygon area {gpd.GeoSeries([park_poly], crs=4326).to_crs(UTM).area.iloc[0] / 1e6:.2f} km²")
 # keep the Seawall around the park, not the stretches beyond it
-near = park_poly.buffer(0.0015)                         # about 110 m
-segs = [s for s in segs if s.intersects(near)]
+near = park_poly.buffer(0.0006)                         # about 45 m: the shore path, not beyond the park
+segs = [g for s in segs for g in getattr(s.intersection(near), "geoms", [s.intersection(near)])
+        if g.geom_type == "LineString" and g.length > 0]
 W = gpd.GeoSeries(segs, crs=4326).to_crs(UTM)
 total_ways_km = W.length.sum() / 1000
 # where there are separate walking and cycling paths, measure the route once: a 25 m band around
 # every path, divided by its width, is the length of the route itself
 band = unary_union(W.buffer(12.5))
 route_km = band.area / 25 / 1000
-loop = linemerge(unary_union(list(W)))
-longest = max(getattr(loop, "geoms", [loop]), key=lambda g: g.length)
-print(f"= {len(segs)} ways near the park: {total_ways_km:.2f} km of path, the route about {route_km:.2f} km; "
-      f"longest continuous piece {longest.length / 1000:.2f} km")
+print(f"= {len(segs)} pieces in the park: {total_ways_km:.2f} km of path, the route about {route_km:.2f} km")
 
 # ── map ──────────────────────────────────────────────────────────────────────
 MAPBOX = basemap.available()
@@ -114,14 +110,6 @@ if not drawn:
 gpd.GeoSeries(segs, crs=4326).to_crs(CRS).plot(ax=ax, color=dmc.PARCHMENT, lw=5.2, zorder=4, capstyle="round")
 gpd.GeoSeries(segs, crs=4326).to_crs(CRS).plot(ax=ax, color=dmc.LAVA, lw=2.4, zorder=5, capstyle="round")
 
-# a marker every kilometre along the longest continuous piece
-line = gpd.GeoSeries([longest], crs=UTM)
-L = longest.length
-for k in range(1, int(L // 1000) + 1):
-    p = gpd.GeoSeries([longest.interpolate(k * 1000)], crs=UTM).to_crs(CRS).iloc[0]
-    ax.scatter([p.x], [p.y], s=26, color=dmc.PARCHMENT, edgecolor=dmc.INK, lw=0.8, zorder=6)
-    ax.text(p.x, p.y, str(k), family=dmc.MONO, size=5.5, ha="center", va="center", color=dmc.INK, zorder=7)
-
 # landmarks
 seen = set()
 for el in marks.get("elements", []):
@@ -134,7 +122,10 @@ for el in marks.get("elements", []):
     seen.add(n)
     p = gpd.GeoSeries([Point(c["lon"], c["lat"])], crs=4326).to_crs(CRS).iloc[0]
     ax.scatter([p.x], [p.y], s=8, color=dmc.INK, zorder=6)
-    dmc.label(ax, p.x + (x1 - x0) * 0.012, p.y, n, size=7, style="italic", va="center", zorder=8)
+    east = p.x > (x0 + x1) / 2 + (x1 - x0) * 0.2            # labels on the east side go to the left
+    dx = (x1 - x0) * 0.014
+    dmc.label(ax, p.x - dx if east else p.x + dx, p.y, n, size=7, style="italic", va="center",
+              ha="right" if east else "left", zorder=8)
 print(f"= landmarks: {sorted(seen)}")
 k_m = 1000 / np.cos(np.radians(49.3)) if CRS == "EPSG:3857" else 1000
 dmc.scalebar(ax, 1, loc=(0.05, 0.05), crs_units_per_km=k_m)
@@ -142,10 +133,10 @@ dmc.scalebar(ax, 1, loc=(0.05, 0.05), crs_units_per_km=k_m)
 dmc.frame(
     fig, DAY,
     subtitle=(f"The path around Stanley Park in Vancouver, about {route_km:.1f} km between the forest and the sea.\n"
-              f"Markers every kilometre along the longest unbroken stretch."),
+              f"Walked, run, cycled and skated, all the way round."),
     source="OpenStreetMap contributors (Overpass API)" + (" · " + basemap.CREDIT if drawn else ""),
     note="Where walkers and cyclists have separate paths, both are drawn and the route is measured once.",
 )
 dmc.save(fig, DAY, alt=(
     f"Map of Stanley Park in Vancouver with the Seawall drawn as a red line around its shore, about {route_km:.1f} km, "
-    f"with numbered kilometre markers and landmarks including {', '.join(sorted(seen)[:5])}."))
+    f"and landmarks including {', '.join(sorted(seen)[:5])}."))
