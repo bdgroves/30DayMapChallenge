@@ -298,9 +298,9 @@
     "USGS NLDI (Network-Linked Data Index)"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-13-interactions",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-13-interactions/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-13-interactions/out/thumb.jpg",
+   "alt": "A live map of the lower 48: a blue line traces the path of a raindrop from Groveland, California, down the Tuolumne and San Joaquin rivers past Modesto and Stockton to the Sacramento-San Joaquin Delta, 279 kilometres.",
    "post": null,
    "link": "day-13-interactions/"
   },
