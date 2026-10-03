@@ -27,6 +27,14 @@ jobs:
           manifest-path: 2026/pixi.toml
           locked: false
           cache: ${{ hashFiles('2026/pixi.lock') != '' }}
+      - name: Restore downloaded data (DEM tiles, GBIF pages, census blocks...)
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            2026/day-*/data
+            2026/.cache
+          key: dmc-2026-data-${{ github.run_id }}
+          restore-keys: dmc-2026-data-
       - name: Render day(s) ${{ inputs.day }}
         env:
           MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}     # Mapbox basemaps; maps still render without it
@@ -50,5 +58,13 @@ jobs:
           git diff --staged --quiet && exit 0
           git commit -q -m "2026: render day ${{ inputs.day }} [skip ci]"
           git pull -q --rebase && git push -q
+      - name: Save downloaded data for next time (even if a day failed)
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            2026/day-*/data
+            2026/.cache
+          key: dmc-2026-data-${{ github.run_id }}
       - name: Fail the run if a day failed
         run: grep -q 'RC=0' rc.txt

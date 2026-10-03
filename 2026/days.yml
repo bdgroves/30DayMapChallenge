@@ -42,7 +42,7 @@ days:
       - name: "CAL FIRE FRAP fire perimeters"
         url: https://www.fire.ca.gov/what-we-do/fire-resource-assessment-program/fire-perimeters
     tools: [Python, geopandas]
-    prep: "Download the latest perimeter geodatabase."
+    prep: "Drafted from the CAL FIRE perimeter service; re-run in November for any late-season fires."
     status: draft
 
   - day: 4
@@ -53,7 +53,7 @@ days:
       - name: "USGS ComCat earthquake catalog (API, no key)"
         url: https://earthquake.usgs.gov/fdsnws/event/1/
     tools: [Python, scikit-learn (DBSCAN), matplotlib]
-    prep: "None; the API is open. Can be drafted any time."
+    prep: "Drafted. Re-run in November to pick up the latest earthquakes."
     status: draft
 
   - day: 5
@@ -64,7 +64,7 @@ days:
       - name: "Copernicus DEM GLO-30 (AWS open data)"
         url: https://registry.opendata.aws/copernicus-dem/
     tools: [Python, rasterio, a viewshed routine (GDAL gdal_viewshed)]
-    prep: "Fetch DEM tiles for western Washington; test gdal_viewshed on a small area."
+    prep: "Drafted (Copernicus GLO-90 and gdal_viewshed)."
     status: draft
 
   - day: 6
