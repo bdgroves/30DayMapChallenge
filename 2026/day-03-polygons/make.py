@@ -123,7 +123,7 @@ fires.plot(ax=ax, color=[dmc.SEQ_HEAT(0.15 + 0.85 * norm(y)) for y in fires["YEA
 outside.plot(ax=ax, color=dmc.PARCHMENT, alpha=0.72, zorder=3)
 county.boundary.plot(ax=ax, color=dmc.INK, lw=0.8, zorder=4)
 if len(rim):
-    rim.boundary.plot(ax=ax, color=dmc.INK, lw=0.9, ls=(0, (4, 2)), zorder=5)
+    rim.boundary.plot(ax=ax, color=dmc.INK, lw=0.9, linestyle="dashed", zorder=5)
     c = rim.geometry.union_all().representative_point()
     dmc.label(ax, c.x, c.y, f"Rim Fire, 2013\n{rim_acres:,.0f} acres", size=8, weight="bold", ha="center",
               va="center", zorder=6)

@@ -60,7 +60,7 @@ for c in swarms.index:
     info.append(dict(c=c, n=len(g), start=g["time"].min(), end=g["time"].max(), mmax=g["mag"].max(),
                      x=g["x"].median(), y=g["y"].median(), depth=g["depth"].median()))
 info.sort(key=lambda d: -d["n"])
-top = info[:6]
+top = info[:5]
 colour = {d["c"]: dmc.CATEGORICAL[i] for i, d in enumerate(top)}
 for d in info:
     print(f"  swarm {d['start']:%b %Y}: {d['n']} quakes, M{d['mmax']:.1f} max, {d['depth']:.1f} km deep")
@@ -96,7 +96,7 @@ for name, (lon, lat) in {"Paradise": (-121.735, 46.786), "Sunrise": (-121.524, 4
 
 # legend of swarms
 lx = 0.055
-fig.text(lx, 0.245, "THE BIGGEST SWARMS", family=dmc.MONO, size=7, color=dmc.STONE)
+fig.text(lx, 0.245, "THE BIGGEST CLUSTERS", family=dmc.MONO, size=7, color=dmc.STONE)
 for i, d in enumerate(top):
     y = 0.226 - i * 0.017
     fig.patches.append(plt.Circle((lx + 0.006, y + 0.004), 0.004, color=colour[d["c"]], transform=fig.transFigure,
@@ -104,7 +104,8 @@ for i, d in enumerate(top):
     when = f"{d['start']:%b %Y}" if d["start"].strftime("%Y%m") == d["end"].strftime("%Y%m") else \
         f"{d['start']:%b}–{d['end']:%b %Y}" if d["start"].year == d["end"].year else f"{d['start']:%b %Y}–{d['end']:%b %Y}"
     fig.text(lx + 0.018, y, f"{when}", family=dmc.TEXT, size=7.5, va="center")
-    fig.text(lx + 0.20, y, f"{d['n']:,} quakes · largest M{d['mmax']:.1f} · {d['depth']:.0f} km deep",
+    days = max(1, (d["end"] - d["start"]).days + 1)
+    fig.text(lx + 0.20, y, f"{d['n']:,} quakes · largest M{d['mmax']:.1f} · {days} days",
              family=dmc.MONO, size=6.8, color=dmc.STONE, va="center")
 
 # timeline: quakes per month, swarms coloured
@@ -119,6 +120,7 @@ for d in top:
     s = q[q["c"] == d["c"]].groupby("m").size().reindex(months, fill_value=0).values
     tax.bar(xs, s, width=28, bottom=bottom, color=colour[d["c"]], lw=0)
     bottom += s
+tax.set_xlim(xs.min() - pd.Timedelta(days=60), xs.max() + pd.Timedelta(days=60))
 tax.set_yscale("symlog", linthresh=10)
 tax.set_yticks([0, 10, 100, 1000])
 tax.set_yticklabels(["0", "10", "100", "1,000"])
@@ -135,10 +137,10 @@ big = top[0]
 yrs = q["time"].dt.year
 dmc.frame(
     fig, DAY,
-    subtitle=(f"{len(q):,} earthquakes located within {RADIUS_KM} km of the summit since 2000. Most come in swarms,\n"
-              f"bursts close together in place and time; the largest, in {big['start']:%B %Y}, was {big['n']:,} quakes."),
+    subtitle=(f"{len(q):,} earthquakes located within {RADIUS_KM} km of the summit since 2000. Many come in clusters,\n"
+              f"bursts close together in place and time; the largest, the swarm of {big['start']:%B %Y}, was {big['n']:,} quakes."),
     source="USGS ComCat (PNSN locations) · Copernicus DEM GLO-30",
-    note="Swarms found with DBSCAN: quakes within about 2 km and 4 days of each other, 25 or more to count.",
+    note="Clusters found with DBSCAN: quakes within about 2 km and 4 days of each other, 25 or more to count. Oct 2006 is an M4.5 and its aftershocks.",
 )
 dmc.save(fig, DAY, alt=(
     f"Shaded relief map of Mount Rainier with {len(q):,} earthquakes since 2000 as dots within a 30 km circle. "
