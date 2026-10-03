@@ -72,7 +72,8 @@ def thumb(png: Path) -> Path | None:
         from PIL import Image
     except ImportError:
         return t if t.exists() else None
-    im = Image.open(png).convert("RGB")
+    src = png.parent / "crop.jpg"                      # just the map, when the render saved one
+    im = Image.open(src if src.exists() else png).convert("RGB")
     im.thumbnail((720, 900))
     im.save(t, quality=84, optimize=True)
     return t

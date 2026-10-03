@@ -152,11 +152,28 @@ def save(fig, day: int, name: str = "map", alt: str = "") -> Path:
     out.mkdir(exist_ok=True)
     path = out / f"{name}.png"
     fig.savefig(path, dpi=DPI, facecolor=fig.get_facecolor())
+    if name == "map" and fig.axes:
+        crop(fig, path, out / "crop.jpg")
     if alt:
         (out / "alt.txt").write_text(alt.strip() + "\n", encoding="utf-8")
     plt.close(fig)
     print(f"saved {path.relative_to(ROOT.parent)}")
     return path
+
+
+def crop(fig, png: Path, dest: Path, ax=None) -> None:
+    """Save just the map (the first axes, or ax) from the finished poster, for gallery thumbnails."""
+    from PIL import Image
+    ax = ax or fig.axes[0]
+    x0, y0, x1, y1 = ax.get_position().extents          # figure fractions, origin bottom-left
+    im = Image.open(png)
+    W, H = im.size
+    pad = 0.005
+    box = (max(0, int((x0 - pad) * W)), max(0, int((1 - y1 - pad) * H)),
+           min(W, int((x1 + pad) * W)), min(H, int((1 - y0 + pad) * H)))
+    c = im.crop(box).convert("RGB")
+    c.thumbnail((1200, 1200))
+    c.save(dest, quality=86, optimize=True)
 
 
 def scalebar(ax, km: float, loc=(0.05, 0.05), color=INK, crs_units_per_km: float = 1000) -> None:
