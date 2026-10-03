@@ -23,7 +23,7 @@ import geopandas as gpd  # noqa: E402
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 from matplotlib.colors import BoundaryNorm, ListedColormap  # noqa: E402
-from shapely.geometry import Point, box  # noqa: E402
+from shapely.geometry import Point, box, shape  # noqa: E402
 
 DAY = 28
 EVENT = "uw10530748"
@@ -62,7 +62,21 @@ when = datetime.fromtimestamp(props["time"] / 1000, timezone.utc).astimezone(Zon
 dyfi = props["products"]["dyfi"][0]
 contents = dyfi["contents"]
 geo = next(k for k in ("dyfi_geo_10km.geojson", "dyfi_geo.geojson", "dyfi_geo_1km.geojson") if k in contents)
-cells = gpd.read_file(io.BytesIO(fetch(contents[geo]["url"], geo)))
+def closed(rings):
+    """USGS's DYFI squares sometimes leave a ring unclosed; close it."""
+    return [r + [r[0]] if r and r[0] != r[-1] else r for r in rings]
+
+
+raw = json.loads(fetch(contents[geo]["url"], geo))
+recs = []
+for f in raw["features"]:
+    g = f["geometry"]
+    if g["type"] == "Polygon":
+        g = {"type": "Polygon", "coordinates": closed(g["coordinates"])}
+    elif g["type"] == "MultiPolygon":
+        g = {"type": "MultiPolygon", "coordinates": [closed(p) for p in g["coordinates"]]}
+    recs.append({**f["properties"], "geometry": shape(g)})
+cells = gpd.GeoDataFrame(recs, crs=4326)
 responses = int(dyfi["properties"].get("numResp") or cells["nresp"].sum())
 cells = cells[cells["nresp"] > 0].to_crs(CRS)
 print(f"  {props['title']}: {len(cells)} cells, {responses} responses ({geo})")
