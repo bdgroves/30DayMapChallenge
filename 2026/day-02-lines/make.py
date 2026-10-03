@@ -165,9 +165,9 @@ if not drawn:
     Wt = gpd.GeoSeries(polys(green, lambda t: t.get("natural") == "water"), crs=4326)
     Wt.to_crs(CRS).plot(ax=ax, color="#a9c4cf", lw=0, zorder=1)
 if connector is not None:
-    C = gpd.GeoSeries([connector], crs=UTM).to_crs(CRS)
-    C.plot(ax=ax, color=dmc.PARCHMENT, lw=4.0, zorder=4)
-    C.plot(ax=ax, color=dmc.LAVA, lw=1.8, ls=(0, (2, 1.6)), zorder=5)
+    cxs, cys = gpd.GeoSeries([connector], crs=UTM).to_crs(CRS).iloc[0].xy
+    ax.plot(cxs, cys, color=dmc.PARCHMENT, lw=4.0, zorder=4, solid_capstyle="round")
+    ax.plot(cxs, cys, color=dmc.LAVA, lw=1.8, ls=(0, (2, 1.6)), zorder=5)
 gpd.GeoSeries(segs, crs=4326).to_crs(CRS).plot(ax=ax, color=dmc.PARCHMENT, lw=5.2, zorder=4, capstyle="round")
 gpd.GeoSeries(segs, crs=4326).to_crs(CRS).plot(ax=ax, color=dmc.LAVA, lw=2.4, zorder=5, capstyle="round")
 
