@@ -1,6 +1,6 @@
 # #30DayMapChallenge 2026
 
-Thirty maps in November, one a day, on the [official 2026 themes](https://30daymapchallenge.com/). The plan lives in [`days.yml`](days.yml); every day has a folder with its idea, data sources and prep, and finished maps show up in the gallery at **[brooksgroves.com/30daymapchallenge.html](https://brooksgroves.com/30daymapchallenge.html)**.
+Thirty maps in November, one a day, on the [official 2026 themes](https://30daymapchallenge.com/). The plan lives in [`days.yml`](days.yml); every day has a folder with its idea, data sources and prep, and finished maps show up in the gallery at **[brooksgroves.com/30DayMapChallenge/2026](https://brooksgroves.com/30DayMapChallenge/2026/)**.
 
 Earlier years are in [`../2023`](../2023) and [`../2024`](../2024).
 

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#30DayMapChallenge 2026 — Brooks Groves</title>
+<meta name="description" content="Thirty maps in November 2026, one a day: the plan, and each map as it's made.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1c1a16;--paper:#f5f0e8;--cream:#ede8dc;--white:#fdfaf4;--stone:#7a7268;--mist:#d6d0c4;--gold:#c8922a;--lava:#c0392b;--sage:#6f8a6a;--lake:#3f6f8a;
+  --serif:'Libre Baskerville',Georgia,serif;--display:'Playfair Display',Georgia,serif;--mono:'DM Mono',ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root{--ink:#ece6da;--paper:#16181c;--cream:#1f2227;--white:#23272d;--stone:#9a9286;--mist:#3a3e45}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font:16px/1.7 var(--serif)}
+a{color:var(--lava)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--lava);outline-offset:2px}
+.topline{height:4px;background:linear-gradient(90deg,var(--lava),var(--gold) 50%,var(--stone))}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.top{display:flex;justify-content:space-between;gap:12px;padding:16px 0;font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.top a{color:var(--stone);text-decoration:none}
+.top a:hover{color:var(--lava)}
+header.hero{padding:30px 0 26px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:30px;align-items:end;border-bottom:2px solid var(--ink)}
+.hero h1{font:900 clamp(40px,6.4vw,78px)/.98 var(--display);letter-spacing:-.02em}
+.hero h1 span{display:block;font:500 clamp(14px,1.6vw,18px)/1.4 var(--mono);letter-spacing:.06em;color:var(--lava);margin-bottom:10px}
+.hero p{color:var(--stone);max-width:52ch}
+.count{text-align:right}
+.count b{display:block;font:900 clamp(56px,8vw,96px)/.9 var(--display);color:var(--lava)}
+.count small{font:13px var(--mono);color:var(--stone)}
+.progress{display:flex;gap:3px;margin-top:14px;justify-content:flex-end}
+.progress i{width:12px;height:12px;background:var(--mist)}
+.progress i.draft{background:var(--gold)} .progress i.done,.progress i.posted{background:var(--lava)} .progress i.data{background:var(--sage)}
+
+.cal{margin:28px 0 10px}
+.dow{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;font:11px var(--mono);letter-spacing:.1em;color:var(--stone);text-transform:uppercase;margin-bottom:6px}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.cell{position:relative;background:var(--white);border:1px solid var(--mist);min-height:190px;padding:10px 11px 12px;text-align:left;font:inherit;color:inherit;cursor:pointer;display:flex;flex-direction:column;gap:4px;overflow:hidden}
+.cell:hover{border-color:var(--ink)}
+.cell .n{font:900 30px/1 var(--display)}
+.cell .th{font:11px var(--mono);letter-spacing:.06em;color:var(--lava);text-transform:uppercase}
+.cell .ti{font:14px/1.35 var(--serif)}
+.cell .st{margin-top:auto;font:10.5px var(--mono);color:var(--stone)}
+.cell.has-img{color:#fff;border-color:transparent}
+.cell.has-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%;z-index:0}
+.cell.has-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,15,10,.75),rgba(20,15,10,0) 45%,rgba(20,15,10,0) 60%,rgba(20,15,10,.7));z-index:0}
+.cell.has-img>*{position:relative;z-index:1}
+.cell.has-img .th,.cell.has-img .st{color:#f3e2c4}
+.cell.today{outline:3px solid var(--gold);outline-offset:-3px}
+.cell.blank{background:none;border:1px dashed var(--mist);cursor:default}
+.legend{font:12px var(--mono);color:var(--stone);margin:6px 0 40px}
+
+dialog{margin:auto;border:none;padding:0;max-width:min(980px,94vw);width:100%;background:var(--paper);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(20,15,10,.6)}
+.dlg{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.dlg .img{background:var(--cream);display:flex;align-items:center;justify-content:center;min-height:300px}
+.dlg .img img{width:100%;height:auto;display:block}
+.dlg .img .none{font:13px var(--mono);color:var(--stone);padding:30px;text-align:center}
+.dlg .txt{padding:26px 26px 22px;display:flex;flex-direction:column;gap:10px}
+.dlg .th{font:12px var(--mono);letter-spacing:.08em;color:var(--lava);text-transform:uppercase}
+.dlg h2{font:900 34px/1.05 var(--display)}
+.dlg p{color:var(--stone)}
+.dlg dl{font-size:14px} .dlg dt{font:11px var(--mono);letter-spacing:.08em;color:var(--stone);text-transform:uppercase;margin-top:6px} .dlg dd{margin:0}
+.dlg .acts{display:flex;gap:14px;flex-wrap:wrap;margin-top:auto;font:12px var(--mono)}
+.close{position:absolute;top:10px;right:12px;background:var(--paper);border:1px solid var(--mist);font:16px var(--mono);width:34px;height:34px;cursor:pointer;color:var(--ink)}
+footer{border-top:2px solid var(--ink);padding:22px 0 40px;font:12px var(--mono);color:var(--stone)}
+
+@media (max-width:860px){
+  header.hero{grid-template-columns:1fr}
+  .count{text-align:left} .progress{justify-content:flex-start;flex-wrap:wrap}
+  .dow{display:none}
+  .grid{grid-template-columns:1fr 1fr;gap:8px}
+  .cell.blank{display:none}
+  .cell{min-height:150px}
+  .dlg{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<div class="wrap">
+  <div class="top"><a href="https://brooksgroves.com">Brooks Groves</a><a href="https://github.com/bdgroves/30DayMapChallenge/tree/main/2026">The code ↗</a></div>
+  <header class="hero">
+    <div>
+      <h1><span>#30DayMapChallenge · November 2026</span>Thirty maps in thirty days</h1>
+      <p>One map a day on the official themes, mostly about places I know: the Sierra foothills where I grew up, Mount Rainier from my window, Nevada, and wherever geocaching has taken me. Each square fills in with its map as the month goes.</p>
+    </div>
+    <div class="count" id="count"></div>
+  </header>
+
+  <section class="cal" aria-label="November 2026">
+    <div class="dow"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+    <div class="grid" id="grid"></div>
+  </section>
+  <p class="legend" id="legend"></p>
+
+  <footer>Themes: <a href="https://30daymapchallenge.com/">30daymapchallenge.com</a>. Maps, code and data sources for every day: <a href="https://github.com/bdgroves/30DayMapChallenge/tree/main/2026">github.com/bdgroves/30DayMapChallenge</a>. Earlier years: <a href="https://github.com/bdgroves/30DayMapChallenge/tree/main/2024">2024</a>, <a href="https://github.com/bdgroves/30DayMapChallenge/tree/main/2023">2023</a>.</footer>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlg-title"><button class="close" id="close" aria-label="Close">×</button><div class="dlg" id="dlg-body"></div></dialog>
+
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LABEL={idea:'idea',data:'data in hand',draft:'draft',done:'done',posted:'posted'};
+let M=null;
+async function load(){
+  try{ const r=await fetch('days.json?t='+Date.now(),{cache:'no-store'}); M=await r.json(); }
+  catch(e){ $('grid').innerHTML='<p>Could not load days.json.</p>'; return; }
+  const today=new Date().toLocaleDateString('en-CA',{timeZone:'America/Los_Angeles'});
+  const start=new Date(M.start+'T00:00:00-07:00'), now=new Date();
+  const left=Math.ceil((start-now)/864e5), done=M.counts.done+M.counts.posted;
+  $('count').innerHTML=(left>0?`<b>${left}</b><small>day${left===1?'':'s'} until November 1</small>`:`<b>${done}<span style="font-size:.45em;color:var(--stone)"> /30</span></b><small>maps done</small>`)
+    +`<div class="progress" aria-label="${done} of 30 done">${M.days.map(d=>`<i class="${d.status}" title="Day ${d.day}: ${esc(LABEL[d.status])}"></i>`).join('')}</div>`;
+  const lead=new Date(M.start+'T12:00:00').getDay();
+  $('grid').innerHTML='<div class="cell blank" aria-hidden="true"></div>'.repeat(lead)+M.days.map(d=>{
+    const img=d.thumb;
+    return `<button class="cell ${img?'has-img':''} ${d.date===today?'today':''}" data-d="${d.day}" aria-label="Day ${d.day}, ${esc(d.theme)}: ${esc(d.title)}">
+      ${img?`<img src="${esc(img)}" alt="" loading="lazy">`:''}
+      <span class="n">${d.day}</span><span class="th">${esc(d.theme)}</span><span class="ti">${esc(d.title)}</span>
+      <span class="st">${esc(LABEL[d.status])}${d.date===today?' · today':''}</span></button>`; }).join('');
+  $('legend').textContent=`Planned: ${M.counts.idea} · data in hand: ${M.counts.data} · drafts: ${M.counts.draft} · done: ${done}. Tap a day for the idea and the data behind it.`;
+  document.querySelectorAll('.cell[data-d]').forEach(b=>b.onclick=()=>open(+b.dataset.d));
+  const h=location.hash.match(/^#day-(\d+)$/); if(h) open(+h[1]);
+}
+function open(n){
+  const d=M.days.find(x=>x.day===n); if(!d) return;
+  const when=new Date(d.date+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+  $('dlg-body').innerHTML=`<div class="img">${d.image?`<a href="${esc(d.image)}" target="_blank"><img src="${esc(d.image)}" alt="${esc(d.alt)}"></a>`:`<div class="none">The map arrives ${esc(when)}.</div>`}</div>
+    <div class="txt"><span class="th">Day ${d.day} · ${esc(d.theme)} · ${esc(when)}</span><h2 id="dlg-title">${esc(d.title)}</h2><p>${esc(d.pitch)}</p>
+      <dl>${d.data.length?`<dt>Data</dt><dd>${d.data.map(esc).join('<br>')}</dd>`:''}${d.tools.length?`<dt>Tools</dt><dd>${d.tools.map(esc).join(', ')}</dd>`:''}<dt>Status</dt><dd>${esc(LABEL[d.status])}</dd></dl>
+      <div class="acts"><a href="${esc(d.folder)}">Code and sources</a>${d.post?`<a href="${esc(d.post)}">The post</a>`:''}</div></div>`;
+  history.replaceState(null,'','#day-'+n); $('dlg').showModal();
+}
+$('close').onclick=()=>$('dlg').close();
+$('dlg').addEventListener('close',()=>history.replaceState(null,'',location.pathname));
+$('dlg').addEventListener('click',e=>{ if(e.target===$('dlg')) $('dlg').close(); });
+load();
+</script>
+</body>
+</html>
