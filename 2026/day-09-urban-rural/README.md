@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 9 · Urban-rural
 
-**Monday, November 9, 2026** · status: 💡 idea
+**Monday, November 9, 2026** · status: ✏️ draft
 
 ## Tacoma to Paradise
 

@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 18 · NULL
 
-**Wednesday, November 18, 2026** · status: 💡 idea
+**Wednesday, November 18, 2026** · status: ✏️ draft
 
 ## Nobody lives here
 

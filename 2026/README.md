@@ -79,7 +79,7 @@ The gallery picks it up from `days.json` within a few minutes.
 ## The month
 
 <!-- table:start -->
-**0 of 30 done** · 💡 idea 26 · 📦 data in hand 0 · ✏️ draft 4 · ✅ done 0 · 📣 posted 0
+**0 of 30 done** · 💡 idea 17 · 📦 data in hand 0 · ✏️ draft 13 · ✅ done 0 · 📣 posted 0
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -90,24 +90,24 @@ The gallery picks it up from `days.json` within a few minutes.
 | 5 | Thu Nov 5 | Sight | [Where you can see Rainier from](day-05-sight/) | ✏️ draft |
 | 6 | Fri Nov 6 | Vintage | [Tasman to Cook](day-06-vintage/) | 💡 idea |
 | 7 | Sat Nov 7 | 10 minute map | [Ten minutes, on the clock](day-07-10-minute-map/) | 💡 idea |
-| 8 | Sun Nov 8 | Utopia | [Paradise, Eden, Utopia](day-08-utopia/) | 💡 idea |
-| 9 | Mon Nov 9 | Urban-rural | [Tacoma to Paradise](day-09-urban-rural/) | 💡 idea |
+| 8 | Sun Nov 8 | Utopia | [Paradise, Eden, Utopia](day-08-utopia/) | ✏️ draft |
+| 9 | Mon Nov 9 | Urban-rural | [Tacoma to Paradise](day-09-urban-rural/) | ✏️ draft |
 | 10 | Tue Nov 10 | Prompting only | [A map made only by asking](day-10-prompting-only/) | 💡 idea |
 | 11 | Wed Nov 11 | Sound | [Where the lahar sirens reach](day-11-sound/) | 💡 idea |
-| 12 | Thu Nov 12 | Power | [The Tuolumne powers San Francisco](day-12-power/) | 💡 idea |
-| 13 | Fri Nov 13 | Interactions | [Follow a raindrop](day-13-interactions/) | 💡 idea |
+| 12 | Thu Nov 12 | Power | [The Tuolumne powers San Francisco](day-12-power/) | ✏️ draft |
+| 13 | Fri Nov 13 | Interactions | [Follow a raindrop](day-13-interactions/) | ✏️ draft |
 | 14 | Sat Nov 14 | Borgesian map | [1:1](day-14-borgesian-map/) | 💡 idea |
-| 15 | Sun Nov 15 | Inside out | [Inside Kīlauea](day-15-inside-out/) | 💡 idea |
+| 15 | Sun Nov 15 | Inside out | [Inside Kīlauea](day-15-inside-out/) | ✏️ draft |
 | 16 | Mon Nov 16 | Collaborative map | [Where we've been](day-16-collaborative-map/) | 💡 idea |
 | 17 | Tue Nov 17 | Light & dark | [Great Basin's dark sky](day-17-light-and-dark/) | 💡 idea |
-| 18 | Wed Nov 18 | NULL | [Nobody lives here](day-18-null/) | 💡 idea |
+| 18 | Wed Nov 18 | NULL | [Nobody lives here](day-18-null/) | ✏️ draft |
 | 19 | Thu Nov 19 | Smell | [What the Yakima Valley smells like](day-19-smell/) | 💡 idea |
 | 20 | Fri Nov 20 | Hexagons | [Kangaroo rats in hexagons](day-20-hexagons/) | 💡 idea |
 | 21 | Sat Nov 21 | OpenStreetMap | [Groveland, by volunteers](day-21-openstreetmap/) | 💡 idea |
-| 22 | Sun Nov 22 | Projections | [The world from Lakewood](day-22-projections/) | 💡 idea |
+| 22 | Sun Nov 22 | Projections | [The world from Lakewood](day-22-projections/) | ✏️ draft |
 | 23 | Mon Nov 23 | Taste | [Every brewery I've checked into](day-23-taste/) | 💡 idea |
-| 24 | Tue Nov 24 | Network | [Every stream that reaches Modesto](day-24-network/) | 💡 idea |
-| 25 | Wed Nov 25 | Is this a map? | [A day of ground motion](day-25-is-this-a-map/) | 💡 idea |
+| 24 | Tue Nov 24 | Network | [Every stream that reaches Modesto](day-24-network/) | ✏️ draft |
+| 25 | Wed Nov 25 | Is this a map? | [A day of ground motion](day-25-is-this-a-map/) | ✏️ draft |
 | 26 | Thu Nov 26 | Water | [Lake Tahoe, clear and deep](day-26-water/) | 💡 idea |
 | 27 | Fri Nov 27 | New tool | [Something I've never used](day-27-new-tool/) | 💡 idea |
 | 28 | Sat Nov 28 | Feeling | [Did you feel it? Nisqually, 2001](day-28-feeling/) | ✏️ draft |

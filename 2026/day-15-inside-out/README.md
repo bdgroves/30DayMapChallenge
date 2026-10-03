@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 15 · Inside out
 
-**Sunday, November 15, 2026** · status: 💡 idea
+**Sunday, November 15, 2026** · status: ✏️ draft
 
 ## Inside Kīlauea
 

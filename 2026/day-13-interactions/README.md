@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 13 · Interactions
 
-**Friday, November 13, 2026** · status: 💡 idea
+**Friday, November 13, 2026** · status: ✏️ draft
 
 ## Follow a raindrop
 

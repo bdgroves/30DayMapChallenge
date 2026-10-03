@@ -5,9 +5,9 @@
  "author": "Brooks Groves",
  "repo": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026",
  "counts": {
-  "idea": 26,
+  "idea": 17,
   "data": 0,
-  "draft": 4,
+  "draft": 13,
   "done": 0,
   "posted": 0
  },
@@ -168,7 +168,7 @@
    "theme": "Utopia",
    "title": "Paradise, Eden, Utopia",
    "pitch": "Every place in the United States named Paradise, Eden, Utopia, Arcadia or Shangri-La, from Paradise on Rainier to Utopia, Texas.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "geopandas"
@@ -189,7 +189,7 @@
    "theme": "Urban-rural",
    "title": "Tacoma to Paradise",
    "pitch": "One line from the Port of Tacoma to Paradise on Rainier, and what changes along it: people, buildings, trees and elevation.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "rasterio",
@@ -255,7 +255,7 @@
    "theme": "Power",
    "title": "The Tuolumne powers San Francisco",
    "pitch": "Hetch Hetchy's dams, the powerhouse at Moccasin just below Groveland, and the lines that carry the Tuolumne's power to San Francisco.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "geopandas"
@@ -277,7 +277,7 @@
    "theme": "Interactions",
    "title": "Follow a raindrop",
    "pitch": "Click anywhere in the Sierra and watch where the water goes, river by river, to the sea, using the USGS's navigation service.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "MapLibre GL JS",
     "NLDI API"
@@ -319,7 +319,7 @@
    "theme": "Inside out",
    "title": "Inside Kīlauea",
    "pitch": "The earthquakes beneath Kīlauea's summit in cross-section, sketching the magma plumbing that the surface hides.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "matplotlib or forge3d"
@@ -380,7 +380,7 @@
    "theme": "NULL",
    "title": "Nobody lives here",
    "pitch": "Nevada's 2020 census blocks with a population of zero. Most of the state is null.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "geopandas"
@@ -464,7 +464,7 @@
    "theme": "Projections",
    "title": "The world from Lakewood",
    "pitch": "An azimuthal equidistant map centred on Lakewood, where straight lines from the centre are true distances, to everywhere I've been, from Namibia to Guadeloupe.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "cartopy or pyproj"
@@ -505,7 +505,7 @@
    "theme": "Network",
    "title": "Every stream that reaches Modesto",
    "pitch": "The whole Tuolumne river network above Modesto, by stream order, with the SIERRA-FLOW gages on it.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "geopandas"
@@ -526,7 +526,7 @@
    "theme": "Is this a map?",
    "title": "A day of ground motion",
    "pitch": "A 24-hour helicorder from Camp Muir on Rainier, one line per hour. A map of time, or of a place?",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "ObsPy"

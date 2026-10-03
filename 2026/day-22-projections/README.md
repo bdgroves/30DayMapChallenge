@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 22 · Projections
 
-**Sunday, November 22, 2026** · status: 💡 idea
+**Sunday, November 22, 2026** · status: ✏️ draft
 
 ## The world from Lakewood
 
