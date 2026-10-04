@@ -144,7 +144,7 @@ dmc.frame(
     fig, DAY,
     subtitle=("James Cook's chart of the Endeavour's six months round New Zealand, engraved in 1772 and\n"
               "laid under today's coast in red. In gold, the stretches Abel Tasman saw 127 years before."),
-    source="Royal Museums Greenwich F0293 · State Library of NSW · Wikimedia Commons · Natural Earth",
+    source="Royal Museums Greenwich · State Library of NSW (both via Commons) · Natural Earth",
     note="Georeferenced from Cook's own graticule. Much of his coast sits about half a degree east of where it is.",
 )
 dmc.save(fig, DAY, alt=(
