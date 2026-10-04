@@ -26,6 +26,15 @@ top of each other. So the map is a line-printer map. From that sentence Claude w
   tall as it is wide on the ground), compiles and runs the FORTRAN with gfortran, and prints the
   result on pretend green-bar paper.
 
-## 3. Changes asked for since
+## 3. Changes since
 
-None yet.
+Claude's own, after looking at the first render (still no hand edits):
+
+- The eighth class came out empty, because classes were whole hundreds of feet wide and the basin
+  tops out just under 4,000 ft. Classes are now multiples of 25 ft, so the top class ends just
+  above the highest cell.
+- The LOW and HIGH line printed the rounded class limits; it now prints the real lowest and highest
+  cells.
+- The paper sat on the footer rule; the map was made a little shorter.
+
+Asked for by Brooks: none yet.

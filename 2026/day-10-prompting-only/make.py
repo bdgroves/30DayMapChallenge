@@ -130,7 +130,7 @@ nrows = row + 1
 PW = 14.875                                           # green-bar paper, inches
 TOP = 0.75
 PH = TOP + nrows / 6 + 0.6
-fig, ax = dmc.figure("square", map_box=(0.03, 0.08, 0.94, 0.73))
+fig, ax = dmc.figure("square", map_box=(0.03, 0.09, 0.94, 0.715))
 ax.set_xlim(0, PW)
 ax.set_ylim(PH, 0)
 ax.set_aspect("equal")
