@@ -5,9 +5,9 @@
  "author": "Brooks Groves",
  "repo": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026",
  "counts": {
-  "idea": 6,
+  "idea": 5,
   "data": 0,
-  "draft": 24,
+  "draft": 25,
   "done": 0,
   "posted": 0
  },
@@ -395,13 +395,14 @@
    "theme": "Light & dark",
    "title": "Great Basin's dark sky",
    "pitch": "Night lights across Nevada and Utah, with Great Basin National Park's dark sky set against the glow of Las Vegas and Salt Lake City.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
-    "rasterio"
+    "matplotlib"
    ],
    "data": [
-    "NASA Black Marble (VIIRS night lights)"
+    "NASA Black Marble, via NASA GIBS (no login)",
+    "DarkSky International: Great Basin National Park (Dark Sky Park, 2016)"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-17-light-and-dark",
    "image": null,

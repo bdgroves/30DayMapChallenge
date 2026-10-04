@@ -39,7 +39,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - Before posting: **20** needs a GBIF download with your account so the map can cite its DOI; **22** needs every place you've been in `places.csv`; **21** gets re-rendered (`make.py --refresh`) after your evening of OSM edits.
 
 <!-- table:start -->
-**0 of 30 done** · 💡 idea 6 · 📦 data in hand 0 · ✏️ draft 24 · ✅ done 0 · 📣 posted 0
+**0 of 30 done** · 💡 idea 5 · 📦 data in hand 0 · ✏️ draft 25 · ✅ done 0 · 📣 posted 0
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -59,7 +59,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 14 | Sat Nov 14 | Borgesian map | [1:1](day-14-borgesian-map/) | ✏️ draft |
 | 15 | Sun Nov 15 | Inside out | [Inside Kīlauea](day-15-inside-out/) | ✏️ draft |
 | 16 | Mon Nov 16 | Collaborative map | [Where we've been](day-16-collaborative-map/) | 💡 idea |
-| 17 | Tue Nov 17 | Light & dark | [Great Basin's dark sky](day-17-light-and-dark/) | 💡 idea |
+| 17 | Tue Nov 17 | Light & dark | [Great Basin's dark sky](day-17-light-and-dark/) | ✏️ draft |
 | 18 | Wed Nov 18 | NULL | [Nobody lives here](day-18-null/) | ✏️ draft |
 | 19 | Thu Nov 19 | Smell | [What the Yakima Valley smells like](day-19-smell/) | ✏️ draft |
 | 20 | Fri Nov 20 | Hexagons | [Kangaroo rats in hexagons](day-20-hexagons/) | ✏️ draft |

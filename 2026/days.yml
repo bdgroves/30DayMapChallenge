@@ -202,12 +202,13 @@ days:
     title: "Great Basin's dark sky"
     pitch: "Night lights across Nevada and Utah, with Great Basin National Park's dark sky set against the glow of Las Vegas and Salt Lake City."
     data:
-      - name: "NASA Black Marble (VIIRS night lights)"
-        url: https://blackmarble.gsfc.nasa.gov/
-        note: "Needs an Earthdata login (the same account as rainier-snowpack's secrets)."
-    tools: [Python, rasterio]
-    prep: "Download an annual composite."
-    status: idea
+      - name: "NASA Black Marble, via NASA GIBS (no login)"
+        url: https://gibs.earthdata.nasa.gov/
+      - name: "DarkSky International: Great Basin National Park (Dark Sky Park, 2016)"
+        url: https://darksky.org/places/great-basin-national-park-dark-sky-park/
+    tools: [Python, matplotlib]
+    prep: "Drafted from the Black Marble composite NASA GIBS serves without a login. With the Earthdata secrets added to this repo it could use VNP46A4 annual radiance instead."
+    status: draft
 
   - day: 18
     theme: "NULL"
