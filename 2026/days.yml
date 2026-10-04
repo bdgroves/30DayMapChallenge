@@ -71,13 +71,15 @@ days:
     title: "Tasman to Cook"
     pitch: "New Zealand's coast as Abel Tasman charted it in 1642 and James Cook in 1769–70, over the modern coastline, engraved in an 18th-century style. A map version of my Cartographic Perspectives article."
     data:
-      - name: "David Rumsey Map Collection (Tasman and Cook charts, georeferenced)"
-        url: https://www.davidrumsey.com/
+      - name: "Cook's Chart of New-Zealand (1772), Royal Museums Greenwich F0293, via Wikimedia Commons"
+        url: https://commons.wikimedia.org/wiki/File:Chart_of_New_Zealand,_explored_in_1769_and_1770_by_Lieut._I-_Cook,Commander_of_His_Majesty%27s_Bark_Endeavour._RMG_F0293.tiff
+      - name: "Tasman map (c. 1644), State Library of New South Wales, via Wikimedia Commons"
+        url: https://commons.wikimedia.org/wiki/File:Tasman_Map_SLNSWSLNSW_FL19288478.jpg
       - name: "Natural Earth coastline"
         url: https://www.naturalearthdata.com/
-    tools: [QGIS georeferencer, Python]
-    prep: "Find and georeference the two charts; the slowest prep of the month."
-    status: idea
+    tools: [Python, geopandas, matplotlib]
+    prep: "Drafted: Cook's chart georeferenced from its own Mercator graticule (fit within 3 px), today's coast over it, Tasman's coast and an inset of his chart."
+    status: draft
 
   - day: 7
     theme: 10 minute map
