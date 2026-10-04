@@ -188,15 +188,17 @@ def scalebar(ax, km: float, loc=(0.05, 0.05), color=INK, crs_units_per_km: float
             family=MONO, size=7, color=color)
 
 
-def place_labels(ax, items, gap: float = 4, **kw):
+def place_labels(ax, items, gap: float = 4, taken=None, **kw):
     """Label points without overlaps. items: (x, y, text) in data coordinates, most important first.
 
     Tries right, left, above and below each point, keeps the first spot that collides with no
     label already placed (or with the axes edge), and skips the label if none is free.
+    Pass the same list as taken to several calls to keep them clear of each other.
     Returns the texts that were placed."""
     fig = ax.figure
     r = fig.canvas.get_renderer()
-    taken, placed = [], []
+    taken = [] if taken is None else taken
+    placed = []
     for x, y, text in items:
         for ha, va, dx, dy in (("left", "center", 1, 0), ("right", "center", -1, 0),
                                ("center", "bottom", 0, 1), ("center", "top", 0, -1)):
@@ -217,5 +219,6 @@ def label(ax, x, y, text, size=8, color=INK, halo=PARCHMENT, **kw):
     """A place label with a paper-coloured halo so it reads over anything."""
     import matplotlib.patheffects as pe
     kw.setdefault("clip_on", True)                # labels outside the map aren't drawn
-    return ax.text(x, y, text, family=TEXT, size=size, color=color,
+    kw.setdefault("family", TEXT)
+    return ax.text(x, y, text, size=size, color=color,
                    path_effects=[pe.withStroke(linewidth=2.5, foreground=halo)], **kw)

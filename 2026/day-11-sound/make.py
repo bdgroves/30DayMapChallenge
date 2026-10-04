@@ -113,8 +113,8 @@ s = sirens.to_crs(CRS)
 ax.scatter(s.geometry.x, s.geometry.y, s=1.5, color=dmc.INK, zorder=5)
 for name, lon, lat, ha in [("Long Beach", -124.054, 46.352, "left"), ("Ocean Shores", -124.156, 46.973, "left"),
                            ("Westport", -124.104, 46.89, "left"), ("La Push", -124.636, 47.906, "left"),
-                           ("Neah Bay", -124.62, 48.368, "left"), ("Port Angeles", -123.43, 48.118, "left"),
-                           ("Bellingham", -122.479, 48.75, "left"), ("Seattle", -122.335, 47.608, "left")]:
+                           ("Neah Bay", -124.62, 48.368, "left"),
+                           ]:
     x, y = gpd.GeoSeries.from_xy([lon], [lat], crs=4326).to_crs(CRS).iloc[0].coords[0]
     dmc.label(ax, x + 9000, y, name, size=7.5, va="center", zorder=6)
 ax.set_xlim(vb[0], vb[2])

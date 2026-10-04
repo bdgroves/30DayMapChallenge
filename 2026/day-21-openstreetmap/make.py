@@ -104,9 +104,6 @@ for kind, g in roads.groupby(col(roads, "highway")):
 water.plot(ax=ax, color=dmc.LAKE, lw=0.6, alpha=0.8, zorder=2)
 bld.plot(ax=ax, color=dmc.LAVA, lw=0, zorder=4)
 named.plot(ax=ax, color=dmc.GOLD, markersize=10, edgecolor=dmc.INK, lw=0.4, zorder=5)
-for nm, lon, lat in [("GROVELAND", -120.2305, 37.8385), ("BIG OAK FLAT", -120.2585, 37.8235)]:
-    x, y = gpd.GeoSeries([Point(lon, lat)], crs=4326).to_crs(CRS).iloc[0].coords[0]
-    ax.text(x, y + 380, nm, family=dmc.MONO, size=10, color=dmc.INK, alpha=0.55, ha="center", zorder=7)
 b = gpd.GeoSeries([Point(BBOX[1], BBOX[0]), Point(BBOX[3], BBOX[2])], crs=4326).to_crs(CRS)
 ax.set_xlim(b.iloc[0].x, b.iloc[1].x)
 ax.set_ylim(b.iloc[0].y, b.iloc[1].y)
@@ -116,7 +113,12 @@ ax.apply_aspect()
 rank = lambda r: 0 if (r.get("amenity") in ("school", "library", "townhall", "post_office", "fire_station")  # noqa: E731
                        or r.get("tourism") == "museum" or r.get("historic")) else 1
 items = sorted(((rank(r), r["name"], r.geometry.x, r.geometry.y) for _, r in named.iterrows()))
-placed = dmc.place_labels(ax, [(x, y, n) for _, n, x, y in items], size=5.6, zorder=6)
+taken, seen = [], set()
+towns = [(*gpd.GeoSeries([Point(lon, lat)], crs=4326).to_crs(CRS).iloc[0].coords[0], nm)
+         for nm, lon, lat in [("GROVELAND", -120.2305, 37.8395), ("BIG OAK FLAT", -120.2585, 37.8245)]]
+dmc.place_labels(ax, towns, gap=0, taken=taken, size=10, family=dmc.MONO, color="#8a8378", halo=dmc.PARCHMENT, zorder=7)
+items = [i for i in items if not (i[1] in seen or seen.add(i[1]))]          # one label per name
+placed = dmc.place_labels(ax, [(x, y, n) for _, n, x, y in items], taken=taken, size=5.6, zorder=6)
 print(f"  labelled {len(placed)} of {len(named)} named places")
 dmc.scalebar(ax, 1, loc=(0.03, 0.05))
 from matplotlib.lines import Line2D  # noqa: E402
