@@ -39,7 +39,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - Before posting: **20** needs a GBIF download with your account so the map can cite its DOI; **22** needs every place you've been in `places.csv`; **21** gets re-rendered (`make.py --refresh`) after your evening of OSM edits.
 
 <!-- table:start -->
-**0 of 30 done** · 💡 idea 4 · 📦 data in hand 0 · ✏️ draft 26 · ✅ done 0 · 📣 posted 0
+**0 of 30 done** · 💡 idea 3 · 📦 data in hand 0 · ✏️ draft 27 · ✅ done 0 · 📣 posted 0
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -52,7 +52,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 7 | Sat Nov 7 | 10 minute map | [Ten minutes, on the clock](day-07-10-minute-map/) | 💡 idea |
 | 8 | Sun Nov 8 | Utopia | [Paradise, Eden, Utopia](day-08-utopia/) | ✏️ draft |
 | 9 | Mon Nov 9 | Urban-rural | [Tacoma to Paradise](day-09-urban-rural/) | ✏️ draft |
-| 10 | Tue Nov 10 | Prompting only | [A map made only by asking](day-10-prompting-only/) | 💡 idea |
+| 10 | Tue Nov 10 | Prompting only | [A map made only by asking](day-10-prompting-only/) | ✏️ draft |
 | 11 | Wed Nov 11 | Sound | [Where the tsunami sirens reach](day-11-sound/) | ✏️ draft |
 | 12 | Thu Nov 12 | Power | [The Tuolumne powers San Francisco](day-12-power/) | ✏️ draft |
 | 13 | Fri Nov 13 | Interactions | [Follow a raindrop](day-13-interactions/) | ✏️ draft |

@@ -127,13 +127,24 @@ days:
   - day: 10
     theme: Prompting only
     title: "A map made only by asking"
-    pitch: "A map of Big Creek's watershed near Groveland where every line of code came from prompts, with the prompts posted alongside."
+    pitch: "Big Creek's watershed above Groveland as a 1960s line-printer map: a FORTRAN program, written entirely from a one-sentence prompt, prints the basin in eight overprinted tones on green-bar paper, the way SYMAP did. The prompts are posted with it."
     data:
-      - name: "USGS NLDI (basin boundary for gage 11284400)"
+      - name: "USGS NLDI (basin and flowlines for gage 11284400)"
         url: https://labs.waterdata.usgs.gov/about-nldi/
-    tools: [Claude, prompts only]
-    prep: "Decide the rules (no hand edits) before the day."
-    status: idea
+      - name: "Copernicus DEM GLO-30"
+        url: https://registry.opendata.aws/copernicus-dem/
+    tools: [Claude, FORTRAN (gfortran), Python]
+    prep: "Drafted. Rule: no hand edits; every change is asked for in words and logged in PROMPTS.md."
+    status: draft
+    deeper:
+      - name: "The prompts, and the FORTRAN"
+        url: https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-10-prompting-only
+      - name: "PUGET-TIDES: tides of Puget Sound in FORTRAN"
+        url: https://brooksgroves.com/puget-tides/
+      - name: "CASCADIA-WX: Northwest weather balloons in FORTRAN"
+        url: https://brooksgroves.com/cascadia-wx/
+      - name: "SIERRA-FLOW: Sierra rivers in COBOL"
+        url: https://brooksgroves.com/sierra-flow-cobol/
 
   - day: 11
     theme: Sound

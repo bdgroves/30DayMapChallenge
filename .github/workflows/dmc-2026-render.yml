@@ -27,6 +27,8 @@ jobs:
           manifest-path: 2026/pixi.toml
           locked: false
           cache: ${{ hashFiles('2026/pixi.lock') != '' }}
+      - name: GFortran (Day 10's line-printer map)
+        run: which gfortran || { sudo apt-get update -qq && sudo apt-get install -y -qq gfortran > /dev/null; }
       - name: Restore downloaded data (DEM tiles, GBIF pages, census blocks...)
         uses: actions/cache/restore@v4
         with:
