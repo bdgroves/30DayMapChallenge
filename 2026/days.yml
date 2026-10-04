@@ -181,7 +181,7 @@ days:
       - name: "USGS NLDI (Network-Linked Data Index)"
         url: https://labs.waterdata.usgs.gov/about-nldi/
     tools: [MapLibre GL JS, NLDI API]
-    prep: "Drafted as an interactive page (day-13-interactions/index.html). Needs a still image for social posts."
+    prep: "Drafted as an interactive page (day-13-interactions/index.html), with a still from the live page for posts."
     status: draft
     link: day-13-interactions/
     deeper:
@@ -198,7 +198,7 @@ days:
       - name: "USGS NLDI basin for Big Creek (11284400)"
         url: https://labs.waterdata.usgs.gov/about-nldi/
     tools: [HTML, canvas]
-    prep: "Drafted as a page (day-14-borgesian-map/index.html): the basin and streams from NLDI at 96 CSS px to the inch, an odometer, a minimap and three speeds. Needs a still for social posts."
+    prep: "Drafted as a page (day-14-borgesian-map/index.html): the basin and streams from NLDI at 96 CSS px to the inch, an odometer, a minimap and three speeds. A still from the live page is in out/."
     link: day-14-borgesian-map/
     status: draft
     deeper:
@@ -365,14 +365,14 @@ days:
   - day: 26
     theme: Water
     title: "Lake Tahoe, clear and deep"
-    pitch: "Tahoe's depth and its clarity: how far down a Secchi disk can be seen, from the SECCHI dashboard's data."
+    pitch: "Tahoe's floor, 497 m at the deepest, and beside it the lake's clarity on the same downward axis: how far a Secchi disk could be seen each year since 1968, from the record my SECCHI project keeps."
     data:
-      - name: "SECCHI (TEON + USGS)"
-        url: https://brooksgroves.com/secchi
-      - name: "USGS Lake Tahoe bathymetry"
-        url: https://www.usgs.gov/
-    tools: [Python, forge3d]
-    prep: "Depth drafted from the 1998 USGS multibeam grid. Still to add: clarity (Secchi depth) from the SECCHI project."
+      - name: "UC Davis TERC Secchi record (EDI, CC BY 4.0), via SECCHI"
+        url: https://brooksgroves.com/secchi/
+      - name: "USGS DDS-55 Lake Tahoe bathymetry"
+        url: https://pubs.usgs.gov/dds/dds-55/
+    tools: [Python, rasterio, matplotlib]
+    prep: "Drafted: depth from the 1998 USGS multibeam grid, clarity from TERC's index station."
     status: draft
     deeper:
       - name: "secchi: a modern Secchi disk for Lake Tahoe"

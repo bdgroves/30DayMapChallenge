@@ -908,24 +908,25 @@
    "weekday": "Thu",
    "theme": "Water",
    "title": "Lake Tahoe, clear and deep",
-   "pitch": "Tahoe's depth and its clarity: how far down a Secchi disk can be seen, from the SECCHI dashboard's data.",
+   "pitch": "Tahoe's floor, 497 m at the deepest, and beside it the lake's clarity on the same downward axis: how far a Secchi disk could be seen each year since 1968, from the record my SECCHI project keeps.",
    "status": "draft",
    "tools": [
     "Python",
-    "forge3d"
+    "rasterio",
+    "matplotlib"
    ],
    "data": [
-    "SECCHI (TEON + USGS)",
-    "USGS Lake Tahoe bathymetry"
+    "UC Davis TERC Secchi record (EDI, CC BY 4.0), via SECCHI",
+    "USGS DDS-55 Lake Tahoe bathymetry"
    ],
    "data_links": [
     {
-     "name": "SECCHI (TEON + USGS)",
-     "url": "https://brooksgroves.com/secchi"
+     "name": "UC Davis TERC Secchi record (EDI, CC BY 4.0), via SECCHI",
+     "url": "https://brooksgroves.com/secchi/"
     },
     {
-     "name": "USGS Lake Tahoe bathymetry",
-     "url": "https://www.usgs.gov/"
+     "name": "USGS DDS-55 Lake Tahoe bathymetry",
+     "url": "https://pubs.usgs.gov/dds/dds-55/"
     }
    ],
    "deeper": [

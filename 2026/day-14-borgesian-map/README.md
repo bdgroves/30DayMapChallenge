@@ -13,7 +13,7 @@ Borges's map the size of the empire, made literal. Big Creek's watershed at full
 
 **Tools:** HTML, canvas
 
-**Prep:** Drafted as a page (day-14-borgesian-map/index.html): the basin and streams from NLDI at 96 CSS px to the inch, an odometer, a minimap and three speeds. Needs a still for social posts.
+**Prep:** Drafted as a page (day-14-borgesian-map/index.html): the basin and streams from NLDI at 96 CSS px to the inch, an odometer, a minimap and three speeds. A still from the live page is in out/.
 
 **Go deeper**
 
