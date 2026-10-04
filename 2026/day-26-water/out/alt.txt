@@ -1,1 +1,1 @@
-Map of Lake Tahoe's floor shaded blue by depth to 497 m, with 100 m contours and the deepest point marked.
+Map of Lake Tahoe's floor shaded blue by depth to 497 m, with 100 m contours, the deepest point and TERC's two Secchi stations marked. Beside it, bars hanging down from the surface show how far a Secchi disk could be seen each year since 1968: 31 m at best in 1968, 18 m at worst in 2021, and not at the 29.7 m target since 1970.
