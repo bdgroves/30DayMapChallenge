@@ -635,9 +635,9 @@
     "Overture Maps buildings"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-27-new-tool",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-27-new-tool/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-27-new-tool/out/thumb.jpg",
+   "alt": "Dark map of Washington State where each half-kilometre cell glows by how many of Overture Maps' 3,817,375 building footprints it holds, brightest around Puget Sound and Spokane. A panel shows who drew the footprints, led by OpenStreetMap volunteers at 72%.",
    "post": null,
    "link": null,
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-27.html"

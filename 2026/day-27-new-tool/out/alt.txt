@@ -1,0 +1,1 @@
+Dark map of Washington State where each half-kilometre cell glows by how many of Overture Maps' 3,817,375 building footprints it holds, brightest around Puget Sound and Spokane. A panel shows who drew the footprints, led by OpenStreetMap volunteers at 72%.
