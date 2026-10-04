@@ -1,20 +1,21 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 11 · Sound
 
-**Wednesday, November 11, 2026** · status: 💡 idea
+**Wednesday, November 11, 2026** · status: ✏️ draft
 
-## Where the lahar sirens reach
+## Where the tsunami sirens reach
 
-Pierce County's lahar warning sirens and how far each can be heard, over the lahar zones they protect. Fallback, if the siren locations can't be found: Puget Sound by depth.
+Washington's tsunami sirens, each with the one-mile circle it's designed to be heard in, over the tsunami hazard zones they're there to empty. (Pierce County's lahar sirens were the first idea, but their locations aren't published.)
 
 **Data**
 
-- [Pierce County outdoor warning system](https://www.piercecountywa.gov/5888/Outdoor-Warning-System) — Siren locations may need a county GIS layer or a records request. Find out in October.
-- [NOAA Puget Sound coastal elevation model (fallback)](https://www.ncei.noaa.gov/products/coastal-elevation-models)
+- [WA Emergency Management AHAB siren points](https://services7.arcgis.com/vUVXhXafpruJFs3l/arcgis/rest/services/AHAB_Points/FeatureServer)
+- [WA DNR tsunami hazard zones](https://gis.dnr.wa.gov/site3/rest/services/Geology/Tsunami_Hazard/FeatureServer)
+- [Grays Harbor County EM: AHAB range (1 mile, outdoors)](https://www.graysharbor.us/departments/emergency_management/ahab.php)
 
-**Tools:** Python, geopandas
+**Tools:** Python, geopandas, Mapbox
 
-**Prep:** Track down siren locations.
+**Prep:** Drafted. If Pierce County shares its lahar siren locations, the original idea can come back.
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

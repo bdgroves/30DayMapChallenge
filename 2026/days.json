@@ -5,9 +5,9 @@
  "author": "Brooks Groves",
  "repo": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026",
  "counts": {
-  "idea": 12,
+  "idea": 7,
   "data": 0,
-  "draft": 18,
+  "draft": 23,
   "done": 0,
   "posted": 0
  },
@@ -253,16 +253,18 @@
    "date": "2026-11-11",
    "weekday": "Wed",
    "theme": "Sound",
-   "title": "Where the lahar sirens reach",
-   "pitch": "Pierce County's lahar warning sirens and how far each can be heard, over the lahar zones they protect. Fallback, if the siren locations can't be found: Puget Sound by depth.",
-   "status": "idea",
+   "title": "Where the tsunami sirens reach",
+   "pitch": "Washington's tsunami sirens, each with the one-mile circle it's designed to be heard in, over the tsunami hazard zones they're there to empty. (Pierce County's lahar sirens were the first idea, but their locations aren't published.)",
+   "status": "draft",
    "tools": [
     "Python",
-    "geopandas"
+    "geopandas",
+    "Mapbox"
    ],
    "data": [
-    "Pierce County outdoor warning system",
-    "NOAA Puget Sound coastal elevation model (fallback)"
+    "WA Emergency Management AHAB siren points",
+    "WA DNR tsunami hazard zones",
+    "Grays Harbor County EM: AHAB range (1 mile, outdoors)"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-11-sound",
    "image": null,
@@ -439,13 +441,14 @@
    "theme": "Smell",
    "title": "What the Yakima Valley smells like",
    "pitch": "Washington's hop acreage by variety, coloured by aroma (citrus, pine, tropical, earthy) from HopLore.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python"
    ],
    "data": [
     "USDA NASS National Hop Report (acreage by variety and state)",
-    "HopLore aroma descriptors"
+    "WSDA Agricultural Land Use 2024 (Yakima County hop fields)",
+    "HopLove aroma descriptors and NASS acreage"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-19-smell",
    "image": null,
@@ -485,7 +488,7 @@
    "theme": "OpenStreetMap",
    "title": "Groveland, by volunteers",
    "pitch": "Everything OpenStreetMap knows about Groveland and Big Oak Flat, after I add what's missing.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python",
     "osmnx"
@@ -531,7 +534,7 @@
    "theme": "Taste",
    "title": "Every brewery I've checked into",
    "pitch": "My Untappd check-ins, mapped by brewery, sized by how many beers.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "Python"
    ],
@@ -621,9 +624,9 @@
    "date": "2026-11-27",
    "weekday": "Fri",
    "theme": "New tool",
-   "title": "Something I've never used",
+   "title": "Every building in Washington",
    "pitch": "Every building in Washington from Overture Maps, queried with DuckDB's spatial extension and drawn with lonboard. Both new to me.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
     "DuckDB spatial",
     "lonboard"

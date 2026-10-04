@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 21 · OpenStreetMap
 
-**Saturday, November 21, 2026** · status: 💡 idea
+**Saturday, November 21, 2026** · status: ✏️ draft
 
 ## Groveland, by volunteers
 
@@ -13,7 +13,7 @@ Everything OpenStreetMap knows about Groveland and Big Oak Flat, after I add wha
 
 **Tools:** Python, osmnx
 
-**Prep:** Spend an October evening editing OSM around Groveland.
+**Prep:** Drafted as the before map, straight from Overpass. After an evening of OSM edits, re-render with make.py --refresh.
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

@@ -127,17 +127,18 @@ days:
 
   - day: 11
     theme: Sound
-    title: "Where the lahar sirens reach"
-    pitch: "Pierce County's lahar warning sirens and how far each can be heard, over the lahar zones they protect. Fallback, if the siren locations can't be found: Puget Sound by depth."
+    title: "Where the tsunami sirens reach"
+    pitch: "Washington's tsunami sirens, each with the one-mile circle it's designed to be heard in, over the tsunami hazard zones they're there to empty. (Pierce County's lahar sirens were the first idea, but their locations aren't published.)"
     data:
-      - name: "Pierce County outdoor warning system"
-        url: https://www.piercecountywa.gov/5888/Outdoor-Warning-System
-        note: "Siren locations may need a county GIS layer or a records request. Find out in October."
-      - name: "NOAA Puget Sound coastal elevation model (fallback)"
-        url: https://www.ncei.noaa.gov/products/coastal-elevation-models
-    tools: [Python, geopandas]
-    prep: "Track down siren locations."
-    status: idea
+      - name: "WA Emergency Management AHAB siren points"
+        url: https://services7.arcgis.com/vUVXhXafpruJFs3l/arcgis/rest/services/AHAB_Points/FeatureServer
+      - name: "WA DNR tsunami hazard zones"
+        url: https://gis.dnr.wa.gov/site3/rest/services/Geology/Tsunami_Hazard/FeatureServer
+      - name: "Grays Harbor County EM: AHAB range (1 mile, outdoors)"
+        url: https://www.graysharbor.us/departments/emergency_management/ahab.php
+    tools: [Python, geopandas, Mapbox]
+    prep: "Drafted. If Pierce County shares its lahar siren locations, the original idea can come back."
+    status: draft
 
   - day: 12
     theme: Power
@@ -225,11 +226,13 @@ days:
     data:
       - name: "USDA NASS National Hop Report (acreage by variety and state)"
         url: https://www.nass.usda.gov/
-      - name: "HopLore aroma descriptors"
-        url: https://github.com/bdgroves/hoplore
+      - name: "WSDA Agricultural Land Use 2024 (Yakima County hop fields)"
+        url: https://agr.wa.gov/departments/land-and-water/natural-resources/agricultural-land-use
+      - name: "HopLove aroma descriptors and NASS acreage"
+        url: https://github.com/bdgroves/hoplove
     tools: [Python]
-    prep: "Decide the geography (county or AVA) the acreage supports."
-    status: idea
+    prep: "Drafted: WSDA 2024 hop fields in Yakima County; WA 2025 acreage by leading aroma from HopLove."
+    status: draft
 
   - day: 20
     theme: Hexagons
@@ -250,8 +253,8 @@ days:
       - name: "OpenStreetMap (Overpass API or Geofabrik extract)"
         url: https://download.geofabrik.de/north-america/us/california.html
     tools: [Python, osmnx]
-    prep: "Spend an October evening editing OSM around Groveland."
-    status: idea
+    prep: "Drafted as the before map, straight from Overpass. After an evening of OSM edits, re-render with make.py --refresh."
+    status: draft
 
   - day: 22
     theme: Projections
@@ -273,8 +276,8 @@ days:
         url: https://untappd.com/
         note: "Export is a Supporter feature."
     tools: [Python]
-    prep: "Export check-ins; geocode breweries without coordinates."
-    status: idea
+    prep: "Drafted from the year of beer history HopLove keeps (Untappd); breweries placed with Open Brewery DB."
+    status: draft
 
   - day: 24
     theme: Network
@@ -313,14 +316,14 @@ days:
 
   - day: 27
     theme: New tool
-    title: "Something I've never used"
+    title: "Every building in Washington"
     pitch: "Every building in Washington from Overture Maps, queried with DuckDB's spatial extension and drawn with lonboard. Both new to me."
     data:
       - name: "Overture Maps buildings"
         url: https://overturemaps.org/
     tools: [DuckDB spatial, lonboard]
-    prep: "Do the lonboard tutorial in October."
-    status: idea
+    prep: "Drafted: DuckDB query straight against Overture on S3, gridded. Still to do: the lonboard interactive."
+    status: draft
 
   - day: 28
     theme: Feeling

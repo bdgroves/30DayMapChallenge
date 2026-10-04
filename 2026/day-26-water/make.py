@@ -157,15 +157,16 @@ for tl in cax.get_xticklabels() + cax.get_yticklabels():
 fig.text(cx0, mp.y0 + 0.02 + mp.height * 0.80 + 0.045, "HOW FAR DOWN YOU CAN SEE", family=dmc.MONO, size=7.5, color=dmc.INK)
 fig.text(cx0, mp.y0 + 0.02 + mp.height * 0.80 + 0.028, "Secchi depth at the index station, yearly mean", size=7,
          color=dmc.STONE, style="italic")
-for y, txt in [(best, "clearest"), (worst, "murkiest")]:
-    cax.annotate(f"{y}\n{txt}, {yr.loc[y, 'mean']:.1f} m", (y, yr.loc[y, "mean"]), xytext=(0, -6), textcoords="offset points",
-                 ha="center", va="top", family=dmc.MONO, size=6, color=dmc.INK)
+for y, txt, ha, x in [(best, "clearest", "left", yr.index.min()), (worst, "murkiest", "right", yr.index.max())]:
+    cax.scatter([y], [yr.loc[y, "mean"]], s=12, color=dmc.LAVA, zorder=5, clip_on=False)
+    cax.text(x, 33.6 if ha == "left" else 35.2, f"{y}: {yr.loc[y, 'mean']:.1f} m, the {txt}", ha=ha, va="center",
+             family=dmc.MONO, size=6.2, color=dmc.INK)
 
 dmc.frame(
     fig, DAY,
     subtitle=(f"Lake Tahoe is {depth.max():.0f} m deep. In {best} you could see {yr.loc[best, 'mean']:.0f} m down into it; in {last}, "
               f"{yr.loc[last, 'mean']:.0f} m.\nThe floor from the USGS multibeam survey, and the lake's clarity on the same downward axis."),
-    source="USGS DDS-55 bathymetry (1998) · UC Davis TERC Secchi record (EDI, CC BY 4.0) · Copernicus DEM",
+    source="USGS DDS-55 bathymetry · UC Davis TERC Secchi record (CC BY 4.0) · Copernicus DEM",
     note="Depth below a surface of 1,897 m. Clarity averages each year's months first; quote TERC's own annual figures.",
 )
 dmc.save(fig, DAY, alt=(

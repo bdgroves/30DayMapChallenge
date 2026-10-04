@@ -96,6 +96,8 @@ for name, x, y in pl:
 for name, (lon, lat), ha in [("San Francisco", (-122.42, 37.77), "left"), ("Hetch Hetchy", (-119.75, 37.95), "left"),
                              ("Groveland", (-120.231, 37.838), "left"), ("Modesto", (-120.997, 37.639), "left"),
                              ("Newark", (-122.04, 37.53), "right"), ("Oakdale", (-120.847, 37.767), "left")]:
+    if drawn and name in ("San Francisco", "Modesto", "Groveland"):
+        continue                                       # Mapbox labels these already
     x, y = to.transform(lon, lat)
     ax.scatter([x], [y], s=10, color=dmc.INK, zorder=6)
     dmc.label(ax, x + (3000 if ha == "left" else -3000), y + 2500, name, size=8 if name in ("San Francisco", "Hetch Hetchy") else 7,

@@ -105,6 +105,8 @@ mx.plot([mx0, mx1], [my0, my1], color=dmc.INK, lw=0.9, ls=(0, (3, 2)), zorder=3)
 for name, (lon, lat), ha in [("Port of Tacoma", A, "left"), ("Paradise", B, "right"), ("Puyallup", (-122.293, 47.185), "left"),
                              ("Orting", (-122.204, 47.098), "left"), ("Eatonville", (-122.266, 46.867), "left"),
                              ("Ashford", (-122.03, 46.758), "left")]:
+    if drawn and name in ("Puyallup", "Eatonville"):
+        continue                                       # Mapbox labels these already
     x, y = tm.transform(*to.transform(lon, lat))
     mx.scatter([x], [y], s=10, color=dmc.INK, zorder=4)
     dmc.label(mx, x + (2200 if ha == "left" else -2200), y, name, size=7.5, ha=ha, va="center", zorder=5)
