@@ -79,7 +79,7 @@ The gallery picks it up from `days.json` within a few minutes.
 ## The month
 
 <!-- table:start -->
-**0 of 30 done** · 💡 idea 7 · 📦 data in hand 0 · ✏️ draft 23 · ✅ done 0 · 📣 posted 0
+**0 of 30 done** · 💡 idea 6 · 📦 data in hand 0 · ✏️ draft 24 · ✅ done 0 · 📣 posted 0
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -96,7 +96,7 @@ The gallery picks it up from `days.json` within a few minutes.
 | 11 | Wed Nov 11 | Sound | [Where the tsunami sirens reach](day-11-sound/) | ✏️ draft |
 | 12 | Thu Nov 12 | Power | [The Tuolumne powers San Francisco](day-12-power/) | ✏️ draft |
 | 13 | Fri Nov 13 | Interactions | [Follow a raindrop](day-13-interactions/) | ✏️ draft |
-| 14 | Sat Nov 14 | Borgesian map | [1:1](day-14-borgesian-map/) | 💡 idea |
+| 14 | Sat Nov 14 | Borgesian map | [1:1](day-14-borgesian-map/) | ✏️ draft |
 | 15 | Sun Nov 15 | Inside out | [Inside Kīlauea](day-15-inside-out/) | ✏️ draft |
 | 16 | Mon Nov 16 | Collaborative map | [Where we've been](day-16-collaborative-map/) | 💡 idea |
 | 17 | Tue Nov 17 | Light & dark | [Great Basin's dark sky](day-17-light-and-dark/) | 💡 idea |

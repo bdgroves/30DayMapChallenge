@@ -5,9 +5,9 @@
  "author": "Brooks Groves",
  "repo": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026",
  "counts": {
-  "idea": 7,
+  "idea": 6,
   "data": 0,
-  "draft": 23,
+  "draft": 24,
   "done": 0,
   "posted": 0
  },
@@ -327,8 +327,8 @@
    "weekday": "Sat",
    "theme": "Borgesian map",
    "title": "1:1",
-   "pitch": "Borges's map the size of the empire, made literal. Big Creek's watershed at full scale as a page you can scroll for miles, with a counter showing how far you've gone.",
-   "status": "idea",
+   "pitch": "Borges's map the size of the empire, made literal. Big Creek's watershed at full scale as a page you can scroll for miles, with an odometer showing how far you've gone.",
+   "status": "draft",
    "tools": [
     "HTML",
     "canvas"
@@ -341,7 +341,7 @@
    "thumb": null,
    "alt": "",
    "post": null,
-   "link": null,
+   "link": "day-14-borgesian-map/",
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-14.html"
   },
   {

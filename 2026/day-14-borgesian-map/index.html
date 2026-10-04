@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1:1 — Day 14 · #30DayMapChallenge 2026</title>
+<meta name="description" content="Big Creek's watershed near Groveland at full size, one metre on the map to one metre on the ground. Scroll as far as you like.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Libre+Baskerville:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1c1a16;--parchment:#f5f0e8;--white:#fdfaf4;--stone:#7a7268;--mist:#d6d0c4;--lava:#c0392b;--lake:#3f6f8a;--gold:#c8922a}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--parchment);color:var(--ink);font-family:'Libre Baskerville',Georgia,serif;overscroll-behavior:none}
+canvas#c{position:fixed;inset:0;width:100%;height:100%;touch-action:none;cursor:grab}
+canvas#c:active{cursor:grabbing}
+.panel{position:fixed;left:16px;top:16px;width:min(360px,calc(100% - 32px));background:rgba(253,250,244,.94);border:1px solid var(--mist);padding:16px 18px 14px;box-shadow:0 6px 24px rgba(28,26,22,.08)}
+.k{font:500 11px 'DM Mono',monospace;letter-spacing:.12em;color:var(--lava);text-transform:uppercase}
+h1{font:900 40px/1 'Playfair Display',serif;margin:.3rem 0 .45rem}
+p{font-size:13px;line-height:1.6;color:#3d3830}
+.odo{margin-top:.75rem;border-top:1px solid var(--mist);padding-top:.6rem;font:12px/1.7 'DM Mono',monospace;color:var(--stone)}
+.odo b{font:900 26px/1 'Playfair Display',serif;color:var(--lake);display:block;margin:.15rem 0 .25rem}
+.speed{display:flex;gap:6px;margin-top:.55rem;flex-wrap:wrap}
+.speed button{font:11.5px 'DM Mono',monospace;border:1px solid var(--mist);background:transparent;color:var(--stone);border-radius:14px;padding:4px 11px;cursor:pointer}
+.speed button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--white)}
+.mini{position:fixed;right:16px;bottom:16px;width:170px;background:rgba(253,250,244,.94);border:1px solid var(--mist);padding:8px}
+.mini canvas{width:100%;display:block}
+.mini span{display:block;font:10.5px 'DM Mono',monospace;color:var(--stone);margin-top:4px}
+.hint{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);font:12px 'DM Mono',monospace;color:var(--stone);background:rgba(253,250,244,.92);border:1px solid var(--mist);padding:6px 12px;max-width:calc(100% - 220px);text-align:center}
+.back{font:11px 'DM Mono',monospace;color:var(--stone);text-decoration:none}
+@media(max-width:620px){h1{font-size:30px}.panel p.long{display:none}.mini{width:120px}.hint{left:16px;transform:none;max-width:calc(100% - 160px);text-align:left}}
+@media(prefers-color-scheme:dark){:root{--parchment:#16181c;--white:#23272d;--ink:#ece6da;--mist:#3a3e45;--stone:#9a9286}.panel,.mini,.hint{background:rgba(35,39,45,.94)}p{color:#cfc8bb}}
+</style>
+</head>
+<body>
+<canvas id="c" aria-label="Big Creek's watershed at full size. Drag, scroll or use the arrow keys to move."></canvas>
+<div class="panel">
+  <a class="back" href="../#day-14">← #30DayMapChallenge 2026</a>
+  <div class="k" style="margin-top:.5rem">Day 14 · Borgesian map</div>
+  <h1>1:1</h1>
+  <p>Big Creek's watershed above Groveland, drawn at the size of the land itself: a metre of map for every metre of ground. Borges imagined a map of an empire the size of the empire, left to rot in the desert. Here it is for one creek.</p>
+  <p class="long" style="margin-top:.45rem;color:var(--stone);font-style:italic">Drag, scroll, or use the arrow keys. The faint grid is 10 cm, the darker lines a metre. The red line is the edge of the watershed, the blue lines are its streams.</p>
+  <div class="odo"><span id="trav">You have travelled</span><b id="dist">0 m</b><span id="where">Loading the watershed…</span></div>
+  <div class="speed" role="group" aria-label="Walking speed">
+    <button aria-pressed="true" data-s="1">walk</button><button aria-pressed="false" data-s="100">run ×100</button><button aria-pressed="false" data-s="10000">fly ×10,000</button>
+  </div>
+</div>
+<div class="mini"><canvas id="m" width="340" height="340"></canvas><span id="mscale">The whole basin</span></div>
+<div class="hint" id="hint">Nothing in view yet.</div>
+
+<script>
+const NLDI = 'https://api.water.usgs.gov/nldi/linked-data/nwissite/USGS-11284400';
+const PX_PER_M = 96 / 0.0254;                       // CSS's own life size: 96 px to the inch
+const cv = document.getElementById('c'), cx = cv.getContext('2d');
+const mv = document.getElementById('m'), mx = mv.getContext('2d');
+const $ = id => document.getElementById(id);
+let lon0, lat0, basin = [], streams = [], bbox, segs = [];
+let pos = {x: 0, y: 0}, travelled = 0, speed = 1, total = 0;
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+function proj([lon, lat]){            // local equirectangular metres, true to within a few metres over a basin this size
+  const R = 6371008.8, r = Math.PI / 180;
+  return [R * (lon - lon0) * r * Math.cos(lat0 * r), R * (lat - lat0) * r];
+}
+const fmt = m => m < 1 ? `${Math.round(m * 100)} cm` : m < 1000 ? `${m.toFixed(m < 10 ? 2 : 0)} m` : `${(m / 1000).toFixed(m < 1e4 ? 2 : 1)} km`;
+const dir = (dx, dy) => ['east','north-east','north','north-west','west','south-west','south','south-east'][((Math.round(Math.atan2(dy, dx) / (Math.PI / 4)) % 8) + 8) % 8];
+
+async function load(){
+  try {
+    const [b, f] = await Promise.all([
+      fetch(`${NLDI}/basin?f=json`).then(r => r.json()),
+      fetch(`${NLDI}/navigation/UT/flowlines?f=json&distance=200`).then(r => r.json())]);
+    const g = b.features[0].geometry;
+    const rings = g.type === 'Polygon' ? [g.coordinates[0]] : g.coordinates.map(p => p[0]);
+    const all = rings.flat();
+    lon0 = all.reduce((s, p) => s + p[0], 0) / all.length; lat0 = all.reduce((s, p) => s + p[1], 0) / all.length;
+    basin = rings.map(r => r.map(proj));
+    streams = f.features.flatMap(ft => ft.geometry.type === 'MultiLineString' ? ft.geometry.coordinates : [ft.geometry.coordinates]).map(l => l.map(proj));
+    for (const l of basin.concat(streams)) for (let i = 1; i < l.length; i++) segs.push([l[i-1], l[i], basin.includes(l)]);
+    const xs = basin.flat().map(p => p[0]), ys = basin.flat().map(p => p[1]);
+    bbox = [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)];
+    total = streams.reduce((s, l) => s + l.slice(1).reduce((t, p, i) => t + Math.hypot(p[0] - l[i][0], p[1] - l[i][1]), 0), 0);
+    // start at the gage, where the creek leaves the basin: the lowest end of the stream network
+    const ends = streams.map(l => l[l.length - 1]);
+    const starts = new Set(streams.map(l => l[0].map(v => v.toFixed(1)).join()));
+    const o = ends.find(p => !starts.has(p.map(v => v.toFixed(1)).join())) || streams[0][streams[0].length - 1];
+    pos = {x: o[0], y: o[1]};
+    $('mscale').textContent = `The whole basin, ${fmt(bbox[2] - bbox[0])} × ${fmt(bbox[3] - bbox[1])}`;
+    draw();
+  } catch (e){
+    $('where').textContent = 'The USGS service didn’t answer. Try again in a minute.';
+  }
+}
+
+function nearest(){
+  let best = null;
+  for (const [a, b, isB] of segs){
+    const dx = b[0] - a[0], dy = b[1] - a[1], L = dx * dx + dy * dy;
+    const t = L ? Math.max(0, Math.min(1, ((pos.x - a[0]) * dx + (pos.y - a[1]) * dy) / L)) : 0;
+    const px = a[0] + t * dx, py = a[1] + t * dy, d = Math.hypot(px - pos.x, py - pos.y);
+    if (!best || d < best.d) best = {d, px, py, isB};
+  }
+  return best;
+}
+
+function draw(){
+  const dpr = devicePixelRatio || 1, W = innerWidth, H = innerHeight;
+  if (cv.width !== W * dpr){ cv.width = W * dpr; cv.height = H * dpr; }
+  cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  cx.fillStyle = css('--parchment'); cx.fillRect(0, 0, W, H);
+  const toS = (x, y) => [W / 2 + (x - pos.x) * PX_PER_M, H / 2 - (y - pos.y) * PX_PER_M];
+  // graph paper: a line every 10 cm, darker every metre, so you can feel yourself move
+  const G = 0.1, gx0 = Math.floor((pos.x - W / 2 / PX_PER_M) / G), gy0 = Math.floor((pos.y - H / 2 / PX_PER_M) / G);
+  for (let i = gx0; i * G <= pos.x + W / 2 / PX_PER_M + G; i++){ const [sx] = toS(i * G, 0);
+    cx.strokeStyle = css('--mist'); cx.lineWidth = i % 10 === 0 ? 2 : 0.6; cx.beginPath(); cx.moveTo(sx, 0); cx.lineTo(sx, H); cx.stroke(); }
+  for (let i = gy0; i * G <= pos.y + H / 2 / PX_PER_M + G; i++){ const [, sy] = toS(0, i * G);
+    cx.strokeStyle = css('--mist'); cx.lineWidth = i % 10 === 0 ? 2 : 0.6; cx.beginPath(); cx.moveTo(0, sy); cx.lineTo(W, sy); cx.stroke(); }
+  // the lines that fall in view, at full size
+  const half = Math.hypot(W, H) / 2 / PX_PER_M + 1;
+  let inView = 0;
+  for (const [a, b, isB] of segs){
+    if (Math.max(a[0], b[0]) < pos.x - half || Math.min(a[0], b[0]) > pos.x + half || Math.max(a[1], b[1]) < pos.y - half || Math.min(a[1], b[1]) > pos.y + half) continue;
+    const [x1, y1] = toS(...a), [x2, y2] = toS(...b);
+    cx.strokeStyle = isB ? css('--lava') : css('--lake'); cx.lineWidth = isB ? 4 : 6;
+    cx.setLineDash(isB ? [18, 10] : []); cx.beginPath(); cx.moveTo(x1, y1); cx.lineTo(x2, y2); cx.stroke(); cx.setLineDash([]);
+    inView++;
+  }
+  // you are here
+  cx.fillStyle = css('--gold'); cx.beginPath(); cx.arc(W / 2, H / 2, 5, 0, 7); cx.fill();
+  $('dist').textContent = fmt(travelled);
+  if (bbox){
+    const n = nearest();
+    $('where').textContent = `The streams alone run ${fmt(total)}: ${hours(total)} of scrolling at a screen a second${speed > 1 ? `, at ×${speed.toLocaleString()}` : ''}.`;
+    $('hint').textContent = n.d < half ? (n.isB ? 'You’re at the edge of the watershed.' : 'There’s a stream right here.')
+      : `Nothing in view. Nearest ${n.isB ? 'edge of the watershed' : 'stream'}: ${fmt(n.d)} ${dir(n.px - pos.x, n.py - pos.y)}.`;
+    mini();
+  }
+}
+const hours = m => { const s = m * PX_PER_M / innerHeight / speed; return s < 60 ? `${Math.round(s)} seconds` : s < 3600 ? `${Math.round(s / 60)} minutes` : s < 86400 * 2 ? `${Math.round(s / 3600)} hours` : `${Math.round(s / 86400)} days`; };
+
+function mini(){
+  const S = mv.width, pad = 14, w = bbox[2] - bbox[0], h = bbox[3] - bbox[1], k = (S - 2 * pad) / Math.max(w, h);
+  const t = (x, y) => [pad + (x - bbox[0]) * k + ((S - 2 * pad) - w * k) / 2, S - pad - (y - bbox[1]) * k - ((S - 2 * pad) - h * k) / 2];
+  mx.fillStyle = css('--white'); mx.fillRect(0, 0, S, S);
+  const line = (l, c, wd) => { mx.strokeStyle = c; mx.lineWidth = wd; mx.beginPath(); l.forEach((p, i) => { const [a, b] = t(...p); i ? mx.lineTo(a, b) : mx.moveTo(a, b); }); mx.stroke(); };
+  streams.forEach(l => line(l, css('--lake'), 1.4)); basin.forEach(l => line(l, css('--lava'), 2));
+  const [px, py] = t(pos.x, pos.y);
+  mx.fillStyle = css('--gold'); mx.strokeStyle = css('--ink'); mx.lineWidth = 1.5; mx.beginPath(); mx.arc(px, py, 6, 0, 7); mx.fill(); mx.stroke();
+}
+
+function move(dxPx, dyPx){
+  const dx = dxPx / PX_PER_M * speed, dy = dyPx / PX_PER_M * speed;
+  pos.x += dx; pos.y += dy; travelled += Math.hypot(dx, dy);
+  requestAnimationFrame(draw);
+}
+cv.addEventListener('wheel', e => { e.preventDefault(); const f = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? innerHeight : 1;
+  move((e.shiftKey ? e.deltaY : e.deltaX) * f, -(e.shiftKey ? 0 : e.deltaY) * f); }, {passive: false});
+let drag = null;
+cv.addEventListener('pointerdown', e => { drag = {x: e.clientX, y: e.clientY}; cv.setPointerCapture(e.pointerId); });
+cv.addEventListener('pointermove', e => { if (!drag) return; move(drag.x - e.clientX, e.clientY - drag.y); drag = {x: e.clientX, y: e.clientY}; });
+cv.addEventListener('pointerup', () => drag = null);
+addEventListener('keydown', e => { const k = {ArrowLeft: [-60, 0], ArrowRight: [60, 0], ArrowUp: [0, 60], ArrowDown: [0, -60]}[e.key]; if (k){ e.preventDefault(); move(...k); } });
+addEventListener('resize', () => requestAnimationFrame(draw));
+document.querySelectorAll('.speed button').forEach(b => b.onclick = () => {
+  speed = +b.dataset.s; document.querySelectorAll('.speed button').forEach(x => x.setAttribute('aria-pressed', x === b)); draw(); });
+draw(); load();
+</script>
+</body>
+</html>

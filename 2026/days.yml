@@ -168,13 +168,14 @@ days:
   - day: 14
     theme: Borgesian map
     title: "1:1"
-    pitch: "Borges's map the size of the empire, made literal. Big Creek's watershed at full scale as a page you can scroll for miles, with a counter showing how far you've gone."
+    pitch: "Borges's map the size of the empire, made literal. Big Creek's watershed at full scale as a page you can scroll for miles, with an odometer showing how far you've gone."
     data:
       - name: "USGS NLDI basin for Big Creek (11284400)"
         url: https://labs.waterdata.usgs.gov/about-nldi/
     tools: [HTML, canvas]
-    prep: "None."
-    status: idea
+    prep: "Drafted as a page (day-14-borgesian-map/index.html): the basin and streams from NLDI at 96 CSS px to the inch, an odometer, a minimap and three speeds. Needs a still for social posts."
+    link: day-14-borgesian-map/
+    status: draft
 
   - day: 15
     theme: Inside out
