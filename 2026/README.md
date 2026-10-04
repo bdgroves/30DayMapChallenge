@@ -79,7 +79,7 @@ The gallery picks it up from `days.json` within a few minutes.
 ## The month
 
 <!-- table:start -->
-**0 of 30 done** · 💡 idea 13 · 📦 data in hand 0 · ✏️ draft 17 · ✅ done 0 · 📣 posted 0
+**0 of 30 done** · 💡 idea 12 · 📦 data in hand 0 · ✏️ draft 18 · ✅ done 0 · 📣 posted 0
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -88,7 +88,7 @@ The gallery picks it up from `days.json` within a few minutes.
 | 3 | Tue Nov 3 | Polygons | [Every fire around Groveland](day-03-polygons/) | ✏️ draft |
 | 4 | Wed Nov 4 | Clusters | [Rainier's swarms](day-04-clusters/) | ✏️ draft |
 | 5 | Thu Nov 5 | Sight | [Where you can see Rainier from](day-05-sight/) | ✏️ draft |
-| 6 | Fri Nov 6 | Vintage | [Tasman to Cook](day-06-vintage/) | 💡 idea |
+| 6 | Fri Nov 6 | Vintage | [Tasman to Cook](day-06-vintage/) | ✏️ draft |
 | 7 | Sat Nov 7 | 10 minute map | [Ten minutes, on the clock](day-07-10-minute-map/) | 💡 idea |
 | 8 | Sun Nov 8 | Utopia | [Paradise, Eden, Utopia](day-08-utopia/) | ✏️ draft |
 | 9 | Mon Nov 9 | Urban-rural | [Tacoma to Paradise](day-09-urban-rural/) | ✏️ draft |

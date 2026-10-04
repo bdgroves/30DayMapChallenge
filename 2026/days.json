@@ -5,9 +5,9 @@
  "author": "Brooks Groves",
  "repo": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026",
  "counts": {
-  "idea": 13,
+  "idea": 12,
   "data": 0,
-  "draft": 17,
+  "draft": 18,
   "done": 0,
   "posted": 0
  },
@@ -133,13 +133,15 @@
    "theme": "Vintage",
    "title": "Tasman to Cook",
    "pitch": "New Zealand's coast as Abel Tasman charted it in 1642 and James Cook in 1769–70, over the modern coastline, engraved in an 18th-century style. A map version of my Cartographic Perspectives article.",
-   "status": "idea",
+   "status": "draft",
    "tools": [
-    "QGIS georeferencer",
-    "Python"
+    "Python",
+    "geopandas",
+    "matplotlib"
    ],
    "data": [
-    "David Rumsey Map Collection (Tasman and Cook charts, georeferenced)",
+    "Cook's Chart of New-Zealand (1772), Royal Museums Greenwich F0293, via Wikimedia Commons",
+    "Tasman map (c. 1644), State Library of New South Wales, via Wikimedia Commons",
     "Natural Earth coastline"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-06-vintage",
