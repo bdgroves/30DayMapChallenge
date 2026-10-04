@@ -145,9 +145,9 @@
     "Natural Earth coastline"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-06-vintage",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-06-vintage/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-06-vintage/out/thumb.jpg",
+   "alt": "James Cook's 1772 engraved chart of New Zealand, georeferenced, with today's coastline traced over it in red; the two match closely, except that Banks Peninsula is drawn as an island, Stewart Island as part of the mainland, and much of the coast sits slightly east. Gold lines mark the west coasts Abel Tasman saw in 1642-43, with an inset of Tasman's own coastline from the Bonaparte map of about 1644.",
    "post": null,
    "link": null
   },
