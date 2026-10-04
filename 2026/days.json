@@ -5,8 +5,8 @@
  "author": "Brooks Groves",
  "repo": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026",
  "counts": {
-  "idea": 3,
-  "data": 0,
+  "idea": 2,
+  "data": 1,
   "draft": 27,
   "done": 0,
   "posted": 0
@@ -578,15 +578,28 @@
    "date": "2026-11-16",
    "weekday": "Mon",
    "theme": "Collaborative map",
-   "title": "Where we've been",
-   "pitch": "A map made with someone else. One option is a trip map built together; another is a public form asking people for their favourite Sierra trailhead, mapped as the answers come in.",
-   "status": "idea",
+   "title": "Your favourite Sierra trailheads",
+   "pitch": "Made with whoever answers: I asked on X for everyone's favourite Sierra Nevada trailhead, and every reply goes on the map, bigger the more people name it.",
+   "status": "data",
    "tools": [
-    "Google Sheets or a form",
-    "Python or mapgl"
+    "X",
+    "Python",
+    "Mapbox"
    ],
-   "data": [],
-   "data_links": [],
+   "data": [
+    "Replies on X (names of trailheads only)",
+    "OpenStreetMap trailheads (Overpass API)"
+   ],
+   "data_links": [
+    {
+     "name": "Replies on X (names of trailheads only)",
+     "url": "https://x.com/bdgroves"
+    },
+    {
+     "name": "OpenStreetMap trailheads (Overpass API)",
+     "url": "https://overpass-api.de/"
+    }
+   ],
    "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-16-collaborative-map",
    "image": null,

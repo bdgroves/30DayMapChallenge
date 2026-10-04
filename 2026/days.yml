@@ -234,12 +234,16 @@ days:
 
   - day: 16
     theme: Collaborative map
-    title: "Where we've been"
-    pitch: "A map made with someone else. One option is a trip map built together; another is a public form asking people for their favourite Sierra trailhead, mapped as the answers come in."
-    data: []
-    tools: [Google Sheets or a form, Python or mapgl]
-    prep: "Pick the collaborator and open the form a week early."
-    status: idea
+    title: "Your favourite Sierra trailheads"
+    pitch: "Made with whoever answers: I asked on X for everyone's favourite Sierra Nevada trailhead, and every reply goes on the map, bigger the more people name it."
+    data:
+      - name: "Replies on X (names of trailheads only)"
+        url: https://x.com/bdgroves
+      - name: "OpenStreetMap trailheads (Overpass API)"
+        url: https://overpass-api.de/
+    tools: [X, Python, Mapbox]
+    prep: "Asked on X on October 3. Paste each reply's trailhead into answers.csv (no handles); render; add any unplaced names to places.csv."
+    status: data
 
   - day: 17
     theme: Light & dark
