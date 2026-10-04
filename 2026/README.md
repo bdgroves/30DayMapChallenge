@@ -72,5 +72,5 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 27 | Fri Nov 27 | New tool | [Every building in Washington](day-27-new-tool/) | ✏️ draft |
 | 28 | Sat Nov 28 | Feeling | [Did you feel it? Nisqually, 2001](day-28-feeling/) | ✏️ draft |
 | 29 | Sun Nov 29 | Raster | [Rainier's snow from space](day-29-raster/) | 💡 idea |
-| 30 | Mon Nov 30 | Pen & paper | [Groveland from memory](day-30-pen-and-paper/) | 💡 idea |
+| 30 | Mon Nov 30 | Pen & paper | [If you hit the third cattle guard](day-30-pen-and-paper/) | 💡 idea |
 <!-- table:end -->

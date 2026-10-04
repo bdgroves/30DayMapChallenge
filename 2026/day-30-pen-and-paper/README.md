@@ -3,13 +3,13 @@
 
 **Monday, November 30, 2026** · status: 💡 idea
 
-## Groveland from memory
+## If you hit the third cattle guard
 
-Groveland drawn by hand from memory, then laid over the real map to see what I remembered and what I didn't.
+The hot-spring napkin from my memoir, redrawn by hand in bar ink on a cocktail napkin: the springs outside Bridgeport and the roads between them, with directions counted in cattle guards, not miles. Drawn from memory, like the original.
 
-**Tools:** Pen, paper, a scanner
+**Tools:** Pen, a cocktail napkin, a scanner
 
-**Prep:** Don't look at a map of Groveland in November.
+**Prep:** Draw it in November, from memory, without looking at a map. Save the scan as day-30-pen-and-paper/napkin.jpg and render; make.py frames it. On the day, add the story link (post: https://memoir.brooksgroves.com/cattle-guard.html).
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
