@@ -10,33 +10,33 @@ Earlier years are in [`../2023`](../2023) and [`../2024`](../2024).
 
 Mapbox basemaps go where streets, towns and water give the data its context: Light under days 1, 11, 12, 19, 23 and 28, Outdoors under days 2 and 9. Each falls back to plain outlines or the house shaded relief without a token. The rest keep their own backgrounds on purpose: the relief is the subject on days 3, 4 and 24, the elevation or depth data is the map on 5, 15 and 26, days 8, 20 and 22 need equal-area or azimuthal projections that Mapbox's Web Mercator can't give, day 6's basemap is Cook's chart, day 18's census blocks cover every inch, day 21 is drawn from raw OpenStreetMap, and day 27 is a dark density grid. Mapbox static maps are Web Mercator, carry the Mapbox wordmark, and get "© Mapbox © OpenStreetMap" in the credit line; `toolkit/basemap.py` does all three.
 
-- [ ] Make a free account at [account.mapbox.com](https://account.mapbox.com) and copy the **default public token** (starts `pk.`).
-- [ ] GitHub: repo **Settings → Secrets and variables → Actions → New repository secret**, name `MAPBOX_TOKEN`.
+- [x] Make a free account at [account.mapbox.com](https://account.mapbox.com) and copy the **default public token** (starts `pk.`).
+- [x] GitHub: repo **Settings → Secrets and variables → Actions → New repository secret**, name `MAPBOX_TOKEN`. (The drafts already show Mapbox basemaps.)
 - [ ] On your PC, for renders there: `setx MAPBOX_TOKEN "pk...."` in PowerShell, then open a new window. Never put the token in a file in the repo.
 - [ ] Optional, for the house look: Mapbox Studio → **New style → Upload**, choose `toolkit/mapbox/brooks-parchment.json`, publish, then add a repo **variable** (same page, Variables tab) `MAPBOX_STYLE` = `yourusername/styleid`. Until then maps use Mapbox Light.
 
-### Data to request now (it takes time to arrive)
+### Data
 
-- [ ] **Day 1**: Geocaching *My Finds* pocket query (premium; once every 3 days). Save the .zip in `day-01-points/data/`.
-- [ ] **Day 2**: Strava archive (Settings → My Account → Download your data; arrives by email). Unzip into `day-02-lines/data/`.
-- [ ] **Day 20**: GBIF download of genus *Dipodomys* (free account at gbif.org).
-- [ ] **Day 23**: Untappd check-in export (Supporter feature).
-- [ ] **Day 17**: NASA Earthdata login works for Black Marble night lights.
+- [x] **Day 1**: Geocaching *My Finds* pocket query. In (October 3); `finds.csv` is built from it.
+- [x] **Day 23**: no Untappd export needed after all: drafted from the beer history HopLove keeps.
+- [x] **Day 17** and **Day 29**: no Earthdata login needed. Day 17 uses the Black Marble composite NASA GIBS serves openly; Day 29 uses Sentinel-2 from AWS open data. (An Earthdata login would still let Day 17 use VNP46A4 annual radiance.)
+- [ ] **Day 20**: GBIF download of genus *Dipodomys* with your account (free at gbif.org), so the map can cite its DOI. The draft uses the GBIF search API.
+- [ ] **Day 16**: paste each reply's trailhead into `answers.csv` (no handles). The question went out on X on October 3; the file is still empty.
 
 ### Things only you can do
 
-- [ ] **Day 6**: find the Tasman (1642) and Cook (1769–70) charts and georeference them. The slowest prep of the month.
-- [ ] **Day 11**: track down Pierce County's lahar siren locations (or settle on the fallback: Puget Sound by depth).
-- [ ] **Day 16**: pick the collaborator, or open the trailhead form a week early.
-- [ ] **Day 21**: an evening adding Groveland to OpenStreetMap.
-- [ ] **Day 27**: the lonboard tutorial.
+- [x] **Day 6**: Cook's chart is georeferenced from its own graticule, with Tasman's coast and an inset of his chart.
+- [x] **Day 11**: drafted with tsunami sirens; the lahar-siren version can come back if Pierce County shares locations.
+- [ ] **Day 21**: an evening adding Groveland to OpenStreetMap, then `make.py --refresh`.
+- [ ] **Day 22**: every place you've been, in `day-22-projections/places.csv`.
+- [ ] **Day 27**: the lonboard tutorial, for the interactive version.
 - [ ] **Day 30**: don't look at a map of Groveland in November.
 
 ### Where the maps stand
 
-- Drafted from real data: **1–6, 8, 9, 11–15, 18–28** (13 and 14 are interactive pages, with stills for posts).
-- Waiting on you: **7** (made on the day), **10** (prompts only, on the day), **16** (a collaborator), **17** and **29** (Earthdata login), **30** (pen and paper).
-- Before posting: **20** needs a GBIF download with your account so the map can cite its DOI; **22** needs every place you've been in `places.csv`; **21** gets re-rendered (`make.py --refresh`) after your evening of OSM edits.
+- Drafted from real data: **1–6, 8–15, 17–29** (13 and 14 are interactive pages, with stills for posts). Day 10's draft is the line-printer map; the real one is made from prompts on the day.
+- Waiting on you: **7** (made on the day), **16** (replies into `answers.csv`), **30** (pen and paper).
+- Before posting: **20** (GBIF download for the DOI), **21** (re-render after your OSM evening), **22** (`places.csv`).
 
 <!-- table:start -->
 **0 of 30 done** · 💡 idea 2 · 📦 data in hand 1 · ✏️ draft 27 · ✅ done 0 · 📣 posted 0
