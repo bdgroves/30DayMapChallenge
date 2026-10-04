@@ -105,7 +105,7 @@ EVENTS = [  # Tasman's journal, 1642-43
 ]
 
 # ── map ──────────────────────────────────────────────────────────────────────
-fig, ax = dmc.figure("portrait", map_box=(0.05, 0.085, 0.90, 0.745))
+fig, ax = dmc.figure("portrait", map_box=(0.05, 0.085, 0.90, 0.72))
 ax.imshow(chart, extent=(fx0, fx1, fy0, fy1), interpolation="lanczos", zorder=0)
 coast.plot(ax=ax, color=dmc.LAVA, lw=0.75, alpha=0.9, zorder=3)
 saw.plot(ax=ax, color=dmc.GOLD, lw=3.2, alpha=0.75, zorder=2)
@@ -121,7 +121,8 @@ ax.set_aspect("equal")
 # Tasman's own coastline, from the Bonaparte map
 t = tasman.width / 1920
 tas = tasman.crop((int(1505 * t), int(1088 * t), int(1665 * t), int(1330 * t)))
-iax = fig.add_axes((0.585, 0.105, 0.33, 0.26))
+iax = ax.inset_axes((0.70, 0.03, 0.29, 0.34))
+iax.set_anchor("SE")
 iax.imshow(tas)
 iax.set_xticks([])
 iax.set_yticks([])
@@ -131,18 +132,19 @@ for sp in iax.spines.values():
 iax.set_title("TASMAN'S COAST, C. 1644", family=dmc.MONO, size=6.5, color=dmc.INK, loc="left", pad=3)
 
 # legend
-lx, ly = 0.07, 0.205
-fig.lines.append(Line2D([lx, lx + 0.035], [ly, ly], color=dmc.LAVA, lw=1.2, transform=fig.transFigure))
-fig.text(lx + 0.045, ly, "Today's coastline", size=7.5, va="center")
-fig.lines.append(Line2D([lx, lx + 0.035], [ly - 0.022] * 2, color=dmc.GOLD, lw=3, alpha=0.75,
-                        transform=fig.transFigure))
-fig.text(lx + 0.045, ly - 0.022, "Coast Tasman saw, 1642–43", size=7.5, va="center")
+# in the open sea under Cook's title cartouche
+leg = ax.legend(handles=[Line2D([], [], color=dmc.LAVA, lw=1.2, label="Today's coastline"),
+                         Line2D([], [], color=dmc.GOLD, lw=3, alpha=0.75, label="Coast Tasman saw, 1642–43")],
+                loc="upper left", bbox_to_anchor=(0.04, 0.745), fontsize=7.5, frameon=True,
+                facecolor="#efe9dc", edgecolor=dmc.ASH, framealpha=0.92, borderpad=0.7, handlelength=2.4)
+leg.get_frame().set_linewidth(0.5)
+leg.set_zorder(7)
 
 dmc.frame(
     fig, DAY,
     subtitle=("James Cook's chart of the Endeavour's six months round New Zealand, engraved in 1772 and\n"
               "laid under today's coast in red. In gold, the stretches Abel Tasman saw 127 years before."),
-    source="Cook chart: Royal Museums Greenwich F0293 · Tasman map: State Library of NSW · via Wikimedia Commons · Natural Earth",
+    source="Royal Museums Greenwich F0293 · State Library of NSW · Wikimedia Commons · Natural Earth",
     note="Georeferenced from Cook's own graticule. Much of his coast sits about half a degree east of where it is.",
 )
 dmc.save(fig, DAY, alt=(
