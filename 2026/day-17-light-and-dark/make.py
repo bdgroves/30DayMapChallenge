@@ -83,7 +83,7 @@ print(f"= LV→Wheeler {d1:.0f} km, Wheeler→SLC {d2:.0f} km; brightness at Whe
       f"darkest stretch median {np.median(dark):.0f}")
 
 # ── figure ───────────────────────────────────────────────────────────────────
-fig, ax = dmc.figure("portrait", dark=True, map_box=(0.05, 0.27, 0.90, 0.55))
+fig, ax = dmc.figure("portrait", dark=True, map_box=(0.05, 0.255, 0.90, 0.52))
 ax.imshow(img, extent=(W, E, S, N), interpolation="lanczos", zorder=0)
 st = fetch.shapes(fetch.STATES, DATA / "states.zip").to_crs(4326)
 st.boundary.plot(ax=ax, color="#6b6560", lw=0.4, alpha=0.6, zorder=1)
@@ -103,7 +103,7 @@ for name, lon, lat in [("NEVADA", -117.0, 39.6), ("UTAH", -111.3, 38.9)]:
     ax.text(lon, lat, name, family=dmc.MONO, size=9, color="#4a4f57", ha="center", zorder=1)
 
 # the profile
-px = fig.add_axes((0.10, 0.10, 0.80, 0.11))
+px = fig.add_axes((0.10, 0.115, 0.80, 0.095))
 px.fill_between(dist, prof, color=dmc.GOLD, alpha=0.35, lw=0)
 px.plot(dist, prof, color=dmc.GOLD, lw=0.8)
 px.axvline(d1, color=dmc.MIST, lw=0.6, ls=(0, (2, 2)))
@@ -117,17 +117,16 @@ for s in ("left", "bottom"):
 px.tick_params(labelsize=6.5, colors=dmc.MIST, length=2)
 for t in px.get_xticklabels() + px.get_yticklabels():
     t.set_fontfamily(dmc.MONO)
-px.set_xlabel("km along the line", family=dmc.MONO, size=7, color=dmc.MIST)
-fig.text(0.10, 0.225, "HOW BRIGHT THE NIGHT IS ALONG THE DASHED LINE  (IMAGE BRIGHTNESS, 0-255)", family=dmc.MONO, size=7,
+fig.text(0.10, 0.222, "HOW BRIGHT THE NIGHT IS ALONG THE DASHED LINE  (IMAGE BRIGHTNESS 0-255, BY KM)", family=dmc.MONO, size=7,
          color=dmc.MIST)
 for x, t, ha in [(0, "Las Vegas", "left"), (d1, "Wheeler Peak", "center"), (d1 + d2, "Salt Lake City", "right")]:
     px.text(x, max(255, prof.max()) * 0.98, t, family=dmc.MONO, size=6.5, color=dmc.WHITE, ha=ha, va="top")
 
 dmc.frame(
     fig, DAY,
-    subtitle=(f"Nevada and Utah from space at night. Great Basin National Park, a Dark Sky Park since 2016, sits in the dark\n"
-              f"between Las Vegas, {d1:.0f} km away, and Salt Lake City, {d2:.0f} km the other way."),
-    source=f"NASA Black Marble ({LAYER}) via NASA GIBS · U.S. Census Bureau · DarkSky International",
+    subtitle=(f"Nevada and Utah from space at night. Great Basin National Park, a Dark Sky Park since\n"
+              f"2016, sits in the dark between Las Vegas, {d1:.0f} km away, and Salt Lake City, {d2:.0f} km."),
+    source="NASA Black Marble 2016, via NASA GIBS · U.S. Census Bureau · DarkSky International",
     note="The profile reads the image's brightness, not measured radiance.",
 )
 dmc.save(fig, DAY, alt=(
