@@ -105,9 +105,18 @@ print(f"= {len(dates)} usable days {dates[0]}..{dates[-1]}; grid {W}x{H} at {RES
 
 # ── melt-out ─────────────────────────────────────────────────────────────────
 n = len(dates)
-last_snow = np.full((H, W), -1, np.int16)                           # last view with snow
+# a pixel counts as snowy only when two views in a row (ignoring cloudy days) show snow, so one
+# misclassified scene or a light dusting can't push its melt-out later
+last_snow = np.full((H, W), -1, np.int16)                           # last confirmed view with snow
+prev = np.zeros((H, W), np.uint8)                                   # previous clear-or-snow view
+prev_i = np.full((H, W), -1, np.int16)
 for i in range(n):
-    last_snow[stack[i] == 2] = i
+    c = stack[i]
+    pair = (c == 2) & (prev == 2)
+    last_snow[pair] = i
+    seen = c > 0
+    prev[seen] = c[seen]
+    prev_i[seen] = i
 first_clear_after = np.full((H, W), n, np.int16)                    # first clear view after it
 for i in range(n):
     hit = (stack[i] == 1) & (i > last_snow) & (first_clear_after == n)
@@ -138,7 +147,7 @@ print(f"= Paradise: SNOTEL peak {par.loc[peak_i, 'swe_in']:.1f} in on {par.loc[p
 
 # ── map ──────────────────────────────────────────────────────────────────────
 fig, ax = dmc.figure("portrait", map_box=(0.05, 0.27, 0.90, 0.56))
-zz, ztf = terrain.dem(BBOX, crs=CRS, res=RES)
+zz, ztf = terrain.dem((BBOX[0] - 0.03, BBOX[1] - 0.03, BBOX[2] + 0.03, BBOX[3] + 0.03), crs=CRS, res=RES)
 ax.imshow(terrain.relief(zz, RES, strength=0.7, exaggerate=1.2), extent=terrain.extent(ztf, zz.shape), interpolation="bilinear", zorder=0)
 cmap = LinearSegmentedColormap.from_list("melt", ["#e8c48a", "#c9a46a", "#7fb0c4", dmc.LAKE, "#1f3a4a"])
 lo, hi = date(2026, 4, 1).toordinal(), date(2026, 8, 31).toordinal()
@@ -166,7 +175,8 @@ kax.set_xticklabels(["Apr", "May", "Jun", "Jul", "Aug"], family=dmc.MONO, fontsi
 for s in kax.spines.values():
     s.set_visible(False)
 fig.text(0.30, 0.252, "SNOW GONE BY", family=dmc.MONO, size=7, color=dmc.STONE)
-fig.text(0.73, 0.240, "■", size=11, color="#ffffff", va="center", path_effects=[__import__("matplotlib").patheffects.withStroke(linewidth=1, foreground=dmc.STONE)])
+fig.add_artist(__import__("matplotlib").patches.Rectangle((0.728, 0.234), 0.018, 0.012, facecolor="#ffffff", edgecolor=dmc.STONE,
+                                                           lw=0.6, transform=fig.transFigure))
 fig.text(0.755, 0.240, "Never melted", size=7.5, va="center", color=dmc.INK)
 
 # Paradise SNOTEL strip
@@ -176,8 +186,10 @@ sx.plot(par["date"], par["swe_in"], color=dmc.LAKE, lw=1.2, label="Water year 20
 sx.plot(par["date"], par["median_swe_in"], color=dmc.STONE, lw=0.9, ls=(0, (3, 2)), label="1991-2020 median")
 if sat_melt:
     sx.axvline(pd.Timestamp(sat_melt), color=dmc.LAVA, lw=1)
-    sx.text(pd.Timestamp(sat_melt), sx.get_ylim()[1] * 0.92, "  satellite: Paradise melts out", family=dmc.MONO, size=6.3,
-            color=dmc.LAVA, va="top")
+    sx.text(pd.Timestamp(sat_melt), sx.get_ylim()[1] * 0.92,
+            f"  satellite: Paradise melts out {sat_melt:%b} {sat_melt.day}" + (f"; SNOTEL reads zero {snotel_melt:%b} {snotel_melt.day}"
+                                                                              if snotel_melt else ""),
+            family=dmc.MONO, size=6.3, color=dmc.LAVA, va="top")
 for s in ("top", "right"):
     sx.spines[s].set_visible(False)
 sx.tick_params(labelsize=6.5, colors=dmc.STONE, length=2)
@@ -192,10 +204,10 @@ fig.text(0.10, 0.198, "PARADISE SNOTEL, SNOW WATER EQUIVALENT (INCHES), FROM MY 
 dmc.frame(
     fig, DAY,
     title="When Rainier's snow melted",
-    subtitle=(f"Every patch of the mountain coloured by the day it lost its snow in 2026, from {len(dates)} days of Sentinel-2\n"
-              f"views. The valleys cleared in spring, the high meadows by late summer; the glaciers, in white, never did."),
-    source="ESA Copernicus Sentinel-2 L2A (Earth Search, AWS) · NRCS SNOTEL via my rainier-snowpack tracker · Copernicus DEM",
-    note="Melt-out: the first clear, snow-free view after the last snowy one. Cloud and shadow count as no view.",
+    subtitle=(f"Every 30 m patch of the mountain coloured by the day it lost its snow in 2026, from {len(dates)} days\n"
+              f"of Sentinel-2 views. The glaciers, in white, never did."),
+    source="Copernicus Sentinel-2 L2A via Earth Search · NRCS SNOTEL via my snowpack tracker · Copernicus DEM",
+    note="Uncoloured: no snow seen after March 1, or snow hidden under forest. Snow counts when two clear views in a row show it.",
 )
 dmc.save(fig, DAY, alt=(
     "Map of Mount Rainier with every 30 metre patch coloured by the date its snow melted in 2026, from tan in April in the "
