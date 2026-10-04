@@ -124,7 +124,7 @@ dmc.frame(
     fig, DAY,
     subtitle=(f"{total:,} building footprints from Overture Maps, counted into half-kilometre cells by one DuckDB query run\n"
               f"against Overture's files on S3. Brighter means more buildings."),
-    source=f"Overture Maps Foundation, buildings, release {rel} (ODbL and CDLA) · U.S. Census Bureau",
+    source=f"Overture Maps Foundation, buildings, release {rel} (ODbL) · U.S. Census Bureau",
     note="Each footprint is counted once, in the cell holding the centre of its bounding box.",
 )
 dmc.save(fig, DAY, alt=(

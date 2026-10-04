@@ -1,1 +1,1 @@
-A live map of the lower 48: a blue line traces the path of a raindrop from Groveland, California, down the Tuolumne and San Joaquin rivers past Modesto and Stockton to the Sacramento-San Joaquin Delta, 279 kilometres.
+Screenshot of the Follow a raindrop page: a raindrop starting near Groveland traced down the Tuolumne and San Joaquin rivers to the Delta, 279 km, on a pale basemap.

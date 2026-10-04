@@ -316,7 +316,7 @@
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-13-interactions",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-13-interactions/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-13-interactions/out/thumb.jpg",
-   "alt": "A live map of the lower 48: a blue line traces the path of a raindrop from Groveland, California, down the Tuolumne and San Joaquin rivers past Modesto and Stockton to the Sacramento-San Joaquin Delta, 279 kilometres.",
+   "alt": "Screenshot of the Follow a raindrop page: a raindrop starting near Groveland traced down the Tuolumne and San Joaquin rivers to the Delta, 279 km, on a pale basemap.",
    "post": null,
    "link": "day-13-interactions/",
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-13.html"
@@ -337,9 +337,9 @@
     "USGS NLDI basin for Big Creek (11284400)"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-14-borgesian-map",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-14-borgesian-map/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-14-borgesian-map/out/thumb.jpg",
+   "alt": "Screenshot of the 1:1 page: almost empty parchment graph paper with a single thick blue line, one stretch of Big Creek at full size, and a minimap of the whole watershed in the corner.",
    "post": null,
    "link": "day-14-borgesian-map/",
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-14.html"
