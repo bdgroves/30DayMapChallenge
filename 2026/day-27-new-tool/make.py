@@ -9,7 +9,7 @@ still; lonboard, the other new tool on the plan, comes next for the interactive 
 The query also asks where each footprint came from (OpenStreetMap volunteers, Microsoft's or
 Google's machine-learned footprints, Esri...), the first source Overture lists for it.
 
-Downloads (cached in data/): the gridded counts (data/grid.parquet), Census state outline.
+Downloads (cached in data/): the gridded counts (data/grid.csv.gz), Census state outline.
 """
 import json
 import sys
@@ -49,7 +49,7 @@ def latest_release() -> str:
         return FALLBACK
 
 
-grid_p = DATA / "grid.parquet"
+grid_p = DATA / "grid.csv.gz"
 meta_p = DATA / "grid.json"
 if not grid_p.exists():
     rel = latest_release()
@@ -66,9 +66,9 @@ if not grid_p.exists():
         WHERE bbox.xmin > {BB[0]} AND bbox.xmax < {BB[2]} AND bbox.ymin > {BB[1]} AND bbox.ymax < {BB[3]}
         GROUP BY ALL
     """).df()
-    df.to_parquet(grid_p)
+    df.to_csv(grid_p, index=False)
     meta_p.write_text(json.dumps({"release": rel}))
-df = pd.read_parquet(grid_p)
+df = pd.read_csv(grid_p)
 rel = json.loads(meta_p.read_text())["release"]
 
 # keep cells whose centre is in Washington
