@@ -539,9 +539,9 @@
     "Untappd check-in export"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-23-taste",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-23-taste/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-23-taste/out/thumb.jpg",
+   "alt": "Map of Cascadia with gold circles at 35 breweries, sized by how many different beers I've had from each in a year of Untappd check-ins; Kings & Daughters Brewery is biggest with 16. A list beside it names 19 breweries farther away.",
    "post": null,
    "link": null,
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-23.html"
