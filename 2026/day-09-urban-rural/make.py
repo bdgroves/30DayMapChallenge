@@ -6,6 +6,9 @@ changes along it: how many people live within a kilometre of the line, and how h
 
 Downloads (cached in data/): Census 2020 TIGER/Line blocks for Washington (with POP20),
 Copernicus 30 m DEM.
+
+Basemap: Mapbox Outdoors, where the city's grey gives way to green forest along the line; without a
+token, the house shaded relief. The profiles are measured in UTM either way.
 """
 import sys
 from pathlib import Path
@@ -13,6 +16,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "toolkit"))
 import dmc  # noqa: E402
 import fetch  # noqa: E402
+import basemap  # noqa: E402
 import terrain  # noqa: E402
 
 import geopandas as gpd  # noqa: E402
@@ -78,23 +82,34 @@ print(f"= {total:,.0f} people within 1 km; density ≥100/km² until km {last:.1
 fig = dmc.figure("wide", map_box=(0.04, 0.08, 0.36, 0.72))[0]
 mx = fig.axes[0]
 pad = 6000
-mz, mtf = z, tf
-mx.imshow(terrain.relief(mz, 30, strength=0.55, exaggerate=1.3), extent=terrain.extent(mtf, mz.shape),
-          interpolation="bilinear", zorder=0)
+MAPBOX = basemap.available()
+MCRS = "EPSG:3857" if MAPBOX else CRS                               # the map panel's CRS
+tm = Transformer.from_crs(CRS, MCRS, always_xy=True)
 view = box(min(ax_, bx_) - pad, min(ay_, by_) - pad, max(ax_, bx_) + pad, max(ay_, by_) + pad)
+vx0, vy0, vx1, vy1 = gpd.GeoSeries([view], crs=CRS).to_crs(MCRS).total_bounds
+mx.set_xlim(vx0, vx1)
+mx.set_ylim(vy0, vy1)
+mx.set_aspect("equal")
+drawn = MAPBOX and basemap.mapbox(mx, style="mapbox/outdoors-v12")
+if not drawn:
+    mx.imshow(terrain.relief(z, 30, strength=0.55, exaggerate=1.3), extent=terrain.extent(tf, z.shape),
+              interpolation="bilinear", zorder=0)
 vb = blocks[blocks.intersects(view) & (blocks["dens"] > 0)]
-vb.plot(ax=mx, column="dens", cmap=dmc.SEQ_HEAT, vmin=0, vmax=4000, alpha=0.55, lw=0, zorder=1)
-gpd.GeoSeries([line.buffer(HALF, cap_style=2)], crs=CRS).boundary.plot(ax=mx, color=dmc.INK, lw=0.6, zorder=3)
-mx.plot([ax_, bx_], [ay_, by_], color=dmc.INK, lw=0.8, ls=(0, (3, 2)), zorder=3)
+if drawn:      # over Mapbox, shade only the built-up blocks: the basemap already shows forest and farm
+    vb = vb[vb["dens"] >= 100]
+vb.to_crs(MCRS).plot(ax=mx, column="dens", cmap=dmc.SEQ_HEAT, vmin=0, vmax=4000, alpha=0.5 if drawn else 0.55,
+                     lw=0, zorder=1)
+gpd.GeoSeries([line.buffer(HALF, cap_style=2)], crs=CRS).to_crs(MCRS).boundary.plot(ax=mx, color=dmc.INK, lw=0.7, zorder=3)
+(mx0, my0), (mx1, my1) = tm.transform(ax_, ay_), tm.transform(bx_, by_)
+mx.plot([mx0, mx1], [my0, my1], color=dmc.INK, lw=0.9, ls=(0, (3, 2)), zorder=3)
 for name, (lon, lat), ha in [("Port of Tacoma", A, "left"), ("Paradise", B, "right"), ("Puyallup", (-122.293, 47.185), "left"),
                              ("Orting", (-122.204, 47.098), "left"), ("Eatonville", (-122.266, 46.867), "left"),
                              ("Ashford", (-122.03, 46.758), "left")]:
-    x, y = to.transform(lon, lat)
+    x, y = tm.transform(*to.transform(lon, lat))
     mx.scatter([x], [y], s=10, color=dmc.INK, zorder=4)
-    dmc.label(mx, x + (1500 if ha == "left" else -1500), y, name, size=7.5, ha=ha, va="center", zorder=5)
-mx.set_xlim(view.bounds[0], view.bounds[2])
-mx.set_ylim(view.bounds[1], view.bounds[3])
-mx.set_aspect("equal")
+    dmc.label(mx, x + (2200 if ha == "left" else -2200), y, name, size=7.5, ha=ha, va="center", zorder=5)
+mx.set_xlim(vx0, vx1)
+mx.set_ylim(vy0, vy1)
 
 def panel(rect, y, colour, label, fmt, log=False):
     a = fig.add_axes(rect)
@@ -124,10 +139,10 @@ dmc.frame(
     fig, DAY,
     subtitle=(f"A straight line from the Port of Tacoma to Paradise on Rainier: {L / 1000:.0f} km, {total:,.0f} people living within a\n"
               f"kilometre of it. The city thins out about {last:.0f} km in; the line tops out at {elev.max():,.0f} ft on Rainier's flank."),
-    source="U.S. Census Bureau, 2020 Census blocks (POP20) · Copernicus DEM GLO-30",
+    source="U.S. Census Bureau, 2020 Census blocks (POP20) · Copernicus DEM GLO-30" + (" · " + basemap.CREDIT if drawn else ""),
     note="People are spread evenly across each census block, so the density is smoothed where blocks are large.",
 )
 dmc.save(fig, DAY, alt=(
-    f"A map of the straight line from the Port of Tacoma to Paradise on Mount Rainier over shaded relief and census "
+    f"A map of the straight line from the Port of Tacoma to Paradise on Mount Rainier over {'a street and forest map' if drawn else 'shaded relief'} and census "
     f"population, with two profiles below: people per square kilometre, high in Tacoma and Puyallup and falling to "
     f"almost none after about km {last:.0f}, and elevation rising to {elev.max():,.0f} ft on Rainier's flank before Paradise."))
