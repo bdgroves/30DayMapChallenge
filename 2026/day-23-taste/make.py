@@ -36,8 +36,22 @@ DATA.mkdir(exist_ok=True)
 HISTORY = "https://raw.githubusercontent.com/bdgroves/hoplove/main/data/untappd/history.yml"
 OBDB = "https://api.openbrewerydb.org/v1/breweries/search"
 VIEW = (-125.2, 41.6, -116.2, 49.6)                    # Cascadia: lon/lat box for the main map
-# Breweries Open Brewery DB doesn't hold, or holds under another name: (lon, lat, place)
+# Breweries Open Brewery DB doesn't hold, or holds under another name: (lon, lat, place). Placed at their
+# town (checked against each brewery's Untappd page or website, October 2026), not a street address.
 MANUAL = {
+    "Kings & Daughters Brewery": (-121.5215, 45.7054, "Hood River, OR"),
+    "Hood River Brewing Company": (-121.5215, 45.7054, "Hood River, OR"),
+    "Tripping Animals Brewing Co.": (-80.3553, 25.8195, "Doral, FL"),
+    "Stoup Brewing": (-122.3720, 47.6681, "Seattle, WA"),
+    "Vice Beer": (-122.6739, 45.6280, "Vancouver, WA"),
+    "Irrelevant Beer": (-122.6717, 45.6337, "Vancouver, WA"),
+    "Maui Brewing Company": (-156.4450, 20.7645, "Kihei, HI"),
+    "Superflux Beer Company": (-123.0700, 49.2766, "Vancouver, BC"),
+    "Phillips Brewing & Malting Co.": (-123.3656, 48.4284, "Victoria, BC"),
+    "Hetty Alice": (-122.6490, 45.5140, "Portland, OR"),
+    "Shaketown Brewing": (-123.0790, 49.3105, "North Vancouver, BC"),
+    "Gulfstream Brewing": (-80.1373, 26.1224, "Fort Lauderdale, FL"),
+    "Little Beast Brewing": (-122.6784, 45.5152, "Portland area, OR"),
     "Guinness": (-6.2867, 53.3419, "Dublin"),
     "Birrificio Angelo Poretti": (8.8406, 45.8513, "Induno Olona, Italy"),
     "Ichnusa": (9.0035, 39.2905, "Assemini, Sardinia"),

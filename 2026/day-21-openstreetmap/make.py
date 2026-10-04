@@ -99,7 +99,7 @@ W = {"motorway": 2.4, "trunk": 2.2, "primary": 2.2, "secondary": 1.6, "tertiary"
 for kind, g in roads.groupby(col(roads, "highway")):
     w = W.get(kind, 0.4)
     dashed = kind in ("track", "path", "footway", "bridleway", "cycleway")
-    g.plot(ax=ax, color=dmc.STONE if dashed else dmc.INK, lw=w, ls=(0, (2, 1.5)) if dashed else "-",
+    g.plot(ax=ax, color=dmc.STONE if dashed else dmc.INK, lw=w, ls="dashed" if dashed else "solid",
            alpha=0.85, zorder=3 if w > 1 else 2)
 water.plot(ax=ax, color=dmc.LAKE, lw=0.6, alpha=0.8, zorder=2)
 bld.plot(ax=ax, color=dmc.LAVA, lw=0, zorder=4)

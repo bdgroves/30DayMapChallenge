@@ -40,7 +40,9 @@ def latest_release() -> str:
     try:
         with urllib.request.urlopen(urllib.request.Request(STAC, headers={"User-Agent": "30DMC"}), timeout=60) as r:
             cat = json.loads(r.read())
-        rel = sorted(lk["href"].strip("./").split("/")[0] for lk in cat["links"] if lk.get("rel") == "child")
+        import re
+        rel = sorted(m.group(0) for lk in cat["links"] if lk.get("rel") == "child"
+                     for m in [re.search(r"\d{4}-\d{2}-\d{2}\.\d+", lk["href"])] if m)
         return rel[-1]
     except Exception as e:  # noqa: BLE001
         print(f"  STAC catalog: {e}; using {FALLBACK}")
