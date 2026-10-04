@@ -20,7 +20,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - [x] **Day 1**: Geocaching *My Finds* pocket query. In (October 3); `finds.csv` is built from it.
 - [x] **Day 23**: no Untappd export needed after all: drafted from the beer history HopLove keeps.
 - [x] **Day 17** and **Day 29**: no Earthdata login needed. Day 17 uses the Black Marble composite NASA GIBS serves openly; Day 29 uses Sentinel-2 from AWS open data. (An Earthdata login would still let Day 17 use VNP46A4 annual radiance.)
-- [ ] **Day 20**: GBIF download of genus *Dipodomys* with your account (free at gbif.org), so the map can cite its DOI. The draft uses the GBIF search API.
+- [ ] **Day 20**: the citable GBIF download. Add three repo secrets, `GBIF_USER`, `GBIF_PWD` and `GBIF_EMAIL` (your free gbif.org login; Settings → Secrets and variables → Actions), then **Actions → GBIF download for Day 20 → Run workflow**. It requests the download, waits for the DOI, re-renders the map from it and cites it.
 - [ ] **Day 16**: paste each reply's trailhead into `answers.csv` (no handles). The question went out on X on October 3; the file is still empty.
 
 ### Things only you can do

@@ -1,0 +1,87 @@
+name: GBIF download for Day 20
+
+# Asks GBIF for the citable download (with a DOI) behind Day 20's kangaroo rat map, then
+# re-renders the map from it. Needs three repository secrets:
+#   GBIF_USER, GBIF_PWD   your gbif.org login
+#   GBIF_EMAIL            where GBIF sends its "your download is ready" note (optional)
+# Run it from the Actions tab (Run workflow). It also runs when gbif_download.py changes.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['2026/day-20-hexagons/gbif_download.py', '.github/workflows/dmc-2026-gbif.yml']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dmc-2026
+  cancel-in-progress: false
+
+jobs:
+  gbif:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    defaults:
+      run:
+        working-directory: 2026
+    steps:
+      - name: Check for the GBIF secrets
+        id: secrets
+        env:
+          GBIF_USER: ${{ secrets.GBIF_USER }}
+          GBIF_PWD: ${{ secrets.GBIF_PWD }}
+        working-directory: .
+        run: |
+          if [ -n "$GBIF_USER" ] && [ -n "$GBIF_PWD" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"
+          else echo "::notice::No GBIF_USER/GBIF_PWD secrets yet: add them under Settings -> Secrets and variables -> Actions, then Run workflow."; echo "ok=false" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@v4
+        if: steps.secrets.outputs.ok == 'true'
+      - uses: prefix-dev/setup-pixi@v0.8.8
+        if: steps.secrets.outputs.ok == 'true'
+        with:
+          manifest-path: 2026/pixi.toml
+          locked: false
+          cache: ${{ hashFiles('2026/pixi.lock') != '' }}
+      - name: Restore downloaded data (Natural Earth, Census...)
+        if: steps.secrets.outputs.ok == 'true'
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            2026/day-*/data
+            2026/.cache
+          key: dmc-2026-data-${{ github.run_id }}
+          restore-keys: dmc-2026-data-
+      - name: Request the GBIF download and wait for its DOI
+        if: steps.secrets.outputs.ok == 'true'
+        env:
+          GBIF_USER: ${{ secrets.GBIF_USER }}
+          GBIF_PWD: ${{ secrets.GBIF_PWD }}
+          GBIF_EMAIL: ${{ secrets.GBIF_EMAIL }}
+        run: pixi run python day-20-hexagons/gbif_download.py
+      - name: Render Day 20 from the download
+        if: steps.secrets.outputs.ok == 'true'
+        env:
+          MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}
+        run: |
+          pixi run render 20 2>&1 | tee render.log
+          grep -E '^(> |! day|= )' render.log | sed 's/^/::notice::/' || true
+          pixi run build
+      - name: Commit the download record and the map
+        if: steps.secrets.outputs.ok == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add day-20-hexagons/gbif_download.json day-*/out days.json README.md day-*/README.md card.jpg share
+          git diff --staged --quiet && exit 0
+          git commit -q -m "2026 Day 20: map from GBIF download $(python3 -c "import json;print(json.load(open('day-20-hexagons/gbif_download.json'))['doi'])") [skip ci]"
+          for i in 1 2 3; do git pull -q --rebase -X theirs && git push -q && break; sleep 5; done
+      - name: Save downloaded data for next time
+        if: always() && steps.secrets.outputs.ok == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            2026/day-*/data
+            2026/.cache
+          key: dmc-2026-data-${{ github.run_id }}

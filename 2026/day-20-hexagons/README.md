@@ -13,7 +13,7 @@ Every Dipodomys observation across the Southwest and Great Basin, binned into H3
 
 **Tools:** Python, h3
 
-**Prep:** Drafted from the GBIF search API (no account needed). Before posting: run a GBIF download with Brooks's account so the map can cite its DOI.
+**Prep:** Drafted from the GBIF search API. For the citable version: add GBIF_USER, GBIF_PWD and GBIF_EMAIL as repo secrets and run the "GBIF download for Day 20" Action; it requests the download, waits for the DOI, re-renders from it and cites it.
 
 **Go deeper**
 

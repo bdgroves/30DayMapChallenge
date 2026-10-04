@@ -4,9 +4,10 @@ Day 20 · Hexagons — Kangaroo rats in hexagons
 Every georeferenced kangaroo rat (genus Dipodomys) record in GBIF: museum specimens back to the
 1800s and today's iNaturalist sightings, binned into H3 hexagons (resolution 4, about 1,770 km²).
 
-GBIF's search API returns at most 100,000 records per query, so the years are split until each
-piece fits. No account needed for this; a GBIF download (with its DOI) is the citable version
-and should replace this before the map is published.
+The records come from a GBIF download with its own DOI (gbif_download.json, made by the "GBIF
+download for Day 20" Action with gbif_download.py), so the map cites exactly the data it shows.
+Without that file it falls back to GBIF's search API, which returns at most 100,000 records per
+query, so the years are split until each piece fits.
 
 Downloads (cached in data/): GBIF occurrence search, Natural Earth countries, Census states.
 """
@@ -34,7 +35,21 @@ CRS = "+proj=lcc +lat_1=25 +lat_2=45 +lat_0=33 +lon_0=-110 +datum=WGS84 +units=m
 BASE = dict(hasCoordinate="true", hasGeospatialIssue="false", occurrenceStatus="PRESENT")
 
 # ── records ──────────────────────────────────────────────────────────────────
-cache = DATA / "dipodomys.csv.gz"
+import json  # noqa: E402
+import zipfile  # noqa: E402
+DOWNLOAD = json.loads((HERE / "gbif_download.json").read_text()) if (HERE / "gbif_download.json").exists() else None
+cache = DATA / (f"dipodomys_{DOWNLOAD['key']}.csv.gz" if DOWNLOAD else "dipodomys.csv.gz")
+if DOWNLOAD and not cache.exists():
+    z = DATA / f"{DOWNLOAD['key']}.zip"
+    fetch.get(DOWNLOAD["link"] or f"{API}/occurrence/download/request/{DOWNLOAD['key']}.zip", z, timeout=1800)
+    cols = {"decimalLatitude": "lat", "decimalLongitude": "lon", "species": "species", "year": "year",
+            "basisOfRecord": "basis", "coordinateUncertaintyInMeters": "uncert_m", "countryCode": "country"}
+    with zipfile.ZipFile(z) as zf:
+        name = next(n for n in zf.namelist() if n.endswith(".csv"))
+        with zf.open(name) as fh:
+            d = pd.read_csv(fh, sep="\t", usecols=list(cols), quoting=3, on_bad_lines="skip", low_memory=False)
+    d.rename(columns=cols)[list(cols.values())].to_csv(cache, index=False)
+    print(f"= GBIF download {DOWNLOAD['key']} (doi:{DOWNLOAD['doi']}): {len(d):,} records")
 genus = fetch.json_get(f"{API}/species/match", dict(name="Dipodomys", rank="GENUS", kingdom="Animalia"))
 key = genus["usageKey"]
 total = fetch.json_get(f"{API}/occurrence/search", dict(genusKey=key, limit=0, **BASE))["count"]
@@ -73,7 +88,7 @@ def page(y0, y1, month, off):
              r.get("basisOfRecord"), r.get("coordinateUncertaintyInMeters"), r.get("countryCode")) for r in js["results"]]
 
 
-if not cache.exists():
+if not cache.exists():                                     # no download: the search API
     from concurrent.futures import ThreadPoolExecutor
     parts = []
     plan = pieces(1700, 2026)
@@ -148,7 +163,9 @@ dmc.frame(
     fig, DAY,
     subtitle=(f"{len(df):,} kangaroo rat records from GBIF, {df['species'].nunique()} species, binned into hexagons of about\n"
               f"1,770 km². {spec:.0%} are museum specimens; only {inat:.0%} are people's sightings."),
-    source=f"GBIF.org, genus Dipodomys ({pd.Timestamp.now():%b %Y}) · Natural Earth · U.S. Census",
+    source=(f"GBIF.org ({pd.Timestamp(DOWNLOAD['created']):%-d %B %Y}) GBIF Occurrence Download "
+            f"doi.org/{DOWNLOAD['doi']}" if DOWNLOAD else
+            f"GBIF.org, genus Dipodomys ({pd.Timestamp.now():%b %Y})") + " · Natural Earth · U.S. Census",
     note="Where kangaroo rats were recorded, which is also where people went looking. Uber H3 grid, resolution 4.",
 )
 dmc.save(fig, DAY, alt=(
