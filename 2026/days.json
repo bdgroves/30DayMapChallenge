@@ -405,9 +405,9 @@
     "DarkSky International: Great Basin National Park (Dark Sky Park, 2016)"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-17-light-and-dark",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-17-light-and-dark/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-17-light-and-dark/out/thumb.jpg",
+   "alt": "Night satellite image of Nevada and Utah: bright patches at Las Vegas, Reno, and the Salt Lake City to Provo corridor, faint specks for small towns, and a dark expanse around Great Basin National Park, circled in gold. Below, a profile of brightness along a line from Las Vegas through Wheeler Peak to Salt Lake City, high at both ends and near zero in the middle.",
    "post": null,
    "link": null,
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-17.html"
