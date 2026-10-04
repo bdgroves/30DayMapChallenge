@@ -15,6 +15,11 @@ Every Dipodomys observation across the Southwest and Great Basin, binned into H3
 
 **Prep:** Drafted from the GBIF search API (no account needed). Before posting: run a GBIF download with Brooks's account so the map can cite its DOI.
 
+**Go deeper**
+
+- [DIPODOMYS: Death Valley's kangaroo rats](https://brooksgroves.com/dipodomys)
+- [Blog: DIPODOMYS](https://brooksgroves.com/blog/dipodomys-post.html)
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

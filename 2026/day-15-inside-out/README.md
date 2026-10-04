@@ -15,6 +15,11 @@ The earthquakes beneath Kīlauea's summit in cross-section, sketching the magma 
 
 **Prep:** Drafted from ComCat since 2019.
 
+**Go deeper**
+
+- [PELE: Hawaiʻi volcanoes, live](https://brooksgroves.com/PELE)
+- [Blog: PELE, revisited](https://brooksgroves.com/blog/pele-revisited-post.html)
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

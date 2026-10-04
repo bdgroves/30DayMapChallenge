@@ -15,6 +15,11 @@ Click anywhere in the Sierra and watch where the water goes, river by river, to 
 
 **Prep:** Drafted as an interactive page (day-13-interactions/index.html). Needs a still image for social posts.
 
+**Go deeper**
+
+- [Sierra Streamflow dashboard](https://brooksgroves.com/sierra-streamflow)
+- [Blog: Sierra Streamflow, revisited](https://brooksgroves.com/blog/sierra-streamflow-2027-post.html)
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

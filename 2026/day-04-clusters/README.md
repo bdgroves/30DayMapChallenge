@@ -15,6 +15,12 @@ Earthquakes within 30 km of Mount Rainier since 2000, grouped into swarms by spa
 
 **Prep:** Drafted. Re-run in November to pick up the latest earthquakes.
 
+**Go deeper**
+
+- [lahar-watch: the network watching Rainier](https://brooksgroves.com/lahar-watch/)
+- [AFTERSHOCK: live earthquake monitor](https://brooksgroves.com/aftershock)
+- [Blog: lahar-watch, revisited](https://brooksgroves.com/blog/lahar-watch-revisited-post.html)
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

@@ -16,6 +16,11 @@ Hetch Hetchy's dams, the powerhouse at Moccasin just below Groveland, and the li
 
 **Prep:** Drafted from OpenStreetMap (Overpass).
 
+**Go deeper**
+
+- [SIERRA-FLOW: Sierra rivers in COBOL](https://brooksgroves.com/sierra-flow-cobol/)
+- [Sierra Streamflow dashboard](https://brooksgroves.com/sierra-streamflow)
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

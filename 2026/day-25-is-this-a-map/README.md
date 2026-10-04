@@ -15,6 +15,11 @@ A 24-hour helicorder from Camp Muir on Rainier, one line per hour. A map of time
 
 **Prep:** Drafted: UW.RCM on July 8, 2025.
 
+**Go deeper**
+
+- [lahar-watch: the network watching Rainier](https://brooksgroves.com/lahar-watch/)
+- [AFTERSHOCK: live earthquake monitor](https://brooksgroves.com/aftershock)
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

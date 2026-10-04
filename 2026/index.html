@@ -70,6 +70,12 @@ dialog::backdrop{background:rgba(20,15,10,.6)}
 .dlg h2{font:900 34px/1.05 var(--display)}
 .dlg p{color:var(--stone)}
 .dlg dl{font-size:14px} .dlg dt{font:11px var(--mono);letter-spacing:.08em;color:var(--stone);text-transform:uppercase;margin-top:6px} .dlg dd{margin:0}
+.deeper{margin-top:4px;padding:12px 14px;background:var(--cream);border-left:3px solid var(--gold)}
+.deeper .k{font:11px var(--mono);letter-spacing:.08em;color:var(--stone);text-transform:uppercase;margin-bottom:4px}
+.deeper a{display:block;font-size:14px;line-height:1.5;color:var(--ink);text-decoration:none;padding:3px 0}
+.deeper a::after{content:" →";color:var(--lava)}
+.deeper a:hover{color:var(--lava)}
+.dlg dd a{color:inherit;text-decoration-color:var(--mist)}
 .dlg .acts{display:flex;gap:14px;flex-wrap:wrap;margin-top:auto;font:12px var(--mono)}
 .close{position:absolute;top:10px;right:12px;background:var(--paper);border:1px solid var(--mist);font:16px var(--mono);width:34px;height:34px;cursor:pointer;color:var(--ink)}
 .share{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font:12px var(--mono);color:var(--stone)}
@@ -166,7 +172,8 @@ function open(n){
   const when=new Date(d.date+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
   $('dlg-body').innerHTML=`<div class="img">${d.image?`<a href="${esc(d.image)}" target="_blank"><img src="${esc(d.image)}" alt="${esc(d.alt)}"></a>`:`<div class="none">The map arrives ${esc(when)}.</div>`}</div>
     <div class="txt"><span class="th">Day ${d.day} · ${esc(d.theme)} · ${esc(when)}</span><h2 id="dlg-title">${esc(d.title)}</h2><p>${esc(d.pitch)}</p>
-      <dl>${d.data.length?`<dt>Data</dt><dd>${d.data.map(esc).join('<br>')}</dd>`:''}${d.tools.length?`<dt>Tools</dt><dd>${d.tools.map(esc).join(', ')}</dd>`:''}<dt>Status</dt><dd>${esc(LABEL[d.status])}</dd></dl>
+      ${(d.deeper||[]).length?`<div class="deeper"><div class="k">Go deeper</div>${d.deeper.map(x=>`<a href="${esc(x.url)}">${esc(x.name)}</a>`).join('')}</div>`:''}
+      <dl>${d.data.length?`<dt>Data</dt><dd>${(d.data_links||d.data.map(n=>({name:n}))).map(x=>x.url?`<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a>`:esc(x.name)).join('<br>')}</dd>`:''}${d.tools.length?`<dt>Tools</dt><dd>${d.tools.map(esc).join(', ')}</dd>`:''}<dt>Status</dt><dd>${esc(LABEL[d.status])}</dd></dl>
       <div class="acts">${d.link?`<a href="${esc(d.link)}">Open the map</a>`:''}<a href="${esc(d.folder)}">Code and sources</a>${d.post?`<a href="${esc(d.post)}">The post</a>`:''}</div>
       <div class="share">${shareRow(d.share||PAGE+'#day-'+n,`Day ${d.day} · ${d.theme}: ${d.title} #30DayMapChallenge`,'Share this map')}</div></div>`;
   history.replaceState(null,'','#day-'+n); $('dlg').showModal();

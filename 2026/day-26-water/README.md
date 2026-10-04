@@ -16,6 +16,11 @@ Tahoe's depth and its clarity: how far down a Secchi disk can be seen, from the 
 
 **Prep:** Depth drafted from the 1998 USGS multibeam grid. Still to add: clarity (Secchi depth) from the SECCHI project.
 
+**Go deeper**
+
+- [secchi: a modern Secchi disk for Lake Tahoe](https://brooksgroves.com/secchi/)
+- [Blog: A Plate on a Rope](https://brooksgroves.com/blog/secchi-post.html)
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

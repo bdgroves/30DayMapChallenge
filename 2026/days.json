@@ -5,9 +5,9 @@
  "author": "Brooks Groves",
  "repo": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026",
  "counts": {
-  "idea": 5,
+  "idea": 4,
   "data": 0,
-  "draft": 25,
+  "draft": 26,
   "done": 0,
   "posted": 0
  },
@@ -28,6 +28,13 @@
    "data": [
     "Geocaching \"My Finds\" pocket query (GPX)"
    ],
+   "data_links": [
+    {
+     "name": "Geocaching \"My Finds\" pocket query (GPX)",
+     "url": "https://www.geocaching.com/pocket/"
+    }
+   ],
+   "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-01-points",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-01-points/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-01-points/out/thumb.jpg",
@@ -52,6 +59,13 @@
    "data": [
     "OpenStreetMap (Overpass API)"
    ],
+   "data_links": [
+    {
+     "name": "OpenStreetMap (Overpass API)",
+     "url": "https://overpass-api.de/"
+    }
+   ],
+   "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-02-lines",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-02-lines/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-02-lines/out/thumb.jpg",
@@ -75,6 +89,13 @@
    "data": [
     "CAL FIRE FRAP fire perimeters"
    ],
+   "data_links": [
+    {
+     "name": "CAL FIRE FRAP fire perimeters",
+     "url": "https://www.fire.ca.gov/what-we-do/fire-resource-assessment-program/fire-perimeters"
+    }
+   ],
+   "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-03-polygons",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-03-polygons/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-03-polygons/out/thumb.jpg",
@@ -98,6 +119,26 @@
    ],
    "data": [
     "USGS ComCat earthquake catalog (API, no key)"
+   ],
+   "data_links": [
+    {
+     "name": "USGS ComCat earthquake catalog (API, no key)",
+     "url": "https://earthquake.usgs.gov/fdsnws/event/1/"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "lahar-watch: the network watching Rainier",
+     "url": "https://brooksgroves.com/lahar-watch/"
+    },
+    {
+     "name": "AFTERSHOCK: live earthquake monitor",
+     "url": "https://brooksgroves.com/aftershock"
+    },
+    {
+     "name": "Blog: lahar-watch, revisited",
+     "url": "https://brooksgroves.com/blog/lahar-watch-revisited-post.html"
+    }
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-04-clusters",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-04-clusters/out/map.png",
@@ -123,6 +164,13 @@
    "data": [
     "Copernicus DEM GLO-30 (AWS open data)"
    ],
+   "data_links": [
+    {
+     "name": "Copernicus DEM GLO-30 (AWS open data)",
+     "url": "https://registry.opendata.aws/copernicus-dem/"
+    }
+   ],
+   "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-05-sight",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-05-sight/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-05-sight/out/thumb.jpg",
@@ -149,6 +197,26 @@
     "Tasman map (c. 1644), State Library of New South Wales, via Wikimedia Commons",
     "Natural Earth coastline"
    ],
+   "data_links": [
+    {
+     "name": "Cook's Chart of New-Zealand (1772), Royal Museums Greenwich F0293, via Wikimedia Commons",
+     "url": "https://commons.wikimedia.org/wiki/File:Chart_of_New_Zealand,_explored_in_1769_and_1770_by_Lieut._I-_Cook,Commander_of_His_Majesty%27s_Bark_Endeavour._RMG_F0293.tiff"
+    },
+    {
+     "name": "Tasman map (c. 1644), State Library of New South Wales, via Wikimedia Commons",
+     "url": "https://commons.wikimedia.org/wiki/File:Tasman_Map_SLNSWSLNSW_FL19288478.jpg"
+    },
+    {
+     "name": "Natural Earth coastline",
+     "url": "https://www.naturalearthdata.com/"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "My review of A Draught of the South Land, Cartographic Perspectives",
+     "url": "https://cartographicperspectives.org/index.php/journal/article/view/1959"
+    }
+   ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-06-vintage",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-06-vintage/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-06-vintage/out/thumb.jpg",
@@ -169,6 +237,8 @@
     "Whatever is open"
    ],
    "data": [],
+   "data_links": [],
+   "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-07-10-minute-map",
    "image": null,
    "thumb": null,
@@ -192,6 +262,13 @@
    "data": [
     "USGS GNIS domestic names"
    ],
+   "data_links": [
+    {
+     "name": "USGS GNIS domestic names",
+     "url": "https://www.usgs.gov/us-board-on-geographic-names/download-gnis-data"
+    }
+   ],
+   "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-08-utopia",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-08-utopia/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-08-utopia/out/thumb.jpg",
@@ -217,6 +294,17 @@
     "Census 2020 blocks and population",
     "GHSL built-up surface"
    ],
+   "data_links": [
+    {
+     "name": "Census 2020 blocks and population",
+     "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html"
+    },
+    {
+     "name": "GHSL built-up surface",
+     "url": "https://human-settlement.emergency.copernicus.eu/"
+    }
+   ],
+   "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-09-urban-rural",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-09-urban-rural/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-09-urban-rural/out/thumb.jpg",
@@ -240,6 +328,13 @@
    "data": [
     "USGS NLDI (basin boundary for gage 11284400)"
    ],
+   "data_links": [
+    {
+     "name": "USGS NLDI (basin boundary for gage 11284400)",
+     "url": "https://labs.waterdata.usgs.gov/about-nldi/"
+    }
+   ],
+   "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-10-prompting-only",
    "image": null,
    "thumb": null,
@@ -266,6 +361,30 @@
     "WA DNR tsunami hazard zones",
     "Grays Harbor County EM: AHAB range (1 mile, outdoors)"
    ],
+   "data_links": [
+    {
+     "name": "WA Emergency Management AHAB siren points",
+     "url": "https://services7.arcgis.com/vUVXhXafpruJFs3l/arcgis/rest/services/AHAB_Points/FeatureServer"
+    },
+    {
+     "name": "WA DNR tsunami hazard zones",
+     "url": "https://gis.dnr.wa.gov/site3/rest/services/Geology/Tsunami_Hazard/FeatureServer"
+    },
+    {
+     "name": "Grays Harbor County EM: AHAB range (1 mile, outdoors)",
+     "url": "https://www.graysharbor.us/departments/emergency_management/ahab.php"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "PUGET-TIDES: tides of Puget Sound in FORTRAN",
+     "url": "https://brooksgroves.com/puget-tides/"
+    },
+    {
+     "name": "Blog: PUGET-TIDES",
+     "url": "https://brooksgroves.com/blog/puget-tides-post.html"
+    }
+   ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-11-sound",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-11-sound/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-11-sound/out/thumb.jpg",
@@ -290,6 +409,26 @@
     "EIA U.S. Energy Atlas (power plants, transmission lines)",
     "SFPUC Hetch Hetchy Regional Water System"
    ],
+   "data_links": [
+    {
+     "name": "EIA U.S. Energy Atlas (power plants, transmission lines)",
+     "url": "https://atlas.eia.gov/"
+    },
+    {
+     "name": "SFPUC Hetch Hetchy Regional Water System",
+     "url": "https://www.sfpuc.gov/"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "SIERRA-FLOW: Sierra rivers in COBOL",
+     "url": "https://brooksgroves.com/sierra-flow-cobol/"
+    },
+    {
+     "name": "Sierra Streamflow dashboard",
+     "url": "https://brooksgroves.com/sierra-streamflow"
+    }
+   ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-12-power",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-12-power/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-12-power/out/thumb.jpg",
@@ -312,6 +451,22 @@
    ],
    "data": [
     "USGS NLDI (Network-Linked Data Index)"
+   ],
+   "data_links": [
+    {
+     "name": "USGS NLDI (Network-Linked Data Index)",
+     "url": "https://labs.waterdata.usgs.gov/about-nldi/"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "Sierra Streamflow dashboard",
+     "url": "https://brooksgroves.com/sierra-streamflow"
+    },
+    {
+     "name": "Blog: Sierra Streamflow, revisited",
+     "url": "https://brooksgroves.com/blog/sierra-streamflow-2027-post.html"
+    }
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-13-interactions",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-13-interactions/out/map.png",
@@ -336,6 +491,18 @@
    "data": [
     "USGS NLDI basin for Big Creek (11284400)"
    ],
+   "data_links": [
+    {
+     "name": "USGS NLDI basin for Big Creek (11284400)",
+     "url": "https://labs.waterdata.usgs.gov/about-nldi/"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "Blog: The Creek That Isn't There (Big Creek)",
+     "url": "https://brooksgroves.com/blog/the-creek-that-isnt-there.html"
+    }
+   ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-14-borgesian-map",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-14-borgesian-map/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-14-borgesian-map/out/thumb.jpg",
@@ -359,6 +526,22 @@
    "data": [
     "USGS ComCat (HVO-located earthquakes)"
    ],
+   "data_links": [
+    {
+     "name": "USGS ComCat (HVO-located earthquakes)",
+     "url": "https://earthquake.usgs.gov/fdsnws/event/1/"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "PELE: Hawaiʻi volcanoes, live",
+     "url": "https://brooksgroves.com/PELE"
+    },
+    {
+     "name": "Blog: PELE, revisited",
+     "url": "https://brooksgroves.com/blog/pele-revisited-post.html"
+    }
+   ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-15-inside-out",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-15-inside-out/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-15-inside-out/out/thumb.jpg",
@@ -380,6 +563,8 @@
     "Python or mapgl"
    ],
    "data": [],
+   "data_links": [],
+   "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-16-collaborative-map",
    "image": null,
    "thumb": null,
@@ -404,6 +589,17 @@
     "NASA Black Marble, via NASA GIBS (no login)",
     "DarkSky International: Great Basin National Park (Dark Sky Park, 2016)"
    ],
+   "data_links": [
+    {
+     "name": "NASA Black Marble, via NASA GIBS (no login)",
+     "url": "https://gibs.earthdata.nasa.gov/"
+    },
+    {
+     "name": "DarkSky International: Great Basin National Park (Dark Sky Park, 2016)",
+     "url": "https://darksky.org/places/great-basin-national-park-dark-sky-park/"
+    }
+   ],
+   "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-17-light-and-dark",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-17-light-and-dark/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-17-light-and-dark/out/thumb.jpg",
@@ -427,6 +623,13 @@
    "data": [
     "Census 2020 blocks with P1 population"
    ],
+   "data_links": [
+    {
+     "name": "Census 2020 blocks with P1 population",
+     "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html"
+    }
+   ],
+   "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-18-null",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-18-null/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-18-null/out/thumb.jpg",
@@ -451,6 +654,30 @@
     "WSDA Agricultural Land Use 2024 (Yakima County hop fields)",
     "HopLove aroma descriptors and NASS acreage"
    ],
+   "data_links": [
+    {
+     "name": "USDA NASS National Hop Report (acreage by variety and state)",
+     "url": "https://www.nass.usda.gov/"
+    },
+    {
+     "name": "WSDA Agricultural Land Use 2024 (Yakima County hop fields)",
+     "url": "https://agr.wa.gov/departments/land-and-water/natural-resources/agricultural-land-use"
+    },
+    {
+     "name": "HopLove aroma descriptors and NASS acreage",
+     "url": "https://github.com/bdgroves/hoplove"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "HopLove: know your hops",
+     "url": "https://brooksgroves.com/hoplove/"
+    },
+    {
+     "name": "Blog: What's in the Can? Building HopLove",
+     "url": "https://brooksgroves.com/blog/hoplove-post.html"
+    }
+   ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-19-smell",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-19-smell/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-19-smell/out/thumb.jpg",
@@ -473,6 +700,22 @@
    ],
    "data": [
     "GBIF occurrence download (genus Dipodomys)"
+   ],
+   "data_links": [
+    {
+     "name": "GBIF occurrence download (genus Dipodomys)",
+     "url": "https://www.gbif.org/"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "DIPODOMYS: Death Valley's kangaroo rats",
+     "url": "https://brooksgroves.com/dipodomys"
+    },
+    {
+     "name": "Blog: DIPODOMYS",
+     "url": "https://brooksgroves.com/blog/dipodomys-post.html"
+    }
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-20-hexagons",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-20-hexagons/out/map.png",
@@ -497,6 +740,18 @@
    "data": [
     "OpenStreetMap (Overpass API or Geofabrik extract)"
    ],
+   "data_links": [
+    {
+     "name": "OpenStreetMap (Overpass API or Geofabrik extract)",
+     "url": "https://download.geofabrik.de/north-america/us/california.html"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "Memoir: the Sierra Foothills stories",
+     "url": "https://memoir.brooksgroves.com/sierra-foothills.html"
+    }
+   ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-21-openstreetmap",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-21-openstreetmap/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-21-openstreetmap/out/thumb.jpg",
@@ -520,6 +775,13 @@
    "data": [
     "Natural Earth"
    ],
+   "data_links": [
+    {
+     "name": "Natural Earth",
+     "url": "https://www.naturalearthdata.com/"
+    }
+   ],
+   "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-22-projections",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-22-projections/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-22-projections/out/thumb.jpg",
@@ -541,6 +803,18 @@
    ],
    "data": [
     "Untappd check-in export"
+   ],
+   "data_links": [
+    {
+     "name": "Untappd check-in export",
+     "url": "https://untappd.com/"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "HopLove: every hop in 2,000 Northwest beers",
+     "url": "https://brooksgroves.com/hoplove/"
+    }
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-23-taste",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-23-taste/out/map.png",
@@ -565,6 +839,22 @@
    "data": [
     "USGS NLDI upstream navigation (NHDPlus flowlines)"
    ],
+   "data_links": [
+    {
+     "name": "USGS NLDI upstream navigation (NHDPlus flowlines)",
+     "url": "https://labs.waterdata.usgs.gov/about-nldi/"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "SIERRA-FLOW: Sierra rivers in COBOL",
+     "url": "https://brooksgroves.com/sierra-flow-cobol/"
+    },
+    {
+     "name": "Sierra Streamflow dashboard",
+     "url": "https://brooksgroves.com/sierra-streamflow"
+    }
+   ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-24-network",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-24-network/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-24-network/out/thumb.jpg",
@@ -587,6 +877,22 @@
    ],
    "data": [
     "EarthScope FDSN dataselect (station UW.RCM)"
+   ],
+   "data_links": [
+    {
+     "name": "EarthScope FDSN dataselect (station UW.RCM)",
+     "url": "https://service.earthscope.org/"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "lahar-watch: the network watching Rainier",
+     "url": "https://brooksgroves.com/lahar-watch/"
+    },
+    {
+     "name": "AFTERSHOCK: live earthquake monitor",
+     "url": "https://brooksgroves.com/aftershock"
+    }
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-25-is-this-a-map",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-25-is-this-a-map/out/map.png",
@@ -612,6 +918,26 @@
     "SECCHI (TEON + USGS)",
     "USGS Lake Tahoe bathymetry"
    ],
+   "data_links": [
+    {
+     "name": "SECCHI (TEON + USGS)",
+     "url": "https://brooksgroves.com/secchi"
+    },
+    {
+     "name": "USGS Lake Tahoe bathymetry",
+     "url": "https://www.usgs.gov/"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "secchi: a modern Secchi disk for Lake Tahoe",
+     "url": "https://brooksgroves.com/secchi/"
+    },
+    {
+     "name": "Blog: A Plate on a Rope",
+     "url": "https://brooksgroves.com/blog/secchi-post.html"
+    }
+   ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-26-water",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-26-water/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-26-water/out/thumb.jpg",
@@ -635,6 +961,13 @@
    "data": [
     "Overture Maps buildings"
    ],
+   "data_links": [
+    {
+     "name": "Overture Maps buildings",
+     "url": "https://overturemaps.org/"
+    }
+   ],
+   "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-27-new-tool",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-27-new-tool/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-27-new-tool/out/thumb.jpg",
@@ -659,6 +992,22 @@
    "data": [
     "USGS ComCat event uw10530748, DYFI product"
    ],
+   "data_links": [
+    {
+     "name": "USGS ComCat event uw10530748, DYFI product",
+     "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uw10530748/dyfi/intensity"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "AFTERSHOCK: live earthquake monitor",
+     "url": "https://brooksgroves.com/aftershock"
+    },
+    {
+     "name": "Blog: AFTERSHOCK, revisited",
+     "url": "https://brooksgroves.com/blog/aftershock-revisited-post.html"
+    }
+   ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-28-feeling",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-28-feeling/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-28-feeling/out/thumb.jpg",
@@ -672,15 +1021,37 @@
    "date": "2026-11-29",
    "weekday": "Sun",
    "theme": "Raster",
-   "title": "Rainier's snow from space",
-   "pitch": "A season of snow cover on Rainier from satellite, draped over the mountain.",
-   "status": "idea",
+   "title": "When Rainier's snow melted",
+   "pitch": "Every 30 m patch of Mount Rainier coloured by the day it lost its snow in 2026, from Sentinel-2's scene classification, with the glaciers that never melted in white and Paradise's SNOTEL record from my snowpack tracker as ground truth.",
+   "status": "draft",
    "tools": [
     "Python",
-    "forge3d"
+    "rasterio",
+    "STAC"
    ],
    "data": [
-    "MODIS / Sentinel-2 snow cover (via the Rainier Snowpack Tracker)"
+    "Sentinel-2 L2A scene classification (Earth Search, AWS open data)",
+    "NRCS SNOTEL via STORM CHASER, my Rainier snowpack tracker"
+   ],
+   "data_links": [
+    {
+     "name": "Sentinel-2 L2A scene classification (Earth Search, AWS open data)",
+     "url": "https://earth-search.aws.element84.com/v1"
+    },
+    {
+     "name": "NRCS SNOTEL via STORM CHASER, my Rainier snowpack tracker",
+     "url": "https://brooksgroves.com/rainier-snowpack"
+    }
+   ],
+   "deeper": [
+    {
+     "name": "STORM CHASER: Rainier snowpack, live",
+     "url": "https://brooksgroves.com/rainier-snowpack"
+    },
+    {
+     "name": "CASCADIA-WX: Northwest weather balloons",
+     "url": "https://brooksgroves.com/cascadia-wx/"
+    }
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-29-raster",
    "image": null,
@@ -704,6 +1075,8 @@
     "a scanner"
    ],
    "data": [],
+   "data_links": [],
+   "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-30-pen-and-paper",
    "image": null,
    "thumb": null,

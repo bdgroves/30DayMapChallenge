@@ -17,6 +17,10 @@ James Cook's 1772 chart of New Zealand, lined up with today's coast, with the st
 
 **Prep:** Drafted: Cook's chart georeferenced from its own Mercator graticule (fit within 3 px), today's coast over it, Tasman's coast and an inset of his chart.
 
+**Go deeper**
+
+- [My review of A Draught of the South Land, Cartographic Perspectives](https://cartographicperspectives.org/index.php/journal/article/view/1959)
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

@@ -52,6 +52,8 @@ def plan_block(d: dict, when: date) -> str:
         lines += [f"**Tools:** {', '.join(d['tools'])}", ""]
     if d.get("prep"):
         lines += [f"**Prep:** {d['prep']}", ""]
+    if d.get("deeper"):
+        lines += ["**Go deeper**", ""] + [f"- [{x['name']}]({x['url']})" for x in d["deeper"]] + [""]
     lines += ["Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).",
               END]
     return "\n".join(lines)
@@ -236,6 +238,8 @@ def main() -> None:
             "day": d["day"], "date": when.isoformat(), "weekday": f"{when:%a}", "theme": d["theme"],
             "title": d["title"], "pitch": d["pitch"].strip(), "status": d["status"],
             "tools": d.get("tools", []), "data": [x["name"] for x in d.get("data", [])],
+            "data_links": [{"name": x["name"], "url": x.get("url")} for x in d.get("data", [])],
+            "deeper": [{"name": x["name"], "url": x["url"]} for x in d.get("deeper", [])],
             "folder": f"https://github.com/{REPO}/tree/main/2026/{rel}",
             "image": f"{RAW}/{rel}/out/map.png" if png.exists() else None,
             "thumb": f"{RAW}/{rel}/out/thumb.jpg" if t else None,

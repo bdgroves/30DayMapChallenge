@@ -15,6 +15,11 @@ The whole Tuolumne river network above Modesto, by stream order, with the SIERRA
 
 **Prep:** Drafted (NLDI flowlines; Strahler order computed on the network).
 
+**Go deeper**
+
+- [SIERRA-FLOW: Sierra rivers in COBOL](https://brooksgroves.com/sierra-flow-cobol/)
+- [Sierra Streamflow dashboard](https://brooksgroves.com/sierra-streamflow)
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

@@ -17,6 +17,11 @@ Washington's tsunami sirens, each with the one-mile circle it's designed to be h
 
 **Prep:** Drafted. If Pierce County shares its lahar siren locations, the original idea can come back.
 
+**Go deeper**
+
+- [PUGET-TIDES: tides of Puget Sound in FORTRAN](https://brooksgroves.com/puget-tides/)
+- [Blog: PUGET-TIDES](https://brooksgroves.com/blog/puget-tides-post.html)
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

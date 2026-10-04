@@ -15,6 +15,11 @@ The M6.8 Nisqually earthquake of February 28, 2001, as the people who felt it re
 
 **Prep:** Drafted already, as the toolkit's test map.
 
+**Go deeper**
+
+- [AFTERSHOCK: live earthquake monitor](https://brooksgroves.com/aftershock)
+- [Blog: AFTERSHOCK, revisited](https://brooksgroves.com/blog/aftershock-revisited-post.html)
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

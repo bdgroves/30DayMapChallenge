@@ -17,6 +17,11 @@ Washington's hop acreage by variety, coloured by aroma (citrus, pine, tropical, 
 
 **Prep:** Drafted: WSDA 2024 hop fields in Yakima County; WA 2025 acreage by leading aroma from HopLove.
 
+**Go deeper**
+
+- [HopLove: know your hops](https://brooksgroves.com/hoplove/)
+- [Blog: What's in the Can? Building HopLove](https://brooksgroves.com/blog/hoplove-post.html)
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

@@ -15,6 +15,10 @@ My Untappd check-ins, mapped by brewery, sized by how many beers.
 
 **Prep:** Drafted from the year of beer history HopLove keeps (Untappd); breweries placed with Open Brewery DB.
 
+**Go deeper**
+
+- [HopLove: every hop in 2,000 Northwest beers](https://brooksgroves.com/hoplove/)
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

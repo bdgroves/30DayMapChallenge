@@ -54,6 +54,13 @@ days:
     tools: [Python, scikit-learn (DBSCAN), matplotlib]
     prep: "Drafted. Re-run in November to pick up the latest earthquakes."
     status: draft
+    deeper:
+      - name: "lahar-watch: the network watching Rainier"
+        url: https://brooksgroves.com/lahar-watch/
+      - name: "AFTERSHOCK: live earthquake monitor"
+        url: https://brooksgroves.com/aftershock
+      - name: "Blog: lahar-watch, revisited"
+        url: https://brooksgroves.com/blog/lahar-watch-revisited-post.html
 
   - day: 5
     theme: Sight
@@ -80,6 +87,9 @@ days:
     tools: [Python, geopandas, matplotlib]
     prep: "Drafted: Cook's chart georeferenced from its own Mercator graticule (fit within 3 px), today's coast over it, Tasman's coast and an inset of his chart."
     status: draft
+    deeper:
+      - name: "My review of A Draught of the South Land, Cartographic Perspectives"
+        url: https://cartographicperspectives.org/index.php/journal/article/view/1959
 
   - day: 7
     theme: 10 minute map
@@ -139,6 +149,11 @@ days:
     tools: [Python, geopandas, Mapbox]
     prep: "Drafted. If Pierce County shares its lahar siren locations, the original idea can come back."
     status: draft
+    deeper:
+      - name: "PUGET-TIDES: tides of Puget Sound in FORTRAN"
+        url: https://brooksgroves.com/puget-tides/
+      - name: "Blog: PUGET-TIDES"
+        url: https://brooksgroves.com/blog/puget-tides-post.html
 
   - day: 12
     theme: Power
@@ -152,6 +167,11 @@ days:
     tools: [Python, geopandas]
     prep: "Drafted from OpenStreetMap (Overpass)."
     status: draft
+    deeper:
+      - name: "SIERRA-FLOW: Sierra rivers in COBOL"
+        url: https://brooksgroves.com/sierra-flow-cobol/
+      - name: "Sierra Streamflow dashboard"
+        url: https://brooksgroves.com/sierra-streamflow
 
   - day: 13
     theme: Interactions
@@ -164,6 +184,11 @@ days:
     prep: "Drafted as an interactive page (day-13-interactions/index.html). Needs a still image for social posts."
     status: draft
     link: day-13-interactions/
+    deeper:
+      - name: "Sierra Streamflow dashboard"
+        url: https://brooksgroves.com/sierra-streamflow
+      - name: "Blog: Sierra Streamflow, revisited"
+        url: https://brooksgroves.com/blog/sierra-streamflow-2027-post.html
 
   - day: 14
     theme: Borgesian map
@@ -176,6 +201,9 @@ days:
     prep: "Drafted as a page (day-14-borgesian-map/index.html): the basin and streams from NLDI at 96 CSS px to the inch, an odometer, a minimap and three speeds. Needs a still for social posts."
     link: day-14-borgesian-map/
     status: draft
+    deeper:
+      - name: "Blog: The Creek That Isn't There (Big Creek)"
+        url: https://brooksgroves.com/blog/the-creek-that-isnt-there.html
 
   - day: 15
     theme: Inside out
@@ -187,6 +215,11 @@ days:
     tools: [Python, matplotlib or forge3d]
     prep: "Drafted from ComCat since 2019."
     status: draft
+    deeper:
+      - name: "PELE: Hawaiʻi volcanoes, live"
+        url: https://brooksgroves.com/PELE
+      - name: "Blog: PELE, revisited"
+        url: https://brooksgroves.com/blog/pele-revisited-post.html
 
   - day: 16
     theme: Collaborative map
@@ -235,6 +268,11 @@ days:
     tools: [Python]
     prep: "Drafted: WSDA 2024 hop fields in Yakima County; WA 2025 acreage by leading aroma from HopLove."
     status: draft
+    deeper:
+      - name: "HopLove: know your hops"
+        url: https://brooksgroves.com/hoplove/
+      - name: "Blog: What's in the Can? Building HopLove"
+        url: https://brooksgroves.com/blog/hoplove-post.html
 
   - day: 20
     theme: Hexagons
@@ -246,6 +284,11 @@ days:
     tools: [Python, h3]
     prep: "Drafted from the GBIF search API (no account needed). Before posting: run a GBIF download with Brooks's account so the map can cite its DOI."
     status: draft
+    deeper:
+      - name: "DIPODOMYS: Death Valley's kangaroo rats"
+        url: https://brooksgroves.com/dipodomys
+      - name: "Blog: DIPODOMYS"
+        url: https://brooksgroves.com/blog/dipodomys-post.html
 
   - day: 21
     theme: OpenStreetMap
@@ -257,6 +300,9 @@ days:
     tools: [Python, osmnx]
     prep: "Drafted as the before map, straight from Overpass. After an evening of OSM edits, re-render with make.py --refresh."
     status: draft
+    deeper:
+      - name: "Memoir: the Sierra Foothills stories"
+        url: https://memoir.brooksgroves.com/sierra-foothills.html
 
   - day: 22
     theme: Projections
@@ -280,6 +326,9 @@ days:
     tools: [Python]
     prep: "Drafted from the year of beer history HopLove keeps (Untappd); breweries placed with Open Brewery DB."
     status: draft
+    deeper:
+      - name: "HopLove: every hop in 2,000 Northwest beers"
+        url: https://brooksgroves.com/hoplove/
 
   - day: 24
     theme: Network
@@ -291,6 +340,11 @@ days:
     tools: [Python, geopandas]
     prep: "Drafted (NLDI flowlines; Strahler order computed on the network)."
     status: draft
+    deeper:
+      - name: "SIERRA-FLOW: Sierra rivers in COBOL"
+        url: https://brooksgroves.com/sierra-flow-cobol/
+      - name: "Sierra Streamflow dashboard"
+        url: https://brooksgroves.com/sierra-streamflow
 
   - day: 25
     theme: Is this a map?
@@ -302,6 +356,11 @@ days:
     tools: [Python, ObsPy]
     prep: "Drafted: UW.RCM on July 8, 2025."
     status: draft
+    deeper:
+      - name: "lahar-watch: the network watching Rainier"
+        url: https://brooksgroves.com/lahar-watch/
+      - name: "AFTERSHOCK: live earthquake monitor"
+        url: https://brooksgroves.com/aftershock
 
   - day: 26
     theme: Water
@@ -315,6 +374,11 @@ days:
     tools: [Python, forge3d]
     prep: "Depth drafted from the 1998 USGS multibeam grid. Still to add: clarity (Secchi depth) from the SECCHI project."
     status: draft
+    deeper:
+      - name: "secchi: a modern Secchi disk for Lake Tahoe"
+        url: https://brooksgroves.com/secchi/
+      - name: "Blog: A Plate on a Rope"
+        url: https://brooksgroves.com/blog/secchi-post.html
 
   - day: 27
     theme: New tool
@@ -338,17 +402,30 @@ days:
     prep: "Drafted already, as the toolkit's test map."
     status: draft
     script: make.py
+    deeper:
+      - name: "AFTERSHOCK: live earthquake monitor"
+        url: https://brooksgroves.com/aftershock
+      - name: "Blog: AFTERSHOCK, revisited"
+        url: https://brooksgroves.com/blog/aftershock-revisited-post.html
 
   - day: 29
     theme: Raster
-    title: "Rainier's snow from space"
-    pitch: "A season of snow cover on Rainier from satellite, draped over the mountain."
+    title: "When Rainier's snow melted"
+    pitch: "Every 30 m patch of Mount Rainier coloured by the day it lost its snow in 2026, from Sentinel-2's scene classification, with the glaciers that never melted in white and Paradise's SNOTEL record from my snowpack tracker as ground truth."
     data:
-      - name: "MODIS / Sentinel-2 snow cover (via the Rainier Snowpack Tracker)"
+      - name: "Sentinel-2 L2A scene classification (Earth Search, AWS open data)"
+        url: https://earth-search.aws.element84.com/v1
+      - name: "NRCS SNOTEL via STORM CHASER, my Rainier snowpack tracker"
         url: https://brooksgroves.com/rainier-snowpack
-    tools: [Python, forge3d]
-    prep: "Reuse the snowpack tracker's pipeline."
-    status: idea
+    tools: [Python, rasterio, STAC]
+    prep: "Drafted. No login needed: Sentinel-2 comes from AWS open data, SNOTEL from the tracker's own archive."
+    status: draft
+    deeper:
+      - name: "STORM CHASER: Rainier snowpack, live"
+        url: https://brooksgroves.com/rainier-snowpack
+      - name: "CASCADIA-WX: Northwest weather balloons"
+        url: https://brooksgroves.com/cascadia-wx/
+
 
   - day: 30
     theme: Pen & paper
