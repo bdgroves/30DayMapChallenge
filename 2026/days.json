@@ -267,9 +267,9 @@
     "Grays Harbor County EM: AHAB range (1 mile, outdoors)"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-11-sound",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-11-sound/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-11-sound/out/thumb.jpg",
+   "alt": "Map of western Washington's coast and inland waters with 121 tsunami siren locations, each ringed by a one-mile circle where it can be heard outdoors, over the tsunami hazard zones in red.",
    "post": null,
    "link": null,
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-11.html"
@@ -451,9 +451,9 @@
     "HopLove aroma descriptors and NASS acreage"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-19-smell",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-19-smell/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-19-smell/out/thumb.jpg",
+   "alt": "Map of Yakima County's 1,215 hop fields in green, clustered along the valley, beside bars of Washington's 2025 hop acreage by each variety's leading aroma: tropical fruit 6,351 acres, citrus 5,753 acres, resinous 5,021 acres, spice 4,166 acres.",
    "post": null,
    "link": null,
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-19.html"
@@ -497,9 +497,9 @@
     "OpenStreetMap (Overpass API or Geofabrik extract)"
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-21-openstreetmap",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-21-openstreetmap/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-21-openstreetmap/out/thumb.jpg",
+   "alt": "Map of Groveland and Big Oak Flat, California, drawn only from OpenStreetMap: 2,152 buildings in red, roads in black, paths dashed, streams in blue and 46 named places in gold along Highway 120.",
    "post": null,
    "link": null,
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-21.html"
@@ -544,7 +544,7 @@
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-23-taste",
    "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-23-taste/out/map.png",
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-23-taste/out/thumb.jpg",
-   "alt": "Map of Cascadia with gold circles at 35 breweries, sized by how many different beers I've had from each in a year of Untappd check-ins; Kings & Daughters Brewery is biggest with 16. A list beside it names 19 breweries farther away.",
+   "alt": "Map of Cascadia with gold circles at 45 breweries, sized by how many different beers I've had from each in a year of Untappd check-ins; Kings & Daughters Brewery is biggest with 16. A list beside it names 22 breweries farther away.",
    "post": null,
    "link": null,
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-23.html"
