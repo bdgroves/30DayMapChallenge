@@ -1055,9 +1055,9 @@
     }
    ],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-29-raster",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-29-raster/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-29-raster/out/thumb.jpg",
+   "alt": "Map of Mount Rainier with every 30 metre patch coloured by the date its snow melted in 2026, from tan in April in the valleys to deep blue in August high on the mountain, with the glaciers in white where the snow never melted. Below, Paradise SNOTEL's snow water equivalent through the 2026 water year against its median, with the satellite's melt-out date for Paradise marked.",
    "post": null,
    "link": null,
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-29.html"
