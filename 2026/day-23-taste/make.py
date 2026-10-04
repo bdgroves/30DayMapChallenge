@@ -100,6 +100,7 @@ for name, n in count.items():
 g = gpd.GeoDataFrame(rows, crs=4326)
 inside = g[g.within(box(*VIEW))]
 away = g[~g.within(box(*VIEW))].sort_values("beers", ascending=False)
+print("  placed: " + "; ".join(f"{r.brewery} @ {r.place}" for r in g.itertuples()))
 print(f"= {len(hist)} beers from {len(count)} breweries, {first} to {last}; placed {len(g)} "
       f"({len(inside)} in Cascadia, {len(away)} elsewhere); unplaced {len(missing)}: {missing}")
 
@@ -119,10 +120,12 @@ gi = inside.to_crs(CRS)
 size = lambda n: 18 + 34 * np.asarray(n, float)  # noqa: E731
 ax.scatter(gi.geometry.x, gi.geometry.y, s=size(gi["beers"]), color=dmc.GOLD, alpha=0.75, edgecolor=dmc.INK, lw=0.5,
            zorder=4)
-for _, r in gi[gi["beers"] >= 3].iterrows():
-    dmc.label(ax, r.geometry.x + 26000, r.geometry.y, f"{r['brewery']} · {r['beers']}", size=6.8, va="center", zorder=5)
 ax.set_xlim(vb[0], vb[2])
 ax.set_ylim(vb[1], vb[3])
+ax.apply_aspect()
+top3 = gi[gi["beers"] >= 3].sort_values("beers", ascending=False)
+dmc.place_labels(ax, [(r.geometry.x, r.geometry.y, f"{r['brewery']} · {r['beers']}") for _, r in top3.iterrows()],
+                 gap=9, size=6.8, zorder=5)
 
 # the rest of the world, as a list
 x0 = 0.71
@@ -147,8 +150,8 @@ for i, n in enumerate([1, 4, 16]):
 top, topn = count.most_common(1)[0]
 dmc.frame(
     fig, DAY,
-    subtitle=(f"A year on Untappd: {len(hist)} different beers from {len(count)} breweries, one circle each, sized by how\n"
-              f"many of theirs I've had. {top} leads with {topn}. Mostly Cascadia, a few from far away."),
+    subtitle=(f"A year on Untappd: {len(hist)} different beers from {len(count)} breweries, one circle each,\n"
+              f"sized by how many of theirs I've had. {top} leads with {topn}."),
     source="My Untappd beer history (via HopLove) · Open Brewery DB" + (" · " + basemap.CREDIT if drawn else " · U.S. Census Bureau"),
     note="Breweries only, placed at the brewery; where I drank them isn't on the map.",
 )

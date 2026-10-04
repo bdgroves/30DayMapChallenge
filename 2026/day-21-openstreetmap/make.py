@@ -26,11 +26,11 @@ HERE = Path(__file__).resolve().parent
 DATA = HERE / "data"
 DATA.mkdir(exist_ok=True)
 CRS = "EPSG:32610"
-BBOX = (37.806, -120.292, 37.856, -120.196)            # S, W, N, E: Big Oak Flat to east Groveland
+BBOX = (37.806, -120.317, 37.856, -120.171)            # S, W, N, E: Big Oak Flat to east Groveland, framed 16:9
 OVERPASS = "https://overpass-api.de/api/interpreter"
 REFRESH = "--refresh" in sys.argv                       # re-download after editing OSM
 
-name = "groveland.json"
+name = "groveland_wide.json"
 if REFRESH and (DATA / name).exists():
     (DATA / name).unlink()
 q = f"[out:json][timeout:180];nwr({','.join(map(str, BBOX))});out geom;"
@@ -104,8 +104,6 @@ for kind, g in roads.groupby(col(roads, "highway")):
 water.plot(ax=ax, color=dmc.LAKE, lw=0.6, alpha=0.8, zorder=2)
 bld.plot(ax=ax, color=dmc.LAVA, lw=0, zorder=4)
 named.plot(ax=ax, color=dmc.GOLD, markersize=10, edgecolor=dmc.INK, lw=0.4, zorder=5)
-for _, r in named.iterrows():
-    dmc.label(ax, r.geometry.x + 60, r.geometry.y + 40, r["name"], size=5.2, color=dmc.INK, zorder=6)
 for nm, lon, lat in [("GROVELAND", -120.2305, 37.8385), ("BIG OAK FLAT", -120.2585, 37.8235)]:
     x, y = gpd.GeoSeries([Point(lon, lat)], crs=4326).to_crs(CRS).iloc[0].coords[0]
     ax.text(x, y + 380, nm, family=dmc.MONO, size=10, color=dmc.INK, alpha=0.55, ha="center", zorder=7)
@@ -113,6 +111,13 @@ b = gpd.GeoSeries([Point(BBOX[1], BBOX[0]), Point(BBOX[3], BBOX[2])], crs=4326).
 ax.set_xlim(b.iloc[0].x, b.iloc[1].x)
 ax.set_ylim(b.iloc[0].y, b.iloc[1].y)
 ax.set_aspect("equal")
+ax.apply_aspect()
+# label what fits without overlapping: schools, museums and civic places first, then the rest
+rank = lambda r: 0 if (r.get("amenity") in ("school", "library", "townhall", "post_office", "fire_station")  # noqa: E731
+                       or r.get("tourism") == "museum" or r.get("historic")) else 1
+items = sorted(((rank(r), r["name"], r.geometry.x, r.geometry.y) for _, r in named.iterrows()))
+placed = dmc.place_labels(ax, [(x, y, n) for _, n, x, y in items], size=5.6, zorder=6)
+print(f"  labelled {len(placed)} of {len(named)} named places")
 dmc.scalebar(ax, 1, loc=(0.03, 0.05))
 from matplotlib.lines import Line2D  # noqa: E402
 ax.legend(handles=[Line2D([], [], marker="s", ls="", color=dmc.LAVA, label=f"{len(bld):,} buildings"),

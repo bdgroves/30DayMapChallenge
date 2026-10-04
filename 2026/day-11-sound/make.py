@@ -35,7 +35,7 @@ AHAB = "https://services7.arcgis.com/vUVXhXafpruJFs3l/arcgis/rest/services/AHAB_
 DNR = "https://gis.dnr.wa.gov/site3/rest/services/Geology/Tsunami_Hazard/FeatureServer"
 MILE = 1609.344
 UTM = "EPSG:32610"
-VIEW = (-124.95, 46.15, -122.15, 49.05)
+VIEW = (-124.95, 46.15, -121.85, 49.05)
 
 
 def arcgis(url, name, **q):
@@ -74,6 +74,10 @@ try:
     if keep:
         zones = gpd.GeoDataFrame(gpd.pd.concat(keep), crs=4326)
         zones["geometry"] = zones.make_valid()
+        # the zones run out over open water; only the land in them is where people need to hear a siren
+        st = fetch.shapes(fetch.STATES, DATA / "states.zip")
+        wa = st[st["STUSPS"] == "WA"].to_crs(4326).geometry.union_all()
+        zones = gpd.GeoDataFrame(geometry=[zones.geometry.union_all().intersection(wa)], crs=4326)
 except Exception as e:  # noqa: BLE001
     print(f"  tsunami zones unavailable: {e}")
 
@@ -83,7 +87,7 @@ if zones is not None and len(zones):
     zu = gpd.GeoSeries(zones.to_crs(UTM).geometry.union_all(), crs=UTM)
     zone_km2 = zu.area.iloc[0] / 1e6
     covered = zu.intersection(reach.iloc[0]).area.iloc[0] / 1e6
-    print(f"= reach {reach_km2:,.0f} km²; hazard zone {zone_km2:,.0f} km², {covered / zone_km2:.0%} of it within a mile of a siren")
+    print(f"= reach {reach_km2:,.0f} km²; hazard zone on land {zone_km2:,.0f} km², {covered / zone_km2:.0%} of it within a mile of a siren")
 else:
     zone_km2 = covered = None
     print(f"= reach {reach_km2:,.0f} km²")
@@ -103,10 +107,10 @@ if not drawn:
 if zones is not None and len(zones):
     zones.to_crs(CRS).plot(ax=ax, color=dmc.LAVA, alpha=0.35, lw=0, zorder=2)
 rings = sirens.to_crs(UTM).buffer(MILE, 48).to_crs(CRS)
-rings.plot(ax=ax, facecolor=dmc.LAKE, alpha=0.18, edgecolor="none", zorder=3)
-rings.boundary.plot(ax=ax, color=dmc.LAKE, lw=0.5, alpha=0.9, zorder=4)
+rings.plot(ax=ax, facecolor=dmc.LAKE, alpha=0.45, edgecolor="none", zorder=3)
+rings.boundary.plot(ax=ax, color="#1f3a4a", lw=0.6, zorder=4)
 s = sirens.to_crs(CRS)
-ax.scatter(s.geometry.x, s.geometry.y, s=6, color=dmc.INK, zorder=5)
+ax.scatter(s.geometry.x, s.geometry.y, s=1.5, color=dmc.INK, zorder=5)
 for name, lon, lat, ha in [("Long Beach", -124.054, 46.352, "left"), ("Ocean Shores", -124.156, 46.973, "left"),
                            ("Westport", -124.104, 46.89, "left"), ("La Push", -124.636, 47.906, "left"),
                            ("Neah Bay", -124.62, 48.368, "left"), ("Port Angeles", -123.43, 48.118, "left"),
@@ -120,15 +124,15 @@ dmc.scalebar(ax, 25, loc=(0.06, 0.08), crs_units_per_km=k_m)
 from matplotlib.patches import Patch  # noqa: E402
 hand = [Patch(facecolor=dmc.LAKE, alpha=0.4, edgecolor=dmc.LAKE, label="Within a mile of a siren")]
 if zones is not None and len(zones):
-    hand.append(Patch(color=dmc.LAVA, alpha=0.35, label="Tsunami hazard zone"))
+    hand.append(Patch(color=dmc.LAVA, alpha=0.35, label="Tsunami hazard zone, on land"))
 ax.legend(handles=hand, loc="upper right", fontsize=8, frameon=True, facecolor=dmc.PARCHMENT, edgecolor=dmc.MIST)
 
-cov = f" {covered / zone_km2:.0%} of the tsunami hazard zone is within that reach." if zone_km2 else ""
+cov = f" {covered / zone_km2:.0%} of the land in the tsunami hazard zone is within that reach." if zone_km2 else ""
 dmc.frame(
     fig, DAY,
     subtitle=(f"Washington's {len(sirens)} tsunami sirens, each drawn with the one-mile circle it's designed to be heard in,\n"
               f"outdoors.{cov}"),
-    source="WA Emergency Management AHAB sirens · WA DNR tsunami hazard zones" + (" · " + basemap.CREDIT if drawn else ""),
+    source="WA EMD AHAB sirens · WA DNR tsunami zones · Census" + (" · " + basemap.CREDIT if drawn else ""),
     note="Range: AHABs are designed to be heard outdoors within a 1-mile radius (Grays Harbor County Emergency Management).",
 )
 dmc.save(fig, DAY, alt=(

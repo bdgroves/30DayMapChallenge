@@ -122,7 +122,7 @@ fig.text(px, top - 0.02 - len(fams) * row - 0.005,
 lead = fams[0]
 dmc.frame(
     fig, DAY,
-    subtitle=(f"Every hop field in Yakima County, {field_acres:,.0f} acres of them, and what Washington's hops smell like: "
+    subtitle=(f"Every hop field in Yakima County ({field_acres:,.0f} acres in 2024), and what Washington's hops smell like: "
               f"by acreage, mostly\n{tax[lead]['label'].lower()}, led by {sorted(names[lead], reverse=True)[0][1]}. "
               f"The aroma of each variety comes from HopLove, my hop database."),
     source="WSDA Agricultural Land Use 2024 · USDA NASS National Hop Report 2025 · HopLove" + (" · " + basemap.CREDIT if drawn else ""),
