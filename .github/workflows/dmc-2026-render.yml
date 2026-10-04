@@ -54,11 +54,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add day-*/out days.json README.md day-*/README.md pixi.lock
+          git add day-*/out days.json README.md day-*/README.md pixi.lock card.jpg share
+          git status --short | head -40
           git diff --staged --quiet && exit 0
           git commit -q -m "2026: render day ${{ inputs.day }} [skip ci]"
           # the build job may have just rebuilt days.json/README; our regenerated copies win
           for i in 1 2 3; do git pull -q --rebase -X theirs && git push -q && break; sleep 5; done
+          git fetch -q origin main
+          [ "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)" ] || { echo "::error::the rendered maps were not pushed"; exit 1; }
       - name: Save downloaded data for next time (even if a day failed)
         if: always()
         uses: actions/cache/save@v4
