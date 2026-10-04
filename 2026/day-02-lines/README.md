@@ -5,7 +5,7 @@
 
 ## The Seawall
 
-The path around Stanley Park in Vancouver: the Seawall, between the forest and the sea, with a marker every kilometre and the landmarks along the way.
+The path around Stanley Park in Vancouver: 8.75 km of Seawall between the forest and the sea, on a Mapbox Outdoors basemap, with the landmarks along the way.
 
 **Data**
 

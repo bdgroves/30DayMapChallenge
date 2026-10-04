@@ -5,7 +5,7 @@
 
 ## Tasman to Cook
 
-New Zealand's coast as Abel Tasman charted it in 1642 and James Cook in 1769–70, over the modern coastline, engraved in an 18th-century style. A map version of my Cartographic Perspectives article.
+James Cook's 1772 chart of New Zealand, lined up with today's coast, with the stretches Abel Tasman saw in 1642–43 in gold. A map version of my Cartographic Perspectives article.
 
 **Data**
 

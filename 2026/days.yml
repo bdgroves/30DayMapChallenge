@@ -25,7 +25,7 @@ days:
   - day: 2
     theme: Lines
     title: "The Seawall"
-    pitch: "The path around Stanley Park in Vancouver: the Seawall, between the forest and the sea, with a marker every kilometre and the landmarks along the way."
+    pitch: "The path around Stanley Park in Vancouver: 8.75 km of Seawall between the forest and the sea, on a Mapbox Outdoors basemap, with the landmarks along the way."
     data:
       - name: "OpenStreetMap (Overpass API)"
         url: https://overpass-api.de/
@@ -69,7 +69,7 @@ days:
   - day: 6
     theme: Vintage
     title: "Tasman to Cook"
-    pitch: "New Zealand's coast as Abel Tasman charted it in 1642 and James Cook in 1769–70, over the modern coastline, engraved in an 18th-century style. A map version of my Cartographic Perspectives article."
+    pitch: "James Cook's 1772 chart of New Zealand, lined up with today's coast, with the stretches Abel Tasman saw in 1642–43 in gold. A map version of my Cartographic Perspectives article."
     data:
       - name: "Cook's Chart of New-Zealand (1772), Royal Museums Greenwich F0293, via Wikimedia Commons"
         url: https://commons.wikimedia.org/wiki/File:Chart_of_New_Zealand,_explored_in_1769_and_1770_by_Lieut._I-_Cook,Commander_of_His_Majesty%27s_Bark_Endeavour._RMG_F0293.tiff

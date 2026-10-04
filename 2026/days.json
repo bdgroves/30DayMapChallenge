@@ -33,7 +33,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-01-points/out/thumb.jpg",
    "alt": "Map of 1,190 geocaches found by Hipparchus from 2001 to 2026, as small dots coloured from pale gold for early years to dark red for recent ones. The main map covers the West Coast, where most are, thickest in Washington, California, Nevada. A small world map below shows finds in 25 countries, and a bar chart shows finds per year, with the most in 2017.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-01.html"
   },
   {
    "day": 2,
@@ -41,7 +42,7 @@
    "weekday": "Mon",
    "theme": "Lines",
    "title": "The Seawall",
-   "pitch": "The path around Stanley Park in Vancouver: the Seawall, between the forest and the sea, with a marker every kilometre and the landmarks along the way.",
+   "pitch": "The path around Stanley Park in Vancouver: 8.75 km of Seawall between the forest and the sea, on a Mapbox Outdoors basemap, with the landmarks along the way.",
    "status": "draft",
    "tools": [
     "Python",
@@ -56,7 +57,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-02-lines/out/thumb.jpg",
    "alt": "Map of Stanley Park in Vancouver with the Seawall drawn as a red line around its shore, about 8.8 km, and landmarks including Beaver Lake, Brockton Point Lighthouse, Lumberman's Arch, Nine O'Clock Gun, Prospect Point.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-02.html"
   },
   {
    "day": 3,
@@ -78,7 +80,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-03-polygons/out/thumb.jpg",
    "alt": "Map of Tuolumne County, California, covered in overlapping semi-transparent fire perimeters from 1900 to 2025, pale for old fires and red for recent ones. The 2013 Rim Fire, outlined with a dashed line, fills much of the middle of the county east of Groveland. 36% of the county has burned at least once and 16% twice or more.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-03.html"
   },
   {
    "day": 4,
@@ -101,7 +104,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-04-clusters/out/thumb.jpg",
    "alt": "Shaded relief map of Mount Rainier with 11,408 earthquakes since 2000 as dots within a 30 km circle. Most are grey background quakes, with coloured clusters marking swarms; the largest, 1,362 quakes in July 2025, sits just under the summit. A bar chart of quakes per month shows a spike for each swarm.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-04.html"
   },
   {
    "day": 5,
@@ -124,7 +128,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-05-sight/out/thumb.jpg",
    "alt": "Shaded relief map of Washington and northern Oregon with the areas that can see Mount Rainier's summit shaded red: 35,267 square kilometres of land, reaching 390 km to the northwest at the farthest. Cities with a line of sight: Seattle, Tacoma, Lakewood, Olympia, Everett, Victoria, Portland, Yakima, Ellensburg, Aberdeen. Cities without: Bellingham, Vancouver, Salem, Wenatchee, Tri-Cities, Port Angeles, Spokane.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-05.html"
   },
   {
    "day": 6,
@@ -132,7 +137,7 @@
    "weekday": "Fri",
    "theme": "Vintage",
    "title": "Tasman to Cook",
-   "pitch": "New Zealand's coast as Abel Tasman charted it in 1642 and James Cook in 1769–70, over the modern coastline, engraved in an 18th-century style. A map version of my Cartographic Perspectives article.",
+   "pitch": "James Cook's 1772 chart of New Zealand, lined up with today's coast, with the stretches Abel Tasman saw in 1642–43 in gold. A map version of my Cartographic Perspectives article.",
    "status": "draft",
    "tools": [
     "Python",
@@ -149,7 +154,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-06-vintage/out/thumb.jpg",
    "alt": "James Cook's 1772 engraved chart of New Zealand, georeferenced, with today's coastline traced over it in red; the two match closely, except that Banks Peninsula is drawn as an island, Stewart Island as part of the mainland, and much of the coast sits slightly east. Gold lines mark the west coasts Abel Tasman saw in 1642-43, with an inset of Tasman's own coastline from the Bonaparte map of about 1644.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-06.html"
   },
   {
    "day": 7,
@@ -168,7 +174,8 @@
    "thumb": null,
    "alt": "",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-07.html"
   },
   {
    "day": 8,
@@ -190,7 +197,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-08-utopia/out/thumb.jpg",
    "alt": "Map of the lower 48 states dotted with 836 places named Paradise, Eden, Arcadia, Utopia or Shangri-La. Paradise (501) is the most common, then Eden (243). Only 264 are towns; the most common kinds are townships and other civil divisions, streams, valleys.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-08.html"
   },
   {
    "day": 9,
@@ -214,7 +222,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-09-urban-rural/out/thumb.jpg",
    "alt": "A map of the straight line from the Port of Tacoma to Paradise on Mount Rainier over shaded relief and census population, with two profiles below: people per square kilometre, high in Tacoma and Puyallup and falling to almost none after about km 29, and elevation rising to 8,850 ft on Rainier's flank before Paradise.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-09.html"
   },
   {
    "day": 10,
@@ -236,7 +245,8 @@
    "thumb": null,
    "alt": "",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-10.html"
   },
   {
    "day": 11,
@@ -259,7 +269,8 @@
    "thumb": null,
    "alt": "",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-11.html"
   },
   {
    "day": 12,
@@ -282,7 +293,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-12-power/out/thumb.jpg",
    "alt": "Shaded-relief map from San Francisco east to Yosemite. Gold lines are San Francisco's power lines running from powerhouses below Groveland to the Bay Area; blue is the Hetch Hetchy aqueduct; grey is every other high-voltage line in the region.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-12.html"
   },
   {
    "day": 13,
@@ -304,7 +316,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-13-interactions/out/thumb.jpg",
    "alt": "A live map of the lower 48: a blue line traces the path of a raindrop from Groveland, California, down the Tuolumne and San Joaquin rivers past Modesto and Stockton to the Sacramento-San Joaquin Delta, 279 kilometres.",
    "post": null,
-   "link": "day-13-interactions/"
+   "link": "day-13-interactions/",
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-13.html"
   },
   {
    "day": 14,
@@ -326,7 +339,8 @@
    "thumb": null,
    "alt": "",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-14.html"
   },
   {
    "day": 15,
@@ -348,7 +362,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-15-inside-out/out/thumb.jpg",
    "alt": "Left, a shaded-relief map of Kīlauea's summit dotted with 19,466 earthquake epicentres since 2019; right, a north-south cross-section through Halema‘uma‘u showing where the earthquakes cluster with depth.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-15.html"
   },
   {
    "day": 16,
@@ -368,7 +383,8 @@
    "thumb": null,
    "alt": "",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-16.html"
   },
   {
    "day": 17,
@@ -390,7 +406,8 @@
    "thumb": null,
    "alt": "",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-17.html"
   },
   {
    "day": 18,
@@ -412,7 +429,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-18-null/out/thumb.jpg",
    "alt": "Map of Nevada's census blocks: 77% of the land is pale, where nobody lived in 2020; light grey blocks hold a few people each; black specks around Las Vegas, Reno and the towns hold nine in ten Nevadans on 0.4% of the land.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-18.html"
   },
   {
    "day": 19,
@@ -434,7 +452,8 @@
    "thumb": null,
    "alt": "",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-19.html"
   },
   {
    "day": 20,
@@ -456,7 +475,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-20-hexagons/out/thumb.jpg",
    "alt": "Hexagon map of western North America shaded by how many kangaroo rat records each holds, 94,547 in all across 1,625 hexagons; the busiest holds 3,054. Death Valley is marked.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-20.html"
   },
   {
    "day": 21,
@@ -478,7 +498,8 @@
    "thumb": null,
    "alt": "",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-21.html"
   },
   {
    "day": 22,
@@ -500,7 +521,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-22-projections/out/thumb.jpg",
    "alt": "A round world map centred on Lakewood, Washington, in an azimuthal equidistant projection, with red lines out to Groveland (1,054 km), Reno (877 km), Ruby Mountains (923 km), Namibia (15,332 km), Guadeloupe (6,491 km).",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-22.html"
   },
   {
    "day": 23,
@@ -521,7 +543,8 @@
    "thumb": null,
    "alt": "",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-23.html"
   },
   {
    "day": 24,
@@ -543,7 +566,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-24-network/out/thumb.jpg",
    "alt": "Map of the Tuolumne River basin above Modesto, 4,742 square kilometres of the Sierra Nevada, with 3,825 kilometres of streams drawn thicker by stream order up to order 6, and the five SIERRA-FLOW gages marked.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-24.html"
   },
   {
    "day": 25,
@@ -565,7 +589,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-25-is-this-a-map/out/thumb.jpg",
    "alt": "A helicorder: 24 horizontal wiggly lines, one per hour of July 8, 2025, recorded at Camp Muir on Mount Rainier, in alternating ink, red, blue and green. Gold dots mark the 352 earthquakes located nearby that day.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-25.html"
   },
   {
    "day": 26,
@@ -588,7 +613,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-26-water/out/thumb.jpg",
    "alt": "Map of Lake Tahoe's floor shaded blue by depth to 497 m, with 100 m contours and the deepest point marked.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-26.html"
   },
   {
    "day": 27,
@@ -610,7 +636,8 @@
    "thumb": null,
    "alt": "",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-27.html"
   },
   {
    "day": 28,
@@ -633,7 +660,8 @@
    "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-28-feeling/out/thumb.jpg",
    "alt": "Map of the Pacific Northwest showing how strongly people felt the magnitude 6.8 Nisqually earthquake of February 28, 2001. Small squares coloured from pale (weak) to dark red (very strong) cover western Washington, strongest around the epicenter at the south end of Puget Sound near Olympia, Lakewood and Tacoma, and fading toward Portland, Vancouver and Spokane. Based on 10,725 'Did You Feel It?' reports.",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-28.html"
   },
   {
    "day": 29,
@@ -655,7 +683,8 @@
    "thumb": null,
    "alt": "",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-29.html"
   },
   {
    "day": 30,
@@ -676,7 +705,8 @@
    "thumb": null,
    "alt": "",
    "post": null,
-   "link": null
+   "link": null,
+   "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-30.html"
   }
  ]
 }
