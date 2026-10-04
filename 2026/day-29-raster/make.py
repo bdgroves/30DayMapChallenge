@@ -146,7 +146,7 @@ print(f"= Paradise: SNOTEL peak {par.loc[peak_i, 'swe_in']:.1f} in on {par.loc[p
       f"snow gone {snotel_melt}; satellite melt-out at the station's pixel {sat_melt}")
 
 # ── map ──────────────────────────────────────────────────────────────────────
-fig, ax = dmc.figure("portrait", map_box=(0.05, 0.27, 0.90, 0.56))
+fig, ax = dmc.figure("portrait", map_box=(0.05, 0.285, 0.90, 0.525))
 zz, ztf = terrain.dem((BBOX[0] - 0.03, BBOX[1] - 0.03, BBOX[2] + 0.03, BBOX[3] + 0.03), crs=CRS, res=RES)
 ax.imshow(terrain.relief(zz, RES, strength=0.7, exaggerate=1.2), extent=terrain.extent(ztf, zz.shape), interpolation="bilinear", zorder=0)
 cmap = LinearSegmentedColormap.from_list("melt", ["#e8c48a", "#c9a46a", "#7fb0c4", dmc.LAKE, "#1f3a4a"])
@@ -180,16 +180,16 @@ fig.add_artist(__import__("matplotlib").patches.Rectangle((0.728, 0.234), 0.018,
 fig.text(0.755, 0.240, "Never melted", size=7.5, va="center", color=dmc.INK)
 
 # Paradise SNOTEL strip
-sx = fig.add_axes((0.10, 0.085, 0.80, 0.105))
+sx = fig.add_axes((0.10, 0.105, 0.80, 0.085))
 sx.fill_between(par["date"], par["swe_in"], color=dmc.LAKE, alpha=0.25, lw=0)
 sx.plot(par["date"], par["swe_in"], color=dmc.LAKE, lw=1.2, label="Water year 2026")
 sx.plot(par["date"], par["median_swe_in"], color=dmc.STONE, lw=0.9, ls=(0, (3, 2)), label="1991-2020 median")
 if sat_melt:
     sx.axvline(pd.Timestamp(sat_melt), color=dmc.LAVA, lw=1)
-    sx.text(pd.Timestamp(sat_melt), sx.get_ylim()[1] * 0.92,
-            f"  satellite: Paradise melts out {sat_melt:%b} {sat_melt.day}" + (f"; SNOTEL reads zero {snotel_melt:%b} {snotel_melt.day}"
-                                                                              if snotel_melt else ""),
-            family=dmc.MONO, size=6.3, color=dmc.LAVA, va="top")
+    sx.text(pd.Timestamp(sat_melt), sx.get_ylim()[1] * 0.95,
+            f"  Paradise melts out\n  satellite {sat_melt:%b} {sat_melt.day}" + (f", SNOTEL {snotel_melt:%b} {snotel_melt.day}"
+                                                                                 if snotel_melt else ""),
+            family=dmc.MONO, size=6.3, color=dmc.LAVA, va="top", linespacing=1.4)
 for s in ("top", "right"):
     sx.spines[s].set_visible(False)
 sx.tick_params(labelsize=6.5, colors=dmc.STONE, length=2)
@@ -198,7 +198,7 @@ for tl in sx.get_xticklabels() + sx.get_yticklabels():
 import matplotlib.dates as mdates  # noqa: E402
 sx.xaxis.set_major_formatter(mdates.DateFormatter("%b"))
 sx.legend(loc="upper left", fontsize=6.5, frameon=False)
-fig.text(0.10, 0.198, "PARADISE SNOTEL, SNOW WATER EQUIVALENT (INCHES), FROM MY RAINIER SNOWPACK TRACKER", family=dmc.MONO,
+fig.text(0.10, 0.200, "PARADISE SNOTEL, SNOW WATER EQUIVALENT (INCHES), FROM MY RAINIER SNOWPACK TRACKER", family=dmc.MONO,
          size=7, color=dmc.STONE)
 
 dmc.frame(
@@ -206,7 +206,7 @@ dmc.frame(
     title="When Rainier's snow melted",
     subtitle=(f"Every 30 m patch of the mountain coloured by the day it lost its snow in 2026, from {len(dates)} days\n"
               f"of Sentinel-2 views. The glaciers, in white, never did."),
-    source="Copernicus Sentinel-2 L2A via Earth Search · NRCS SNOTEL via my snowpack tracker · Copernicus DEM",
+    source="Copernicus Sentinel-2 L2A and DEM · NRCS SNOTEL via my snowpack tracker",
     note="Uncoloured: no snow seen after March 1, or snow hidden under forest. Snow counts when two clear views in a row show it.",
 )
 dmc.save(fig, DAY, alt=(
