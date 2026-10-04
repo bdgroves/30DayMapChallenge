@@ -8,7 +8,7 @@ Earlier years are in [`../2023`](../2023) and [`../2024`](../2024).
 
 ### Mapbox basemaps (this year's sponsor)
 
-Days 1, 2 and 28 draw on a Mapbox basemap when a token is set, and fall back to plain outlines without one. Mapbox static maps are Web Mercator, carry the Mapbox wordmark, and get "© Mapbox © OpenStreetMap" in the credit line; `toolkit/basemap.py` does all three.
+Mapbox basemaps go where streets, towns and water give the data its context: Light under days 1, 11, 12, 19, 23 and 28, Outdoors under days 2 and 9. Each falls back to plain outlines or the house shaded relief without a token. The rest keep their own backgrounds on purpose: the relief is the subject on days 3, 4 and 24, the elevation or depth data is the map on 5, 15 and 26, days 8, 20 and 22 need equal-area or azimuthal projections that Mapbox's Web Mercator can't give, day 6's basemap is Cook's chart, day 18's census blocks cover every inch, day 21 is drawn from raw OpenStreetMap, and day 27 is a dark density grid. Mapbox static maps are Web Mercator, carry the Mapbox wordmark, and get "© Mapbox © OpenStreetMap" in the credit line; `toolkit/basemap.py` does all three.
 
 - [ ] Make a free account at [account.mapbox.com](https://account.mapbox.com) and copy the **default public token** (starts `pk.`).
 - [ ] GitHub: repo **Settings → Secrets and variables → Actions → New repository secret**, name `MAPBOX_TOKEN`.
@@ -34,49 +34,9 @@ Days 1, 2 and 28 draw on a Mapbox basemap when a token is set, and fall back to 
 
 ### Where the maps stand
 
-- Drafted from real data: **3, 4, 5, 28**.
-- Script ready, waiting for your export: **1, 2**.
-- To build in October, a few each week: the rest. Public-data days first (8, 9, 12, 15, 18, 22, 24, 25), then the ones that need your data or prep.
-
-## Make a map
-
-Each day's folder holds a `make.py` (or `make.R`) that writes `out/map.png` and `out/alt.txt`. The toolkit gives every map the same look as brooksgroves.com: parchment and ink, Playfair Display titles, a header with the day and theme, and a credit line.
-
-```python
-import sys; sys.path.insert(0, "../toolkit")
-import dmc
-
-fig, ax = dmc.figure("square")            # or "portrait" (4:5) or "wide" (16:9)
-# ... plot on ax ...
-dmc.frame(fig, 28, subtitle="One line about the map.", source="USGS")
-dmc.save(fig, 28, alt="What the map shows, for screen readers.")
-```
-
-In R, `source("../toolkit/dmc.R")` gives the same palette, fonts and caption for ggplot2.
-
-### On Windows (PowerShell)
-
-```powershell
-cd 2026
-pixi install                  # Python + R + GDAL from conda-forge, the first time
-pixi run render 28            # runs day-28-feeling/make.py, then rebuilds the plan
-pixi run build                # just rebuild READMEs, days.json and thumbnails
-```
-
-### In GitHub
-
-- **Build the 2026 plan** runs on every push to `2026/`: it rebuilds the day READMEs, `days.json` and thumbnails and commits them.
-- **Render a 2026 map** (Actions → Run workflow → day number) runs that day's script in the cloud, where the data downloads happen, and commits the map. Handy when the laptop's network blocks a data source.
-
-## When a map is done
-
-1. Set the day's `status` to `done` in `days.yml` (or `posted`, with `post:` set to the link).
-2. Check `out/alt.txt`: one or two sentences saying what the map shows.
-3. Post with **#30DayMapChallenge** and the day's theme, the map, and the alt text.
-
-The gallery picks it up from `days.json` within a few minutes.
-
-## The month
+- Drafted from real data: **1–6, 8, 9, 11–15, 18–28** (13 and 14 are interactive pages, with stills for posts).
+- Waiting on you: **7** (made on the day), **10** (prompts only, on the day), **16** (a collaborator), **17** and **29** (Earthdata login), **30** (pen and paper).
+- Before posting: **20** needs a GBIF download with your account so the map can cite its DOI; **22** needs every place you've been in `places.csv`; **21** gets re-rendered (`make.py --refresh`) after your evening of OSM edits.
 
 <!-- table:start -->
 **0 of 30 done** · 💡 idea 6 · 📦 data in hand 0 · ✏️ draft 24 · ✅ done 0 · 📣 posted 0
