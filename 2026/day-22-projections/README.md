@@ -13,7 +13,7 @@ An azimuthal equidistant map centred on Lakewood, where straight lines from the 
 
 **Tools:** Python, cartopy or pyproj
 
-**Prep:** Drafted. Add every place Brooks has been to day-22-projections/places.csv and re-render.
+**Prep:** Places come from the Countries Visited layer on brooksgroves.com/maps.html (37 countries; where there are geocache finds, the middle of them), plus Groveland, Reno and the Ruby Mountains. Add a country there and to places.csv, then re-render.
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

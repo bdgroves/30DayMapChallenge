@@ -1,6 +1,41 @@
-name,lat,lon,note
-Groveland,37.8385,-120.2313,where I grew up
-Reno,39.5296,-119.8138,University of Nevada
-Ruby Mountains,40.6200,-115.4300,Nevada
-Namibia,-22.6784,14.5266,the Namib's fog coast (Swakopmund)
-Guadeloupe,16.3061,-61.7954,Deshaies
+name,lat,lon,note,group
+Groveland,37.8385,-120.2313,where I grew up,
+Reno,39.5296,-119.8138,University of Nevada,
+Ruby Mountains,40.62,-115.43,Nevada,
+Albania,39.75,20.02,geocaches found here,Europe
+Angola,-11.2027,17.8739,,Africa
+Antigua and Barbuda,17.12,-61.85,geocaches found here,Caribbean
+Aruba,12.52,-70.04,geocaches found here,Caribbean
+Australia,-33.86,151.25,geocaches found here,
+Bahamas,24.58,-75.95,geocaches found here,Caribbean
+Belgium,50.5039,4.4699,,Europe
+Bonaire,12.15,-68.28,geocaches found here,Caribbean
+Botswana,-22.3285,24.6849,,Africa
+Canada,50.13,-122.93,geocaches found here,
+Croatia,43.81,15.835,geocaches found here,Europe
+Curaçao,12.11,-68.94,geocaches found here,Caribbean
+Dominica,15.415,-61.371,,Caribbean
+Dominican Republic,19.83,-70.77,geocaches found here,Caribbean
+England,51.48,-0.17,geocaches found here,Europe
+Ethiopia,9.145,40.4897,,Africa
+France,46.2276,2.2137,,Europe
+Germany,51.1657,10.4515,,Europe
+Greece,39.0742,21.8243,,Europe
+Guadeloupe,16.3061,-61.7954,Deshaies,Caribbean
+Iceland,64.31,-21.13,geocaches found here,Europe
+Indonesia,-8.51,115.26,geocaches found here,
+Ireland,53.34,-6.28,geocaches found here,Europe
+Italy,43.805,10.51,geocaches found here,Europe
+Luxembourg,49.8153,6.1296,,Europe
+Mexico,20.6,-87.1,geocaches found here,
+Montenegro,42.49,18.69,geocaches found here,Europe
+Namibia,-22.6784,14.5266,the Namib's fog coast (Swakopmund),Africa
+Netherlands,52.37,4.89,geocaches found here,Europe
+New Zealand,-43.805,172.99,geocaches found here,
+Saint Kitts and Nevis,17.21,-62.675,geocaches found here,Caribbean
+Sint Maarten / Saint Martin,18.02,-63.04,geocaches found here,Caribbean
+South Africa,-33.9575,18.4612,UCT Cape Town 1996,Africa
+Tanzania,-6.369,34.8888,,Africa
+Turks and Caicos,21.43,-71.14,geocaches found here,Caribbean
+Vatican City,41.9029,12.4534,,Europe
+Zimbabwe,-19.0154,29.1549,,Africa

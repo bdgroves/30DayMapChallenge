@@ -5,7 +5,9 @@ An azimuthal equidistant projection centred on Lakewood, Washington. On this map
 this map, every straight line from the centre is the shortest route and its length is the true
 distance. The edge of the circle is the point on the far side of the Earth, in the Indian Ocean.
 
-Places are in places.csv (name, lat, lon, note): add to it and re-render.
+Places are in places.csv (name, lat, lon, note, group): every country on the Countries Visited layer
+at brooksgroves.com/maps.html (where I found geocaches there, the middle of those finds), plus a few
+places closer to home. Places that share a group (Europe, the Caribbean, Africa) get one label.
 Downloads (cached in data/): Natural Earth land and countries.
 """
 import sys
@@ -26,8 +28,9 @@ DATA = HERE / "data"
 HOME = (-122.5185, 47.1718)                       # Lakewood
 PROJ = f"+proj=aeqd +lat_0={HOME[1]} +lon_0={HOME[0]} +datum=WGS84 +units=m"
 R = 20_015_000                                    # half the Earth's circumference, m
+HOME_PLACES = {"Groveland", "Reno", "Ruby Mountains"}   # rows in places.csv that aren't countries
 
-places = pd.read_csv(HERE / "places.csv")
+places = pd.read_csv(HERE / "places.csv").fillna({"group": "", "note": ""})
 geod = Geod(ellps="WGS84")
 _, _, dist = geod.inv([HOME[0]] * len(places), [HOME[1]] * len(places), places["lon"], places["lat"])
 places["km"] = np.array(dist) / 1000
@@ -39,11 +42,17 @@ countries = fetch.shapes(fetch.COUNTRIES.replace("10m", "50m"), DATA / "countrie
 
 
 def project(gdf):
-    # clip just short of the antipode, where azimuthal equidistant blows up
+    """Azimuthal equidistant, clipped just short of the antipode where it blows up. Big polygons
+    (Afro-Eurasia is one) are cut away from the antipode first and densified, so they project to
+    valid shapes instead of being dropped."""
     from shapely.geometry import Point
-    g = gdf.to_crs(PROJ)
+    from shapely.validation import make_valid
+    anti = Point(HOME[0] + 180 if HOME[0] < 0 else HOME[0] - 180, -HOME[1]).buffer(1.5, 64)
+    g = gdf[["geometry"]].copy()
+    g["geometry"] = g.geometry.apply(make_valid).difference(anti).segmentize(0.5)
+    g = g[~g.geometry.is_empty].to_crs(PROJ)
+    g["geometry"] = g.geometry.apply(make_valid)
     disc = Point(0, 0).buffer(R * 0.995, 256)
-    g = g[g.geometry.is_valid & ~g.geometry.is_empty]
     g["geometry"] = g.geometry.intersection(disc)
     return g[~g.geometry.is_empty]
 
@@ -52,7 +61,7 @@ landp = project(land)
 ctry = project(countries)
 
 fig, ax = dmc.figure("square", map_box=(0.08, 0.075, 0.84, 0.70))
-ax.add_patch(Circle((0, 0), R, color=dmc.CREAM, zorder=0))
+ax.add_patch(Circle((0, 0), R, color="#dde6e8", zorder=0))     # sea
 for km in (5000, 10000, 15000):
     ax.add_patch(Circle((0, 0), km * 1000, fill=False, ec=dmc.MIST, lw=0.6, ls=(0, (2, 3)), zorder=1))
     dmc.label(ax, 0, km * 1000 + 250_000, f"{km:,} km", size=6.5, color=dmc.STONE, ha="center", zorder=6)
@@ -61,17 +70,30 @@ ctry.boundary.plot(ax=ax, color=dmc.MIST, lw=0.25, zorder=3)
 ax.add_patch(Circle((0, 0), R, fill=False, ec=dmc.INK, lw=1.0, zorder=4))
 from pyproj import Transformer  # noqa: E402
 to = Transformer.from_crs(4326, PROJ, always_xy=True)
-for _, p in places.iterrows():
-    x, y = to.transform(p["lon"], p["lat"])
-    ax.plot([0, x], [0, y], color=dmc.LAVA, lw=0.9, zorder=5)
-    ax.scatter([x], [y], s=18, color=dmc.LAVA, edgecolor=dmc.PARCHMENT, lw=0.6, zorder=6)
+places["x"], places["y"] = to.transform(places["lon"].values, places["lat"].values)
+for _, p in places.sort_values("km", ascending=False).iterrows():
+    ax.plot([0, p["x"]], [0, p["y"]], color=dmc.LAVA, lw=0.7, alpha=0.8, zorder=5)
+    ax.scatter([p["x"]], [p["y"]], s=14, color=dmc.LAVA, edgecolor=dmc.PARCHMENT, lw=0.5, zorder=6)
+
+
+def tag(x, y, text):
+    """Label beyond the point; near the rim, tuck it inside the circle instead."""
     ang = np.arctan2(y, x)
-    if p["km"] < 2500:
-        continue
-    dmc.label(ax, x + 300_000 * np.cos(ang), y + 300_000 * np.sin(ang), f"{p['name']}\n{p['km']:,.0f} km", size=7,
-              ha="left" if np.cos(ang) >= 0 else "right", va="center", zorder=7)
+    out = np.hypot(x, y) < R * 0.72
+    d = 350_000 if out else -450_000
+    side = np.cos(ang) >= 0
+    dmc.label(ax, x + d * np.cos(ang), y + d * np.sin(ang), text, size=7,
+              ha=("left" if side else "right") if out else ("right" if side else "left"), va="center", zorder=7)
+
+
+for _, p in places[(places["group"] == "") & (places["km"] >= 2500)].iterrows():
+    tag(p["x"], p["y"], f"{p['name']}\n{p['km']:,.0f} km")
+for g, gp in places[places["group"] != ""].groupby("group"):
+    far_one = gp.sort_values("km").iloc[-1]                 # label beyond the group's farthest place
+    lo, hi = gp["km"].min(), gp["km"].max()
+    tag(far_one["x"], far_one["y"], f"{g} · {len(gp)} countries\n{lo:,.0f}–{hi:,.0f} km")
 ax.scatter([0], [0], s=30, color=dmc.INK, zorder=7)
-near = places[places["km"] < 2500].sort_values("km")
+near = places[(places["km"] < 2500) & (places["group"] == "")].sort_values("km")
 if len(near):
     fig.text(0.05, 0.20, "CLOSE TO HOME", family=dmc.MONO, size=6.8, color=dmc.STONE)
     for i, (_, p) in enumerate(near.iterrows()):
@@ -82,13 +104,17 @@ ax.set_xlim(-R * 1.03, R * 1.03)
 ax.set_ylim(-R * 1.03, R * 1.03)
 ax.set_aspect("equal")
 
+n_countries = int((~places["name"].isin(HOME_PLACES)).sum())
 dmc.frame(
     fig, DAY,
-    subtitle=(f"Every straight line from Lakewood is the shortest route, true to scale.\n"
-              f"{far['name']} is {far['km']:,.0f} km away; the rim is the far side of the planet."),
+    subtitle=(f"Every country I've been to, {n_countries} of them, with straight lines that are the shortest route,\n"
+              f"true to scale. {far['name']} is the farthest, {far['km']:,.0f} km away; the rim is the far side of the planet."),
     source="Natural Earth · azimuthal equidistant projection centred on 47.17° N, 122.52° W",
     note="Only distances from the centre are true. Shapes stretch more the farther out they are.",
 )
 dmc.save(fig, DAY, alt=(
-    "A round world map centred on Lakewood, Washington, in an azimuthal equidistant projection, with red lines out to "
-    + ", ".join(f"{r['name']} ({r['km']:,.0f} km)" for _, r in places.iterrows()) + "."))
+    f"A round world map centred on Lakewood, Washington, in an azimuthal equidistant projection, with red lines out to "
+    f"the {n_countries} countries I've been to and a few places closer to home. "
+    + "; ".join(f"{g}: {len(gp)} countries, {gp['km'].min():,.0f} to {gp['km'].max():,.0f} km" for g, gp in places[places["group"] != ""].groupby("group"))
+    + ". " + ", ".join(f"{r['name']} ({r['km']:,.0f} km)" for _, r in places[places["group"] == ""].sort_values("km").iterrows())
+    + f". The farthest is {far['name']}."))

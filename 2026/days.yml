@@ -327,7 +327,7 @@ days:
       - name: "Natural Earth"
         url: https://www.naturalearthdata.com/
     tools: [Python, cartopy or pyproj]
-    prep: "Drafted. Add every place Brooks has been to day-22-projections/places.csv and re-render."
+    prep: "Places come from the Countries Visited layer on brooksgroves.com/maps.html (37 countries; where there are geocache finds, the middle of them), plus Groveland, Reno and the Ruby Mountains. Add a country there and to places.csv, then re-render."
     status: draft
 
   - day: 23

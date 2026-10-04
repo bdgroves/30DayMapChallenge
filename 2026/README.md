@@ -28,7 +28,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - [x] **Day 6**: Cook's chart is georeferenced from its own graticule, with Tasman's coast and an inset of his chart.
 - [x] **Day 11**: drafted with tsunami sirens; the lahar-siren version can come back if Pierce County shares locations.
 - [ ] **Day 21**: an evening adding Groveland to OpenStreetMap, then `make.py --refresh`.
-- [ ] **Day 22**: every place you've been, in `day-22-projections/places.csv`.
+- [x] **Day 22**: all 37 countries from the Countries Visited layer on the maps page are in `places.csv`.
 - [ ] **Day 27**: the lonboard tutorial, for the interactive version.
 - [ ] **Day 30**: don't look at a map of Groveland in November.
 
@@ -36,7 +36,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 
 - Drafted from real data: **1–6, 8–15, 17–29** (13 and 14 are interactive pages, with stills for posts). Day 10's draft is the line-printer map; the real one is made from prompts on the day.
 - Waiting on you: **7** (made on the day), **16** (replies into `answers.csv`), **30** (pen and paper).
-- Before posting: **20** (GBIF download for the DOI), **21** (re-render after your OSM evening), **22** (`places.csv`).
+- Before posting: **20** (GBIF download for the DOI), **21** (re-render after your OSM evening).
 
 <!-- table:start -->
 **0 of 30 done** · 💡 idea 2 · 📦 data in hand 1 · ✏️ draft 27 · ✅ done 0 · 📣 posted 0
