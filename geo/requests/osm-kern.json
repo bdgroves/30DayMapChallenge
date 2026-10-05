@@ -1,0 +1,10 @@
+{
+ "kind": "osm",
+ "bounds": [
+  -118.8,
+  35.7,
+  -117.9,
+  36.75
+ ],
+ "query": "way[\"waterway\"~\"^(river|stream)$\"][\"name\"~\"^(Kern River|South Fork Kern River|Golden Trout Creek|Little Kern River|Mulkey Creek|Cottonwood Creek|Volcano Creek|Ramshaw Creek|Whitney Creek|Rock Creek|Tunnel Creek)$\"]({bbox});relation[\"waterway\"=\"river\"][\"name\"~\"^(Kern River|South Fork Kern River|Little Kern River)$\"]({bbox});relation[\"boundary\"=\"protected_area\"][\"name\"~\"Golden Trout Wilderness\"]({bbox});relation[\"boundary\"=\"national_park\"][\"name\"~\"Sequoia\"]({bbox});way[\"natural\"=\"water\"][\"name\"~\"Cottonwood Lake\"]({bbox});nwr[\"natural\"=\"peak\"][\"name\"~\"^(Mount Whitney|Cirque Peak|Mount Langley|Olancha Peak)$\"]({bbox});nwr[\"place\"=\"locality\"][\"name\"~\"Meadow\"]({bbox});nwr[\"natural\"~\"^(meadow|grassland|wetland)$\"][\"name\"~\"^(Big Whitney Meadow|Mulkey Meadows?|Ramshaw Meadows?|Templeton Meadows?|Monache Meadows?)$\"]({bbox});nwr[\"name\"~\"^(Volcano Falls|Templeton Barrier|Schaeffer Barrier)$\"]({bbox});"
+}

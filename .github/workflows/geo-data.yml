@@ -1,0 +1,41 @@
+name: Geo data
+
+# Terrain (Copernicus DEM) and named OpenStreetMap features for maps, for anything in geo/requests/.
+# Outputs land in geo/data/ and are committed; existing ones are skipped.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['geo/requests/**', 'geo/fetch.py', '.github/workflows/geo-data.yml']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: geo-data
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q numpy rasterio
+      - name: Fetch
+        run: |
+          set -o pipefail
+          python geo/fetch.py 2>&1 | tee geo/last-run.log
+      - name: Commit what's new
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add geo/last-run.log $(ls -d geo/data 2>/dev/null)
+          git diff --staged --quiet && exit 0
+          git commit -q -m "Geo data: $(ls geo/data | tr '\n' ' ')[skip ci]"
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done

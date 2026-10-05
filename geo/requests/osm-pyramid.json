@@ -1,0 +1,10 @@
+{
+ "kind": "osm",
+ "bounds": [
+  -121.2,
+  37.6,
+  -116.0,
+  42.4
+ ],
+ "query": "relation[\"waterway\"=\"river\"][\"name\"~\"^(Truckee River|Carson River|Walker River|Humboldt River|Susan River|Quinn River)$\"]({bbox});way[\"waterway\"=\"river\"][\"name\"~\"^(Truckee River|Carson River|Walker River|East Walker River|West Walker River|Humboldt River|Susan River|Quinn River)$\"]({bbox});relation[\"natural\"=\"water\"][\"name\"~\"^(Pyramid Lake|Lake Tahoe|Winnemucca Lake|Walker Lake|Honey Lake|Lahontan Reservoir|Carson Sink|Humboldt Sink)$\"]({bbox});way[\"natural\"=\"water\"][\"name\"~\"^(Pyramid Lake|Lake Tahoe|Winnemucca Lake|Walker Lake|Honey Lake|Lahontan Reservoir|Carson Lake)$\"]({bbox});nwr[\"name\"~\"^(Derby Dam|Marble Bluff Dam|Numana Dam|Anaho Island)$\"]({bbox});node[\"place\"~\"^(city|town)$\"][\"name\"~\"^(Reno|Sparks|Fernley|Fallon|Wadsworth|Nixon|Sutcliffe|Susanville|Lovelock|Hawthorne|Carson City|Winnemucca|Truckee)$\"]({bbox});"
+}
