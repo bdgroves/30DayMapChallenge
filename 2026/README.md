@@ -20,7 +20,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - [x] **Day 1**: Geocaching *My Finds* pocket query. In (October 3); `finds.csv` is built from it.
 - [x] **Day 23**: no Untappd export needed after all: drafted from the beer history HopLove keeps.
 - [x] **Day 17** and **Day 29**: no Earthdata login needed. Day 17 uses the Black Marble composite NASA GIBS serves openly; Day 29 uses Sentinel-2 from AWS open data. (An Earthdata login would still let Day 17 use VNP46A4 annual radiance.)
-- [ ] **Day 20**: the citable GBIF download. Add three repo secrets, `GBIF_USER`, `GBIF_PWD` and `GBIF_EMAIL` (your free gbif.org login; Settings → Secrets and variables → Actions), then **Actions → GBIF download for Day 20 → Run workflow**. It requests the download, waits for the DOI, re-renders the map from it and cites it.
+- [x] **Day 20**: the citable GBIF download is in (DOI [10.15468/dl.qyuad7](https://doi.org/10.15468/dl.qyuad7)), and the map cites it.
 - [ ] **Day 16**: paste each reply's trailhead into `answers.csv` (no handles). The question went out on X on October 3; the file is still empty.
 
 ### Things only you can do
@@ -36,7 +36,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 
 - Drafted from real data: **1–6, 8–15, 17–29** (13 and 14 are interactive pages, with stills for posts). Day 10's draft is the line-printer map; the real one is made from prompts on the day.
 - Waiting on you: **7** (made on the day), **16** (replies into `answers.csv`), **30** (pen and paper).
-- Before posting: **20** (GBIF download for the DOI), **21** (re-render after your OSM evening).
+- Before posting: **21** (re-render after your OSM evening).
 
 <!-- table:start -->
 **0 of 30 done** · 💡 idea 2 · 📦 data in hand 1 · ✏️ draft 27 · ✅ done 0 · 📣 posted 0
