@@ -1,0 +1,13 @@
+ochotona-princeps: requested GBIF download 0010488-260928105237408 for Ochotona princeps (Richardson, 1828) (key 2436982); waiting...
+= ochotona-princeps: GBIF.org (5 October 2026) GBIF Occurrence Download https://doi.org/10.15468/dl.p7sdx7 (16,891 records)
+ochotona-princeps: ground elevation for 16,891 records
+  elevation: 20/193 tiles
+  elevation: 40/193 tiles
+  elevation: 60/193 tiles
+  elevation: 80/193 tiles
+  elevation: 100/193 tiles
+  elevation: 120/193 tiles
+  elevation: 140/193 tiles
+  elevation: 160/193 tiles
+  elevation: 180/193 tiles
+= ochotona-princeps: wrote data/ochotona-princeps.csv.gz (16,891 records)
