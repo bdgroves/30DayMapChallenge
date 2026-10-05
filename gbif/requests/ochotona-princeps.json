@@ -1,0 +1,8 @@
+{
+  "name": "Ochotona princeps",
+  "rank": "SPECIES",
+  "kingdom": "Animalia",
+  "common": "American pika",
+  "elevation": true,
+  "why": "Are pikas being found higher up than they used to be? Records by decade, with ground elevation from the Copernicus DEM."
+}

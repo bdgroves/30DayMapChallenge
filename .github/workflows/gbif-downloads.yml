@@ -1,0 +1,45 @@
+name: GBIF downloads
+
+# Citable GBIF downloads (with DOIs) for anything in gbif/requests/, plus a compact copy of the
+# records in gbif/data/. Uses the same GBIF_USER / GBIF_PWD / GBIF_EMAIL secrets as Day 20.
+# Add a request file and push, or Run workflow from the Actions tab. Requests that already have a
+# download are skipped, so it only ever asks GBIF for the new ones.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['gbif/requests/**', 'gbif/fetch.py', '.github/workflows/gbif-downloads.yml']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gbif-downloads
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q pandas numpy rasterio
+      - name: Request downloads and write the record files
+        env:
+          GBIF_USER: ${{ secrets.GBIF_USER }}
+          GBIF_PWD: ${{ secrets.GBIF_PWD }}
+          GBIF_EMAIL: ${{ secrets.GBIF_EMAIL }}
+        run: python gbif/fetch.py
+      - name: Commit what's new
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add gbif/downloads gbif/data
+          git diff --staged --quiet && exit 0
+          git commit -q -m "GBIF: $(ls gbif/downloads | sed 's/.json//' | tr '\n' ' ')[skip ci]"
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
