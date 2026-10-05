@@ -1,0 +1,10 @@
+{
+  "name": "Oncorhynchus mykiss aguabonita",
+  "taxon_key": 5204029,
+  "key": "0010616-260928105237408",
+  "doi": "10.15468/dl.p6g732",
+  "records": 1133,
+  "created": "2026-10-05",
+  "link": "https://api.gbif.org/v1/occurrence/download/request/0010616-260928105237408.zip",
+  "citation": "GBIF.org (5 October 2026) GBIF Occurrence Download https://doi.org/10.15468/dl.p6g732"
+}

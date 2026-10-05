@@ -1,13 +1,37 @@
-ochotona-princeps: requested GBIF download 0010488-260928105237408 for Ochotona princeps (Richardson, 1828) (key 2436982); waiting...
-= ochotona-princeps: GBIF.org (5 October 2026) GBIF Occurrence Download https://doi.org/10.15468/dl.p7sdx7 (16,891 records)
-ochotona-princeps: ground elevation for 16,891 records
-  elevation: 20/193 tiles
-  elevation: 40/193 tiles
-  elevation: 60/193 tiles
-  elevation: 80/193 tiles
-  elevation: 100/193 tiles
-  elevation: 120/193 tiles
-  elevation: 140/193 tiles
-  elevation: 160/193 tiles
-  elevation: 180/193 tiles
-= ochotona-princeps: wrote data/ochotona-princeps.csv.gz (16,891 records)
+catostomus-tahoensis: matched Catostomus tahoensis -> Catostomus tahoensis Gill & Jordan, 1878 (key 2359045)
+catostomus-tahoensis: requested GBIF download 0010604-260928105237408 for Catostomus tahoensis Gill & Jordan, 1878 (key 2359045); waiting...
+= catostomus-tahoensis: GBIF.org (5 October 2026) GBIF Occurrence Download https://doi.org/10.15468/dl.fmjyg6 (400 records)
+= catostomus-tahoensis: wrote data/catostomus-tahoensis.csv.gz (400 records)
+chasmistes-cujus: matched Chasmistes cujus -> Chasmistes cujus Cope, 1883 (key 2359093)
+chasmistes-cujus: requested GBIF download 0010609-260928105237408 for Chasmistes cujus Cope, 1883 (key 2359093); waiting...
+= chasmistes-cujus: GBIF.org (5 October 2026) GBIF Occurrence Download https://doi.org/10.15468/dl.bf6u63 (64 records)
+= chasmistes-cujus: wrote data/chasmistes-cujus.csv.gz (64 records)
+oncorhynchus-clarkii-henshawi: matched Oncorhynchus clarkii henshawi -> Oncorhynchus henshawi (Gill & Jordan, 1878) (key 11115657)
+oncorhynchus-clarkii-henshawi: requested GBIF download 0010613-260928105237408 for Oncorhynchus henshawi (Gill & Jordan, 1878) (key 11115657); waiting...
+= oncorhynchus-clarkii-henshawi: GBIF.org (5 October 2026) GBIF Occurrence Download https://doi.org/10.15468/dl.pf96qt (530 records)
+oncorhynchus-clarkii-henshawi: ground elevation for 530 records
+  elevation: 20/47 tiles
+  elevation: 40/47 tiles
+= oncorhynchus-clarkii-henshawi: wrote data/oncorhynchus-clarkii-henshawi.csv.gz (530 records)
+oncorhynchus-mykiss-aguabonita: matched Oncorhynchus mykiss aguabonita -> Oncorhynchus aguabonita (Jordan, 1892) (key 5204029)
+oncorhynchus-mykiss-aguabonita: requested GBIF download 0010616-260928105237408 for Oncorhynchus aguabonita (Jordan, 1892) (key 5204029); waiting...
+= oncorhynchus-mykiss-aguabonita: GBIF.org (5 October 2026) GBIF Occurrence Download https://doi.org/10.15468/dl.p6g732 (1,133 records)
+oncorhynchus-mykiss-aguabonita: ground elevation for 1,133 records
+  elevation: 20/81 tiles
+  elevation: 40/81 tiles
+  elevation: 60/81 tiles
+  elevation: 80/81 tiles
+= oncorhynchus-mykiss-aguabonita: wrote data/oncorhynchus-mykiss-aguabonita.csv.gz (1,133 records)
+oncorhynchus-mykiss-whitei: matched Oncorhynchus mykiss whitei -> Oncorhynchus mykiss whitei (Evermann, 1906) (key 5711991)
+oncorhynchus-mykiss-whitei: requested GBIF download 0010619-260928105237408 for Oncorhynchus mykiss whitei (Evermann, 1906) (key 5711991); waiting...
+= oncorhynchus-mykiss-whitei: GBIF.org (5 October 2026) GBIF Occurrence Download https://doi.org/10.15468/dl.p7ndd4 (53 records)
+oncorhynchus-mykiss-whitei: ground elevation for 53 records
+= oncorhynchus-mykiss-whitei: wrote data/oncorhynchus-mykiss-whitei.csv.gz (53 records)
+richardsonius-egregius: matched Richardsonius egregius -> Richardsonius egregius (Girard, 1858) (key 2362394)
+richardsonius-egregius: requested GBIF download 0010621-260928105237408 for Richardsonius egregius (Girard, 1858) (key 2362394); waiting...
+= richardsonius-egregius: GBIF.org (5 October 2026) GBIF Occurrence Download https://doi.org/10.15468/dl.dv2epv (625 records)
+= richardsonius-egregius: wrote data/richardsonius-egregius.csv.gz (625 records)
+siphateles-bicolor: matched Siphateles bicolor -> Siphateles bicolor (Girard, 1856) (key 8197854)
+siphateles-bicolor: requested GBIF download 0010623-260928105237408 for Siphateles bicolor (Girard, 1856) (key 8197854); waiting...
+= siphateles-bicolor: GBIF.org (5 October 2026) GBIF Occurrence Download https://doi.org/10.15468/dl.xddnek (1,287 records)
+= siphateles-bicolor: wrote data/siphateles-bicolor.csv.gz (1,287 records)
