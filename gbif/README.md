@@ -24,3 +24,8 @@ Requests that already have a download are skipped. Delete `downloads/<name>.json
 | Request | Common name | Why |
 |---|---|---|
 | ochotona-princeps | American pika | Are pikas being found higher up than they used to be? |
+
+## Analyses
+
+- [`pika/`](pika/): do the pre-1950 museum localities for the American pika still have pikas near
+  them? Written up as [What's Up With the Pikas?](https://brooksgroves.com/blog/whats-up-with-the-pikas.html)
