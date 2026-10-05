@@ -9,6 +9,7 @@ this file: the download key, DOI, record count and date. make.py then builds the
 exact download and cites its DOI.
 
 If gbif_download.json already exists, nothing new is requested (delete it to ask for a fresh one).
+The download also appears under Downloads on the account's gbif.org profile.
 
     python day-20-hexagons/gbif_download.py
 """
