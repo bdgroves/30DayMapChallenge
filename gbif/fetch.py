@@ -61,6 +61,34 @@ def call(url, data=None, auth=None, tries=5, raw=False):
         time.sleep(10 * (i + 1))
 
 
+def taxon(slug, req):
+    """GBIF backbone key for the request. Tries "name" then any "synonyms", and refuses a match at a
+    higher rank (e.g. a subspecies that GBIF only knows as its species), which would download far too much."""
+    if req.get("taxon_key"):
+        return int(req["taxon_key"]), {"scientificName": req["name"]}
+    tried = []
+    for name in [req["name"], *req.get("synonyms", [])]:
+        q = urllib.parse.urlencode({"name": name, "kingdom": req.get("kingdom", ""), "strict": "true",
+                                    **({"rank": req["rank"]} if "rank" in req else {})})
+        m = json.loads(call(f"{API}/species/match?{q}"))
+        tried.append(f"{name}: {m.get('matchType')} {m.get('rank')} {m.get('scientificName')}")
+        if m.get("matchType") in ("EXACT", "FUZZY") and ("rank" not in req or m.get("rank") == req["rank"]):
+            key = m["usageKey"]
+            if m.get("acceptedUsageKey"):                       # a synonym: use the accepted name, if it's no broader
+                acc = json.loads(call(f"{API}/species/{m['acceptedUsageKey']}"))
+                same = acc.get("rank") == m.get("rank")
+                raised = (m.get("rank") == "SUBSPECIES" and acc.get("rank") == "SPECIES"
+                          and name.split()[-1] == (acc.get("canonicalName") or "").split()[-1])
+                if not (same or raised):
+                    tried[-1] += f" -> synonym of {acc.get('rank')} {acc.get('scientificName')} (too broad)"
+                    continue
+                key = acc["key"]
+                m = {**m, "scientificName": acc.get("scientificName")}
+            print(f"{slug}: matched {name} -> {m.get('scientificName')} (key {key})", flush=True)
+            return key, m
+    sys.exit(f"{slug}: no {req.get('rank', '')} match in the GBIF backbone. Tried:\n  " + "\n  ".join(tried))
+
+
 def request(slug, req):
     out = HERE / "downloads" / f"{slug}.json"
     if out.exists():
@@ -68,11 +96,7 @@ def request(slug, req):
     user, pwd, email = (os.environ.get(k, "").strip() for k in ("GBIF_USER", "GBIF_PWD", "GBIF_EMAIL"))
     if not (user and pwd):
         sys.exit("No GBIF account: add the GBIF_USER, GBIF_PWD and GBIF_EMAIL secrets to the repo.")
-    q = urllib.parse.urlencode({k: req[k] for k in ("name", "rank", "kingdom") if k in req})
-    match = json.loads(call(f"{API}/species/match?{q}"))
-    if match.get("matchType") == "NONE":
-        sys.exit(f"{slug}: GBIF doesn't recognise {req['name']}")
-    key = match["usageKey"]
+    key, match = taxon(slug, req)
     body = {"creator": user, "notificationAddresses": [email] if email else [], "sendNotification": bool(email),
             "format": "SIMPLE_CSV",
             "predicate": {"type": "and", "predicates": [
@@ -144,11 +168,18 @@ def main():
     for d in ("downloads", "data"):
         (HERE / d).mkdir(exist_ok=True)
     reqs = sorted((HERE / "requests").glob("*.json"))
+    failed = []
     for p in reqs:
         slug = p.stem
         req = json.loads(p.read_text())
-        info = request(slug, req)
-        records(slug, req, info)
+        try:
+            info = request(slug, req)
+            records(slug, req, info)
+        except SystemExit as e:
+            print(f"! {e}", flush=True)
+            failed.append(slug)
+    if failed:
+        sys.exit(f"failed: {' '.join(failed)}")
 
 
 if __name__ == "__main__":

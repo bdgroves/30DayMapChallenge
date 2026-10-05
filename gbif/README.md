@@ -24,6 +24,13 @@ Requests that already have a download are skipped. Delete `downloads/<name>.json
 | Request | Common name | Why |
 |---|---|---|
 | ochotona-princeps | American pika | Are pikas being found higher up than they used to be? |
+| oncorhynchus-mykiss-aguabonita | California golden trout | Native to two Kern Plateau streams, stocked across the West |
+| oncorhynchus-mykiss-whitei | Little Kern golden trout | Threatened sister lineage in the Little Kern basin |
+| oncorhynchus-clarkii-henshawi | Lahontan cutthroat trout | Pyramid Lake's giant trout, brought back from Pilot Peak |
+| chasmistes-cujus | Cui-ui | Endangered lake sucker found only in Pyramid Lake |
+| siphateles-bicolor | Tui chub | Pyramid Lake's most common fish |
+| catostomus-tahoensis | Tahoe sucker | Lahontan basin native |
+| richardsonius-egregius | Lahontan redside | Lahontan basin native minnow |
 
 ## Analyses
 
