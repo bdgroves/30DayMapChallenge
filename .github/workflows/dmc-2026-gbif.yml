@@ -4,13 +4,14 @@ name: GBIF download for Day 20
 # re-renders the map from it. Needs three repository secrets:
 #   GBIF_USER, GBIF_PWD   your gbif.org login
 #   GBIF_EMAIL            where GBIF sends its "your download is ready" note (optional)
-# Run it from the Actions tab (Run workflow). It also runs when gbif_download.py changes.
+# Run it from the Actions tab (Run workflow). It also runs when gbif_download.py or Day 20's make.py
+# changes; once gbif_download.json exists it reuses that download and only re-renders.
 
 on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['2026/day-20-hexagons/gbif_download.py', '.github/workflows/dmc-2026-gbif.yml']
+    paths: ['2026/day-20-hexagons/gbif_download.py', '2026/day-20-hexagons/make.py', '.github/workflows/dmc-2026-gbif.yml']
 
 permissions:
   contents: write

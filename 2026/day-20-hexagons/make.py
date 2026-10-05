@@ -165,8 +165,9 @@ dmc.frame(
               f"1,770 km². {spec:.0%} are museum specimens; only {inat:.0%} are people's sightings."),
     source=(f"GBIF.org ({pd.Timestamp(DOWNLOAD['created']):%-d %B %Y}) GBIF Occurrence Download "
             f"doi.org/{DOWNLOAD['doi']}" if DOWNLOAD else
-            f"GBIF.org, genus Dipodomys ({pd.Timestamp.now():%b %Y})") + " · Natural Earth · U.S. Census",
-    note="Where kangaroo rats were recorded, which is also where people went looking. Uber H3 grid, resolution 4.",
+            f"GBIF.org, genus Dipodomys ({pd.Timestamp.now():%b %Y})"),
+    note=("Where kangaroo rats were recorded, which is also where people went looking. "
+          "Uber H3 grid, resolution 4 · Natural Earth · U.S. Census"),
 )
 dmc.save(fig, DAY, alt=(
     f"Hexagon map of western North America shaded by how many kangaroo rat records each holds, {len(df):,} in all "
