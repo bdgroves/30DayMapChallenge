@@ -118,7 +118,7 @@ rgb = terrain.relief(z, res=40, strength=0.9, exaggerate=2.2)
 h, w = z.shape
 yy, xx = np.mgrid[0:h, 0:w]
 edge = np.minimum.reduce([xx / w, (w - xx) / w, yy / h, (h - yy) / h])
-alpha = np.clip(edge / 0.06, 0, 1) ** 1.5
+alpha = np.clip(edge / 0.10, 0, 1) ** 1.8
 ax.imshow(np.dstack([rgb, alpha]), extent=terrain.extent(tf, z.shape), zorder=0, interpolation="bilinear")
 
 
@@ -147,7 +147,7 @@ for el in osm.get("elements", []):
 print(f"= OSM: {len(rivers)} river ways, {len(canals)} named canals, {len(towns)} towns, {len(ridges)} named ridges")
 WATER = "#5b8fa8"
 if canals:
-    gpd.GeoSeries([g for _, g in canals], crs=4326).to_crs(CRS).plot(ax=ax, color=WATER, lw=0.45, alpha=0.55, zorder=1)
+    gpd.GeoSeries([g for _, g in canals], crs=4326).to_crs(CRS).plot(ax=ax, color=WATER, lw=0.4, alpha=0.4, zorder=1)
 if rivers:
     big = [g for n, g in rivers if n in ("Yakima River", "Naches River")]
     small = [g for n, g in rivers if n not in ("Yakima River", "Naches River")]
@@ -160,22 +160,38 @@ if rivers:
 f.plot(ax=ax, color="#5f7d2c", edgecolor="#2f4220", lw=0.2, zorder=3)
 
 # ridge names along the high ground, towns as small dots
+# one label per ridge (its longest piece), skipped if it would run off the map or into another
+taken = []
+renderer = fig.canvas.get_renderer()
+box_px = ax.get_window_extent(renderer)
+best = {}
 for name, line in ridges:
     g = gpd.GeoSeries([line], crs=4326).to_crs(CRS).iloc[0]
+    if name not in best or g.length > best[name].length:
+        best[name] = g
+for name, g in sorted(best.items(), key=lambda kv: -kv[1].length):
     mid = g.interpolate(0.5, normalized=True)
-    if x0 < mid.x < x1 and y0 < mid.y < y1 and g.length > 4000:
-        a, b2 = g.interpolate(0.4, normalized=True), g.interpolate(0.6, normalized=True)
-        ang = np.degrees(np.arctan2(b2.y - a.y, b2.x - a.x))
-        ang = ang - 180 if ang > 90 else ang + 180 if ang < -90 else ang
-        dmc.label(ax, mid.x, mid.y, name, size=6.5, color=dmc.STONE, style="italic", rotation=ang,
+    if not (x0 < mid.x < x1 and y0 < mid.y < y1) or g.length < 6000:
+        continue
+    a, b2 = g.interpolate(0.35, normalized=True), g.interpolate(0.65, normalized=True)
+    ang = np.degrees(np.arctan2(b2.y - a.y, b2.x - a.x))
+    ang = ang - 180 if ang > 90 else ang + 180 if ang < -90 else ang
+    if abs(ang) > 50:                                  # steep labels read badly
+        continue
+    t = dmc.label(ax, mid.x, mid.y, name, size=6.5, color=dmc.STONE, style="italic", rotation=ang,
                   ha="center", va="center", rotation_mode="anchor", zorder=4)
+    bb = t.get_window_extent(renderer).expanded(1.08, 1.3)
+    if not (box_px.contains(bb.x0, bb.y0) and box_px.contains(bb.x1, bb.y1)) or any(bb.overlaps(o) for o in taken):
+        t.remove()
+        continue
+    taken.append(bb)
 items = []
 for name, kind, pt in sorted(towns, key=lambda t: t[1] != "city"):
     q = gpd.GeoSeries([pt], crs=4326).to_crs(CRS).iloc[0]
     if x0 < q.x < x1 and y0 < q.y < y1:
         ax.plot(q.x, q.y, "o", ms=2.6, color=dmc.INK, mec=dmc.PARCHMENT, mew=0.6, zorder=5)
         items.append((q.x, q.y, name))
-dmc.place_labels(ax, items, size=7, zorder=6)
+dmc.place_labels(ax, items, size=7, zorder=6, taken=taken)
 dmc.scalebar(ax, 10, loc=(0.04, 0.08))
 
 # aroma panel
