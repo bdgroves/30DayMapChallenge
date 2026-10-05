@@ -33,13 +33,15 @@ jobs:
           GBIF_USER: ${{ secrets.GBIF_USER }}
           GBIF_PWD: ${{ secrets.GBIF_PWD }}
           GBIF_EMAIL: ${{ secrets.GBIF_EMAIL }}
-        run: python gbif/fetch.py
+        run: |
+          set -o pipefail
+          python gbif/fetch.py 2>&1 | tee gbif/last-run.log
       - name: Commit what's new
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add gbif/downloads gbif/data
+          git add gbif/last-run.log $(ls -d gbif/downloads gbif/data 2>/dev/null)
           git diff --staged --quiet && exit 0
           git commit -q -m "GBIF: $(ls gbif/downloads | sed 's/.json//' | tr '\n' ' ')[skip ci]"
           for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done

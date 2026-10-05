@@ -141,6 +141,8 @@ def records(slug, req, info):
 
 
 def main():
+    for d in ("downloads", "data"):
+        (HERE / d).mkdir(exist_ok=True)
     reqs = sorted((HERE / "requests").glob("*.json"))
     for p in reqs:
         slug = p.stem
