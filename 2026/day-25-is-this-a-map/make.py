@@ -84,14 +84,22 @@ t0 = UTCDateTime(START)
 data = tr.data.astype(float)
 offs = int(round((tr.stats.starttime - t0) * srate))
 
-# the loudest stretch: 3-second RMS envelope
-win = int(3 * srate)
-env = np.sqrt(np.convolve(data ** 2, np.ones(win) / win, mode="same"))
-peak_i = int(np.argmax(env))
+# the Beast Quake is sustained shaking, tens of seconds long, in the crowd's 1-5 Hz band:
+# rank 20-second windows of that band, not single spikes
+crowd = tr.copy().filter("bandpass", freqmin=1, freqmax=5, corners=4).data.astype(float)
+win = int(20 * srate)
+env = np.sqrt(np.convolve(crowd ** 2, np.ones(win) / win, mode="same"))
+order, picks = np.argsort(env)[::-1], []
+for i in order:
+    if all(abs(i - j) > 120 * srate for j in picks):
+        picks.append(int(i))
+    if len(picks) == 6:
+        break
+for j in picks:
+    print(f"= candidate {LOCAL0 + timedelta(seconds=(j + offs) / srate):%I:%M:%S %p} PST, 20 s RMS {env[j] / env[picks[0]]:.2f} of the top")
+peak_i = picks[0]
 peak_local = LOCAL0 + timedelta(seconds=(peak_i + offs) / srate)
-second = np.sort(env[np.abs(np.arange(len(env)) - peak_i) > 120 * srate])[-1] if len(env) > 240 * srate else 0
-ratio = env[peak_i] / max(second, 1e-9)
-print(f"= loudest 3 s at {peak_local:%I:%M:%S %p} PST, {ratio:.1f}x the next-loudest moment more than 2 min away")
+print(f"= loudest 20 s at {peak_local:%I:%M:%S %p} PST, {env[picks[0]] / env[picks[1]]:.1f}x the runner-up")
 
 # ── draw: a helicorder of the afternoon ──────────────────────────────────────
 fig, ax = dmc.figure("portrait", map_box=(0.12, 0.115, 0.82, 0.70))
