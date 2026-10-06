@@ -126,9 +126,9 @@ for r in range(ROWS):
 # the run
 pr = int((peak_i + offs) // per)
 pm = ((peak_i + offs) % per) / srate / 60
-ax.annotate(f"Lynch's 67-yard run\n{peak_local:%-I:%M %p}", xy=(pm, -pr + 0.5), xytext=(pm + (1.5 if pm < 6 else -1.5), -pr + 2.2),
-            ha="left" if pm < 6 else "right", va="bottom", size=8, color=dmc.LAVA, family=dmc.TEXT,
-            arrowprops=dict(arrowstyle="-", color=dmc.LAVA, lw=0.8))
+ax.plot([pm + 0.12, pm + 0.55], [-pr + 0.15, -pr + 0.5], color=dmc.LAVA, lw=0.8, zorder=6)
+dmc.label(ax, pm + 0.6, -pr + 0.5, f"Lynch's 67-yard run, {peak_local:%-I:%M %p}", size=8.5, color=dmc.LAVA,
+          ha="left", va="center", zorder=7, weight="bold")
 
 ax.set_xlim(0, ROW_MIN)
 ax.set_ylim(-ROWS + 0.2, 0.9)
@@ -145,11 +145,11 @@ ax.grid(axis="x", color=dmc.MIST, lw=0.5)
 
 cha_id = f"{NET}.{STA}.{tr.stats.location or '--'}.{tr.stats.channel}"
 dmc.frame(
-    fig, DAY, title="The Beast Quake",
+    fig, DAY,
     subtitle=("January 8, 2011, the afternoon the Seahawks beat the Saints, on the seismometer across the street\n"
               "from the stadium, ten minutes a line. Marshawn Lynch's touchdown run made the ground shake."),
     source=f"EarthScope FDSN ({cha_id}, 1-10 Hz) · Pacific Northwest Seismic Network",
-    note="Pacific Standard Time. Every wiggle is the stadium: the crowd, the plays, the band.",
+    note="Pacific Standard Time. KDK sits beside the stadium, so the game, the crowd and the street are all in here.",
 )
 dmc.save(fig, DAY, alt=(
     f"A helicorder of the afternoon of January 8, 2011, at seismic station KDK beside the Seahawks' stadium: "
