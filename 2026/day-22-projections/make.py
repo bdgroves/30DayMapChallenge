@@ -1,9 +1,10 @@
 """
-Day 22 · Projections — The world from Lakewood
+Day 22 · Projections — The world from Groveland
 
-An azimuthal equidistant projection centred on Lakewood, Washington. On this map, and only on
-this map, every straight line from the centre is the shortest route and its length is the true
-distance. The edge of the circle is the point on the far side of the Earth, in the Indian Ocean.
+An azimuthal equidistant projection centred on Groveland, California, where I grew up. On this
+map, and only on this map, every straight line from the centre is the shortest route and its
+length is the true distance. The edge of the circle is the point on the far side of the Earth, in
+the southern Indian Ocean.
 
 Places are in places.csv (name, lat, lon, note, group): every country on the Countries Visited layer
 at brooksgroves.com/maps.html (where I found geocaches there, the middle of those finds), plus a few
@@ -25,10 +26,10 @@ from pyproj import Geod  # noqa: E402
 DAY = 22
 HERE = Path(__file__).resolve().parent
 DATA = HERE / "data"
-HOME = (-122.5185, 47.1718)                       # Lakewood
+HOME = (-120.2313, 37.8385)                       # Groveland, California
 PROJ = f"+proj=aeqd +lat_0={HOME[1]} +lon_0={HOME[0]} +datum=WGS84 +units=m"
 R = 20_015_000                                    # half the Earth's circumference, m
-HOME_PLACES = {"Groveland", "Reno", "Ruby Mountains"}   # rows in places.csv that aren't countries
+HOME_PLACES = {"Lakewood", "Brenham", "Reno", "Ruby Mountains"}   # rows in places.csv that aren't countries
 
 places = pd.read_csv(HERE / "places.csv").fillna({"group": "", "note": ""})
 geod = Geod(ellps="WGS84")
@@ -99,7 +100,7 @@ if len(near):
     for i, (_, p) in enumerate(near.iterrows()):
         fig.text(0.05, 0.175 - i * 0.022, f"{p['name']}", size=8, va="center")
         fig.text(0.235, 0.175 - i * 0.022, f"{p['km']:,.0f} km", family=dmc.MONO, size=7.5, va="center", ha="right", color=dmc.STONE)
-dmc.label(ax, 250_000, -350_000, "Lakewood", size=8, weight="bold", zorder=7)
+dmc.label(ax, 250_000, -350_000, "Groveland", size=8, weight="bold", zorder=7)
 ax.set_xlim(-R * 1.03, R * 1.03)
 ax.set_ylim(-R * 1.03, R * 1.03)
 ax.set_aspect("equal")
@@ -107,14 +108,14 @@ ax.set_aspect("equal")
 n_countries = int((~places["name"].isin(HOME_PLACES)).sum())
 dmc.frame(
     fig, DAY,
-    subtitle=(f"Every country I've been to, {n_countries} of them, with straight lines that are the shortest route,\n"
-              f"true to scale. {far['name']} is the farthest, {far['km']:,.0f} km away; the rim is the far side of the planet."),
-    source="Natural Earth · azimuthal equidistant projection centred on 47.17° N, 122.52° W",
+    subtitle=(f"I grew up in Groveland, in the Sierra foothills. Since then: {n_countries} countries, each line the shortest route\n"
+              f"and true to scale. {far['name']} is the farthest, {far['km']:,.0f} km away; the rim is the far side of the planet."),
+    source="Natural Earth · azimuthal equidistant projection centred on Groveland, California, 37.84° N, 120.23° W",
     note="Only distances from the centre are true. Shapes stretch more the farther out they are.",
 )
 dmc.save(fig, DAY, alt=(
-    f"A round world map centred on Lakewood, Washington, in an azimuthal equidistant projection, with red lines out to "
-    f"the {n_countries} countries I've been to and a few places closer to home. "
+    f"A round world map centred on Groveland, California, where I grew up, in an azimuthal equidistant projection, with red "
+    f"lines out to the {n_countries} countries I've been to and a few places closer to home, Lakewood among them. "
     + "; ".join(f"{g}: {len(gp)} countries, {gp['km'].min():,.0f} to {gp['km'].max():,.0f} km" for g, gp in places[places["group"] != ""].groupby("group"))
     + ". " + ", ".join(f"{r['name']} ({r['km']:,.0f} km)" for _, r in places[places["group"] == ""].sort_values("km").iterrows())
     + f". The farthest is {far['name']}."))

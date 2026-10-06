@@ -321,13 +321,13 @@ days:
 
   - day: 22
     theme: Projections
-    title: "The world from Lakewood"
-    pitch: "An azimuthal equidistant map centred on Lakewood, where straight lines from the centre are true distances, to everywhere I've been, from Namibia to Guadeloupe."
+    title: "The world from Groveland"
+    pitch: "An azimuthal equidistant map centred on Groveland, where I grew up, with straight lines (true distances) to everywhere I've been since, from Namibia to Guadeloupe."
     data:
       - name: "Natural Earth"
         url: https://www.naturalearthdata.com/
     tools: [Python, cartopy or pyproj]
-    prep: "Places come from the Countries Visited layer on brooksgroves.com/maps.html (37 countries; where there are geocache finds, the middle of them), plus Groveland, Reno and the Ruby Mountains. Add a country there and to places.csv, then re-render."
+    prep: "Places come from the Countries Visited layer on brooksgroves.com/maps.html (37 countries; where there are geocache finds, the middle of them), plus Lakewood, Brenham, Reno and the Ruby Mountains. Add a country there and to places.csv, then re-render."
     status: draft
 
   - day: 23
