@@ -19,6 +19,14 @@ OUT=HERE/'out'; OUT.mkdir(exist_ok=True)
 R=6371.0
 d=pd.read_csv(str(DATA), low_memory=False)
 d=d[d.lon.between(-125.5,-103)&d.lat.between(32,58)&d.year.notna()&d.dem_m.notna()].copy()
+
+# Some museums publish coordinate uncertainty in miles in GBIF's metres field
+# (UMMZ "19.547mi" read as 19.5 m; KU and FMNH values like 1.65 for "2 mi NE").
+# Their pre-1950 medians are 1 to 5 "metres", impossible for a 1930s label, so
+# read their small values as miles. (Found by the fact-check for part 2.)
+MILES = ["KU", "UMMZ", "FMNH"]
+_mi = d.institution.isin(MILES) & (d.uncert_m < 100)
+d.loc[_mi, "uncert_m"] = d.loc[_mi, "uncert_m"] * 1609.34
 d['era']=pd.cut(d.year,[0,1949,1999,2100],labels=['pre1950','1950-99','2000+'])
 # latitude-adjusted residual: elevation minus median of ALL records in its 1-degree band
 d['band']=np.floor(d.lat)

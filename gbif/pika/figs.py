@@ -19,6 +19,14 @@ plt.rcParams.update({"font.family":"Roboto","font.size":10,"axes.edgecolor":MIST
   "axes.spines.top":False,"axes.spines.right":False})
 d=pd.read_csv(HERE.parent/'data'/'ochotona-princeps.csv.gz', low_memory=False)
 d=d[d.lon.between(-125.5,-103)&d.lat.between(32,58)&d.year.notna()&d.dem_m.notna()]
+
+# Some museums publish coordinate uncertainty in miles in GBIF's metres field
+# (UMMZ "19.547mi" read as 19.5 m; KU and FMNH values like 1.65 for "2 mi NE").
+# Their pre-1950 medians are 1 to 5 "metres", impossible for a 1930s label, so
+# read their small values as miles. (Found by the fact-check for part 2.)
+MILES = ["KU", "UMMZ", "FMNH"]
+_mi = d.institution.isin(MILES) & (d.uncert_m < 100)
+d.loc[_mi, "uncert_m"] = d.loc[_mi, "uncert_m"] * 1609.34
 mod=d[d.year>=2000]
 loc=pd.read_csv(str(OUT)+'/hist_localities.csv')
 CRS="+proj=aea +lat_1=38 +lat_2=52 +lat_0=44 +lon_0=-115 +datum=WGS84 +units=m"
@@ -46,7 +54,7 @@ x1,y1=pts(pd.DataFrame({'lon':[-103.6],'lat':[56.4]})).iloc[0].coords[0]
 ax.set_xlim(-1.30e6,1.05e6); ax.set_ylim(-1.25e6,1.38e6)
 lab=[("Sierra\nNevada",-119.6,37.2,"right"),("Great Basin",-116.8,39.6,"center"),("Southern\nRockies",-106.3,38.6,"center"),
      ("Columbia River\nGorge",-122.6,45.25,"right"),("Cascades",-121.0,48.2,"right"),("Canadian\nRockies",-118.6,52.6,"right"),
-     ("Mount Rainier ▸",-122.0,46.85,"right")]
+     ("Mount Rainier",-122.0,46.85,"right")]
 for t,lo,la,ha in lab:
     p=pts(pd.DataFrame({'lon':[lo],'lat':[la]})).iloc[0]
     ax.text(p.x,p.y,t,fontsize=8.2,color=INK,ha=ha,va="center",style="italic",zorder=6,

@@ -1,43 +1,42 @@
-label-elev used 626 of 1342
+label-elev used 626 of 1133
 {
  "1": {
-  "found": 91,
-  "of": 329,
-  "dmed_median": -1.0,
-  "dmin_median": -41.0,
-  "share_mod_higher": 0.4725274725274725
+  "found": 80,
+  "of": 276,
+  "dmed_median": 0.0,
+  "dmin_median": -34.0,
+  "share_mod_higher": 0.4875
  },
  "3": {
-  "found": 167,
-  "of": 329,
-  "dmed_median": 28.0,
-  "dmin_median": -86.0,
-  "share_mod_higher": 0.5568862275449101
+  "found": 148,
+  "of": 276,
+  "dmed_median": 32.5,
+  "dmin_median": -74.5,
+  "share_mod_higher": 0.5675675675675675
  },
  "5": {
-  "found": 210,
-  "of": 329,
-  "dmed_median": 34.0,
-  "dmin_median": -137.0,
-  "share_mod_higher": 0.5714285714285714
+  "found": 183,
+  "of": 276,
+  "dmed_median": 39.0,
+  "dmin_median": -123.0,
+  "share_mod_higher": 0.5846994535519126
  }
 }
-          n    found3    elev  resid  dmed3
+         n    found3    elev   resid  dmed3
 third                                      
-low     111  0.342342  2073.0 -731.5   54.0
-middle  109  0.568807  2990.0 -116.0   52.5
-high    109  0.614679  3350.0  347.5  -78.0
-             n    found3   dmed3
-st                              
-Idaho       23  0.130435   40.00
-Nevada      10  0.200000  220.50
-Montana     16  0.312500 -100.00
-Oregon      21  0.380952  -47.00
-Washington  42  0.428571    6.25
-Wyoming     25  0.520000   80.00
-California  91  0.582418   10.00
-Colorado    61  0.672131   53.00
-Utah        28  0.678571   -1.00
+low     92  0.391304  2134.0 -726.75  34.00
+middle  93  0.623656  3026.0 -115.00  46.00
+high    91  0.593407  3353.0  318.50 -72.25
+             n    found3  dmed3
+st                             
+Idaho       19  0.157895   40.0
+Washington  36  0.416667  -39.5
+Oregon      18  0.444444  -47.0
+Montana     11  0.454545 -100.0
+Wyoming     14  0.500000  114.0
+California  85  0.588235    9.5
+Colorado    55  0.672727  109.0
+Utah        27  0.703704   -1.0
            n             p10             med        
 era  pre1950   2000+ pre1950   2000+ pre1950   2000+
 band                                                
