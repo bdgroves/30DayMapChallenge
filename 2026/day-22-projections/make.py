@@ -87,19 +87,21 @@ def tag(x, y, text):
               ha=("left" if side else "right") if out else ("right" if side else "left"), va="center", zorder=7)
 
 
-for _, p in places[(places["group"] == "") & (places["km"] >= 2500)].iterrows():
+NEAR_KM = 4000                                        # closer than this goes in the list, not on the map
+for _, p in places[(places["group"] == "") & (places["km"] >= NEAR_KM)].iterrows():
     tag(p["x"], p["y"], f"{p['name']}\n{p['km']:,.0f} km")
 for g, gp in places[places["group"] != ""].groupby("group"):
     far_one = gp.sort_values("km").iloc[-1]                 # label beyond the group's farthest place
     lo, hi = gp["km"].min(), gp["km"].max()
     tag(far_one["x"], far_one["y"], f"{g} · {len(gp)} countries\n{lo:,.0f}–{hi:,.0f} km")
 ax.scatter([0], [0], s=30, color=dmc.INK, zorder=7)
-near = places[(places["km"] < 2500) & (places["group"] == "")].sort_values("km")
+near = places[(places["km"] < NEAR_KM) & (places["group"] == "")].sort_values("km")
 if len(near):
-    fig.text(0.05, 0.20, "CLOSE TO HOME", family=dmc.MONO, size=6.8, color=dmc.STONE)
+    top = 0.13 + len(near) * 0.022
+    fig.text(0.05, top + 0.025, "CLOSER TO HOME", family=dmc.MONO, size=6.8, color=dmc.STONE)
     for i, (_, p) in enumerate(near.iterrows()):
-        fig.text(0.05, 0.175 - i * 0.022, f"{p['name']}", size=8, va="center")
-        fig.text(0.235, 0.175 - i * 0.022, f"{p['km']:,.0f} km", family=dmc.MONO, size=7.5, va="center", ha="right", color=dmc.STONE)
+        fig.text(0.05, top - i * 0.022, f"{p['name']}", size=8, va="center")
+        fig.text(0.235, top - i * 0.022, f"{p['km']:,.0f} km", family=dmc.MONO, size=7.5, va="center", ha="right", color=dmc.STONE)
 dmc.label(ax, 250_000, -350_000, "Groveland", size=8, weight="bold", zorder=7)
 ax.set_xlim(-R * 1.03, R * 1.03)
 ax.set_ylim(-R * 1.03, R * 1.03)
@@ -110,7 +112,7 @@ dmc.frame(
     fig, DAY,
     subtitle=(f"I grew up in Groveland, in the Sierra foothills. Since then: {n_countries} countries, each line the shortest route\n"
               f"and true to scale. {far['name']} is the farthest, {far['km']:,.0f} km away; the rim is the far side of the planet."),
-    source="Natural Earth · azimuthal equidistant projection centred on Groveland, California, 37.84° N, 120.23° W",
+    source="Natural Earth · azimuthal equidistant, centred on 37.84° N, 120.23° W",
     note="Only distances from the centre are true. Shapes stretch more the farther out they are.",
 )
 dmc.save(fig, DAY, alt=(
