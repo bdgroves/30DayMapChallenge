@@ -64,7 +64,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 19 | Thu Nov 19 | Smell | [What the Yakima Valley smells like](day-19-smell/) | ✏️ draft |
 | 20 | Fri Nov 20 | Hexagons | [Kangaroo rats in hexagons](day-20-hexagons/) | ✏️ draft |
 | 21 | Sat Nov 21 | OpenStreetMap | [Groveland, by volunteers](day-21-openstreetmap/) | ✏️ draft |
-| 22 | Sun Nov 22 | Projections | [The world from Lakewood](day-22-projections/) | ✏️ draft |
+| 22 | Sun Nov 22 | Projections | [The world from Groveland](day-22-projections/) | ✏️ draft |
 | 23 | Mon Nov 23 | Taste | [Every brewery I've checked into](day-23-taste/) | ✏️ draft |
 | 24 | Tue Nov 24 | Network | [Every stream that reaches Modesto](day-24-network/) | ✏️ draft |
 | 25 | Wed Nov 25 | Is this a map? | [A day of ground motion](day-25-is-this-a-map/) | ✏️ draft |

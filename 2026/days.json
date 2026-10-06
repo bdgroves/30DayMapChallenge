@@ -801,8 +801,8 @@
    "date": "2026-11-22",
    "weekday": "Sun",
    "theme": "Projections",
-   "title": "The world from Lakewood",
-   "pitch": "An azimuthal equidistant map centred on Lakewood, where straight lines from the centre are true distances, to everywhere I've been, from Namibia to Guadeloupe.",
+   "title": "The world from Groveland",
+   "pitch": "An azimuthal equidistant map centred on Groveland, where I grew up, with straight lines (true distances) to everywhere I've been since, from Namibia to Guadeloupe.",
    "status": "draft",
    "tools": [
     "Python",
