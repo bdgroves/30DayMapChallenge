@@ -18,6 +18,8 @@ January 8, 2011: the Seahawks' playoff win over the Saints on the seismometer ac
 
 **Go deeper**
 
+- [The Beast Quake on Wikipedia](https://en.wikipedia.org/wiki/Beast_Quake)
+- [PNSN: the Seahawks experiments, listening to the crowd since 2011](https://pnsn.org/data-research/experiments/seahawks)
 - [AFTERSHOCK: live earthquake monitor](https://brooksgroves.com/aftershock)
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).

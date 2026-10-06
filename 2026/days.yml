@@ -373,6 +373,10 @@ days:
     tools: [Python, ObsPy]
     prep: "Drafted: KDK's accelerometer, 12:50 to 5:10 PM PST. The run is found in the data as the strongest 20 seconds of 1-5 Hz shaking all afternoon (4:42:54 PM, 1.9x the runner-up). The Rainier helicorder is kept in rainier.py."
     deeper:
+      - name: "The Beast Quake on Wikipedia"
+        url: https://en.wikipedia.org/wiki/Beast_Quake
+      - name: "PNSN: the Seahawks experiments, listening to the crowd since 2011"
+        url: https://pnsn.org/data-research/experiments/seahawks
       - name: "AFTERSHOCK: live earthquake monitor"
         url: https://brooksgroves.com/aftershock
     status: draft
