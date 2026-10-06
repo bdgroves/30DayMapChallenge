@@ -904,27 +904,28 @@
    "date": "2026-11-25",
    "weekday": "Wed",
    "theme": "Is this a map?",
-   "title": "A day of ground motion",
-   "pitch": "A 24-hour helicorder from Camp Muir on Rainier, one line per hour. A map of time, or of a place?",
+   "title": "The Beast Quake",
+   "pitch": "January 8, 2011: the Seahawks' playoff win over the Saints on the seismometer across the street from the stadium, ten minutes a line, with Marshawn Lynch's 67-yard touchdown run shaking the ground at 4:42 PM. A map of a game, or of a place?",
    "status": "draft",
    "tools": [
     "Python",
     "ObsPy"
    ],
    "data": [
-    "EarthScope FDSN dataselect (station UW.RCM)"
+    "EarthScope FDSN dataselect (station UW.KDK, channel ENZ)",
+    "PNSN: Marshawn Lynch shakes the PNSN"
    ],
    "data_links": [
     {
-     "name": "EarthScope FDSN dataselect (station UW.RCM)",
+     "name": "EarthScope FDSN dataselect (station UW.KDK, channel ENZ)",
      "url": "https://service.earthscope.org/"
+    },
+    {
+     "name": "PNSN: Marshawn Lynch shakes the PNSN",
+     "url": "https://pnsn.org/blog/n-yo-seismic-network-marshawn-lynch-shakes-the-pnsn"
     }
    ],
    "deeper": [
-    {
-     "name": "lahar-watch: the network watching Rainier",
-     "url": "https://brooksgroves.com/lahar-watch/"
-    },
     {
      "name": "AFTERSHOCK: live earthquake monitor",
      "url": "https://brooksgroves.com/aftershock"

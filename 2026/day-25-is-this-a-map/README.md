@@ -3,21 +3,21 @@
 
 **Wednesday, November 25, 2026** · status: ✏️ draft
 
-## A day of ground motion
+## The Beast Quake
 
-A 24-hour helicorder from Camp Muir on Rainier, one line per hour. A map of time, or of a place?
+January 8, 2011: the Seahawks' playoff win over the Saints on the seismometer across the street from the stadium, ten minutes a line, with Marshawn Lynch's 67-yard touchdown run shaking the ground at 4:42 PM. A map of a game, or of a place?
 
 **Data**
 
-- [EarthScope FDSN dataselect (station UW.RCM)](https://service.earthscope.org/)
+- [EarthScope FDSN dataselect (station UW.KDK, channel ENZ)](https://service.earthscope.org/)
+- [PNSN: Marshawn Lynch shakes the PNSN](https://pnsn.org/blog/n-yo-seismic-network-marshawn-lynch-shakes-the-pnsn)
 
 **Tools:** Python, ObsPy
 
-**Prep:** Drafted: UW.RCM on July 8, 2025.
+**Prep:** Drafted: KDK's accelerometer, 12:50 to 5:10 PM PST. The run is found in the data as the strongest 20 seconds of 1-5 Hz shaking all afternoon (4:42:54 PM, 1.9x the runner-up). The Rainier helicorder is kept in rainier.py.
 
 **Go deeper**
 
-- [lahar-watch: the network watching Rainier](https://brooksgroves.com/lahar-watch/)
 - [AFTERSHOCK: live earthquake monitor](https://brooksgroves.com/aftershock)
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).

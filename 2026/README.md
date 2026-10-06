@@ -67,7 +67,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 22 | Sun Nov 22 | Projections | [The world from Groveland](day-22-projections/) | ✏️ draft |
 | 23 | Mon Nov 23 | Taste | [Every brewery I've checked into](day-23-taste/) | ✏️ draft |
 | 24 | Tue Nov 24 | Network | [Every stream that reaches Modesto](day-24-network/) | ✏️ draft |
-| 25 | Wed Nov 25 | Is this a map? | [A day of ground motion](day-25-is-this-a-map/) | ✏️ draft |
+| 25 | Wed Nov 25 | Is this a map? | [The Beast Quake](day-25-is-this-a-map/) | ✏️ draft |
 | 26 | Thu Nov 26 | Water | [Lake Tahoe, clear and deep](day-26-water/) | ✏️ draft |
 | 27 | Fri Nov 27 | New tool | [Every building in Washington](day-27-new-tool/) | ✏️ draft |
 | 28 | Sat Nov 28 | Feeling | [Did you feel it? Nisqually, 2001](day-28-feeling/) | ✏️ draft |
