@@ -97,11 +97,12 @@ for g, gp in places[places["group"] != ""].groupby("group"):
 ax.scatter([0], [0], s=30, color=dmc.INK, zorder=7)
 near = places[(places["km"] < NEAR_KM) & (places["group"] == "")].sort_values("km")
 if len(near):
-    top = 0.13 + len(near) * 0.022
-    fig.text(0.05, top + 0.025, "CLOSER TO HOME", family=dmc.MONO, size=6.8, color=dmc.STONE)
+    # bottom-left corner, under the curve of the globe and clear of the credit rule
+    top, step = 0.19, 0.0172
+    fig.text(0.05, top + 0.02, "CLOSER TO HOME", family=dmc.MONO, size=6.5, color=dmc.STONE)
     for i, (_, p) in enumerate(near.iterrows()):
-        fig.text(0.05, top - i * 0.022, f"{p['name']}", size=8, va="center")
-        fig.text(0.235, top - i * 0.022, f"{p['km']:,.0f} km", family=dmc.MONO, size=7.5, va="center", ha="right", color=dmc.STONE)
+        fig.text(0.05, top - i * step, f"{p['name']}", size=7.3, va="center")
+        fig.text(0.215, top - i * step, f"{p['km']:,.0f} km", family=dmc.MONO, size=6.8, va="center", ha="right", color=dmc.STONE)
 dmc.label(ax, 250_000, -350_000, "Groveland", size=8, weight="bold", zorder=7)
 ax.set_xlim(-R * 1.03, R * 1.03)
 ax.set_ylim(-R * 1.03, R * 1.03)
