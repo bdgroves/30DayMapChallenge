@@ -83,8 +83,9 @@ def mapbox(ax, style: str | None = None, token: str | None = None, alpha: float 
         except urllib.error.HTTPError as e:            # never print the URL: it holds the token
             print(f"  basemap: Mapbox answered {e.code} for style {style}; drawing without it")
             return False
-    import matplotlib.image as mpimg
-    img = mpimg.imread(cached)
+    import numpy as np
+    from PIL import Image
+    img = np.asarray(Image.open(cached).convert("RGBA"))   # satellite styles come back as JPEG
     # the image covers exactly w × h CSS pixels at res, centred on the axes centre
     # (fractional zoom is rounded to 2 decimals by Mapbox, so recompute res from it)
     res = EARTH / (TILE * 2 ** round(zoom, 2))
