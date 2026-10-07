@@ -459,10 +459,9 @@ def draw():
         fig, DAY,
         subtitle=s["subtitle"],
         source=("U.S. Census Bureau 2020 Census blocks · Microsoft US Building Footprints · ESA WorldCover 2021 · "
-                f"modified Copernicus Sentinel-2 data, {meta['s2_date']} · Copernicus DEM GLO-30 · "
-                "USGS volcanic hazard areas via WA DNR"),
+                f"modified Copernicus Sentinel-2 data ({meta['s2_date']}) · Copernicus DEM GLO-30"),
         note=("Counts are for a 2 km-wide corridor (dashed lines on the photo); people are spread evenly across each census "
-              "block. Zones after Patrick Geddes's Valley Section."),
+              "block. Lahar zones: USGS simplified volcanic hazards, via WA DNR. Zones after Patrick Geddes's Valley Section. Locator © Mapbox © Maxar."),
     )
     locator(fig)
     dmc.save(fig, DAY, alt=s["alt"])
@@ -492,13 +491,13 @@ def locator(fig):
     a.set_xlim(vx0, vx1)
     a.set_ylim(vy0, vy1)
     if MCRS != CRS:
-        drawn = basemap.mapbox(a, style="mapbox/outdoors-v12")
+        drawn = basemap.mapbox(a, style="mapbox/satellite-v9")
     if not drawn:
         a.add_patch(__import__("matplotlib").patches.Rectangle((vx0, vy0), vx1 - vx0, vy1 - vy0, fc=dmc.CREAM, ec="none"))
     line = gpd.GeoSeries([LineString([xy(0, 0), xy(L, 0)])], crs=CRS).to_crs(MCRS)
     line.plot(ax=a, color=dmc.LAVA, lw=1.4, zorder=3)
     gpd.GeoSeries([LineString([xy(0, 0), xy(L, 0)]).buffer(RIB, cap_style=2)], crs=CRS).to_crs(MCRS).boundary.plot(
-        ax=a, color=dmc.INK, lw=0.4, zorder=3)
+        ax=a, color=dmc.WHITE, lw=0.5, zorder=3)
     tm = Transformer.from_crs(CRS, MCRS, always_xy=True)
     for name, (lon, lat), ha, dx in [("Tacoma", A, "left", 1), ("Paradise", B, "right", -1)]:
         x, y = tm.transform(*to.transform(lon, lat))
