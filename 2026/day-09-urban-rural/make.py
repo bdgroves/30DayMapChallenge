@@ -339,13 +339,13 @@ def draw():
     Lk = meta["line_km"]
     ft = E["elev_m"] * 3.28084
 
-    fig = dmc.figure("wide", map_box=(0.05, 0.615, 0.90, 0.115))[0]
+    fig = dmc.figure("wide", map_box=(0.05, 0.585, 0.90, 0.115))[0]
     rax = fig.axes[0]
     X0, X1 = 0.05, 0.95
 
     # ribbon
     img = np.asarray(Image.open(OUT / "ribbon.jpg")).astype("float32") / 255
-    img = np.clip((img - 0.02) / 0.9, 0, 1) ** 0.95
+    img = np.clip((img - 0.02) / 0.82, 0, 1) ** 0.85
     hk = meta["ribbon_half_m"] / 1000
     rax.imshow(img, extent=(0, Lk, -hk, hk), aspect="auto", interpolation="lanczos", zorder=0)
     rax.set_xlim(0, Lk)
@@ -360,7 +360,7 @@ def draw():
         polys = [g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"]
         for p in polys:
             ring = np.asarray(p[0]) / 1000
-            rax.add_patch(MPoly(ring, closed=True, fc=dmc.LAVA, ec="none", alpha=0.22, zorder=1))
+            rax.add_patch(MPoly(ring, closed=True, fc=dmc.LAVA, ec="none", alpha=0.13, zorder=1))
             rax.add_patch(MPoly(ring, closed=True, fc="none", ec="#f3d2c8", lw=0.5, alpha=0.9, zorder=1))
     for y in (-HALF / 1000, HALF / 1000):
         rax.axhline(y, color=dmc.WHITE, lw=0.45, ls=(0, (2, 2)), alpha=0.75, zorder=2)
@@ -369,15 +369,15 @@ def draw():
     # Geddes zones above the ribbon
     for (k0, k1, name, trade) in ZONES:
         fig_x = lambda k: X0 + (X1 - X0) * k / Lk   # noqa: E731
-        fig.add_artist(plt.Line2D([fig_x(k0) + 0.002, fig_x(k1) - 0.002], [0.738] * 2, color=dmc.INK, lw=0.6,
+        fig.add_artist(plt.Line2D([fig_x(k0) + 0.002, fig_x(k1) - 0.002], [0.708] * 2, color=dmc.INK, lw=0.6,
                                   transform=fig.transFigure))
         for k in (k0, k1):
-            fig.add_artist(plt.Line2D([fig_x(k)] * 2, [0.733, 0.743], color=dmc.INK, lw=0.6, transform=fig.transFigure))
+            fig.add_artist(plt.Line2D([fig_x(k)] * 2, [0.703, 0.713], color=dmc.INK, lw=0.6, transform=fig.transFigure))
         cx = fig_x((k0 + k1) / 2)
-        fig.text(cx, 0.748, name.upper(), family=dmc.MONO, size=6.4, color=dmc.INK, ha="center", va="bottom")
-        fig.text(cx, 0.772, trade, family=dmc.TEXT, style="italic", size=7, color=dmc.STONE, ha="center", va="bottom")
+        fig.text(cx, 0.717, name.upper(), family=dmc.MONO, size=6.4, color=dmc.INK, ha="center", va="bottom")
+        fig.text(cx, 0.739, trade, family=dmc.TEXT, style="italic", size=7, color=dmc.STONE, ha="center", va="bottom")
 
-    def panel(y0, h, label, colour, y, log=False, fmt=lambda v, _: f"{v:,.0f}", ylim=None):
+    def panel(y0, h, label, colour, y, log=False, fmt=lambda v, _: f"{v:,.0f}", ylim=None, lx=0.996, ha="right"):
         a = fig.add_axes((X0, y0, X1 - X0, h))
         a.set_facecolor("none")
         a.fill_between(km, y, color=colour, alpha=0.28, lw=0, step="mid")
@@ -389,8 +389,7 @@ def draw():
             a.set_ylim(*ylim)
         style(a, fmt)
         a.tick_params(labelbottom=False)
-        a.text(0.004, 0.97, label, transform=a.transAxes, family=dmc.MONO, size=6.3, color=colour, va="top",
-               bbox=dict(fc=dmc.PARCHMENT, ec="none", pad=0.6, alpha=0.85))
+        a.text(lx, 0.92, label, transform=a.transAxes, family=dmc.MONO, size=6.3, color=colour, va="top", ha=ha)
         return a
 
     def style(a, fmt):
@@ -407,18 +406,18 @@ def draw():
         for k0, k1, *_ in ZONES[1:]:
             a.axvline(k0, color=dmc.MIST, lw=0.5, zorder=0)
 
-    panel(0.505, 0.085, "PEOPLE PER KM²  (log)", dmc.LAVA, P["people_per_km2"], log=True, ylim=(0, 6000))
-    panel(0.405, 0.075, "BUILDINGS PER KM²", dmc.GOLD, P["buildings_per_km2"])
-    panel(0.305, 0.075, "TREE COVER, %", dmc.SAGE, P["tree_pct"], ylim=(0, 100))
+    panel(0.475, 0.08, "PEOPLE PER KM²  (LOG SCALE)", dmc.LAVA, P["people_per_km2"], log=True, ylim=(0, 6000))
+    panel(0.385, 0.07, "BUILDINGS PER KM²", dmc.GOLD, P["buildings_per_km2"])
+    panel(0.295, 0.07, "TREE COVER, %", dmc.SAGE, P["tree_pct"], ylim=(0, 100), lx=66 / Lk, ha="center")
 
-    ea = fig.add_axes((X0, 0.115, X1 - X0, 0.165))
+    ea = fig.add_axes((X0, 0.115, X1 - X0, 0.155))
     ea.set_facecolor("none")
     ea.fill_between(ekm, ft, color=dmc.ASH, alpha=0.30, lw=0)
     ea.plot(ekm, ft, color=dmc.INK, lw=0.9)
     ea.set_xlim(0, Lk)
-    ea.set_ylim(-600, max(ft) * 1.08)
+    ea.set_ylim(-600, max(ft) * 1.22)
     style(ea, lambda v, _: f"{v:,.0f}")
-    ea.text(0.004, 0.97, "GROUND, FEET ABOVE SEA LEVEL", transform=ea.transAxes, family=dmc.MONO, size=6.3,
+    ea.text(0.004, 1.0, "GROUND, FEET ABOVE SEA LEVEL", transform=ea.transAxes, family=dmc.MONO, size=6.3,
             color=dmc.INK, va="top")
     ea.set_xlabel("km from the Port of Tacoma", family=dmc.MONO, fontsize=6.5, color=dmc.STONE, labelpad=1)
     # lahar band: under the profile, where the line is inside a hazard zone
@@ -433,18 +432,27 @@ def draw():
             ea.add_patch(Rectangle((k0, -600), k1 - k0, 380, fc=dmc.LAVA, ec="none", alpha=0.85, zorder=3))
             ea.fill_between(ekm[s0:s1], ft[s0:s1], -220, color=dmc.LAVA, alpha=0.16, lw=0, zorder=1)
         lk = inside.sum() * ESTEP / 1000
-        ea.text(ekm[runs[0]] if len(runs) else 0, -800, f"in a USGS lahar hazard zone: {lk:.0f} km of the line",
-                family=dmc.MONO, size=6.2, color=dmc.LAVA, va="top")
+        dmc.label(ea, 0.6, max(ft) * 0.98, f"RED BAND: IN A USGS LAHAR HAZARD ZONE, {lk:.0f} KM OF THE LINE", family=dmc.MONO,
+                  size=6.2, color=dmc.LAVA, va="top", ha="left")
+        print(f"= lahar zone: {lk:.1f} km of the line in {len(runs) // 2} stretches")
 
-    for name, k, where in LABELS:
-        if where == "ribbon":
-            dmc.label(rax, k, hk * 0.62, name, size=6.6, ha="center", va="center", halo="#1c1a16", color=dmc.WHITE,
-                      zorder=5)
-        else:
-            i = np.argmin(np.abs(ekm - k))
-            ea.annotate(name, (k, ft[i]), xytext=(0, 9), textcoords="offset points", ha="center", va="bottom",
-                        family=dmc.TEXT, size=6.6, color=dmc.INK,
-                        arrowprops=dict(arrowstyle="-", color=dmc.STONE, lw=0.5))
+    import matplotlib.patheffects as pe
+    for name, (lon, lat) in RIBBON_PLACES:
+        sk, tk = (v / 1000 for v in st(*to.transform(lon, lat)))
+        rax.scatter([sk], [tk], s=5, color=dmc.WHITE, edgecolor=dmc.INK, lw=0.4, zorder=5)
+        rax.text(sk + 0.35, tk, name, size=6.6, family=dmc.TEXT, color=dmc.WHITE, va="center", ha="left", zorder=5,
+                 path_effects=[pe.withStroke(linewidth=2, foreground="#1c1a16")])
+    rax.text(Lk - 0.2, hk - 0.25, "north-east side up", size=5.6, family=dmc.MONO, color=dmc.WHITE, ha="right", va="top",
+             zorder=5, path_effects=[pe.withStroke(linewidth=1.6, foreground="#1c1a16")])
+    top = int(np.argmax(ft))
+    for k, text, dx, dy, ha in [(ekm[top], f"{ft[top]:,.0f} ft on Rainier's west flank, {SUMMIT_OFF:.0f} km from the summit", -6, 6, "right"),
+                                (ekm[-1], f"Paradise, {ft[-1]:,.0f} ft", -4, -30, "right"),
+                                (12.9, "Puyallup, on the valley floor", 0, 18, "center")]:
+        i = int(np.argmin(np.abs(ekm - k)))
+        ea.annotate(text, (ekm[i], ft[i]), xytext=(dx, dy), textcoords="offset points", ha=ha, va="bottom",
+                    family=dmc.TEXT, size=6.6, color=dmc.INK, zorder=6,
+                    path_effects=[pe.withStroke(linewidth=2.2, foreground=dmc.PARCHMENT)],
+                    arrowprops=dict(arrowstyle="-", color=dmc.STONE, lw=0.5, shrinkA=0, shrinkB=1))
 
     s = SUMMARY
     dmc.frame(
@@ -457,6 +465,12 @@ def draw():
     )
     locator(fig)
     dmc.save(fig, DAY, alt=s["alt"])
+    # the gallery crop: ribbon and profiles, not just the thin ribbon
+    im = Image.open(OUT / "map.png")
+    W, H = im.size
+    c = im.crop((int(0.03 * W), int(0.10 * H), int(0.97 * W), int(0.90 * H))).convert("RGB")
+    c.thumbnail((1200, 1200))
+    c.save(OUT / "crop.jpg", quality=86, optimize=True)
 
 
 def locator(fig):
@@ -464,10 +478,11 @@ def locator(fig):
     import geopandas as gpd
     from shapely.geometry import LineString, box
     import basemap
-    a = fig.add_axes((0.735, 0.80, 0.215, 0.175))
+    a = fig.add_axes((0.95 - 0.175 * 6 / 10.667, 0.80, 0.175 * 6 / 10.667, 0.175))
     a.set_axis_off()
     pad = 9000
-    view = box(min(ax_, bx_) - pad, min(ay_, by_) - pad * 0.4, max(ax_, bx_) + pad, max(ay_, by_) + pad * 0.4)
+    cx, cy, r = (ax_ + bx_) / 2, (ay_ + by_) / 2, max(abs(bx_ - ax_), abs(by_ - ay_)) / 2 + pad
+    view = box(cx - r, cy - r, cx + r, cy + r)
     drawn = False
     MCRS = CRS
     if basemap.available():
@@ -475,7 +490,6 @@ def locator(fig):
     vx0, vy0, vx1, vy1 = gpd.GeoSeries([view], crs=CRS).to_crs(MCRS).total_bounds
     a.set_xlim(vx0, vx1)
     a.set_ylim(vy0, vy1)
-    a.set_aspect("equal", adjustable="datalim", anchor="NE")
     if MCRS != CRS:
         drawn = basemap.mapbox(a, style="mapbox/outdoors-v12")
     if not drawn:
@@ -485,25 +499,44 @@ def locator(fig):
     gpd.GeoSeries([LineString([xy(0, 0), xy(L, 0)]).buffer(RIB, cap_style=2)], crs=CRS).to_crs(MCRS).boundary.plot(
         ax=a, color=dmc.INK, lw=0.4, zorder=3)
     tm = Transformer.from_crs(CRS, MCRS, always_xy=True)
-    for name, (lon, lat), ha, dx in [("Tacoma", A, "right", -1), ("Paradise", B, "left", 1)]:
+    for name, (lon, lat), ha, dx in [("Tacoma", A, "left", 1), ("Paradise", B, "right", -1)]:
         x, y = tm.transform(*to.transform(lon, lat))
         a.scatter([x], [y], s=6, color=dmc.INK, zorder=4)
-        dmc.label(a, x + dx * 2500, y, name, size=6.2, ha=ha, va="center", zorder=5, clip_on=False)
+        dmc.label(a, x + dx * 3500, y, name, size=6.2, ha=ha, va="center", zorder=5, clip_on=False)
     a.set_xlim(vx0, vx1)
     a.set_ylim(vy0, vy1)
 
 
-# Set after the first gather from profiles.csv/elevation.csv (km along the line) and checked by eye.
+# Set from the first gather (out/profiles.csv, km along the line):
+#   port      built-up > 60% and under 100 people/km² until km 4
+#   city      over 250 people/km² until km 20
+#   acreage   10-120 people/km² under 60-90% trees until km 32.5, then under 1 person/km²
+#   forest    over 80% trees, nobody, until km 61.5
+#   mountain  rock and ice (WorldCover snow/bare > 50%) from km 61.5
 ZONES = [  # (km from, km to, zone, Geddes's trade for it)
-    (0, 3, "Port", "fisher · trader"),
-    (3, 20, "City & suburb", "the town"),
-    (20, 33, "Valley farms", "peasant"),
-    (33, 62, "Forest", "woodman · hunter"),
-    (62, 74, "Mountain", "miner · shepherd"),
+    (0, 4, "Port", "fisher"),
+    (4, 20, "City & suburb", "the city"),
+    (20, 32.5, "Acreage & farm", "peasant"),
+    (32.5, 61.5, "Forest", "woodman · hunter"),
+    (61.5, 74.24, "Rock & ice", "miner"),
 ]
-LABELS = []          # (name, km, "ribbon" | "profile")
-LAHAR_SHOW = []      # which lahar layers to draw; empty = all
-SUMMARY = {"subtitle": "", "alt": ""}
+RIBBON_PLACES = [("Fife", (-122.357, 47.239)), ("Puyallup", (-122.293, 47.185)), ("Orting", (-122.204, 47.098))]
+SUMMIT = (-121.7603, 46.8529)          # Columbia Crest
+SUMMIT_OFF = abs(st(*to.transform(*SUMMIT))[1]) / 1000
+LAHAR_SHOW = ["lahars"]               # the lahar areas, not the near-volcano zone
+SUMMARY = {
+    "subtitle": ("A straight line from the Port of Tacoma to Paradise on Mount Rainier, 74 km, laid out flat. Within a kilometre\n"
+                 "of it live 35,700 people, nearly all in the first 33 km; then 29 km of forest with almost nobody, then rock and ice.\n"
+                 "Patrick Geddes drew this sea-to-mountain slice as his Valley Section; the red is where lahars could run."),
+    "alt": ("A long horizontal satellite-photo ribbon of the 74 km straight line from the Port of Tacoma to Paradise on Mount "
+            "Rainier, with Rainier's lahar hazard zones outlined in red on the valley floors, labelled above with zones after "
+            "Patrick Geddes's Valley Section: port, city and suburb, acreage and farm, forest, rock and ice. Below it, stacked "
+            "profiles on the same kilometre scale: people per square kilometre, high through Fife and Puyallup and falling to "
+            "almost none after km 33; buildings per square kilometre, peaking in Puyallup; tree cover, rising to near 100% "
+            "through the forest and dropping to zero on the mountain; and ground elevation, flat near sea level along the "
+            "Puyallup valley, climbing to about 9,000 ft on Rainier's west flank and ending at Paradise at about 5,400 ft, with "
+            "a red band marking the stretches inside a lahar hazard zone."),
+}
 
 if __name__ == "__main__":
     try:
