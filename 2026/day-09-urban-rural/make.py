@@ -235,13 +235,10 @@ def lahar(es):
         cache.write_text(json.dumps(js))
     g = gpd.read_file(cache)
     print(f"  hazard polygons: {len(g)}; columns {[c for c in g.columns if c != 'geometry']}")
-    for rec in g.drop(columns="geometry").to_dict("records"):
-        print(f"    {rec}")
-    text = [c for c in g.columns if c != "geometry" and g[c].dtype == object]
-    col = next((c for c in text if g[c].astype(str).str.contains("ahar", case=False).any()), None)
-    if col is None:
-        raise RuntimeError("no lahar attribute in the hazard layer")
-    g = g[g[col].astype(str).str.contains("ahar", case=False)].to_crs(CRS)
+    print(f"  {g[['VOLCANO', 'HAZARD_TYPE']].to_dict('records')}")
+    col = "HAZARD_TYPE"
+    g = g[(g["VOLCANO"] == "Mount Rainier") & g[col].isin(["Lahars", "Near-volcano hazards"])].to_crs(CRS)
+    g["geometry"] = g.geometry.make_valid()
     flags, feats = {}, []
     ex, ey = xy(es, 0)
     strip = box(0, -RIB, L, RIB)
@@ -509,6 +506,12 @@ LAHAR_SHOW = []      # which lahar layers to draw; empty = all
 SUMMARY = {"subtitle": "", "alt": ""}
 
 if __name__ == "__main__":
-    if "--draw" not in sys.argv:
-        gather()
-    draw()
+    try:
+        if "--draw" not in sys.argv:
+            gather()
+        draw()
+    except Exception:
+        import traceback
+        for line in traceback.format_exc().splitlines()[-8:]:
+            print("= ERR " + line[:300])
+        raise
