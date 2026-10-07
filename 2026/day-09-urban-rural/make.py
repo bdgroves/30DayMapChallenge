@@ -16,7 +16,7 @@ Downloads:
   Census 2020 TIGER/Line blocks for Washington (POP20)
   Microsoft Global ML Building Footprints (the quadkey files that cover the corridor)
   ESA WorldCover 2021 10 m land cover, Sentinel-2 L2A true colour (Microsoft Planetary Computer)
-  USGS Mount Rainier lahar hazard zones (Hoblitt et al. 1998, OFR 98-428)
+  USGS volcano hazard areas for Rainier, as compiled by WA DNR (2016)
   Copernicus GLO-30 DEM (toolkit/terrain.py)
 """
 import csv
@@ -44,11 +44,8 @@ ESTEP = 100                       # m per elevation sample
 RES = 10                          # m, ribbon pixels
 BLOCKS = "https://www2.census.gov/geo/tiger/TIGER2020/TABBLOCK20/tl_2020_53_tabblock20.zip"
 BUILDINGS = "https://minedbuildings.z5.web.core.windows.net/global-buildings/dataset-links.csv"
-LAHAR_URLS = [
-    "https://pubs.usgs.gov/of/1998/of98-428/site/rainier_98shapefiles.zip",
-    "https://pubs.usgs.gov/of/1998/of98-428/site/data/rainier_98shapefiles.zip",
-    "https://pubs.usgs.gov/of/1998/of98-428/rainier_98shapefiles.zip",
-]
+# USGS volcano hazard areas for Washington's volcanoes, simplified and served by WA DNR (2016)
+LAHAR_SERVICE = "https://gis.dnr.wa.gov/site1/rest/services/Public_Geology/Volcanic_Hazards/MapServer/0"
 S2_WINDOW = "2025-07-01/2025-09-20"
 
 to = Transformer.from_crs(4326, CRS, always_xy=True)
@@ -225,47 +222,37 @@ def sentinel():
 def lahar(es):
     """Per elevation sample: inside each lahar layer? And the layers clipped to the ribbon, in (s, t)."""
     import geopandas as gpd
-    import zipfile
     import fetch
     from shapely import contains_xy
     from shapely.geometry import box, mapping
     from shapely.ops import transform as stransform
-    z = DATA / "rainier_lahar.zip"
-    if not z.exists():
-        for u in LAHAR_URLS:
-            try:
-                fetch.get(u, z, tries=2)
-                if zipfile.is_zipfile(z):
-                    print(f"  lahar zones from {u}")
-                    break
-                z.unlink()
-            except Exception as e:  # noqa: BLE001
-                print(f"  lahar: {u} failed ({e})")
-        else:
-            raise RuntimeError("no lahar hazard data")
-    folder = DATA / "rainier_lahar"
-    if not folder.exists():
-        zipfile.ZipFile(z).extractall(folder)
+    cache = DATA / "lahar_dnr.geojson"
+    if not cache.exists():
+        bb = (min(A[0], B[0]) - 0.05, min(A[1], B[1]) - 0.05, max(A[0], B[0]) + 0.05, max(A[1], B[1]) + 0.05)
+        js = fetch.json_get(LAHAR_SERVICE + "/query", dict(
+            geometry=",".join(map(str, bb)), geometryType="esriGeometryEnvelope", inSR=4326, outSR=4326,
+            spatialRel="esriSpatialRelIntersects", outFields="*", returnGeometry="true", f="geojson"))
+        cache.write_text(json.dumps(js))
+    g = gpd.read_file(cache)
+    print(f"  hazard polygons: {len(g)}; columns {[c for c in g.columns if c != 'geometry']}")
+    for rec in g.drop(columns="geometry").to_dict("records"):
+        print(f"    {rec}")
+    text = [c for c in g.columns if c != "geometry" and g[c].dtype == object]
+    col = next((c for c in text if g[c].astype(str).str.contains("ahar", case=False).any()), None)
+    if col is None:
+        raise RuntimeError("no lahar attribute in the hazard layer")
+    g = g[g[col].astype(str).str.contains("ahar", case=False)].to_crs(CRS)
     flags, feats = {}, []
     ex, ey = xy(es, 0)
     strip = box(0, -RIB, L, RIB)
-    for shp in sorted(folder.rglob("*.shp")):
-        g = gpd.read_file(shp)
-        if g.crs is None:
-            print(f"  ! {shp.name}: no CRS; assuming UTM 10N NAD27")
-            g = g.set_crs("EPSG:26710")
-        print(f"  lahar layer {shp.relative_to(folder)}: {len(g)} features, {g.geom_type.unique().tolist()}, "
-              f"columns {[c for c in g.columns if c != 'geometry']}, first {g.drop(columns='geometry').head(3).to_dict('records')}")
-        if not g.geom_type.str.contains("Polygon").any():
-            continue
-        g = g.to_crs(CRS)
-        u = g.geometry.union_all()
-        name = shp.stem.lower()
+    for val, part in g.groupby(col):
+        u = part.geometry.union_all()
+        name = "".join(ch if ch.isalnum() else "_" for ch in str(val).lower()).strip("_")
         flags[name] = contains_xy(u, ex, ey)
         clipped = stransform(lambda x, y, z=None: st(x, y), u).intersection(strip)
         if not clipped.is_empty:
-            feats.append({"type": "Feature", "properties": {"layer": name}, "geometry": mapping(clipped)})
-        print(f"  {name}: {flags[name].mean() * L / 1000:.1f} km of the line inside")
+            feats.append({"type": "Feature", "properties": {"layer": name, "value": str(val)}, "geometry": mapping(clipped)})
+        print(f"  {col} = {val!r}: {flags[name].mean() * L / 1000:.1f} km of the line inside")
     (OUT / "lahar_ribbon.geojson").write_text(json.dumps({"type": "FeatureCollection", "features": feats}))
     return flags
 
@@ -467,7 +454,7 @@ def draw():
         fig, DAY,
         subtitle=s["subtitle"],
         source=("U.S. Census Bureau 2020 blocks · Microsoft Building Footprints · ESA WorldCover 2021 · "
-                f"Copernicus Sentinel-2, {meta['s2_date']} · Copernicus DEM · USGS lahar hazard zones (Hoblitt et al. 1998)"),
+                f"Copernicus Sentinel-2, {meta['s2_date']} · Copernicus DEM · USGS volcanic hazard areas via WA DNR"),
         note=("Counts are for a 2 km-wide corridor (dashed lines on the photo); people are spread evenly across each census "
               "block. Zones after Patrick Geddes's Valley Section."),
     )
