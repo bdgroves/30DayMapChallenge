@@ -1211,6 +1211,10 @@
    "data_links": [],
    "deeper": [
     {
+     "name": "The story: If You Hit the Third Cattle Guard",
+     "url": "https://brooksgroves.com/blog/cattle-guard.html"
+    },
+    {
      "name": "Blog: Over the Pass, Tioga Pass to Mono Lake",
      "url": "https://brooksgroves.com/blog/mono-flyover-post.html"
     },
@@ -1223,7 +1227,7 @@
    "image": null,
    "thumb": null,
    "alt": "",
-   "post": null,
+   "post": "https://brooksgroves.com/blog/cattle-guard.html",
    "link": null,
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-30.html",
    "hashtags": "#handdrawnmap #EasternSierra",

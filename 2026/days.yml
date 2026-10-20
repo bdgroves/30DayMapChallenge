@@ -498,8 +498,11 @@ days:
     pitch: "The hot-spring napkin from my memoir, redrawn by hand in bar ink on a cocktail napkin: the springs from Bridgeport to Long Valley and the roads between them, with directions counted in cattle guards, not miles. Drawn from memory, like the original."
     data: []
     tools: [Pen, a cocktail napkin, a scanner]
-    prep: "Traced on a real Iron Door Saloon napkin (they printed some for this) over trace-guide.pdf, then inked by hand; practice-sketch.png is the plan. Scan or photograph it flat as day-30-pen-and-paper/napkin.jpg and render; make.py frames it. Pair it with a GIS map of the same springs. The story is in the private memoir; link it here only if a public copy is posted."
+    prep: "Traced on a real Iron Door Saloon napkin (they printed some for this) over trace-guide.pdf, then inked by hand; practice-sketch.png is the plan. Scan or photograph it flat as day-30-pen-and-paper/napkin.jpg and render; make.py frames it. Pair it with a GIS map of the same springs. The story is public on the blog."
+    post: https://brooksgroves.com/blog/cattle-guard.html
     deeper:
+      - name: "The story: If You Hit the Third Cattle Guard"
+        url: https://brooksgroves.com/blog/cattle-guard.html
       - name: "Blog: Over the Pass, Tioga Pass to Mono Lake"
         url: https://brooksgroves.com/blog/mono-flyover-post.html
       - name: "Blog: Mother Lode, the holes in the hills where I grew up"

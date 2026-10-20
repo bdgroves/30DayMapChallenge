@@ -9,10 +9,11 @@ The hot-spring napkin from my memoir, redrawn by hand in bar ink on a cocktail n
 
 **Tools:** Pen, a cocktail napkin, a scanner
 
-**Prep:** Traced on a real Iron Door Saloon napkin (they printed some for this) over trace-guide.pdf, then inked by hand; practice-sketch.png is the plan. Scan or photograph it flat as day-30-pen-and-paper/napkin.jpg and render; make.py frames it. Pair it with a GIS map of the same springs. The story is in the private memoir; link it here only if a public copy is posted.
+**Prep:** Traced on a real Iron Door Saloon napkin (they printed some for this) over trace-guide.pdf, then inked by hand; practice-sketch.png is the plan. Scan or photograph it flat as day-30-pen-and-paper/napkin.jpg and render; make.py frames it. Pair it with a GIS map of the same springs. The story is public on the blog.
 
 **Go deeper**
 
+- [The story: If You Hit the Third Cattle Guard](https://brooksgroves.com/blog/cattle-guard.html)
 - [Blog: Over the Pass, Tioga Pass to Mono Lake](https://brooksgroves.com/blog/mono-flyover-post.html)
 - [Blog: Mother Lode, the holes in the hills where I grew up](https://brooksgroves.com/blog/mother-lode-post.html)
 
