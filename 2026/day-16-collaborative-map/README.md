@@ -16,6 +16,15 @@ Made with whoever answers: I asked on X for everyone's favourite Sierra Nevada t
 
 **Prep:** Asked on X on October 3. Paste each reply's trailhead into answers.csv (no handles); render; add any unplaced names to places.csv.
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 16 of #30DayMapChallenge · Collaborative map
+Your favourite Sierra trailheads
+#SierraNevada #hiking
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-16.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

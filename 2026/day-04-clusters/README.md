@@ -21,6 +21,16 @@ Earthquakes within 30 km of Mount Rainier since 2000, grouped into swarms by spa
 - [AFTERSHOCK: live earthquake monitor](https://brooksgroves.com/aftershock)
 - [Blog: lahar-watch, revisited](https://brooksgroves.com/blog/lahar-watch-revisited-post.html)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 4 of #30DayMapChallenge · Clusters
+Rainier's swarms
+There's more behind it on the page.
+#MountRainier #earthquakes
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-04.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

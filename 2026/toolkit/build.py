@@ -39,6 +39,16 @@ def slug(theme: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", s).strip("-")
 
 
+def post_text(d: dict) -> str:
+    """Ready-to-post text for X, Bluesky and LinkedIn (the link goes after it)."""
+    lines = [f"Day {d['day']} of #30DayMapChallenge · {d['theme']}", d["title"]]
+    if d.get("deeper"):
+        lines.append("There's more behind it on the page.")
+    if d.get("hashtags"):
+        lines.append(d["hashtags"])
+    return "\n".join(lines)
+
+
 def plan_block(d: dict, when: date) -> str:
     lines = [START, f"# Day {d['day']} · {d['theme']}", "",
              f"**{when:%A, %B} {when.day}, {when.year}** · status: {STATUS[d['status']]}", "",
@@ -54,6 +64,10 @@ def plan_block(d: dict, when: date) -> str:
         lines += [f"**Prep:** {d['prep']}", ""]
     if d.get("deeper"):
         lines += ["**Go deeper**", ""] + [f"- [{x['name']}]({x['url']})" for x in d["deeper"]] + [""]
+    share = f"{SITE}/share/day-{d['day']:02d}.html"
+    text = post_text(d)
+    assert len(text) + 24 <= 280, f"day {d['day']}: post text too long for X"
+    lines += ["**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)", "", "```", text, share, "```", ""]
     lines += ["Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).",
               END]
     return "\n".join(lines)
@@ -247,6 +261,8 @@ def main() -> None:
             "post": d.get("post"),
             "link": d.get("link"),
             "share": f"{SITE}/share/day-{d['day']:02d}.html",
+            "hashtags": d.get("hashtags", ""),
+            "post_text": post_text(d),
         })
         share_page(out[-1], cd is not None)
     gallery_card(out)

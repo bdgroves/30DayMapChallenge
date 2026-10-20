@@ -16,6 +16,15 @@ Night lights across Nevada and Utah, with Great Basin National Park's dark sky s
 
 **Prep:** Drafted from the Black Marble composite NASA GIBS serves without a login. With the Earthdata secrets added to this repo it could use VNP46A4 annual radiance instead.
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 17 of #30DayMapChallenge · Light & dark
+Great Basin's dark sky
+#DarkSky #GreatBasin
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-17.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

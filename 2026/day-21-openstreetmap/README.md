@@ -17,7 +17,17 @@ Everything OpenStreetMap knows about Groveland and Big Oak Flat, after I add wha
 
 **Go deeper**
 
-- [Memoir: the Sierra Foothills stories](https://memoir.brooksgroves.com/sierra-foothills.html)
+- [Blog: Mother Lode, the holes in the hills where I grew up](https://brooksgroves.com/blog/mother-lode-post.html)
+
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 21 of #30DayMapChallenge · OpenStreetMap
+Groveland, by volunteers
+There's more behind it on the page.
+#OpenStreetMap #Groveland
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-21.html
+```
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

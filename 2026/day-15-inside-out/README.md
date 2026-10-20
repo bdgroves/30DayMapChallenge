@@ -20,6 +20,16 @@ The earthquakes beneath Kīlauea's summit in cross-section, sketching the magma 
 - [PELE: Hawaiʻi volcanoes, live](https://brooksgroves.com/PELE)
 - [Blog: PELE, revisited](https://brooksgroves.com/blog/pele-revisited-post.html)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 15 of #30DayMapChallenge · Inside out
+Inside Kīlauea
+There's more behind it on the page.
+#Kilauea #volcano
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-15.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

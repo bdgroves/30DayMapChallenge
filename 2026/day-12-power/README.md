@@ -21,6 +21,16 @@ Hetch Hetchy's dams, the powerhouse at Moccasin just below Groveland, and the li
 - [SIERRA-FLOW: Sierra rivers in COBOL](https://brooksgroves.com/sierra-flow-cobol/)
 - [Sierra Streamflow dashboard](https://brooksgroves.com/sierra-streamflow)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 12 of #30DayMapChallenge · Power
+The Tuolumne powers San Francisco
+There's more behind it on the page.
+#HetchHetchy #hydropower
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-12.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

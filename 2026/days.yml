@@ -20,7 +20,11 @@ days:
         note: "Premium feature; can be run once every 3 days. Request it in October."
     tools: [Python, geopandas, matplotlib]
     prep: "Drafted from the My Finds pocket query (October 3). finds.csv holds positions rounded to about a kilometre; the GPX stays out of the repo. To refresh, drop a new pocket query in data/ and run make.py --from-gpx."
+    deeper:
+      - name: "Maps: every geocache, on the map page"
+        url: https://brooksgroves.com/maps.html
     status: draft
+    hashtags: "#geocaching #GIS"
 
   - day: 2
     theme: Lines
@@ -32,6 +36,7 @@ days:
     tools: [Python, geopandas, matplotlib]
     prep: "Drafted from OpenStreetMap. (The Strava heatmap idea is kept as make_strava.py for later.)"
     status: draft
+    hashtags: "#Vancouver #StanleyPark"
 
   - day: 3
     theme: Polygons
@@ -42,7 +47,11 @@ days:
         url: https://www.fire.ca.gov/what-we-do/fire-resource-assessment-program/fire-perimeters
     tools: [Python, geopandas]
     prep: "Drafted from the CAL FIRE perimeter service; re-run in November for any late-season fires."
+    deeper:
+      - name: "Blog: Thirty Minutes, Fifty Years of Fire"
+        url: https://brooksgroves.com/blog/tuolumne-watershed-post.html
     status: draft
+    hashtags: "#wildfire #SierraNevada"
 
   - day: 4
     theme: Clusters
@@ -54,6 +63,7 @@ days:
     tools: [Python, scikit-learn (DBSCAN), matplotlib]
     prep: "Drafted. Re-run in November to pick up the latest earthquakes."
     status: draft
+    hashtags: "#MountRainier #earthquakes"
     deeper:
       - name: "lahar-watch: the network watching Rainier"
         url: https://brooksgroves.com/lahar-watch/
@@ -71,7 +81,13 @@ days:
         url: https://registry.opendata.aws/copernicus-dem/
     tools: [Python, rasterio, a viewshed routine (GDAL gdal_viewshed)]
     prep: "Drafted (Copernicus GLO-90 and gdal_viewshed)."
+    deeper:
+      - name: "STORM CHASER: Rainier snowpack, live"
+        url: https://brooksgroves.com/rainier-snowpack
+      - name: "lahar-watch: the network watching Rainier"
+        url: https://brooksgroves.com/lahar-watch/
     status: draft
+    hashtags: "#MountRainier #viewshed"
 
   - day: 6
     theme: Vintage
@@ -87,6 +103,7 @@ days:
     tools: [Python, geopandas, matplotlib]
     prep: "Drafted: Cook's chart georeferenced from its own Mercator graticule (fit within 3 px), today's coast over it, Tasman's coast and an inset of his chart."
     status: draft
+    hashtags: "#NewZealand #historicalmaps"
     deeper:
       - name: "My review of A Draught of the South Land, Cartographic Perspectives"
         url: https://cartographicperspectives.org/index.php/journal/article/view/1959
@@ -99,6 +116,7 @@ days:
     tools: [Whatever is open]
     prep: "Nothing. That's the point."
     status: idea
+    hashtags: "#cartography"
 
   - day: 8
     theme: Utopia
@@ -110,6 +128,7 @@ days:
     tools: [Python, geopandas]
     prep: "Drafted from the GNIS national file."
     status: draft
+    hashtags: "#placenames"
 
   - day: 9
     theme: Urban-rural
@@ -122,7 +141,11 @@ days:
         url: https://human-settlement.emergency.copernicus.eu/
     tools: [Python, rasterio, matplotlib]
     prep: "Drafted (2020 census blocks, Copernicus DEM)."
+    deeper:
+      - name: "Blog: Rainier snowpack"
+        url: https://brooksgroves.com/blog/rainier-snowpack-post.html
     status: draft
+    hashtags: "#Tacoma #MountRainier"
 
   - day: 10
     theme: Prompting only
@@ -136,6 +159,7 @@ days:
     tools: [Claude, FORTRAN (gfortran), Python]
     prep: "Drafted. Rule: no hand edits; every change is asked for in words and logged in PROMPTS.md."
     status: draft
+    hashtags: "#FORTRAN #AI"
     deeper:
       - name: "The prompts, and the FORTRAN"
         url: https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-10-prompting-only
@@ -160,6 +184,7 @@ days:
     tools: [Python, geopandas, Mapbox]
     prep: "Drafted. If Pierce County shares its lahar siren locations, the original idea can come back."
     status: draft
+    hashtags: "#tsunami #PugetSound"
     deeper:
       - name: "PUGET-TIDES: tides of Puget Sound in FORTRAN"
         url: https://brooksgroves.com/puget-tides/
@@ -178,6 +203,7 @@ days:
     tools: [Python, geopandas]
     prep: "Drafted from OpenStreetMap (Overpass)."
     status: draft
+    hashtags: "#HetchHetchy #hydropower"
     deeper:
       - name: "SIERRA-FLOW: Sierra rivers in COBOL"
         url: https://brooksgroves.com/sierra-flow-cobol/
@@ -194,6 +220,7 @@ days:
     tools: [MapLibre GL JS, NLDI API]
     prep: "Drafted as an interactive page (day-13-interactions/index.html), with a still from the live page for posts."
     status: draft
+    hashtags: "#hydrology #SierraNevada"
     link: day-13-interactions/
     deeper:
       - name: "Sierra Streamflow dashboard"
@@ -212,6 +239,7 @@ days:
     prep: "Drafted as a page (day-14-borgesian-map/index.html): the basin and streams from NLDI at 96 CSS px to the inch, an odometer, a minimap and three speeds. A still from the live page is in out/."
     link: day-14-borgesian-map/
     status: draft
+    hashtags: "#Borges #cartography"
     deeper:
       - name: "Blog: The Creek That Isn't There (Big Creek)"
         url: https://brooksgroves.com/blog/the-creek-that-isnt-there.html
@@ -226,6 +254,7 @@ days:
     tools: [Python, matplotlib or forge3d]
     prep: "Drafted from ComCat since 2019."
     status: draft
+    hashtags: "#Kilauea #volcano"
     deeper:
       - name: "PELE: Hawaiʻi volcanoes, live"
         url: https://brooksgroves.com/PELE
@@ -244,6 +273,7 @@ days:
     tools: [X, Python, Mapbox]
     prep: "Asked on X on October 3. Paste each reply's trailhead into answers.csv (no handles); render; add any unplaced names to places.csv."
     status: data
+    hashtags: "#SierraNevada #hiking"
 
   - day: 17
     theme: Light & dark
@@ -257,6 +287,7 @@ days:
     tools: [Python, matplotlib]
     prep: "Drafted from the Black Marble composite NASA GIBS serves without a login. With the Earthdata secrets added to this repo it could use VNP46A4 annual radiance instead."
     status: draft
+    hashtags: "#DarkSky #GreatBasin"
 
   - day: 18
     theme: "NULL"
@@ -268,6 +299,7 @@ days:
     tools: [Python, geopandas]
     prep: "Drafted (2020 TIGER/Line blocks)."
     status: draft
+    hashtags: "#census #nobodylivesthere"
 
   - day: 19
     theme: Smell
@@ -283,6 +315,7 @@ days:
     tools: [Python]
     prep: "Drafted: WSDA 2024 hop fields in Yakima County; WA 2025 acreage by leading aroma from HopLove."
     status: draft
+    hashtags: "#hops #YakimaValley"
     deeper:
       - name: "HopLove: know your hops"
         url: https://brooksgroves.com/hoplove/
@@ -299,6 +332,7 @@ days:
     tools: [Python, h3]
     prep: "Drafted from the GBIF search API. For the citable version: add GBIF_USER, GBIF_PWD and GBIF_EMAIL as repo secrets and run the \"GBIF download for Day 20\" Action; it requests the download, waits for the DOI, re-renders from it and cites it."
     status: draft
+    hashtags: "#DeathValley #GBIF"
     deeper:
       - name: "DIPODOMYS: Death Valley's kangaroo rats"
         url: https://brooksgroves.com/dipodomys
@@ -315,9 +349,10 @@ days:
     tools: [Python, osmnx]
     prep: "Drafted as the before map, straight from Overpass. After an evening of OSM edits, re-render with make.py --refresh."
     status: draft
+    hashtags: "#OpenStreetMap #Groveland"
     deeper:
-      - name: "Memoir: the Sierra Foothills stories"
-        url: https://memoir.brooksgroves.com/sierra-foothills.html
+      - name: "Blog: Mother Lode, the holes in the hills where I grew up"
+        url: https://brooksgroves.com/blog/mother-lode-post.html
 
   - day: 22
     theme: Projections
@@ -328,7 +363,11 @@ days:
         url: https://www.naturalearthdata.com/
     tools: [Python, cartopy or pyproj]
     prep: "Places come from the Countries Visited layer on brooksgroves.com/maps.html (37 countries; where there are geocache finds, the middle of them), plus Lakewood, Brenham, Reno and the Ruby Mountains. Add a country there and to places.csv, then re-render."
+    deeper:
+      - name: "Maps: the countries I've been to"
+        url: https://brooksgroves.com/maps.html
     status: draft
+    hashtags: "#projections #Groveland"
 
   - day: 23
     theme: Taste
@@ -341,6 +380,7 @@ days:
     tools: [Python]
     prep: "Drafted from the year of beer history HopLove keeps (Untappd); breweries placed with Open Brewery DB."
     status: draft
+    hashtags: "#craftbeer #Northwest"
     deeper:
       - name: "HopLove: every hop in 2,000 Northwest beers"
         url: https://brooksgroves.com/hoplove/
@@ -355,6 +395,7 @@ days:
     tools: [Python, geopandas]
     prep: "Drafted (NLDI flowlines; Strahler order computed on the network)."
     status: draft
+    hashtags: "#rivers #TuolumneRiver"
     deeper:
       - name: "SIERRA-FLOW: Sierra rivers in COBOL"
         url: https://brooksgroves.com/sierra-flow-cobol/
@@ -380,6 +421,7 @@ days:
       - name: "AFTERSHOCK: live earthquake monitor"
         url: https://brooksgroves.com/aftershock
     status: draft
+    hashtags: "#BeastQuake #Seahawks"
 
   - day: 26
     theme: Water
@@ -393,6 +435,7 @@ days:
     tools: [Python, rasterio, matplotlib]
     prep: "Drafted: depth from the 1998 USGS multibeam grid, clarity from TERC's index station."
     status: draft
+    hashtags: "#LakeTahoe"
     deeper:
       - name: "secchi: a modern Secchi disk for Lake Tahoe"
         url: https://brooksgroves.com/secchi/
@@ -409,6 +452,7 @@ days:
     tools: [DuckDB spatial, lonboard]
     prep: "Drafted: DuckDB query straight against Overture on S3, gridded. Still to do: the lonboard interactive."
     status: draft
+    hashtags: "#lonboard #Washington"
 
   - day: 28
     theme: Feeling
@@ -420,6 +464,7 @@ days:
     tools: [Python, geopandas, matplotlib]
     prep: "Drafted already, as the toolkit's test map."
     status: draft
+    hashtags: "#earthquake #Nisqually"
     script: make.py
     deeper:
       - name: "AFTERSHOCK: live earthquake monitor"
@@ -439,6 +484,7 @@ days:
     tools: [Python, rasterio, STAC]
     prep: "Drafted. No login needed: Sentinel-2 comes from AWS open data, SNOTEL from the tracker's own archive."
     status: draft
+    hashtags: "#MountRainier #snowpack"
     deeper:
       - name: "STORM CHASER: Rainier snowpack, live"
         url: https://brooksgroves.com/rainier-snowpack
@@ -449,8 +495,14 @@ days:
   - day: 30
     theme: Pen & paper
     title: "If you hit the third cattle guard"
-    pitch: "The hot-spring napkin from my memoir, redrawn by hand in bar ink on a cocktail napkin: the springs outside Bridgeport and the roads between them, with directions counted in cattle guards, not miles. Drawn from memory, like the original."
+    pitch: "The hot-spring napkin from my memoir, redrawn by hand in bar ink on a cocktail napkin: the springs from Bridgeport to Long Valley and the roads between them, with directions counted in cattle guards, not miles. Drawn from memory, like the original."
     data: []
     tools: [Pen, a cocktail napkin, a scanner]
-    prep: "Draw it in November, from memory, without looking at a map. Save the scan as day-30-pen-and-paper/napkin.jpg and render; make.py frames it. On the day, add the story link (post: https://memoir.brooksgroves.com/cattle-guard.html)."
+    prep: "Traced on a real Iron Door Saloon napkin (they printed some for this) over trace-guide.pdf, then inked by hand; practice-sketch.png is the plan. Scan or photograph it flat as day-30-pen-and-paper/napkin.jpg and render; make.py frames it. Pair it with a GIS map of the same springs. The story is in the private memoir; link it here only if a public copy is posted."
+    deeper:
+      - name: "Blog: Over the Pass, Tioga Pass to Mono Lake"
+        url: https://brooksgroves.com/blog/mono-flyover-post.html
+      - name: "Blog: Mother Lode, the holes in the hills where I grew up"
+        url: https://brooksgroves.com/blog/mother-lode-post.html
     status: idea
+    hashtags: "#handdrawnmap #EasternSierra"

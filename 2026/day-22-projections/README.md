@@ -15,6 +15,20 @@ An azimuthal equidistant map centred on Groveland, where I grew up, with straigh
 
 **Prep:** Places come from the Countries Visited layer on brooksgroves.com/maps.html (37 countries; where there are geocache finds, the middle of them), plus Lakewood, Brenham, Reno and the Ruby Mountains. Add a country there and to places.csv, then re-render.
 
+**Go deeper**
+
+- [Maps: the countries I've been to](https://brooksgroves.com/maps.html)
+
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 22 of #30DayMapChallenge · Projections
+The world from Groveland
+There's more behind it on the page.
+#projections #Groveland
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-22.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

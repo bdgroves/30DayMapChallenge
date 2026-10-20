@@ -20,6 +20,16 @@ Click anywhere in the Sierra and watch where the water goes, river by river, to 
 - [Sierra Streamflow dashboard](https://brooksgroves.com/sierra-streamflow)
 - [Blog: Sierra Streamflow, revisited](https://brooksgroves.com/blog/sierra-streamflow-2027-post.html)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 13 of #30DayMapChallenge · Interactions
+Follow a raindrop
+There's more behind it on the page.
+#hydrology #SierraNevada
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-13.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

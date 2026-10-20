@@ -22,6 +22,16 @@ Washington's tsunami sirens, each with the one-mile circle it's designed to be h
 - [PUGET-TIDES: tides of Puget Sound in FORTRAN](https://brooksgroves.com/puget-tides/)
 - [Blog: PUGET-TIDES](https://brooksgroves.com/blog/puget-tides-post.html)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 11 of #30DayMapChallenge · Sound
+Where the tsunami sirens reach
+There's more behind it on the page.
+#tsunami #PugetSound
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-11.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

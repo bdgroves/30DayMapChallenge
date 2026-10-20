@@ -20,6 +20,16 @@ The whole Tuolumne river network above Modesto, by stream order, with the SIERRA
 - [SIERRA-FLOW: Sierra rivers in COBOL](https://brooksgroves.com/sierra-flow-cobol/)
 - [Sierra Streamflow dashboard](https://brooksgroves.com/sierra-streamflow)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 24 of #30DayMapChallenge · Network
+Every stream that reaches Modesto
+There's more behind it on the page.
+#rivers #TuolumneRiver
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-24.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

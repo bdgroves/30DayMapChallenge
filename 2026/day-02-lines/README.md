@@ -15,6 +15,15 @@ The path around Stanley Park in Vancouver: 8.75 km of Seawall between the forest
 
 **Prep:** Drafted from OpenStreetMap. (The Strava heatmap idea is kept as make_strava.py for later.)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 2 of #30DayMapChallenge · Lines
+The Seawall
+#Vancouver #StanleyPark
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-02.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

@@ -11,6 +11,15 @@ Whatever the day brings, made in ten minutes with a timer visible in the corner 
 
 **Prep:** Nothing. That's the point.
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 7 of #30DayMapChallenge · 10 minute map
+Ten minutes, on the clock
+#cartography
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-07.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

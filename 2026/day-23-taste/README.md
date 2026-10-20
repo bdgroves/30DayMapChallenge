@@ -19,6 +19,16 @@ My Untappd check-ins, mapped by brewery, sized by how many beers.
 
 - [HopLove: every hop in 2,000 Northwest beers](https://brooksgroves.com/hoplove/)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 23 of #30DayMapChallenge · Taste
+Every brewery I've checked into
+There's more behind it on the page.
+#craftbeer #Northwest
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-23.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

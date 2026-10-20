@@ -22,6 +22,16 @@ Washington's hop acreage by variety, coloured by aroma (citrus, pine, tropical, 
 - [HopLove: know your hops](https://brooksgroves.com/hoplove/)
 - [Blog: What's in the Can? Building HopLove](https://brooksgroves.com/blog/hoplove-post.html)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 19 of #30DayMapChallenge · Smell
+What the Yakima Valley smells like
+There's more behind it on the page.
+#hops #YakimaValley
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-19.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

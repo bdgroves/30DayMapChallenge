@@ -15,6 +15,15 @@ Every place in the United States named Paradise, Eden, Utopia, Arcadia or Shangr
 
 **Prep:** Drafted from the GNIS national file.
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 8 of #30DayMapChallenge · Utopia
+Paradise, Eden, Utopia
+#placenames
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-08.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

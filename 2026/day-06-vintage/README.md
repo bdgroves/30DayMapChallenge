@@ -21,6 +21,16 @@ James Cook's 1772 chart of New Zealand, lined up with today's coast, with the st
 
 - [My review of A Draught of the South Land, Cartographic Perspectives](https://cartographicperspectives.org/index.php/journal/article/view/1959)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 6 of #30DayMapChallenge · Vintage
+Tasman to Cook
+There's more behind it on the page.
+#NewZealand #historicalmaps
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-06.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

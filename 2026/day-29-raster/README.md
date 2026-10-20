@@ -21,6 +21,16 @@ Every 30 m patch of Mount Rainier coloured by the day it lost its snow in 2026, 
 - [STORM CHASER: Rainier snowpack, live](https://brooksgroves.com/rainier-snowpack)
 - [CASCADIA-WX: Northwest weather balloons](https://brooksgroves.com/cascadia-wx/)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 29 of #30DayMapChallenge · Raster
+When Rainier's snow melted
+There's more behind it on the page.
+#MountRainier #snowpack
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-29.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

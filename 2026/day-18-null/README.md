@@ -15,6 +15,15 @@ Nevada's 2020 census blocks with a population of zero. Most of the state is null
 
 **Prep:** Drafted (2020 TIGER/Line blocks).
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 18 of #30DayMapChallenge · NULL
+Nobody lives here
+#census #nobodylivesthere
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-18.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

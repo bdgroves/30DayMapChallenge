@@ -23,6 +23,16 @@ Big Creek's watershed above Groveland as a 1960s line-printer map: a FORTRAN pro
 - [CASCADIA-WX: Northwest weather balloons in FORTRAN](https://brooksgroves.com/cascadia-wx/)
 - [SIERRA-FLOW: Sierra rivers in COBOL](https://brooksgroves.com/sierra-flow-cobol/)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 10 of #30DayMapChallenge · Prompting only
+A map made only by asking
+There's more behind it on the page.
+#FORTRAN #AI
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-10.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

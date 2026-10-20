@@ -19,6 +19,16 @@ Borges's map the size of the empire, made literal. Big Creek's watershed at full
 
 - [Blog: The Creek That Isn't There (Big Creek)](https://brooksgroves.com/blog/the-creek-that-isnt-there.html)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 14 of #30DayMapChallenge · Borgesian map
+1:1
+There's more behind it on the page.
+#Borges #cartography
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-14.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

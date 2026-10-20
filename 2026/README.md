@@ -4,6 +4,10 @@ Thirty maps in November, one a day, on the [official 2026 themes](https://30daym
 
 Earlier years are in [`../2023`](../2023) and [`../2024`](../2024).
 
+![The official #30DayMapChallenge 2026 themes, days 1 to 30](official-themes.jpg)
+
+Every day's README has a **Post it** block: the text and hashtags to paste into X, Bluesky or LinkedIn, plus the link that shows that day's map card and opens it in the gallery, with the stories behind it under "Go deeper". The gallery's share buttons use the same text.
+
 ## Getting ready (October)
 
 ### Mapbox basemaps (this year's sponsor)

@@ -21,6 +21,16 @@ Tahoe's floor, 497 m at the deepest, and beside it the lake's clarity on the sam
 - [secchi: a modern Secchi disk for Lake Tahoe](https://brooksgroves.com/secchi/)
 - [Blog: A Plate on a Rope](https://brooksgroves.com/blog/secchi-post.html)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 26 of #30DayMapChallenge · Water
+Lake Tahoe, clear and deep
+There's more behind it on the page.
+#LakeTahoe
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-26.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

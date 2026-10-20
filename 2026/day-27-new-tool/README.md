@@ -15,6 +15,15 @@ Every building in Washington from Overture Maps, queried with DuckDB's spatial e
 
 **Prep:** Drafted: DuckDB query straight against Overture on S3, gridded. Still to do: the lonboard interactive.
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 27 of #30DayMapChallenge · New tool
+Every building in Washington
+#lonboard #Washington
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-27.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

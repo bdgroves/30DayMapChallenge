@@ -5,11 +5,26 @@
 
 ## If you hit the third cattle guard
 
-The hot-spring napkin from my memoir, redrawn by hand in bar ink on a cocktail napkin: the springs outside Bridgeport and the roads between them, with directions counted in cattle guards, not miles. Drawn from memory, like the original.
+The hot-spring napkin from my memoir, redrawn by hand in bar ink on a cocktail napkin: the springs from Bridgeport to Long Valley and the roads between them, with directions counted in cattle guards, not miles. Drawn from memory, like the original.
 
 **Tools:** Pen, a cocktail napkin, a scanner
 
-**Prep:** Draw it in November, from memory, without looking at a map. Save the scan as day-30-pen-and-paper/napkin.jpg and render; make.py frames it. On the day, add the story link (post: https://memoir.brooksgroves.com/cattle-guard.html).
+**Prep:** Traced on a real Iron Door Saloon napkin (they printed some for this) over trace-guide.pdf, then inked by hand; practice-sketch.png is the plan. Scan or photograph it flat as day-30-pen-and-paper/napkin.jpg and render; make.py frames it. Pair it with a GIS map of the same springs. The story is in the private memoir; link it here only if a public copy is posted.
+
+**Go deeper**
+
+- [Blog: Over the Pass, Tioga Pass to Mono Lake](https://brooksgroves.com/blog/mono-flyover-post.html)
+- [Blog: Mother Lode, the holes in the hills where I grew up](https://brooksgroves.com/blog/mother-lode-post.html)
+
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 30 of #30DayMapChallenge · Pen & paper
+If you hit the third cattle guard
+There's more behind it on the page.
+#handdrawnmap #EasternSierra
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-30.html
+```
 
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->

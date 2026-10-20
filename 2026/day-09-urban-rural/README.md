@@ -16,6 +16,20 @@ One line from the Port of Tacoma to Paradise on Rainier, and what changes along 
 
 **Prep:** Drafted (2020 census blocks, Copernicus DEM).
 
+**Go deeper**
+
+- [Blog: Rainier snowpack](https://brooksgroves.com/blog/rainier-snowpack-post.html)
+
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 9 of #30DayMapChallenge · Urban-rural
+Tacoma to Paradise
+There's more behind it on the page.
+#Tacoma #MountRainier
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-09.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

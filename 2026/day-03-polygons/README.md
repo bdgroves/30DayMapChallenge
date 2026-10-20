@@ -15,6 +15,20 @@ Every recorded fire perimeter in Tuolumne County since the early 1900s, oldest f
 
 **Prep:** Drafted from the CAL FIRE perimeter service; re-run in November for any late-season fires.
 
+**Go deeper**
+
+- [Blog: Thirty Minutes, Fifty Years of Fire](https://brooksgroves.com/blog/tuolumne-watershed-post.html)
+
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 3 of #30DayMapChallenge · Polygons
+Every fire around Groveland
+There's more behind it on the page.
+#wildfire #SierraNevada
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-03.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 

@@ -22,6 +22,16 @@ January 8, 2011: the Seahawks' playoff win over the Saints on the seismometer ac
 - [PNSN: the Seahawks experiments, listening to the crowd since 2011](https://pnsn.org/data-research/experiments/seahawks)
 - [AFTERSHOCK: live earthquake monitor](https://brooksgroves.com/aftershock)
 
+**Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
+
+```
+Day 25 of #30DayMapChallenge · Is this a map?
+The Beast Quake
+There's more behind it on the page.
+#BeastQuake #Seahawks
+https://brooksgroves.com/30DayMapChallenge/2026/share/day-25.html
+```
+
 Folder: `data/` for downloads (not committed), `out/` for the finished map (`map.png`, `alt.txt`).
 <!-- plan:end -->
 
