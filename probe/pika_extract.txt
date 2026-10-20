@@ -1,0 +1,1337 @@
+#### probe/pg53581.txt len=235828
+The Project Gutenberg eBook of Flora
+    
+This eBook is for the use of anyone anywhere in the United States and
+most other parts of the world at no cost and with almost no restrictions
+whatsoever. You may copy it, give it away or re-use it under the terms
+of the Project Gutenberg License included with this eBook or online
+at www.gutenberg.org. If you are not located in the United States,
+you will have to check the laws of the country where you are located
+before using this eBook.
+
+Title: Flora
+
+Creator: A. L. O. E.
+
+
+        
+Release date: November 22, 2016 [eBook #53581]
+
+Language: English
+
+O
+
+hits 0 at []
+
+#### probe/pg53582.txt len=941809
+The Project Gutenberg eBook of Mammals of Washington, Volume 2
+    
+This eBook is for the use of anyone anywhere in the United States and
+most other parts of the world at no cost and with almost no restrictions
+whatsoever. You may copy it, give it away or re-use it under the terms
+of the Project Gutenberg License included with this eBook or online
+at www.gutenberg.org. If you are not located in the United States,
+you will have to check the laws of the country where you are located
+before using this eBook.
+
+Title: Mammals of Washington, Volume 2
+
+Author: Walter Woelber Dalquest
+
+Editor: E. Raym
+
+hits 9 at [81325, 259584, 259634, 259690, 784116, 784186, 786188, 787510, 788863]
+
+OCHOTONA PRINCEPS.--The descent of the Wisconsin ice separated the
+western pikas into two populations. One was confined to the
+Cascade-Sierra Nevada system and another to the Rocky Mountains. Two
+races are now found in the Cascades of Washington. One, _brunnescens_,
+inhabits the higher Cascades and another, _fenisex_, the eastern edge of
+the Cascades. The range of _brunnescens_ extends southward into Oregon
+while the range of _fenisex_ extends farther north in British Columbia
+than does that of _brunnescens_. The principal difference between the
+two races is the smaller size and paler color of _fenisex_. In
+Washington, _fenisex_ occupies a slightly more arid habitat than
+_brunnescens_. Further, _fenisex_ lives in talus principally of basaltic
+rock while _brunnescens_ lives in talus of granitic rock. The basaltic
+talus is more finely fractured, offering smaller crevices in which pikas
+can conceal themselves. The granitic rock, on the other hand, forms
+talus composed of fragments of large size. Freshly fractured granite is
+pale, whitish gray. After weathering, however, it becomes blackish as
+the more soluble, pale feldspars are removed, leaving the black
+hornblend and biotite exposed. Freshly fractured Columbian basalt is
+blackish but, after weathering, becomes rusty, reddish brown.
+
+In Washington the two races maintain their distinctiveness because
+selective factors in the basalt talus of the eastern Cascades favor the
+smaller size and paler color of _fenisex_ while in the higher Cascades,
+selective factors in the granitic batholith favor larger size and darker
+color.
+
+The present range of _brunnescens_ in Oregon indicates that this race
+was the pre-Wisconsin resident of the Cascades of at least southern
+Washington. Probably _fenisex_ evolved in the arid interior of British
+Columbia. In color _fenisex_ is intermediate between the dark
+_brunnescens_ and the pale _cuppes_ of the western spurs of the Rocky
+Mountains. Probably _fenisex_ was forced southward into the eastern
+Cascades by the Wisconsin ice and inhabited the area east of the range
+of _brunnescens_. This eastern area was not occupied by _brunnescens_
+because the basaltic talus was of small size. After the retreat of the
+ice, _fenisex_ (adapted to more arid habitat than _brunnescens_), spread
+northward to the relatively dry valleys of the interior of British
+Columbia.
+
+The distinctness of _brunnescens_ and _fenisex_ is maintained by
+selective factors of the habitats they occupy but the zone of
+intergradation between the two is broad. A tendency towards paleness is
+noticeable in specimens from as far west as the eastern side of Mount
+Rainier.
+
+The pikas in the Rocky Mountain area have given rise to a number of
+races. The pale, small race of northern Idaho, _cuppes_, entered
+northeastern Washington with other members of the Great Basin Fauna
+after the retreat of the ice.
+
+LEPUS TOWNSENDII.--The white-tailed jack rabbit has probably lived on
+the Columbian Plateau ever since or even before the time when the
+Wisconsin ice bordered the plateau on the north.
+
+LEPUS AMERICANUS.--Snowshoe rabbits were probably spread over forested
+parts of Washington in pre-Wisconsin time. A coastal race,
+_washingtonii_, was probably distinct from the remainder of the species
+at an early time. It, and its kindred races _klamathensis_ and
+_tahoensis_, are very different from races derived later from the Rocky
+Mountain Fauna. From this it is deduced that _washingtonii_ was a member
+of the Pacific Coastal Fauna before the advance of the last continental
+glaciers.
+
+The snowshoe rabbits now found in the Cascade Mountains of Washington
+are racially distinct from populations occurring to the north and east,
+but are more closely related to the northern and eastern rabbits than
+they are to _washingtonii_. This race, _cascadensis_, probably lived in
+the area north of the state of Washington in pre-Wisconsin interglacial
+time. The snowshoe rabbit of northeastern Washington was probably a race
+having an extensive range in the Rocky Mountains from which _pineus_ in
+the Blue Mountains developed. The descent of the Vashon-Wisconsin
+glaciers found _washingtonii_ restricted to western Oregon. It might
+have persisted also in southwestern Washington but, had this been the
+case, we would expect a broader zone of intergradation between
+_washingtonii_ and _cascadensis_ than actually exists.
+
+The glaciers forced _cascadensis_ southward into the Cascades of
+southern Washington. The difference between _washingtonii_ and
+_cascadensis_ and the narrow zone of intergradation between them,
+indicate that the two races were not in contact in pre-Vashon Time. The
+presence in the Cascades of Oregon of a race related to _washingtonii_
+rather than _cascadensis_ also supports this view. The snowshoe rabbits
+of northeastern Washington were probably eliminated from areas where the
+ice was in place. The effect of the glaciers in nearby areas was
+probably less on snowshoe rabbits than upon other species.
+
+Following the retreat of the glaciers, _washingtonii_ reinvaded western
+Washington and spread northward through the lowlands to the Fraser
+River. In the Cascades, _cascadensis_ moved even farther north. _L. a.
+pineus_ of the Rocky Mountain Fauna invaded northeastern Washington from
+adjacent areas to the south. Another race, _columbiensis_, spread from
+the interior valleys of British Columbia to the western part of
+northeastern Washington in probably relatively recent times. The
+post-Wisconsin history of the distribution of this race is uncertain.
+
+LEPUS CALIFORNICUS.--The black-tailed jack rabbit occurs throughout the
+sagebrush areas of eastern Washington, except in the Okanogan Valley. It
+invaded Washington from the south recently (Couch, 1927: 313). The first
+blacktails were thought to have entered Walla Walla County about 1870.
+Here they were checked by the Snake River. About 1905 they crossed the
+Snake River, on ice, and by 1920 had spread over much of the Columbian
+Plateau. In January, 1920, they crossed the Columbia River in two
+places, on ice jams, and by 1927 had spread north and west over the
+sagebrush areas between the Columbia River and the Cascade Mountains.
+When Couch, in 1927, published his account, he predicted that the
+blacktail would eventually spread to the Okanogan Valley. This has not
+yet occurred although it is still to be expected.
+
+It should be noted that the migrational history of the black-tailed jack
+rabbit is known only because the animal is large, spectacular, and
+diurnal, and therefore noticed by resident ranchers, and because the
+facts came to the notice of a competent biologist. Migration of a less
+conspicuous mammal, for example, a mouse, would rarely be detected.
+
+SYLVILAGUS NUTTALLII.--The cottontail might have been resident on the
+Columbian Plateau during Wisconsin Time but probably it invaded, or
+perhaps reinvaded, the Plateau from eastern Oregon in the Recent.
+
+SYLVILAGUS IDAHOENSIS.--Too little is known about this rabbit in
+Washington to hazard a guess as to its recent distributional history.
+
+CERVUS CANADENSIS.--The elk emigrated from Siberia to North America in
+the late Pleistocene but previous, certainly, to Vashon-Wisconsin time.
+Probably the coastal race was distinct from the interior population in
+the preceding interglacial cycle. The descent of the last continental
+glaciers, in Washington, separated the elk of the Pacific Coastal Fauna
+from the Rocky Mountain Fauna. After the retreat of the ice the coastal
+race moved northward to southern British Columbia and the Rocky Mountain
+race moved northward and westward through British Columbia. Northeastern
+Washington was reoccupied by the Rocky Mountain elk.
+
+Remains of elk have been found associated with human artifacts on the
+northern part of the Columbian Plateau. The plateau is poorly suited to
+elk but a few may have persisted there until late historic time. The
+remains may have been brought by Indians from northeastern Washington.
+The remains included teeth and portions of the skull and it seems
+unlikely that these would have been carried any great distance.
+
+ODOCOILEUS HEMIONUS.--The American deer probably evolved in North
+America. In this respect they are unlike the elk, moose and caribou, all
+of which emigrated from Asia to America in the Pleistocene. _Odocoileus
+hemionus_ and _virginianus_ probably diverged from a common stock in the
+Pliocene.
+
+The black-tailed deer was probably a member of the Pacific Coastal Fauna
+at an early time and distinct from the mule deer before the last
+interglacial cycle. Probably the mule deer lived in the eastern Cascades
+and on part of the Columbian Plateau in Wisconsin Time. They occur on
+the plateau in limited numbers at present and their remains have been
+found associated with human artifacts in the Grand Coulee area.
+
+ODOCOILEUS VIRGINIANUS.--The white-tailed deer ranges from the Atlantic
+to the Pacific and from Canada to Mexico. The species was probably
+abundant in the Pacific Northwest in the Pleistocene, perhaps in
+Vashon-Wisconsin time, but has since largely given way to the
+black-tailed and mule deer. The race _O. v. leucurus_ now occupies an
+extremely small range. The accounts of early naturalists indicate that
+it was more abundant and had a wider range 100 years ago. Probably
+_leucurus_ was once an important member of the Pacific Coastal Fauna.
+
+The inland race, _ochrourus_, is a typical member of the Rocky Mountain
+Fauna. It and _leucurus_ were probably derived from a common ancestor in
+the late Pleistocene.
+
+ALCE AMERICANUS.--The moose occurs in Washington as a casual wanderer
+from the Rocky Mountain Fauna to the east.
+
+RANGIFER MONTANUS.--The caribou occurs in northeastern Washington as a
+winter migrant from the north. It was probably of more regular and
+extensive occurrence in the past.
+
+ANTILOCAPRA AMERICANA.--The antelope probably was a casual wanderer to
+southeastern Washington and perhaps to the Columbian Plateau from
+eastern Oregon before white man reached Washington.
+
+BISON BISON.--The buffalo, like the antelope, probably occurred in
+southeastern Washington and on the Columbian Plateau only as a casual
+wanderer from Oregon in postglacial time.
+
+OVIS CANADENSIS.--Mountain sheep reached North America from Asia in the
+Pleistocene. By Vashon-Wisconsin Time they had spread southward, perhaps
+to Mexico. The descent of the Vashon-Wisconsin ice in Washington
+presumably separated the _canadensis_ and _californiana_ type of sheep,
+the former being confined to the Rocky Mountain Fauna and the latter to
+the Cascade-Sierra Nevada chain and adjacent parts of the Great Basin.
+
+Mountain sheep probably persisted in the southern Cascades of Washington
+and on the Columbian Plateau during Vashon-Wisconsin times. After the
+retreat of the ice, these sheep (_californiana_) moved northward
+slightly, both in the Cascades and on the Columbian Plateau. Remains of
+sheep are to be found with human artifacts in the Grand Coulee area
+today. When white man first reached the state, sheep existed throughout
+the Cascades and on part of the Columbian Plateau. Only a pitiful
+remnant remains in the extreme northern Cascades.
+
+Mountain sheep of the Rocky Mountain race probably existed in small
+numbers in the Blue Mountains of southeastern Washington until historic
+times. Sheep from the Blue Mountains or adjacent Idaho invaded
+northeastern Washington shortly after that region was freed from
+Wisconsin ice. These sheep were exterminated shortly after the coming of
+the white man.
+
+OREAMNOS AMERICANUS.--Fossil remains of the mountain goat have been
+discovered at Washtuckna Lake, associated with those of the lion, horse,
+and camel. Probably the mountain goat had an extensive range in
+Washington at the time of a glacial advance previous to the Wisconsin
+glaciation. In Wisconsin Time the mountain goat was confined to the
+southern Cascades. Strangely enough, it seems not to have crossed the
+Columbia River to become established in the Cascades of Oregon. After
+the retreat of the ice it moved northward through the Cascades.
+
+A mountain goat recently taken in northeastern Washington seemingly
+wandered to the area from Idaho.
+
+
+
+
+EXPLANATION OF TREATMENT
+
+
+The order of arrangement of the following accounts is that of Miller
+(1924) with some modifications. For example, the Chiroptera are arranged
+according to Tate (1942), the Sciuridae according to Bryant (1945) and
+the Cetacea according to Scheffer (1942). A few other minor changes are
+included.
+
+Although the principal purpose of this report is to describe and
+interpret the distribution of the various species and races of mammals
+that occur in Washington, a brief description and account of the habits
+of the animals is included. Each species account begins with a
+description, based principally on external characters. This is followed
+by pertinent information regarding the range of the species, its
+relationships within the genus and a brief account of its habits. The
+habits are dealt with in most detail for the species that are of
+greatest economic importance.
+
+The accounts of subspecies are largely technical. The account of the
+type specimen is rather complete. Subspecific diagnoses are brief,
+stating often only the principal racial characters. Standard external
+measurements are usually given for each subspecies. All measurements,
+unless otherwise stated, are in millimeters and weights are in grams.
+Specimens are adult, unless otherwise stated.
+
+No formal list of specimens examined is included. Localities from which
+specimens have been examined are usually shown on the distribution maps
+by solid circles. Open circles indicate localities from which specimens,
+not examined by me, have been recorded by other persons. Most of these
+records are published but a few are based on authentic trappers'
+reports, photographs, or other evidence. Unusual occurrences of animals
+outside their natural ranges are not shown on the maps. Not every record
+from well within the range of a subspecies has been plotted, but care
+has been taken to plot all records of occurrences from peripheral areas.
+
+When more than one race of a species occurs in Washington, specimens
+from localities where the geographic range of one subspecies meets or
+approaches that of another are listed as "marginal occurrences" in the
+paragraph on the distribution of the race to which they are best
+referred. Marginal occurrences are listed from north to south and from
+west to east. The authority for the record, if published, is given. When
+the record is based on specimens examined by the author, the collection
+containing the specimen is indicated as follows:
+
+      (E.S.B.) Ernest S. Booth collection. College Place, Washington.
+
+      (J.M.E.) J. M. Edson collection, Bellingham, Washington.
+
+      (K.U.) University of Kansas, Museum of Natural History, Lawrence,
+      Kansas.
+
+      (M.V.Z.) Museum of Vertebrate Zoölogy, University of California,
+      Berkeley, California.
+
+      (U.S.N.M.) United States National Museum, Washington, D. C.
+      Specimens from the Biological Surveys Collection are included
+      here.
+
+      (V.B.S.) Victor B. Scheffer collection. United States National
+      Museum, Washington, D. C.
+
+      (W.S.C.) Washington State College, Charles R. Conner Museum,
+      Pullman, Washington.
+
+      (W.S.M.) Washington State Museum, University of Washington,
+      Seattle, Washington.
+
+      (W.W.D.) Walter W. Dalquest collection, Seattle, Washington.
+
+In all, 230 kinds (species and subspecies) of mammals are listed for the
+state of Washington. Of these, 9 kinds (opossum, eastern gray squirrel,
+fox squirrel, 3 kinds of Old World rats, house mouse, nutria, and
+eastern cottontail) have been introduced into Washington from elsewhere.
+The dog of the Indians might be listed as a tenth introduced species.
+The grizzly bear, the sea otter, the wolf, the moose, one race of
+mountain sheep, one race of mountain goat, and, if they ever occurred in
+the state, the pronghorn antelope and bison, are nearly or completely
+extinct in Washington. Mammals other than cetaceans possibly occurring
+in Washington, but of which satisfactory record is lacking, are
+mentioned in a hypothetical list at the end of the accounts of species.
+Of the 220 kinds of native mammals, known to occur in the state, 23 are
+marine (4 pinnipeds, 19 cetaceans). The 197 living, native, land mammals
+include 6 orders, 20 families, 58 genera and 101 full species.
+
+
+
+
+CHECK LIST OF MAMMALS
+
+CLASS MAMMALIA--mammals
+
+
+            Order MARSUPALIA--marsupials
+
+  Family DIDELPHIIDAE--opossums
+    Genus =Didelphis= Linnaeus--opossums
+      _Didelphis virginiana virginiana Kerr_       opossum
+
+
+  Order INSECTIVORA--insectivores
+
+  Family TALPIDAE--moles
+    Genus =Neurotrichus= Gunther--shrew-mole
+      _Neurotrichus gibbsii gibbsii_ (Baird)    }
+      _Neurotrichus gibbsii minor_ Dalquest     }  Gibbs shrew-mole
+       and Burgner                              }
+
+    Genus =Scapanus= Pomel--western American moles
+      _Scapanus townsendii_ (Bachman)              Townsend mole
+      _Scapanus orarius orarius_ True           }
+      _Scapanus orarius yakimensis_ Dalquest    }  coast mole
+        and Scheffer                            }
+      _Scapanus orarius schefferi_ Jackson      }
+
+  Family SORICIDAE--shrews
+    Genus =Sorex= Linnaeus--long-tailed shrews
+      _Sorex cinereus cinereus_ Kerr            }
+      _Sorex cinereus streatori_ Merriam        }  cinereous shrew
+      _Sorex merriami merriami_ Dobson             Merriam shrew
+      _Sorex trowbridgii trowbridgii_ Baird     }
+      _Sorex trowbridgii destructioni_ Scheffer }  Trowbridge shrew
+        and Dalquest                            }
+      _Sorex vagrans vagrans_ Baird             }
+      _Sorex vagrans monticola_ Merriam         }  wandering shrew
+      _Sorex obscurus obscurus_ Merriam         }
+      _Sorex obscurus setosus_ Elliot           }  dusky shrew
+      _Sorex palustris navigator_ (Baird)          mountain water-shrew
+      _Sorex bendirii bendirii_ (Merriam)       }
+      _Sorex bendirii albiventer_ Merriam       }  Bendire water-shrew
+
+    Genus =Microsorex= Coues--pigmy shrew
+      _Microsorex hoyi washingtoni_ Jackson        pigmy shrew
+
+
+            Order CHIROPTERA--bats
+
+  Family VESPERTILIONIDAE--vespertilionid bats
+    Genus =Myotis= Kaup--mouse-eared bats
+      _Myotis lucifugus carissima_ Thomas       }
+      _Myotis lucifugus alascensis_ Miller      }  big myotis
+      _Myotis yumanensis sociabilis_            }
+        H. W. Grinnell                          }
+      _Myotis yumanensis saturatus_ Miller      }  Yuma myotis
+      _Myotis keenii keenii_ (Merriam)             Keen myotis
+      _Myotis evotis evotis_ (H. Allen)         }  long-eared myotis
+      _Myotis evotis pacificus_ Dalquest        }
+      _Myotis thysanodes thysanodes_ Miller        fringe-tailed myotis
+      _Myotis volans longicrus_ (True)          }  hairy-winged myotis
+      _Myotis volans interior_ Miller           }
+      _Myotis californicus caurinus_ Miller     }  California myotis
+      _Myotis californicus californicus_        }
+       (Audubon and Bachman)                    }
+      _Myotis subulatus melanorhinus_ (Merriam)    small-footed myotis
+
+    Genus =Lasionycteris= Peters--silver-haired bat
+      _Lasionycteris noctivagans_ (Le Conte)       silver-haired bat
+
+    Genus =Corynorhinus= H. Allen--long-eared bats
+      _Corynorhinus rafinesquii townsendii_     }  long-eared bat
+       (Cooper)                                 }
+      _Corynorhinus rafinesquii intermedius_    }
+       H. W. Grinnell                           }
+
+    Genus =Pipistrellus= Kaup--pipistrelles
+      _Pipistrellus hesperus hesperus_ (H. Allen)  western pipistrelle
+
+    Genus =Eptesicus= Rafinesque--serotine bats
+      _Eptesicus fuscus bernardinus_ Rhoads        big brown bat
+
+    Genus =Lasiurus= Gray--hairy-tailed bats
+      _Lasiurus cinereus cinereus_ (Beauvois)      hoary bat
+
+    Genus =Antrozous= H. Allen--nyctophiline bats
+      _Antrozous pallidus cantwelli_ Bailey        pallid bat
+
+
+            Order CARNIVORA
+
+  Family URSIDAE--bears
+    Genus =Ursus= Linnaeus--bears
+      _Ursus americanus altifrontalis_ Elliot   }
+      _Ursus americanus cinnamomum_             }  black bear
+       (Audubon and Bachman)                    }
+      _Ursus chelan_ Merriam                       grizzly bear
+
+  Family PROCYONIDAE--raccoons and allies
+    Genus =Procyon= Storr-raccoons
+      _Procyon lotor psora_ Gray                }
+      _Procyon lotor excelsus_ Nelson and       }  raccoon
+       Goldman                                  }
+
+  Family MUSTELIDAE--weasels and allies
+    Genus =Martes= Pinel--martens and fisher
+      _Martes caurina caurina_ (Merriam)        }  western marten
+      _Martes caurina origenes_ (Rhoads)        }
+      _Martes pennanti_ (Erxleben)                 fisher
+
+    Genus =Mustela= Linnaeus--weasels, ferrets and minks
+      _Mustela erminea invicta_ Hall            }
+      _Mustela erminea fallenda_ Hall           }
+      _Mustela erminea olympica_ Hall           }  ermine
+      _Mustela erminea streatori_ (Merriam)     }
+      _Mustela erminea gulosa_ Hall             }
+      _Mustela erminea murica_ (Bangs)          }
+      _Mustela frenata washingtoni_ (Merriam)   }
+      _Mustela frenata altifrontalis_ Hall      }
+      _Mustela frenata effera_ Hall             }  long-tailed weasel
+      _Mustela frenata nevadensis_ Hall         }
+      _Mustela vison energumenos_ (Bangs)          mink
+
+    Genus =Gulo= Pallas--wolverines
+      _Gulo luscus luteus_ Elliot                  wolverine
+
+    Genus =Lutra= Brisson--river otters
+      _Lutra canadensis pacifica_ Rhoads        }
+      _Lutra canadensis vancouverensis_ Goldman }  river otter
+
+    Genus =Enhydra= Fleming--sea otter
+      _Enhydra lutris nereis_ (Merriam)            sea otter
+
+    Genus =Spilogale= Gray--civet cats or spotted skunks
+      _Spilogale gracilis saxatilis_ Merriam    } civet cat or
+      _Spilogale gracilis latifrons_ Merriam    }  spotted skunks
+
+    Genus =Mephitis= Geoffroy and Cuvier--striped skunks
+      _Mephitis mephitis hudsonica_ Richardson  }
+      _Mephitis mephitis major_ (Howell)        }
+      _Mephitis mephitis notata_ (Howell)       }  striped skunk
+      _Mephitis mephitis spissigrada_ Bangs     }
+
+    Genus =Taxidea= Waterhouse--American badger
+      _Taxidea taxus taxus_ (Schreber)             badger
+
+  Family CANIDAE--foxes, coyote, wolves and dogs
+    Genus =Vulpes= Oken--foxes
+      _Vulpes fulva cascadensis_ Merriam           red fox
+
+    Genus =Canis= Linnaeus--coyote, wolves and dogs
+      _Canis latrans testes_ Merriam            }
+      _Canis latrans incolatus_ Hall            }  coyote
+      _Canis lupus fuscus_ Richardson              wolf
+      _Canis familiaris_ Linnaeus                  dog
+
+  Family FELIDAE--cats
+    Genus =Felis= Linnaeus--true cats
+      _Felis concolor oregonensis_ Rafinesque   }  cougar or
+      _Felis concolor missoulensis_ Goldman     }   mountain lion
+
+    Genus =Lynx= Kerr--lynxes and bobcats
+      _Lynx canadensis canadensis_ Kerr            Canadian lynx
+      _Lynx rufus fasciatus_ Rafinesque         }
+      _Lynx rufus pallescens_ Merriam           }  bobcat
+
+
+            Order PINNIPEDIA--seals and walruses
+
+  Family OTARIIDAE--eared seals
+    Genus =Zalophus= Gill--Californian sea lions
+      _Zaluphus californianus_ (Lesson)            California sea lion
+
+    Genus =Eumetopias= Gill--Steller sea lion
+      _Eumetopias jubata_ (Schreber)               Steller sea lion
+
+    Genus =Callorhinus= Gray--Alaska fur seal
+      _Callorhinus ursinus cynocephalus_
+       (Walbaum)                                   Alaska fur seal
+
+  Family PHOCIDAE--hair seals
+    Genus =Phoca= Linnaeus--hair seals
+      _Phoca vitulina richardii_ (Gray)            hair seal
+
+
+            Order RODENTIA--rodents
+
+  Family SCIURIDAE--squirrels and allies
+    Genus =Tamias= Illiger--chipmunks
+      _Tamias minimus scrutator_ (Hall and      }
+       Hatfield)                                }  least chipmunk
+      _Tamias minimus grisescens_ (Howell)      }
+      _Tamias amoenus caurinus_ (Merriam)       }
+      _Tamias amoenus felix_ Rhoads             }
+      _Tamias amoenus ludibundus_ (Hollister)   }
+      _Tamias amoenus affinis_ Allen            }  yellow-pine chipmunk
+      _Tamias amoenus canicaudus_ (Merriam)     }
+      _Tamias amoenus luteiventris_ Allen       }
+      _Tamias ruficaudus simulans_ (Howell)        red-tailed chipmunk
+      _Tamias townsendii townsendii_ Bachman    }
+      _Tamias townsendii cooperi_ Baird         }  Townsend chipmunk
+
+    Genus =Marmota= Blumenbach--marmots
+      _Marmota monax petrensis_ Howell             woodchuck
+      _Marmota flaviventris avara_ (Bangs)         yellow-bellied marmot
+      _Marmota caligata cascadensis_ Howell        hoary marmot
+      _Marmota olympus_ (Merriam)                  Olympic marmot
+
+    Genus =Citellus= Oken--ground squirrels
+      _Citellus townsendii townsendii_ (Bachman)   Townsend ground
+                                                     squirrel
+      _Citellus washingtoni_ Howell                Washington ground
+                                                     squirrel
+      _Citellus columbianus columbianus_ (Ord)  }
+      _Citellus columbianus ruficaudus_ Howell  }  Columbian ground
+                                                     squirrel
+      _Citellus beecheyi douglasii_
+       (Richardson)                                Beechey ground squirrel
+      _Citellus lateralis tescorum_ (Hollister) }
+      _Citellus lateralis connectens_ (Howell)  }  golden-mantled ground
+      _Citellus saturatus_ (Rhoads)             }   squirrel
+
+    Genus =Sciurus= Linnaeus--tree squirrels
+      _Sciurus griseus griseus_ Ord                western gray squirrel
+      _Sciurus carolinensis hypophaeus_ Merriam    eastern gray squirrel
+      _Sciurus niger_ Linnaeus, subsp.?            fox squirrel
+
+    Genus =Tamiasciurus= Trouessart--red squirrels
+      _Tamiasciurus hudsonicus streatori_       }
+       (Allen)                                  }
+      _Tamiasciurus hudsonicus richardsoni_     }  red squirrel
+       (Bachman)                                }
+      _Tamiasciurus douglasii douglasii_        }
+       (Bachman)                                }  Douglas squirrel
+
+    Genus =Glaucomys= Thomas--American flying squirrels
+      _Glaucomys sabrinus oregonensis_          }
+       (Bachman)                                }
+      _Glaucomys sabrinus bangsi_ (Rhoads)      }  northern flying
+      _Glaucomys sabrinus columbiensis_ Howell  }   squirrel
+      _Glaucomys sabrinus latipes_ Howell       }
+      _Glaucomys sabrinus fuliginosus_ (Rhoads) }
+
+  Family HETEROMYIDAE--pocket mice, kangaroo mice and kangaroo rats
+    Genus =Perognathus= Weid--pocket mice
+      _Perognathus parvus parvus_ (Peale)       }  great basin pocket
+      _Perognathus parvus lordi_ (Gray)         }   mouse
+      _Perognathus parvus columbianus_ Merriam  }
+
+    Genus =Dipodomys= Gray--kangaroo rats
+      _Dipodomys ordii columbianus_ (Merriam) Ord kangaroo rat
+
+  Family GEOMYIDAE--pocket gophers
+    Genus =Thomomys= Weid--smooth-toothed pocket gophers
+      _Thomomys talpoides devexus_ Hall and     }
+       Dalquest                                 }
+      _Thomomys talpoides columbianus_ Bailey   }
+      _Thomomys talpoides aequalidens_          }
+       Dalquest                                 }
+      _Thomomys talpoides wallowa_ Hall         }
+       and Orr                                  }
+      _Thomomys talpoides fuscus_ Merriam       }
+      _Thomomys talpoides yakimensis_ Hall      }
+       and Dalquest                             }
+      _Thomomys talpoides shawi_ Taylor         }
+      _Thomomys talpoides immunis_ Hall and     }
+       Dalquest                                 }  northern pocket
+      _Thomomys talpoides limosus_ Merriam      }   gopher
+      _Thomomys talpoides douglasii_            }
+       (Richardson)                             }
+      _Thomomys talpoides glacialis_ Dalquest   }
+       and Scheffer                             }
+      _Thomomys talpoides tacomensis_ Taylor    }
+      _Thomomys talpoides pugetensis_ Dalquest  }
+       and Scheffer                             }
+      _Thomomys talpoides tumuli_ Dalquest      }
+       and Scheffer                             }
+      _Thomomys talpoides yelmensis_ Merriam    }
+      _Thomomys talpoides couchi_ Goldman       }
+      _Thomomys talpoides melanops_ Merriam     }
+
+  Family CASTORIDAE--beavers
+    Genus =Castor= Linnaeus--beavers
+      _Castor canadensis leucodonta_ Gray       }
+      _Castor canadensis idoneus_ Jewett and    }  beaver
+       Hall                                     }
+
+  Family MURIDAE--rats and mice
+    Genus =Onychomys= Baird--grasshopper mice
+      _Onychomys leucogaster fuscogriseus_      }  northern grasshopper
+       Anthony                                  }   mouse
+
+    Genus =Reithrodontomys= Giglioli--American harvest mice
+      _Reithrodontomys megalotis megalotis_     }  western harvest
+       (Baird)                                  }   mouse
+
+    Genus =Peromyscus= Gloger--white-footed mice
+      _Peromyscus maniculatus oreas_ Bangs      }
+      _Peromyscus maniculatus hollisteri_       }
+       Osgood                                   }
+      _Peromyscus maniculatus austerus_ (Baird) }
+      _Peromyscus maniculatus rubidus_ Osgood   }  deer mouse
+      _Peromyscus maniculatus gambelii_ (Baird) }
+      _Peromyscus maniculatus artemisiae_       }
+       (Rhoads)                                 }
+
+    Genus =Neotoma= Say and Ord--wood rats
+      _Neotoma cinerea occidentalis_ Baird      }  bushy-tailed wood rat
+      _Neotoma cinerea alticola_ Hooper         }
+
+    Genus =Synaptomys= Baird--lemming mice
+      _Synaptomys borealis wrangeli_ Merriam       northern lemming mouse
+
+    Genus =Phenacomys= Merriam--heather voles and tree mice
+      _Phenacomys intermedius intermedius_      }
+       Merriam                                  }  heather vole
+      _Phenacomys intermedius oramontis_        }
+       Rhoads                                   }
+
+    Genus =Clethrionomys= Tilesius--red-backed mice
+      _Clethrionomys gapperi saturatus_         }
+       (Rhoads)                                 }
+      _Clethrionomys gapperi idahoensis_        }
+       (Merriam)                                }  Gapper red-backed
+      _Clethrionomys gapperi cascadensis_       }   mouse
+       Booth                                    }
+      _Clethrionomys gapperi nivarius_          }
+       (Bailey)                                 }
+      _Clethrionomys californicus               }  California red-backed
+       occidentalis_ (Merriam)                  }    mouse
+
+    Genus =Microtus= Schrank--meadow mice
+      _Microtus pennsylvanicus funebris_ Dale   }  Pennsylvania meadow
+      _Microtus pennsylvanicus kincaidi_        }   mouse
+       Dalquest                                 }
+      _Microtus montanus nanus_ (Merriam)       }  montane meadow
+      _Microtus montanus canescens_ Bailey      }   mouse
+      _Microtus townsendii townsendii_          }
+       (Bachman)                                }  Townsend meadow
+      _Microtus townsendii pugeti_ Dalquest     }   mouse
+      _Microtus longicaudus halli_ Ellerman     }  long-tailed meadow
+      _Microtus longicaudus macrurus_ Merriam   }   mouse
+      _Microtus richardsoni arvicoloides_       }
+       (Rhoads)                                 }  water rat
+      _Microtus richardsoni macropus_ (Merriam) }
+      _Microtus oregoni oregoni_ (Bachman)         creeping mouse
+
+    Genus =Lagurus= Gloger--short-tailed voles
+      _Lagurus curtatus pauperrimus_ (Cooper)      sagebrush vole
+
+    Genus =Ondatra= Link--muskrat
+      _Ondatra zibethicus osoyoosensis_ (Lord)  }
+      _Ondatra zibethicus occipitalis_ (Elliot) }  muskrat
+
+    Genus =Rattus= Fischer--Old World rats
+      _Rattus rattus rattus_ (Linnaeus)         }  roof rat
+      _Rattus rattus alexandrinus_ (Geoffroy)   }
+      _Rattus norvegicus norvegicus_ (Erxleben)    Norway rat
+
+    Genus =Mus= Linnaeus--house mice
+      _Mus musculus_ Linnaeus, subsp.?             house mouse
+
+  Family APLONTIDAE--mountain beaver
+    Genus =Aplodontia= Richardson--mountain beaver
+      _Aplodontia rufa rufa_ (Rafinesque)       }
+      _Aplodontia rufa rainieri_ Merriam        }  mountain beaver
+
+  Family DIPODIDAE--jumping mice and allies
+    Genus =Zapus= Coues--jumping mice
+      _Zapus princeps trinotatus_ Rhoads        }
+      _Zapus princeps kootenayensis_ Anderson   }  big jumping mouse
+      _Zapus princeps idahoensis_ Davis         }
+      _Zapus princeps oregonus_ Preble          }
+
+  Family ERETHIZONTIDAE--American porcupines
+    Genus =Erethizon= Cuvier--North American porcupine
+      _Erethizon dorsatum epixanthum_ Brandt    }  porcupine
+      _Erethizon dorsatum nigrescens_ Allen     }
+
+  Family CHINCHILLIDAE Bennett--chinchillas and allies
+    Genus =Myocastor= Kerr--nutria
+      _Myocastor coypus_ (Molina), subsp.?         nutria
+
+
+            Order LAGOMORPHA--pikas, hares and rabbits
+
+  Family OCHOTONIDAE--pikas
+    Genus =Ochotona= Link--pikas
+      _Ochotona princeps cuppes_ Bangs          }
+      _Ochotona princeps fenisex_ Osgood        }  pika
+      _Ochotona princeps brunnescens_ Howell    }
+
+  Family LEPORIDAE--hares and rabbits
+    Genus =Lepus= Linnaeus--hares
+      _Lepus townsendii townsendii_ Bachman        white-tailed jack
+                                                     rabbit
+      _Lepus americanus washingtonii_ Baird     }
+      _Lepus americanus cascadensis_ Nelson     }  snowshoe rabbit
+      _Lepus americanus pineus_ Dalquest        }
+      _Lepus americanus columbiensis_ Rhoads    }
+      _Lepus californicus deserticola_ Mearns      black-tailed jack
+                                                     rabbit
+
+    Genus =Sylvilagus= Gray--cottontails and allies
+      _Sylvilagus nuttallii nuttallii_ (Bachman)   Nuttall cottontail
+      _Sylvilagus floridanus_ (Allen), subsp.?     Florida cottontail
+      _Sylvilagus idahoensis_ (Merriam)            pigmy rabbit
+
+
+            Order ARTIODACTYLA--even-toed ungulates
+
+  Family CERVIDAE--deer and allies
+    Genus =Cervus= Linnaeus--American elk or wapiti
+      _Cervus canadensis roosevelti_ Merriam    }  elk or wapiti
+      _Cervus canadensis nelsoni_ Bailey        }
+
+    Genus =Odocoileus= Rafinesque--northern deer
+      _Odocoileus virginianus ochrourus_ Bailey }
+      _Odocoileus virginianus leucurus_         }  white-tailed deer
+       (Douglas)                                }
+      _Odocoileus hemionus hemionus_            }
+       (Rafinesque)                             }  mule deer or
+      _Odocoileus hemionus columbianus_         }   black-tailed deer
+       (Richardson)                             }
+
+    Genus =Alce= Gray--Moose and Old-World elk
+      _Alce americana shirasi_ Nelson              moose
+
+    Genus =Rangifer= Hamilton-Smith--reindeer and caribou
+      _Rangifer arcticus montanus_ Seton-Thompson  caribou
+
+  Family BOVIDAE--cattle, sheep, goats and allies
+    Genus =Bison= Hamilton-Smith--bison
+      _Bison bison oregonus_ Bailey                bison
+
+    Genus =Ovis= Linnaeus--sheep
+      _Ovis canadensis canadensis_ Shaw         }  mountain sheep
+      _Ovis canadensis californiana_ Douglas    }
+
+    Genus =Oreamnos= Rafinesque--mountain goat
+      _Oreamnos americanus americanus_          }  mountain goat
+       (Blainville)                             }
+      _Oreamnos americanus missoulae_ Allen     }
+
+
+            Order CETACEA--whales and porpoises
+
+  Family ZIPHIIDAE--beaked whales
+    Genus =Berardius= Duvernoy--beaked whales
+      _Berardius bairdii_ Stejneger                Baird beaked whale
+
+    Genus =Mesoplodon= Gervais--beaked whales
+      _Mesoplodon stejnegeri_ True                 Stejneger beaked whale
+
+  Family DELPHINIDAE--porpoises
+    Genus =Delphinus= Linnaeus--dolphins
+      _Delphinus bairdii_ Dall                     Baird porpoise
+
+    Genus =Lissodelphis= Gloger--right-whale porpoises
+      _Lissodelphis borealis_ (Peale)           }  northern right-whale
+                                                }   porpoise
+
+    Genus =Lagenorhynchus= Gray--striped porpoises
+      _Lagenorhynchus obliquidens_ Gill            striped porpoise
+
+    Genus =Grampus= Gray--killer whales
+      _Grampus rectipinna_ (Cope)                  Pacific killer
+
+    Genus =Grampidelphis= Iredale and Troughton
+      _Grampidelphis griseus_ (Cuvier)             grampus
+
+    Genus =Globicelphalus= Hamilton--blackfishes
+      _Globicephalus scammonii_ (Cope)             blackfish
+
+    Genus =Phocoena= Cuvier--harbor porpoises
+      _Phocoena vomerina_ (Gill)                   harbor porpoise
+
+    Genus =Phocoenoides= Andrews--Dall porpoises
+      _Phocoenoides dalli_ (True)                  Dall porpoise
+
+  Family PHYSETERIDAE--sperm whales
+    Genus =Physeter= Linnaeus--sperm whale
+      _Physeter catodon_ Linnaeus                  sperm whale
+
+  Family KOGIIDAE--pigmy sperm whale
+    Genus =Kogia= Gray--pigmy sperm whale
+      _Kogia breviceps_ (Blainville)               pigmy sperm whale
+
+  Family RHACHIANECTIDAE--gray whale
+    Genus =Rhachianectes= Cope--gray whale
+      _Rhachianectes glaucus_ (Cope)               gray whale
+
+  Family BALAENOPTERIDAE--finback whales
+    Genus =Balaenoptera= Lacépède--finback whales
+      _Balaenoptera physalus_ (Linnaeus)           finback whale
+      _Balaenoptera borealis_ Lesson               Pollack whale
+      _Balaenoptera acutorostrata_ Lacépède        pike whale
+
+    Genus =Sibbaldus= Gray--blue whale
+      _Sibbaldus musculus_ (Linnaeus)              blue whale
+
+    Genus =Megaptera= Gray--humpbacked whales
+      _Megaptera novaeangliae_ (Borowski)          humpback whale
+
+  Family BALAENIDAE--baleen whales
+    Genus =Eubalaena= Gray--baleen whales
+      _Eubalaena sieboldii_ (Gray)                 Pacific right whale
+
+
+
+
+ACCOUNTS OF SPECIES AND SUBSPECIES
+
+
+=Didelphis virginiana virginiana= Kerr
+
+Opossum
+
+     _Didelphis virginiana_ Kerr. Anim. Kingd., p. 193, 1792.
+
+     _Type locality._--Virginia
+
+_Description._--Slightly smaller than a house cat; body in older animals
+heavy and fat; tail long, naked, scaled and prehensile. Ears large,
+naked and black with white tips; muzzle elongate and pointed; color of
+fur variable; overhair usually white and underfur white tipped with
+black; guard hairs long and coarse but underfur soft and dense; forefoot
+with opposable thumb; females with abdominal pouch.
+
+_Remarks._--The opossum has been introduced from the eastern United
+States into California and Oregon and has become well established in
+those states. Recent records from Clear Lake, Skagit County, and South
+Bend, Pacific County, indicate that the opossum is now resident in
+Washington and it may be expected to increase and spread (Scheffer,
+1943). The animals may also enter the area about Walla Walla from
+Oregon. The source of the opossums which have appeared in Washington is
+not yet known.
+
+Of this animal, Dr. Carl Hartman (1923: 347) has written:
+
+"In the popular mind, the generation of no animal is so shrouded in
+mystery as that of the opossum. Throughout the country, among both
+whites and negroes, deeply rooted tradition has it that the opossum
+copulates through the nose and that the female blows the fruit of
+conception into the pouch. Other myths relating to details of the
+reproductive process in this species are current among the people.
+
+"The growth of such legends need not surprise one, however, for the
+early birth of the embryos and the use of the pouch as an incubator
+certainly challenge the imagination. These phenomena attract the
+attention because they are unique, differing from the familiar method
+of rearing the young obtaining among the higher mammals, including man.
+Familiarity breeds contempt; the ordinary ceases to be marvelous. Thus
+on account of its rareness and its 'different' character the opossum,
+our only marsupial, figures in the folklore to a prominent degree."
+
+
+=Neurotrichus gibbsii=
+
+Gibbs shrew-mole
+
+_Description._--The shrew-mole is tiny, possessing a head and body
+2-1/2 to 3 inches long and a tail about 1-1/2 inches in length.
+The body is relatively stout but is less cylindrical than that of
+_Scapanus_. The eyes are nearly buried in the fur. The nose is long
+and pointed. The legs are short and the forefeet wide and powerful.
+The tail is thick, constricted at the base and clothed with short,
+stiff bristles. The fur is short and posteriorly directed. In color the
+shrew-mole is dark slate, almost black.
+
+  [Illustration: FIG. 21. Gibbs shrew-mole (_Neurotrichus gibbsii
+  minor_), female in captivity; Seattle, Washington, September 12,
+  1939. (Fish and Wildlife Service photo by Victor B. Scheffer, No.
+  719.)]
+
+_Remarks._--Shrew-moles inhabit moist habitats from sea level to 8,000
+feet. They are burrowing mammals and prefer to live in soft earth, free
+of sod. In the lowlands of western Washington, shrew-moles are most
+abundant in damp, shady ravines where the vegetation includes deciduous
+trees and dense underbrush with but little grass. In the mountains,
+shrew-moles are usually found near streams or rock slides, where the
+larger annuals grow densely on soil that is deep, soft, and free of
+turf. Vertically they range from the Humid Transition Life-zone
+through the Canadian, and well into the Hudsonian Life-zone.
+
+  [Illustration: FIG. 22. Distribution of the Gibbs shrew-mole in
+  Washington. A. _Neurotrichus gibbsii gibbsii._ B. _Neurotrichus
+  gibbsii minor._]
+
+Shrew-moles are both diurnal and nocturnal. They rest or sleep
+periodically, the length of their rest or sleep being longer when much
+food is eaten, and the intervals between their periods of rest or sleep
+is longer when less food is eaten. Owls and snakes appear to be their
+principal enemies. Predatory mammals eat some shrew-moles, and probably
+kill many that they do not eat. Shrew-moles are completely blind, and
+their long, prehensile nose guides all their activity. Their ordinary
+movements on the surface of the ground are slow and cautious. When
+frightened they break into a scuttling rush which ends beneath a leaf or
+bit of bark where the animal becomes motionless. Shrew-moles, on the
+surface of the ground, make considerable noise. They construct molelike
+burrows, but these are not as extensive or complicated as those of
+moles. The shrew-mole hunts for food in shallow trenches that it makes
+just under the layer of dead leaves and vegetable debris that covers the
+ground in their habitat. The food of the shrew-moles includes
+earthworms, isopods, insect larvae, soft-bodied insects, and other
+animal matter. Some vegetable matter is eaten.
+
+Breeding takes place at all seasons of the year, save perhaps in
+December and January. Embryos vary from one to four. The nest of a
+shrew-mole at Seattle, King County, consisted of a handful of damp
+leaves in a cavity of a rotten, punky, alder stump. The nest contained
+four half-grown young.
+
+
+=Neurotrichus gibbsii gibbsii= (Baird)
+
+      _Urotrichus gibbsii_ Baird, Mamm. N. Amer., p. 76, 1857.
+
+      _Neurotrichus [sic] gibbsii_ Günther, Proc. Zool. Soc. London, pl.
+      42, 1880.
+
+      _Neurotrichus Gibbsii_ True, Proc. U. S. Nat. Mus., 7 (1884):607,
+      1885.
+
+      _Neurotrichus gibbsii_ Bryant, Zoe. 1:359, February, 1891.
+
+      _Neurotrichus gibbsii gibbsii_ Miller, U. S. Nat. Mus. Bull.,
+      79:11, December 31, 1912.
+
+      _Type._--Obtained at Naches Pass, 4,500 ft., Pierce County,
+      Washington, by G. Gibbs on July 15, 1854 (see Dalquest and Burgner,
+      1941); type in United States National Museum.
+
+      _Racial characters._--Size relatively large; tail relatively long;
+      foreclaws straight on ventral surface.
+
+      _Measurements._--Two females from Tye, 4,000 ft., Stevens Pass,
+      King County, average: total length, 121.5; length of tail, 45;
+      length of hind foot, 18.
+
+      _Distribution._--The Cascade Mountains, from British Columbia
+      south, and Destruction Island, Jefferson County. Records of
+      occurrence are Baker Lake (J. M. E.), Tye (M. V. Z.), and Mount
+      Rainier (Mount Rainier Ntl. Park Mus.)
+
+_Remarks._--Shrew-moles are present on Destruction Island, a small
+island in the Pacific off the coast of Jefferson County. These moles are
+large, and are like _gibbsii_. It is thought, however, that this
+resemblance is due to convergent evolution rather than a once-continuous
+range with _gibbsii_. It is significant that a shrew (_Sorex trowbridgii
+destructioni_), the only other native land mammal on the island, differs
+from its mainland counterpart in much the same way as does _Neurotrichus
+g. gibbsii_ from _Neurotrichus g. minor_.
+
+
+=Neurotrichus gibbsii minor= Dalquest and Burgner
+
+      _Neurotrichus gibbsii_ minor Dalquest and Burgner, Murrelet, 22:12,
+      April 30, 1941.
+
+      _Type._--Obtained on the University of Washington Campus, Seattle,
+      King County, Washington, by W. W. Dalquest on May 19, 1940; type in
+      the Museum of Vertebrate Zoölogy.
+
+      _Racial characters._--Size small; tail short; foreclaws light and
+      weak as compared to those of _gibbsii_, with ventral surfaces
+      curved.
+
+      _Measurements._--Eighty-five specimens (males and females) from
+      Seattle, King County, average: total length, 107.0; length of
+      tail, 35.3; length of hind foot, 15.0.
+
+      _Distribution._--The lowlands of western Washington. Marginal
+      records are: Mt. Vernon (Jackson, 1915: 97), Cottage Lake (W.W.D.)
+      and Yacolt (M. V.Z.).
+
+
+
+
+Genus =Scapanus= Pomel
+
+Moles
+
+  [Illustration: FIG. 23. Coast mole (_Scapanus orarius orarius_) left
+  and Townsend mole (_Scapanus townsendii_) right; Puyallup. Washington,
+  May, 1914. (Fish and Wildlife Service photo by T. H. Scheffer, No.
+  B-18637.)]
+
+Moles are of stocky build and have cylindrical, rounded bodies. The eyes
+are tiny, nearly concealed in the fur. They have no external ears. The
+legs are short; the forefeet wide, spadelike, and armed with powerful
+claws. The fur is erect, not posteriorly directed. The color of the fur
+is deep bluish or brownish slate. The short, nearly naked tail is pale
+pink or whitish. Moles of this genus are found only along the Pacific
+Coast of North America from southern Canada south into Baja California.
+
+
+=Scapanus townsendii= (Bachman)
+
+Townsend mole
+
+      _Scalops townsendii_ Bachman. Jour. Acad. Nat. Sci. Philadelphia, 8
+      (pt. 1):58, 1839.
+
+      _Scapanus tow[n]sendii_ Pomel. Arch. Sci. Phys. Nat., Geneva, 9
+      (ser. 4):247, 1848.
+
+      _Scapanus Townsendii_ True. Proc. U. S. Nat. Mus., 7 (1881):607,
+      1885.
+
+      _Type._--Probably obtained at Fort Vancouver. Clark County.
+      Washington, by J. K. Townsend. A cotype was obtained on May 9.
+      1835; type in Academy of Natural Sciences of Philadelphia.
+
+      _Measurements._--Three males and 6 females from southwestern
+      Washington average, respectively: total length 221, 214; length of
+      tail 51, 46; hind foot 28.3, 26; weight 147, 117 grams.
+
+      _Distribution._--The lowlands of western Washington. Marginal
+      occurrences are: Sauk (Jackson. 1915: 61); Skykomish (Jackson,
+      1915: 61) and Yacolt (M.V.Z.).
+
+_Remarks._--_Scapanus townsendii_ occurs only in a narrow belt extending
+from southwestern British Columbia to northwestern California. It seems
+to prefer a generally damper habitat than the smaller-sized coast mole,
+although both species are sometimes found in the same locality. The
+larger mole is abundant in the meadows on the flood plains of rivers at
+low elevations, and on the glacial outwash prairies. It is often
+numerous in the fir forests, although its workings and mounds are less
+conspicuous there. The bodies of nine drowned individuals were found in
+a well by an old cabin in dense fir forest near Duvall, King County.
+Townsend moles occasionally occur in the Canadian Life-zone, as at
+Staircase on the north side of Lake Cushman in Mason County where
+workings were observed, but most records are from the Humid division of
+the Transition Life-zone.
+
+The Townsend mole is mainly nocturnal. If ridges of its runways are
+crushed down, they usually remain so throughout the day and are rebuilt
+the following night. Only about ten per cent of the ridges that were
+crushed were rebuilt in the daytime, and most of these were repaired in
+the early morning. The species is almost completely subterranean. Some
+individuals are crushed on highways by cars, showing that these moles
+occasionally travel on the surface of the ground.
+
+Townsend moles throw up numerous mounds, each usually containing about a
+cubic foot of earth. The mounds commonly are built just about as far
+apart as a man can step. The general direction as well as the twists and
+turns of a mole's burrow can usually be determined from the mounds.
+Townsend moles also construct ridges on the surface of the ground by
+pushing up sod in building a tunnel just below the grass roots. Smaller
+ridges are less commonly made by coast moles. More extensive tunnels,
+constructed deeper in the earth, serve as living quarters.
+
+  [Illustration: FIG. 24. Distribution of the Townsend mole, _Scapanus
+  townsendii_, in Washington.]
+
+According to Wight (1928: 24), Scheffer (1922: 11) and Moore (1933: 39),
+the food of this large mole includes earthworms and ground-inhabiting
+insects, insect larvae, spiders, centipedes, flesh, and small amounts of
+soft vegetation. Scheffer (1922: 10) found that the large mole breeds in
+February and produces from two to four young at a litter, with an
+average of three.
+
+
+=Scapanus orarius=
+
+Coast mole
+
+_Description._--The coast mole is almost identical with the larger mole
+in form of body but is smaller. Head and body are about 5-1/4 and tail
+about 1-1/2 inches in length.
+
+The coast mole occupies all of the territory inhabited by the Townsend
+mole and ranges slightly farther northward, southward and eastward.
+However it does not range east of the boundaries of the three Pacific
+Coast states or British Columbia.
+
+The mounds and workings of the coast mole are smaller than those of the
+Townsend mole and consequently are less noticed. It seems less prone to
+make numerous mounds, a pace apart, than the larger mole, and burrows
+tend to extend deeper in the ground. Upthrust ridges are less commonly
+built by _orarius_ than by _townsendii_.
+
+  [Illustration: FIG. 25. Coast mole (_Scapanus orarius orarius_).
+  Freshly killed; Seattle, Washington, June 9, 1938. (Fish and Wildlife
+  Service photo by Victor B. Scheffer, No. 64.)]
+
+Jackson (1915: 62) mentions the possibility of ecologic differences
+between _orarius_ and _townsendii_. There are some differences in
+habitat and habits. The coast mole seems to live deeper in the ground,
+prefers better drained soil, and is less colonial than the Townsend
+mole. These are average differences, however, and the two species
+commonly occur together. Another difference is that the larger mole
+rarely enters the dense deciduous woods, such as the brush-grown alder
+and dogwood jungles along the stream valleys. I have taken the coast
+mole in such localities, and often have found their workings there. The
+surface of a nearby meadow may be dotted with mounds of both species,
+but the larger mole seems not to enter ground that is thickly grown with
+brush. The coast mole ascends to greater altitudes in the Cascade
+Mountains than does the Townsend mole.
+
+Like the larger mole the coast mole feeds principally on earthworms and
+insects (Moore, 1933: 38). On September 29, 1939, in a ravine at
+Seattle, in two baited traps set six inches apart, a creeping mouse
+(_Microtus oregoni_) and a coast mole were found. The mouse had come to
+the bait and been caught. The mole had seemingly emerged from the ground
+through a tunnel a foot away and had been attracted to the body of the
+mouse. It had eaten an area a half inch in diameter and three-quarters
+of an inch deep into the body of the mouse just behind the shoulder,
+when in shifting its position it had become caught in the unsprung trap
+behind it. When found the mole lay dead with its nose inside the body of
+the mouse and its back broken. This is the only case known to me of a
+coast mole appearing voluntarily on the surface of the ground. Never
+have I found coast moles crushed on the highway; several Townsend moles
+so killed have been found.
+
+  [Illustration: FIG. 26. Distribution of the coast mole in Washington.
+  A. _Scapanus orarius orarius._ B. _Scapanus orarius yakimensis._
+  C. _Scapanus orarius schefferi._]
+
+The coast mole seems to breed very early in the spring. Males with
+swollen testes are found late in January. The young usually number four
+and are born in late March or early April. The breeding season seems to
+be the same as that of _townsendii_ but the number of young to a litter
+may average slightly greater.
+
+
+=Scapanus orarius orarius= True
+
+      _Scapanus orarius_ True. Proc. U. S. Nat. Mus., 19:52, December 21,
+      1896.
+
+      _Scapanus orarius orarius_ Jackson, N. Amer. Fauna, 38:61,
+      September 30, 1915.
+
+      _Type._--Obtained at Shoalwater (= Willapa) Bay, Pacific County,
+      Washington, by J. G. Cooper on August 30, 1855; type in United
+      States National Museum.
+
+      _Racial Characters._--Color dark bluish; frontal region of skull
+      not inflated.
+
+      _Measurements._--Eight males and two females from Seattle, King
+      County, average, respectively: total length 159, 155; length of
+      tail 33, 31; hind foot 20.7, 20.5; weight 58.5, 55.8.
+
+      _Distribution._--Western Washington. Marginal occurrences are:
+      Skykomish (B.S.C.), Merritt (B.S.C.), Wenatchee (B.S.C.), Lester
+      (Jackson, 1915: 64) and Yacolt (M.V.Z.).
+
+
+=Scapanus orarius yakimensis= Dalquest and Scheffer
+
+      _Scapanus orarius yakimensis_ Dalquest and Scheffer, Murrelet,
+      25:27, September 19, 1944.
+
+      _Type._--Obtained 3/4 mile north of Union Gap, Yakima County,
+      Washington, by J. A. Gray, Jr., on July 3, 1941; type in Museum of
+      Vertebrate Zoölogy.
+
+      _Racial Characters._--Color pale, grayish; skull narrow with
+      inflated frontal region.
+
+      _Measurements._--Six specimens (males and females) from Selah,
+      Yakima County, average: total length 164; length of tail 37;
+      length of hind foot 21.5. The type specimen weighed 58 grams.
+
+      _Distribution._--The Yakima Valley area; recorded from the type
+      locality northwestward to Easton (B.S.C.).
+
+
+=Scapanus orarius schefferi= Jackson
+
+      _Scapanus orarius schefferi_ Jackson, N. Amer. Fauna, 38:63,
+      September 30, 1915.
+
+      _Type._--Obtained at Walla Walla, Walla Walla County, Washington,
+      by T. H. Scheffer on August 8, 1914; type in United States National
+      Museum.
+
+      _Racial Characters._--Large size; pale color; large, wide skull
+      with inflated frontal area.
+
+      _Measurements._--Six topotypes average: total length 159; length
+      of tail 35; hind foot 21.5.
+
+      _Distribution._--Southeastern Washington; recorded from Fort Walla
+      Walla (Jackson, 1915: 64), Walla Walla (Jackson, 1915: 64) and
+      Dayton (M.V.Z.).
+
+
+Genus =Sorex= Linnaeus
+
+Long-tailed shrews
+
+Shrews have tiny eyes, almost concealed in the fur. The body is slim;
+the nose elongate and pointed. The legs are short and the feet small and
+weak. The fur is short but soft and posteriorly directed. The cinereous
+shrew, for example, is about 4 inches in length, of which the tail
+comprises 1-3/4 inches. The upper parts are dark grayish brown and the
+underparts dull gray.
+
+Shrews of the genus _Sorex_ are cosmopolitan in distribution. In North
+America they range from the arctic south to Central America. Three
+subgenera are recognized by Jackson (1928: 27), all three of which are
+represented in the state of Washington. The twelve subspecies present
+occupy numerous habitats, and their ranges include almost all of the
+state.
+
+Jackson pointed out (1928: 1) that "No other group of American mammals
+having a wide distribution, and in many localities an abundance of
+individuals, is so little known to the nonprofessional mammalogist as
+the long-tailed shrews." In Washington, especially in the coastal area
+of western Washington, shrews are widespread and abundant in many
+habitats. In some places they are the most common mammal present. In
+spite of this their presence is often unsuspected by persons that are
+otherwise alert to the animal life around them. This is even more
+surprising when one takes into account the facts that long-tailed shrews
+are diurnal as well as nocturnal and are less apt to detect the presence
+of man than are most other species of mammals.
+
+An important factor making long-tailed shrews inconspicuous is their
+small size, and contributing factors include their rapid movements and
+dull colors. On several occasions the writer, after seeing a long-tailed
+shrew vanish soundlessly under a log or into a patch of dead leaves, was
+left wondering if one actually had been seen or if instead his
+imagination had conjured up an animal from a dust mote or wind-blown
+leaf.
+
+The environment of the long-tailed shrews, except for the water shrews,
+is the zone at the very surface of the earth, just beneath the layer of
+moss, grass, dead leaves, and decaying vegetation. The removal of the
+covering vegetative layer reveals a maze of tiny tunnels, the branchings
+and complexities of which are infinite. Tiny traps baited with oats or
+meat and set in these runways catch the long-tailed shrews that inhabit
+them.
+
+The food of long-tailed shrews is varied. It is principally soft-bodied
+insects, insect pupae, and earthworms. At times a considerable quantity
+of soft vegetation and some seeds are eaten. Recent studies (Moore,
+1940: 1942) have shown that by destroying seeds some shrews may
+adversely affect the reforestation of some coniferous trees. Shrews
+readily eat meat, and often destroy the small mammals, including other
+shrews, taken in the mammal collector's traps.
+
+Hamilton (1940: 485) found that in one species of long-tailed shrew in
+the United States individuals rarely lived more than one year. This
+seems not to be true of at least some of the species found in
+Washington.
+
+Parasites, internal or external, are not commonly found on long-tailed
+shrews. They are regularly eaten by owls and snakes, but most
+carnivorous mammals, though they readily kill them, rarely eat them.
+
+
+=Sorex cinereus= Kerr
+
+Cinereous shrew
+
+The cinereous shrew ranges over most of Alaska, Canada and the northern
+half of the United States. A number of subspecies have been described,
+of which two have been reported from Washington. The cinereous shrew is
+of medium size and difficult to distinguish from the dusky and wandering
+shrews, especially in eastern Washington, without studying the skulls.
+In _cinereus_ the fourth unicuspid tooth is smaller than the third; in
+_vagrans_ and _obscurus_ it is larger. The relatively narrow rostrum of
+_cinereus_ also serves to separate it from the other two species.
+
+The cinereous shrew seems to be less restricted to the vicinity of
+streams and marshes than _Sorex vagrans_, resembling _Sorex obscurus_
+and _Sorex trowbridgii_ in this respect. In Washington it seems to be
+rare and has not been taken by the writer. Published records for _Sorex
+c. cinereus_ indicate that this race is, in Washington, confined to
+mountainous areas. The coastal race, _streatori_, seems to be confined
+to the humid area.
+
+
+=Sorex cinereus cinereus= Kerr
+
+      _Sorex arcticus cinereus_ Kerr. Anim. Kingd., p. 206, 1792.
+
+      _Sorex cinereus cinereus_ Jackson. Jour. Mamm., 6: 56, February 9,
+      1925.
+
+      _Type._--None. Name based on the account of a shrew seen at Fort
+      Severn, Canada, by J. R. Forster in 1772.
+
+      _Racial characters._--Small size a
