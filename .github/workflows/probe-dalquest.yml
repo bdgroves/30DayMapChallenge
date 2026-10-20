@@ -1,0 +1,33 @@
+name: probe dalquest
+on:
+  push:
+    branches: [probe/dalquest]
+    paths: [.github/workflows/probe-dalquest.yml]
+permissions: {contents: write}
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p probe
+          for n in 53581 53582; do curl -sfL -A "bdgroves research" -o probe/pg$n.txt https://www.gutenberg.org/cache/epub/$n/pg$n.txt || echo "fail $n"; done
+          ls -la probe
+          python3 - <<'PY'
+          import re,glob
+          out=[]
+          for f in sorted(glob.glob('probe/pg*.txt')):
+              t=open(f,encoding='utf-8',errors='replace').read()
+              out.append(f"#### {f} len={len(t)}\n"+t[:600])
+              for m in re.finditer(r'Ochotona princeps',t):
+                  pass
+              idx=[m.start() for m in re.finditer(r'\n\s*_?Ochotona princeps [a-z]+',t)]
+              out.append(f"hits {len(idx)} at {idx[:40]}")
+              i=t.find('Genus OCHOTONA')
+              if i<0: i=t.find('OCHOTONA')
+              if i>=0: out.append(t[i:i+60000])
+          open('probe/pika_extract.txt','w').write('\n\n'.join(out))
+          PY
+          rm -f probe/pg*.txt
+          git config user.name probe; git config user.email probe@users.noreply.github.com
+          git add probe && git commit -m "probe: Dalquest pika extract [skip ci]" && git push
