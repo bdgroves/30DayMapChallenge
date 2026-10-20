@@ -2,7 +2,7 @@ name: probe dalquest
 on:
   push:
     branches: [probe/dalquest]
-    paths: [.github/workflows/probe-dalquest.yml]
+    paths: [.github/workflows/probe-dalquest.yml, probe/inat.py]
 permissions: {contents: write}
 jobs:
   fetch:
@@ -10,23 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          mkdir -p probe
-          for n in 53582; do curl -sfL -A "bdgroves research" -o probe/pg$n.txt https://www.gutenberg.org/cache/epub/$n/pg$n.txt || echo "fail $n"; done
-          ls -la probe
-          python3 - <<'PY'
-          import re,glob
-          out=[]
-          for f in sorted(glob.glob('probe/pg*.txt')):
-              t=open(f,encoding='utf-8',errors='replace').read()
-              out.append(f"#### {f} len={len(t)}\n"+t[:600])
-              for m in re.finditer(r'Ochotona princeps',t):
-                  pass
-              idx=[m.start() for m in re.finditer(r'\n\s*_?Ochotona princeps [a-z]+',t)]
-              out.append(f"hits {len(idx)} at {idx[:40]}")
-              out.append(t[781000:800000])
-          open('probe/pika_account.txt','w').write('\n\n'.join(out))
-          PY
-          rm -f probe/pg*.txt
+          python3 -c "import json,urllib.request;print(json.load(urllib.request.urlopen('https://api.inaturalist.org/v1/taxa?q=Ochotona%20princeps&rank=species'))['results'][0]['id'])"
+          python3 probe/inat.py
           git config user.name probe; git config user.email probe@users.noreply.github.com
-          git add probe && git commit -m "probe: Dalquest pika extract [skip ci]" && git push
-# run 2
+          git add probe && git commit -m "probe: iNaturalist pika near the WA sites [skip ci]" && git push
