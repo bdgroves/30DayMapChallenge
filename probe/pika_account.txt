@@ -1,0 +1,410 @@
+#### probe/pg53582.txt len=941809
+The Project Gutenberg eBook of Mammals of Washington, Volume 2
+    
+This eBook is for the use of anyone anywhere in the United States and
+most other parts of the world at no cost and with almost no restrictions
+whatsoever. You may copy it, give it away or re-use it under the terms
+of the Project Gutenberg License included with this eBook or online
+at www.gutenberg.org. If you are not located in the United States,
+you will have to check the laws of the country where you are located
+before using this eBook.
+
+Title: Mammals of Washington, Volume 2
+
+Author: Walter Woelber Dalquest
+
+Editor: E. Raym
+
+hits 9 at [81325, 259584, 259634, 259690, 784116, 784186, 786188, 787510, 788863]
+
+tria, a native of South America, has been brought to
+the United States and raised commercially on "fur farms." The species
+has become established in the wild in several localities in western
+Washington and at the Colville Indian Reservation in northeastern
+Washington. For further details see Larrison (1943).
+
+
+=Ochotona princeps= (Richardson)
+
+Pika or cony
+
+_Description._--The pika is of guinea-pig size, with a short, chunky
+body about 200 mm. in length. The tail is represented externally merely
+by a tuft of white fur. The short, wide head has large, circular ears,
+large black eyes, and long whiskers. The legs are short and the soles of
+the feet are furred. The color of the Washington races varies from
+grayish-yellow to dark reddish brown. Like rabbits, all pikas have two
+pairs of upper incisors. The second pair, located just in back of the
+first, is small and delicate.
+
+_Ochotona_ is a wide-ranging genus with many more species in Asia and
+extreme eastern Europe than in North America. Three races of the species
+_princeps_ occur in the state of Washington, where they are confined to
+the Cascade, Kettle River, and Pend Oreille Mountains. The ranges of all
+three races extend northward into British Columbia; one (_brunnescens_)
+occurs also in Oregon, and one (_cuppes_) in Idaho.
+
+In Washington pikas live only in talus slides and rock piles, where they
+find refuge from most of the carnivores that prey on small mammals.
+Their distribution in the state seems to be regulated by the
+distribution of talus slides, and areas free of talus act as effective
+barriers to pikas. They are abundant throughout the Cascades but are
+absent from the Olympic Mountains although conditions there are well
+suited to them. Probably the lowlands of western Washington which, owing
+to moderate temperature and low relief, have little talus and exposed
+rock, serve as a barrier. The Columbian Plateau is also free of pikas.
+This may be due to the relative scarcity of talus as compared with
+mountainous areas, and the fact that much of the talus on the Plateau is
+composed of fragments of basalt too small to afford the shelter needed
+by pikas. The aridity of the Columbian Plateau may contribute to the
+absence of pikas, although this seems unlikely in view of the fact that
+they occur on arid lands in Nevada and elsewhere.
+
+Altitudinally, pikas range from 300 feet, in Clark County, to 6,000 feet
+on Mt. Rainier, Pierce County, and on Round Top Mountain, Pend Oreille
+County. They occur from the arid subdivision of the Transition
+Life-zone, at Milk Creek, Kittitas County, to the upper edge of the
+Hudsonian Life-zone, at Glacier Basin, Mt. Rainier. Generally speaking,
+they are mammals of the mountains.
+
+Common enemies of the pikas are the weasel (_Mustela frenata_), marten
+(_Martes caurina_), and hawks of several species. Pikas are active by
+day, especially in the early morning. Their call note is a short "eek!"
+which carries a long distance. This squeaking note is often heard
+throughout the night when rain threatens their drying hay.
+
+  [Illustration: FIG. 126. Distribution of the pika in Washington. A.
+  _Ochotona princeps brunnescens._ B. _Ochotona princeps fenisex._ C.
+  _Ochotona princeps cuppes._]
+
+Vegetation used as food, either for immediate consumption or for winter
+use, includes almost all grasses, vines, shrubs, and trees available
+near the pika's home. The subalpine lupines are especially favored. Even
+such a thorny growth as the devil's club (_Oplopanax horridum_) is
+eaten. Heather (_Phyllodoce, Cassiope_) has not been found in any of the
+numerous hay piles examined, even when it is the commonest plant in the
+vicinity. Large bundles of plants are carried in the pika's mouth. The
+forefeet do not assist in transporting the load. If intended for
+immediate consumption, the plants are deposited on one of last year's
+hay piles and are eaten at leisure. The eating habits of the pika are
+rabbitlike. A large leaf is seized at the tip and drawn into the mouth
+with rapid chewing motions without assistance from the forefeet. Plants
+destined to become hay are carefully spread out and exposed to the sun.
+In cloudy or rainy weather the exposed plants are gathered and stored
+under large rocks, to be reëxposed for curing when the weather improves.
+Large hay piles often include more than fifty pounds of perfectly cured
+grasses, annuals, bushes and evergreens.
+
+No record of embryos is available for Washington pikas, but a male with
+enlarged testes was taken at Lake Keechelus, Kittitas County, on March
+22, 1940. Half-grown young of _fenisex_ were taken at Sawtooth Mountain,
+Skamania County, on July 13, 1939, and of _brunnescens_ at Slate Creek,
+Whatcom County, on August 16, 1937. Nearly full-grown young of _fenisex_
+are reported taken at Bald Mountain, head of Ashnola River, Okanogan
+County, on September 16, 1920. Young _cuppes_ of several sizes were
+taken at Sherman Creek Pass, Ferry County, on September 11, 1938. The
+breeding season possibly extends from March to August with a tendency to
+be earlier at lower elevations.
+
+
+=Ochotona princeps cuppes= Bangs
+
+      _Ochotona cuppes_ Bangs, Proc. New England Zoöl. Club, 1:40, June
+      5, 1899.
+
+      _Ochotona princeps cuppes_ A. H. Howell, N. Amer. Fauna, 47:27,
+      August 21, 1924.
+
+      _Type._--Obtained by Allan Brooks at the Monashee Divide, 4,000
+      feet, Gold Range, British Columbia, on August 2, 1897; type in
+      Museum of Comparative Zoölogy.
+
+      _Racial characters._--Smallest and palest of the Washington pikas;
+      total length less than 8 inches; color of upper parts
+      grayish-yellow, grayest on posterior third of back; underparts
+      pale buff; skull small, but with relatively wide zygomatic and
+      interorbital regions.
+
+      _Measurements._--Eight males and 3 females from Round Top
+      Mountain, Pend Oreille County, average, respectively: total length
+      183.5, 181.5; hind foot 30.7, 31.0; ear 22.4, 23.7; one adult male
+      from the same locality weighed 141.6 grams.
+
+      _Distribution._--This pika has been found at Round Top Mountain
+      (W.W.D.) and Pass Creek Pass (W.W.D.) in northeastern Washington.
+
+
+=Ochotona princeps fenisex= Osgood
+
+      _Lagomys minimus_ Lord, Proc. Zoöl. Soc. London, p. 98, 1863 (not
+      of Schinz, 1821).
+
+      _Ochotona minimus_ Bangs, Proc. New England Zoöl. Club, 1:39, June
+      5, 1899.
+
+      _Ochotona fenisex_ Osgood, Proc. Biol. Soc. Washington, 26:80,
+      March 22, 1913 (substitute for _minimus_ Lord).
+
+      _Ochotona princeps fenisex_ A. H. Howell, N. Amer. Fauna, 47:28,
+      August 21, 1924.
+
+      _Type._--Obtained by J. K. Lord at "Ptarmigan Hill," near head of
+      Ashnola River, Cascade Range, British Columbia, in early fall of
+      1860 (?); type in British Museum.
+
+      _Racial characters._--Size and color intermediate between
+      _brunnescens_ and _cuppes_; length about 8 inches; color of upper
+      parts near Pinkish Cinnamon, becoming gray on posterior third of
+      back; underparts washed with buff; skull of medium size and
+      proportions.
+
+      _Measurements._--Nine males and 5 females from Okanogan and Chelan
+      counties average, respectively: total length 190.0, 197.4; hind
+      foot 31.1, 32.8; ear 21.6, 22.0.
+
+      _Distribution._--Specimens referable to this race occur from the
+      British Columbian boundary south, through the eastern Cascade
+      Mountains. Along the western border of its range, _fenisex_
+      becomes larger and darker, merging into the race _brunnescens_.
+      Marginal records are: Hidden Lakes (U.S.N.M.), Lyman Lake
+      (U.S.N.M.), Mt. Stuart (W.W.D.), Easton (U.S.N.M.), Mt. Aix
+      (U.S.N.M.), Steamboat Mt. (M.V.Z.).
+
+
+=Ochotona princeps brunnescens= Howell
+
+      _Ochotona fenisex brunnescens_ A. H. Howell, Proc. Biol. Soc.
+      Washington, 32:108, May 20, 1919.
+
+      _Ochotona princeps brunnescens_ A. H. Howell, N. Amer. Fauna.
+      47:31, August 21, 1924.
+
+      _Type._--Obtained by George G. Cantwell at Lake Keechelus, Kittitas
+      County, Washington, on August 23, 1917; type in United States
+      National Museum.
+
+      _Racial characters._--Largest and darkest of the three races of
+      Washington pikas; total length 8 inches or more; color of upper
+      parts rich cinnamon, heavily washed with blackish; posterior part
+      of back slightly paler; underparts buffy cinnamon; skull large and
+      heavy with wide zygomatic arches but relatively narrow
+      interorbital region and relatively narrow across maxillary tooth
+      rows.
+
+      _Measurements._--Eight males and 9 females from within three miles
+      of Stevens Pass, King and Chelan counties, average, respectively:
+      total length 201.8, 208.3; hind foot 33.3, 33.0; ear 22.3, 22.6.
+      The average weights of 4 males and 3 females from 3 mi. S E Tumtum
+      Mountain, Clark County, are 178.0 and 174.3 grams, respectively.
+
+      _Distribution._--From the British Columbia boundary south to the
+      Columbia River and from the western Cascades east to the area of
+      intergradation with _fenisex_. Marginal occurrences are: Whatcom
+      Pass (U.S.N.M.), Stevens Pass (W.W.D.), Keechelus (U.S.N.M.),
+      Cowlitz Pass (U.S.N.M.), Tumtum Mountain (M.V.Z.).
+
+
+=Lepus townsendii townsendii= Bachman
+
+White-tailed jack rabbit
+
+      _Lepus townsendii_ Bachman, Jour. Acad. Nat. Sci. Philadelphia, 8
+      (pt. 1):90, pl. 2, 1839.
+
+      _Lepus campestris townsendi_ Merriam, Proc. Biol. Soc. Washington,
+      17:132, July 14, 1904.
+
+      _Lepus townsendii townsendii_ Hollister, Proc. Biol. Soc.
+      Washington, 28:70, March 12, 1915.
+
+      _Type._--Obtained by J. K. Townsend at old Fort Walla Walla
+      (present town of Wallula), Walla Walla County, Washington; type in
+      Philadelphia Academy of Natural Sciences.
+
+      _Measurements._--A male from Miller's Island, Klickitat County, in
+      the Columbia River, measured: total length 564; length of tail
+      117; hind foot 156; ear 110; weight 337.5 grams.
+
+      _Distribution._--Previously found over the grasslands of eastern
+      Washington. Now restricted and scarce except in the Okanogan
+      Valley.
+
+_Remarks._--The white-tailed jack rabbit is the largest rabbit in the
+state, adults measuring 24 or more inches in length. The long legs and
+long ears accentuate the impression of large size. Its body is more
+bulky than that of its relative, the black-tailed jack rabbit. In summer
+the pelage of the upper parts is dark gray and in winter it is white
+over nearly the entire body.
+
+The white-tailed jack rabbit occurs from southern Saskatchewan south to
+extreme northern New Mexico, and from eastern Washington east to
+Wisconsin. A single race occurs in Washington. In eastern Washington
+"whitetails" favor the hilly, bunchgrass territory of the arid
+subdivision of the Transition and Upper Sonoran life-zones. In winter
+they descend to the lower sagebrush valleys.
+
+The principal enemies of the white-tailed jack rabbit are the eagle,
+coyote, and bobcat. Of 1,186 stomachs of coyotes from Washington, Sperry
+(1941: 11) found that 27 percent contained rabbits, including jack
+rabbits, snowshoe hares, and cottontails.
+
+In the daytime, white-tailed jack rabbits hide in forms which consist of
+shallow holes dug at the bases of bushes or beside rocks. They feed in
+the morning, evening, and in the night along wide, well-defined trails
+through the bunchgrass. If startled from their forms they dash off in
+bounding, erratic leaps, skimming away until lost to sight. A whitetail
+has been timed at a speed of 34 miles per hour (Cottam and Williams,
+1943: 262).
+
+The early explorers and settlers found the white-tailed jack rabbits
+abundant in eastern Washington. With the invasion and spread of the
+black-tailed jack rabbit, and the reduction of native bunchgrass through
+overgrazing by livestock, the whitetail has become rare. In several
+years of field work on the Columbian Plateau, I saw none. Near Wallula,
+the type locality, residents had not seen whitetails for years, but
+thought there might be a few left "back in the hills." There are thought
+to be a few left near Ellensburg and Yakima.
+
+Only in the Okanogan Valley are the whitetails holding their own; they
+are reasonably common there. In winter they come down from the hills on
+to the sagebrush flats along the Okanogan River in Okanogan County. In
+January it is not unusual to see as many as five in a day's drive. When,
+as will most certainly occur, the black-tailed jack rabbit enters the
+Okanogan Valley, the splendid whitetail may be expected to disappear
+from Washington.
+
+Because this species has been so reduced in numbers, no distributional
+map has been included. Taylor and Shaw (1929: 28) give its range as:
+"north to Oroville, east to Pullman, south to Asotin, Walla Walla, and
+Kennewick, and west to Lake Chelan (Manson), Yakima Valley, and
+Klickitat County." This range is similar to that of the Nuttall
+Cottontail (Fig. 129).
+
+
+=Lepus americanus= Erxleben
+
+Snowshoe rabbit
+
+_Description._--The appearance, size, and proportions of the snowshoe
+rabbit are similar to those of the Belgian hare. The body is about 16
+inches in length, the ears are midway in size between those of the
+cottontail and the jack rabbit, and the feet are relatively long and the
+tail is short. In summer the color of the upper parts is reddish brown,
+varying with the subspecies. The winter pelage of _Lepus a.
+washingtonii_ is a slightly paler brown than the summer coat. In the
+other three races in Washington the winter coat is entirely white,
+except for the dusky borders of the ears.
+
+Snowshoe rabbits occur in Alaska, Canada, and the northern United
+States, from the Atlantic to the Pacific. They are absent in desert or
+prairie regions but range far southward in the United States in
+mountainous areas. They are found throughout Washington, except on the
+Columbian Plateau and in the Okanogan River Valley. None of the four
+races found in Washington is restricted exclusively to the state.
+Snowshoe rabbits live only in wooded areas. Their habitat varies from
+dense, impenetrable rain-forests along the ocean to the alpine parks,
+dotted with trees, of the Hudsonian Life-zone. They occur in humid and
+arid subdivisions of the Transition, Canadian, and Hudsonian life-zones.
+Altitudinally they range from sea level to 6,000 feet (Mt. Rainier).
+
+Enemies of the snowshoe rabbit include the coyote, bobcat, lynx,
+long-tailed weasel, and great horned owl.
+
+Snowshoe rabbits are largely nocturnal or crepuscular in habit. They are
+secretive and slip away quietly at the least threat of danger. Persons
+often live for years in localities where snowshoe rabbits are abundant
+without seeing a live individual. Those that are seen ordinarily have
+been startled from their forms at midday, or surprised while feeding on
+clover along a highway in the early morning. More commonly they are seen
+crossing a road in the lights of an automobile. Tracks, easily found
+after a fresh snowfall, give some indication of their numbers in any
+locality.
+
+Little information is available on the fluctuations of numbers of
+snowshoe rabbits in Washington. Floyd Thornton, a trapper living at
+Forks, Clallam County, states that they were numerous in 1924, scarce in
+1930-31, and fairly common in 1938-39. More rabbits are seen shortly
+after the breeding season than at other times of the year. From April
+8-10, 1941, I saw none on a highway extending about 100 miles along the
+west coast of the Olympic Peninsula, but on June 4-5 here counted 3 dead
+on the road and saw 3 running across it. One was about one-third grown
+and another two-thirds grown.
+
+  [Illustration: FIG. 127. Distribution of the snowshoe hare in
+  Washington. A. _Lepus americanus washingtonii._ B. _Lepus americanus
+  cascadensis._ C. _Lepus americanus columbiensis._ D. _Lepus americanus
+  pineus._]
+
+The snowshoe rabbits are classed as game animals in Washington but few
+people hunt them. Their winter food includes buds and needles of
+hemlock, Douglas fir, and probably other evergreens. Annuals, grasses,
+and shrubs, as well as Douglas fir needles, are eaten in the summer.
+Snowshoe rabbits do some damage by eating the bark of trees and the
+boughs of newly planted evergreens. Together with rodents they are
+responsible for serious damage to plantations of Douglas fir and hemlock
+on the Olympic Peninsula.
+
+At least in summer, they are heavily parasitized by fleas and ticks and
+may in addition carry tularemia, or rabbit fever.
+
+Scheffer (1933: 77-78) found that the young were born from May 5 to July
+4 in the Puget Sound area and that there were from 2 to 5, usually 5 per
+litter.
+
+
+=Lepus americanus washingtonii= Baird
+
+      _Lepus washingtonii_ Baird, Proc. Acad. Nat. Sci. Philadelphia,
+      7:333, 1855.
+
+      [_Lepus americanus_] var. _Washingtoni_ J. A. Allen, Proc. Boston
+      Soc. Nat. Hist., 17:434, February 17, 1875.
+
+      _Lepus americanus Washingtoni_ True, Proc. U. S. Nat. Mus., 7:601,
+      1885.
+
+      _Type._--Obtained by G. Suckley at Steilacoom, Pierce County,
+      Washington, on April 1, 1854; type in United States National
+      Museum.
+
+      _Racial characters._--Size small for a snowshoe rabbit; color of
+      upper parts dark, in summer between Sayal Brown and Cinnamon, in
+      winter slightly paler, near Pale Cinnamon Buff (capitalized color
+      terms in the accounts of the lagomorphs are after Ridgway, Color
+      Standards and Color Nomenclature, Washington, D. C., 1912);
+      underparts white; soles of feet usually stained yellowish,
+      brownish, or blackish.
+
+      _Measurements._--Two males and 6 females from the Olympic
+      Peninsula average, respectively: total length 407, 402.5; hind
+      foot 114, 119. Weight of a 408 mm. male from the same locality
+      2-1/4 lbs.
+
+      _Distribution._--This snowshoe rabbit occupies the humid
+      subdivision of the Transition Life-zone of western Washington from
+      the British Columbian boundary south to the Columbia River.
+      Marginal occurrences are (from Dalquest, 1942: 175): Mt. Vernon,
+      Paradise Lake, Lake Kapowsin, and White Salmon.
+
+
+=Lepus americanus cascadensis= Nelson
+
+      _Lepus bairdi cascadensis_ Nelson, Proc. Biol. Soc. Washington,
+      20:87, December 11, 1907.
+
+      _Lepus americanus cascadensis_ Racey and Cowan, Ann. Rept.
+      Provincial Mus. British Columbia, p. H 18, 1935.
+
+      _Type._--Obtained by W. C. Colt near Hope, British Columbia, on
+      June 12, 1894; type in Museum of Comparative Zoölogy.
+
+      _Racial characters._--Size medium for a snowshoe rabbit; color of
+      upper parts in summer near Orange Cinnamon; head paler, sharply
+      marked off from body; underparts white. Color in winter: entire
+      body pure white except for dusky borders of ears and eyelids.
+
+      _Measurements._--Three males and 5 females from Kittitas County,
+      Washington, average, respectively: total length 405, 440; hind
+      foot 124, 133.
+
+      _Dist
