@@ -25,7 +25,7 @@ Always `git pull --rebase` before working: bots and Actions commit often.
 - [ ] Optional: Spokane caption note on the smoke post; a monitor-numbers version of the smoke animation.
 
 ### Ideas on the table
-- [ ] **Pikas part 2:** list/map of Washington's pre-1950 pika sites with no record since 2000, as a field checklist or Leaflet map.
+- [x] **Pikas part 2** is published (`blog/pikas-part-2-washington.html`, 6 Oct) and was **updated 19 Oct 2026**: Round Top (Dalquest's 14 MVZ pikas, pinned 105 km off in Spokane County; really the Selkirks Round Top, already re-found), Tye (old Wellington townsite, already re-found) and Bird Creek Meadows (5 iNat within 3 km) moved to re-found; 8 sites left to look at (GPX `blog/data/pika-wa-go-look.gpx`); Keechelus is the type locality of *brunnescens*; WDFW Pika Observation survey (Survey123) linked. Evidence: `gbif/pika/out/inat_wa_sites.json`, `gbif/pika/part2/`. Delete the `probe/dalquest` branch (scratch; can't be deleted from a cloud session).
 - [ ] **More GBIF species:** mountain goat, white-tailed ptarmigan, marmots... (one JSON file each, see below).
 - [ ] Golden trout heat shock angle: nobody seems to have measured hsp in golden trout; could be a follow-up.
 

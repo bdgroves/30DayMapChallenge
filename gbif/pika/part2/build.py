@@ -88,7 +88,7 @@ NOTES = {
  "Tye": dict(
     name="Tye (old Wellington)", group="pinned", look=(47.7493, -121.1207),
     who="UWBM (1 specimen, 1939)",
-    note="Pinned where the Tye River meets the Foss, at 341 m. In 1939 \u201cTye\u201d was the railroad town below Stevens Pass that had been called Wellington until the 1910 avalanche, 14 km east and at 3,257 ft. GBIF has a pika record from 2026 about 300 m from the old townsite.",
+    note="Pinned where the Tye River meets the Foss, at 341 m. In 1939 \u201cTye\u201d meant the old railroad town below Stevens Pass, called Wellington until the 1910 avalanche and abandoned in 1929, 14 km east and at 3,257 ft. GBIF has a pika record from 2026 about 300 m from the old townsite.",
     go="Wellington ghost town and the Iron Goat Trail, off US 2. Easy."),
  "Bumping River, Goose Prarie": dict(
     name="Goose Prairie, Bumping River", group="low",
@@ -98,7 +98,7 @@ NOTES = {
  "NACHREES HWY, NEAR; MILK CREEK": dict(
     name="Milk Creek, Naches Highway", group="low",
     who="Walter Dalquest (5 specimens, 1940)",
-    note="Dalquest singled this place out: Milk Creek was the driest, warmest life zone where he found pikas in Washington. At roughly 800 m, it's exactly the kind of low, warm site that part 1 found missing most often. Nothing on record within 3 km since 2000.",
+    note="Dalquest singled this place out: Milk Creek was the driest life zone where he found pikas in Washington. At roughly 800 m, it's exactly the kind of low, warm site that part 1 found missing most often. Nothing on record within 3 km since 2000.",
     go="SR 410 corridor near Milk Creek. Rock slides by the highway."),
  "Twin Lakes": dict(
     name="Twin Lakes (near Lake Wenatchee)", group="low",
@@ -124,7 +124,7 @@ NOTES = {
     name="Funk Mountain, Okanogan", group="gap",
     who="Leonard Wing (1 specimen, 1940)",
     note="No pika on record within 10 km since 2000, on GBIF or iNaturalist. The nearest is 14 km away. There's a fire lookout on Funk Mountain, so people do go up.",
-    go="Funk Mountain lookout, north-west of Conconully."),
+    go="Funk Mountain lookout, north of Conconully (the label says 16 mi N)."),
  "Mount Higgins; Lookout Station": dict(
     name="Mount Higgins lookout", group="gap",
     who="UWBM (2 specimens, 1940)",

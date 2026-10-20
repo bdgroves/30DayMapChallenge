@@ -110,7 +110,7 @@
   "gbif_nearest_year": 2024,
   "inat_3km": 1,
   "inat_10km": 11,
-  "note": "Pinned where the Tye River meets the Foss, at 341 m. In 1939 “Tye” was the railroad town below Stevens Pass that had been called Wellington until the 1910 avalanche, 14 km east and at 3,257 ft. GBIF has a pika record from 2026 about 300 m from the old townsite.",
+  "note": "Pinned where the Tye River meets the Foss, at 341 m. In 1939 “Tye” meant the old railroad town below Stevens Pass, called Wellington until the 1910 avalanche and abandoned in 1929, 14 km east and at 3,257 ft. GBIF has a pika record from 2026 about 300 m from the old townsite.",
   "go": "Wellington ghost town and the Iron Goat Trail, off US 2. Easy."
  },
  {
@@ -404,7 +404,7 @@
   "gbif_nearest_year": 2019,
   "inat_3km": 0,
   "inat_10km": 1,
-  "note": "Dalquest singled this place out: Milk Creek was the driest, warmest life zone where he found pikas in Washington. At roughly 800 m, it's exactly the kind of low, warm site that part 1 found missing most often. Nothing on record within 3 km since 2000.",
+  "note": "Dalquest singled this place out: Milk Creek was the driest life zone where he found pikas in Washington. At roughly 800 m, it's exactly the kind of low, warm site that part 1 found missing most often. Nothing on record within 3 km since 2000.",
   "go": "SR 410 corridor near Milk Creek. Rock slides by the highway."
  },
  {
@@ -479,7 +479,7 @@
   "inat_3km": 0,
   "inat_10km": 0,
   "note": "No pika on record within 10 km since 2000, on GBIF or iNaturalist. The nearest is 14 km away. There's a fire lookout on Funk Mountain, so people do go up.",
-  "go": "Funk Mountain lookout, north-west of Conconully."
+  "go": "Funk Mountain lookout, north of Conconully (the label says 16 mi N)."
  },
  {
   "name": "Mount Higgins lookout",
