@@ -206,7 +206,8 @@ def preview(days: list[dict], which: str) -> None:
     print(f"\n{ready} of {len(pick)} ready to post.")
     for name, (_, keys) in PLATFORMS.items():                 # says whether keys exist, never what they are
         missing = [k for k in keys if not os.environ.get(k)]
-        print(f"{name}: " + ("keys found" if not missing else "missing " + ", ".join(missing)))
+        msg = f"{name}: " + ("keys found" if not missing else "missing " + ", ".join(missing))
+        print(f"::notice title=Keys::{msg}" if os.environ.get("GITHUB_ACTIONS") else msg)
 
 
 def main() -> int:
