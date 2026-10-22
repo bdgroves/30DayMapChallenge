@@ -207,7 +207,30 @@ def preview(days: list[dict], which: str) -> None:
     for name, (_, keys) in PLATFORMS.items():                 # says whether keys exist, never what they are
         missing = [k for k in keys if not os.environ.get(k)]
         msg = f"{name}: " + ("keys found" if not missing else "missing " + ", ".join(missing))
+        if not missing:
+            msg += "; " + check_login(name)
         print(f"::warning title=Keys::{msg}" if os.environ.get("GITHUB_ACTIONS") else msg)
+
+
+def check_login(name: str) -> str:
+    """Sign in without posting, to prove the keys work (never prints them)."""
+    try:
+        if name == "x":
+            import requests
+            from requests_oauthlib import OAuth1
+            auth = OAuth1(os.environ["X_API_KEY"], os.environ["X_API_SECRET"],
+                          os.environ["X_ACCESS_TOKEN"], os.environ["X_ACCESS_SECRET"])
+            r = requests.get("https://api.x.com/2/users/me", auth=auth, timeout=30)
+            if r.status_code == 200:
+                return f"signed in as @{r.json()['data']['username']}"
+            return f"sign-in failed ({r.status_code}: {r.text[:160]})"
+        if name == "bluesky":
+            from atproto import Client
+            p = Client().login(os.environ["BSKY_HANDLE"], os.environ["BSKY_APP_PASSWORD"])
+            return f"signed in as @{p.handle}"
+    except Exception as e:  # noqa: BLE001
+        return f"sign-in failed ({str(e)[:160]})"
+    return "not checked"
 
 
 def main() -> int:
