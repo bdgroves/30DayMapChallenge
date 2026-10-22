@@ -1,0 +1,77 @@
+name: Post the day's map (X and Bluesky)
+
+# Every morning in November: posts the day's map if its status in days.yml is `done`.
+# 16:07 UTC is 8:07 AM Pacific (PST from Nov 1). The 20:07 run is a retry: it only fills in a
+# platform that failed in the morning, and does nothing if everything went out.
+on:
+  schedule:
+    - cron: '7 16,20 * 11 *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "preview (show what would post, sends nothing) or post"
+        type: choice
+        options: [preview, post]
+        default: preview
+      day:
+        description: 'Day number, or "all" for preview. Blank = today (Pacific).'
+        required: false
+      only:
+        description: "Post to one platform only (blank = both)"
+        type: choice
+        options: ['', x, bluesky]
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dmc-2026
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -q pyyaml pillow requests requests-oauthlib atproto
+
+      - name: Preview
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'preview'
+        run: python 2026/toolkit/post.py --preview "${{ inputs.day || 'all' }}"
+
+      - name: Post
+        if: github.event_name == 'schedule' || inputs.mode == 'post'
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+          BSKY_HANDLE: ${{ vars.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+        run: |
+          args=""
+          [ -n "${{ inputs.day }}" ] && args="$args --day ${{ inputs.day }}"
+          [ -n "${{ inputs.only }}" ] && args="$args --only ${{ inputs.only }}"
+          rc=0
+          python 2026/toolkit/post.py $args || rc=$?
+          echo "RC=$rc" > rc.txt
+
+      - name: Record what went out (posted.json, status in days.yml, gallery)
+        if: always() && (github.event_name == 'schedule' || inputs.mode == 'post')
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add 2026/posted.json 2026/days.yml 2>/dev/null || true
+          git diff --staged --quiet && exit 0
+          pip install -q pyyaml pillow >/dev/null
+          python 2026/toolkit/build.py
+          git add 2026
+          git commit -q -m "2026: posted day ${{ inputs.day || 'of the day' }} [skip ci]"
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
+
+      - name: Fail the run if a platform failed (GitHub emails you)
+        if: github.event_name == 'schedule' || inputs.mode == 'post'
+        run: grep -q 'RC=0' rc.txt

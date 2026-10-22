@@ -47,6 +47,21 @@ All three science posts have project cards on `ecology.html` (newest first: Pyra
 - Day 21 is still the "before" map. Day 16 pending.
 - Toolkit: `2026/toolkit/dmc.py` (figure/frame/save, house colours), `toolkit/build.py` regenerates READMEs, days.json, thumbs.
 
+## Auto-posting in November (`2026/toolkit/post.py`, workflow `dmc-2026-post.yml`)
+
+- Runs 8:07 AM Pacific every day in November (retry at 12:07 PM). Posts the day's map to X and
+  Bluesky **only if its status in `days.yml` is `done`**; anything else is skipped with a warning.
+- Text = the "Post it" text from `build.py` + the day's share link; image = `out/map.png` as a
+  JPEG under 950 KB with `out/alt.txt` as alt text.
+- `2026/posted.json` records each post per platform, so re-runs never double-post. When every
+  platform with keys has posted, the status flips to `posted` and the gallery rebuilds.
+- Preview without sending: Actions → "Post the day's map" → Run workflow (mode preview, day `all`),
+  or `pixi run post-preview` locally.
+- Keys: secrets `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_SECRET`,
+  `BSKY_APP_PASSWORD`; variable `BSKY_HANDLE`. A platform without keys is skipped.
+- X is pay-per-use (~$0.20 a post with a link, Feb 2026 pricing); 30 posts ≈ $6.
+- Cruise: away from Nov 27, so Days 27-30 must be `done` before then.
+
 ## How the data tools work
 - **GBIF:** add `gbif/requests/<slug>.json` (`name`, optional `synonyms`, `rank`, `kingdom`, `elevation: true/false`) and push. The "GBIF downloads" Action uses repo secrets `GBIF_USER/GBIF_PWD/GBIF_EMAIL`, waits for the DOI, and commits `gbif/downloads/<slug>.json` (key, DOI, citation) and `gbif/data/<slug>.csv.gz` (+ `dem_m` ground elevation). Matching refuses a broader rank so a subspecies can't pull a whole species.
 - **Geo:** add `geo/requests/<slug>.json` (`kind: dem` with bounds/res/source 90|30, or `kind: osm` with an Overpass query using `{bbox}`) and push. The "Geo data" Action commits `geo/data/<slug>.tif|.geojson`. Existing: dem-lahontan, dem-pyramid, dem-kern, dem-west, osm-pyramid, osm-kern.
