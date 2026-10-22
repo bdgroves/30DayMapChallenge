@@ -57,8 +57,10 @@ All three science posts have project cards on `ecology.html` (newest first: Pyra
   platform with keys has posted, the status flips to `posted` and the gallery rebuilds.
 - Preview without sending: Actions → "Post the day's map" → Run workflow (mode preview, day `all`),
   or `pixi run post-preview` locally.
-- Keys: secrets `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_SECRET`,
-  `BSKY_APP_PASSWORD`; variable `BSKY_HANDLE`. A platform without keys is skipped.
+- Keys: the same secret names as weather-report-bot (`TWITTER_API_KEY`, `TWITTER_API_SECRET`,
+  `TWITTER_ACCESS_TOKEN`, `TWITTER_ACCESS_SECRET`, `BLUESKY_HANDLE`, `BLUESKY_APP_PASSWORD`);
+  `X_*`/`BSKY_*` names also work. Secrets are per repo, so they must be set in this repo too.
+  A platform without keys is skipped.
 - X is pay-per-use (~$0.20 a post with a link, Feb 2026 pricing); 30 posts ≈ $6.
 - Cruise: away from Nov 27, so Days 27-30 must be `done` before then.
 
