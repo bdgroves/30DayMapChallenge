@@ -3,7 +3,7 @@
 
 **Sunday, November 1, 2026** · status: ✏️ draft
 
-## 1,190 finds
+## 1,190 caches
 
 Every geocache I've found as Hipparchus, one dot each, coloured by year. Twenty-odd years of where curiosity has taken me.
 
@@ -23,7 +23,7 @@ Every geocache I've found as Hipparchus, one dot each, coloured by year. Twenty-
 
 ```
 Day 1 of #30DayMapChallenge · Points
-1,190 finds
+1,190 caches
 There's more behind it on the page.
 #geocaching #GIS
 https://brooksgroves.com/30DayMapChallenge/2026/share/day-01.html
