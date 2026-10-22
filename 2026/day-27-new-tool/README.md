@@ -20,7 +20,7 @@ Every building in Washington from Overture Maps, queried with DuckDB's spatial e
 ```
 Day 27 of #30DayMapChallenge · New tool
 Every building in Washington
-#lonboard #Washington
+#lonboard #Python
 https://brooksgroves.com/30DayMapChallenge/2026/share/day-27.html
 ```
 

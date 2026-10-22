@@ -25,7 +25,7 @@ My Untappd check-ins, mapped by brewery, sized by how many beers.
 Day 23 of #30DayMapChallenge · Taste
 Every brewery I've checked into
 There's more behind it on the page.
-#craftbeer #Northwest
+#craftbeer #PNW
 https://brooksgroves.com/30DayMapChallenge/2026/share/day-23.html
 ```
 

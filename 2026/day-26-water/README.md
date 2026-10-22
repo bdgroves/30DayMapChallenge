@@ -27,7 +27,7 @@ Tahoe's floor, 497 m at the deepest, and beside it the lake's clarity on the sam
 Day 26 of #30DayMapChallenge · Water
 Lake Tahoe, clear and deep
 There's more behind it on the page.
-#LakeTahoe
+#LakeTahoe #water
 https://brooksgroves.com/30DayMapChallenge/2026/share/day-26.html
 ```
 

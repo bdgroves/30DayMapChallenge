@@ -299,7 +299,7 @@ days:
     tools: [Python, geopandas]
     prep: "Drafted (2020 TIGER/Line blocks)."
     status: draft
-    hashtags: "#census #nobodylivesthere"
+    hashtags: "#census #dataviz"
 
   - day: 19
     theme: Smell
@@ -380,7 +380,7 @@ days:
     tools: [Python]
     prep: "Drafted from the year of beer history HopLove keeps (Untappd); breweries placed with Open Brewery DB."
     status: draft
-    hashtags: "#craftbeer #Northwest"
+    hashtags: "#craftbeer #PNW"
     deeper:
       - name: "HopLove: every hop in 2,000 Northwest beers"
         url: https://brooksgroves.com/hoplove/
@@ -435,7 +435,7 @@ days:
     tools: [Python, rasterio, matplotlib]
     prep: "Drafted: depth from the 1998 USGS multibeam grid, clarity from TERC's index station."
     status: draft
-    hashtags: "#LakeTahoe"
+    hashtags: "#LakeTahoe #water"
     deeper:
       - name: "secchi: a modern Secchi disk for Lake Tahoe"
         url: https://brooksgroves.com/secchi/
@@ -452,7 +452,7 @@ days:
     tools: [DuckDB spatial, lonboard]
     prep: "Drafted: DuckDB query straight against Overture on S3, gridded. Still to do: the lonboard interactive."
     status: draft
-    hashtags: "#lonboard #Washington"
+    hashtags: "#lonboard #Python"
 
   - day: 28
     theme: Feeling
