@@ -223,7 +223,7 @@ def check_login(name: str) -> str:
             r = requests.get("https://api.x.com/2/users/me", auth=auth, timeout=30)
             if r.status_code == 200:
                 return f"signed in as @{r.json()['data']['username']}"
-            return f"sign-in failed ({r.status_code}: {r.text[:160]})"
+            return f"sign-in failed ({r.status_code}: {' '.join(r.text.split())[:200]})"
         if name == "bluesky":
             from atproto import Client
             p = Client().login(os.environ["BSKY_HANDLE"], os.environ["BSKY_APP_PASSWORD"])
