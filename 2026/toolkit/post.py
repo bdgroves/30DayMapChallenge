@@ -204,6 +204,9 @@ def preview(days: list[dict], which: str) -> None:
         for p in problems:
             print(f"!!! {p}")
     print(f"\n{ready} of {len(pick)} ready to post.")
+    for name, (_, keys) in PLATFORMS.items():                 # says whether keys exist, never what they are
+        missing = [k for k in keys if not os.environ.get(k)]
+        print(f"{name}: " + ("keys found" if not missing else "missing " + ", ".join(missing)))
 
 
 def main() -> int:
