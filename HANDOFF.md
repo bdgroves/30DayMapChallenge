@@ -14,6 +14,14 @@ Always `git pull --rebase` before working: bots and Actions commit often.
 ## To-do
 
 ### Waiting on Brooks
+- [ ] **Auto-posting keys (before Nov 1, at the latest before the cruise on Nov 27):** set the six
+  secrets in *this* repo: `TWITTER_API_KEY`, `TWITTER_API_SECRET`, `TWITTER_ACCESS_TOKEN`,
+  `TWITTER_ACCESS_SECRET`, `BLUESKY_HANDLE`, `BLUESKY_APP_PASSWORD` (`gh secret set NAME -R
+  bdgroves/30DayMapChallenge`). They exist only in weather-report-bot; secrets can't be copied, so
+  paste saved values or regenerate (X regenerate → update weather-report-bot too; Bluesky → new app
+  password). Load ~$10 X credit. Checked on 22 Oct: none set. Verify with a preview run (the
+  "Keys" annotations say "keys found"; the session can read them via the check-run annotations API).
+- [ ] **Mark days `done`** as they're finished; Days 27-30 (incl. the Day 30 napkin scan) before Nov 27.
 - [ ] **Day 21 (30DayMapChallenge):** Brooks makes his OpenStreetMap edits, then re-render the "after" map.
 - [ ] **Day 16:** waiting on the trailhead replies.
 - [ ] **Delete two stale branches** in the GitHub web UI: `smoke-monitors` and `dmc-day2-runs` (harmless; the session can't delete branches).
