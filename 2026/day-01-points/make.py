@@ -216,7 +216,8 @@ def km_from_home(lat, lon):
 def place(r):
     if r["country"] == "United States":
         return r["state"]
-    return f"{r['state']}, {r['country']}" if r["state"] and r["state"] != r["country"] else r["country"]
+    country = {"New Zealand": "NZ", "United Kingdom": "UK"}.get(r["country"], r["country"])
+    return f"{r['state']}, {country}" if r["state"] and r["state"] != r["country"] else r["country"]
 
 
 df["km"] = km_from_home(df["lat"].values, df["lon"].values)
@@ -227,19 +228,20 @@ edges = [
     ("W", df.loc[df["lon"].idxmin()], lambda r: f"{-r['lon']:.1f}° W"),
     ("FAR", df.loc[df["km"].idxmax()], lambda r: f"{r['km']:,.0f} km"),
 ]
-fig.text(0.60, 0.205, "THE EDGES · FARTHEST FINDS", family=dmc.MONO, size=6.8, color=dmc.STONE)
+fig.text(0.60, 0.197, "THE EDGES · FARTHEST FINDS", family=dmc.MONO, size=6.8, color=dmc.STONE)
 for i, (tag, r, val) in enumerate(edges):
-    y = 0.18 - i * 0.02
+    y = 0.174 - i * 0.019
     label = "from home" if tag == "FAR" else {"N": "north", "S": "south", "E": "east", "W": "west"}[tag]
     fig.text(0.60, y, label.upper(), family=dmc.MONO, size=6.2, color=dmc.STONE, va="center")
-    fig.text(0.685, y, f"{place(r)} · {r['found']:%Y}", size=7.6, va="center")
+    fig.text(0.68, y, f"{place(r)} · {r['found']:%Y}", size=7.3, va="center")
     fig.text(0.95, y, val(r), family=dmc.MONO, size=7.2, color=dmc.LAVA, ha="right", va="center")
 # and on the world map: a ring and a letter at each one
 ew = gpd.GeoSeries.from_xy([r["lon"] for _, r, _ in edges], [r["lat"] for _, r, _ in edges], crs=4326).to_crs(WORLD)
 for (tag, _, _), pt in zip(edges, ew):
     wax.scatter([pt.x], [pt.y], s=26, facecolor="none", edgecolor=dmc.INK, lw=0.6, zorder=4)
-    wax.annotate("★" if tag == "FAR" else tag, (pt.x, pt.y), xytext=(4, 3), textcoords="offset points",
-                 family=dmc.MONO, size=5.6, color=dmc.INK, zorder=5)
+    off = {"S": (5, -7), "FAR": (-15, -9)}.get(tag, (4, 3))
+    wax.annotate(tag, (pt.x, pt.y), xytext=off, textcoords="offset points",
+                 family=dmc.MONO, size=5.4, color=dmc.INK, zorder=5)
 print("= edges: " + "; ".join(f"{t} {place(r)} {val(r)}" for t, r, val in edges))
 
 types = Counter(df["type"])
