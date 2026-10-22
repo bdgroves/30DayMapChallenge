@@ -198,10 +198,49 @@ for sp in kax.spines.values():
     sp.set_visible(False)
 fig.text(0.60, 0.585, "DOT COLOUR · YEAR FOUND", family=dmc.MONO, size=6.8, color=dmc.STONE)
 fig.text(0.60, 0.335, "MOST FINDS", family=dmc.MONO, size=6.8, color=dmc.STONE)
-for i, (k, c) in enumerate(places.most_common(10)):
+for i, (k, c) in enumerate(places.most_common(5)):
     y = 0.31 - i * 0.02
     fig.text(0.60, y, k, size=8, va="center")
     fig.text(0.95, y, f"{c:,}", family=dmc.MONO, size=7.5, color=dmc.LAVA, ha="right", va="center")
+
+# ── the edges: the farthest finds in each direction, and from home ─────────
+HOME = (47.17, -122.52)                              # Lakewood, Washington (the city, not the house)
+
+
+def km_from_home(lat, lon):
+    la1, lo1, la2, lo2 = map(np.radians, (HOME[0], HOME[1], lat, lon))
+    h = np.sin((la2 - la1) / 2) ** 2 + np.cos(la1) * np.cos(la2) * np.sin((lo2 - lo1) / 2) ** 2
+    return 6371 * 2 * np.arcsin(np.sqrt(h))
+
+
+def place(r):
+    if r["country"] == "United States":
+        return r["state"]
+    return f"{r['state']}, {r['country']}" if r["state"] and r["state"] != r["country"] else r["country"]
+
+
+df["km"] = km_from_home(df["lat"].values, df["lon"].values)
+edges = [
+    ("N", df.loc[df["lat"].idxmax()], lambda r: f"{r['lat']:.1f}° N"),
+    ("S", df.loc[df["lat"].idxmin()], lambda r: f"{-r['lat']:.1f}° S"),
+    ("E", df.loc[df["lon"].idxmax()], lambda r: f"{r['lon']:.1f}° E"),
+    ("W", df.loc[df["lon"].idxmin()], lambda r: f"{-r['lon']:.1f}° W"),
+    ("FAR", df.loc[df["km"].idxmax()], lambda r: f"{r['km']:,.0f} km"),
+]
+fig.text(0.60, 0.205, "THE EDGES · FARTHEST FINDS", family=dmc.MONO, size=6.8, color=dmc.STONE)
+for i, (tag, r, val) in enumerate(edges):
+    y = 0.18 - i * 0.02
+    label = "from home" if tag == "FAR" else {"N": "north", "S": "south", "E": "east", "W": "west"}[tag]
+    fig.text(0.60, y, label.upper(), family=dmc.MONO, size=6.2, color=dmc.STONE, va="center")
+    fig.text(0.685, y, f"{place(r)} · {r['found']:%Y}", size=7.6, va="center")
+    fig.text(0.95, y, val(r), family=dmc.MONO, size=7.2, color=dmc.LAVA, ha="right", va="center")
+# and on the world map: a ring and a letter at each one
+ew = gpd.GeoSeries.from_xy([r["lon"] for _, r, _ in edges], [r["lat"] for _, r, _ in edges], crs=4326).to_crs(WORLD)
+for (tag, _, _), pt in zip(edges, ew):
+    wax.scatter([pt.x], [pt.y], s=26, facecolor="none", edgecolor=dmc.INK, lw=0.6, zorder=4)
+    wax.annotate("★" if tag == "FAR" else tag, (pt.x, pt.y), xytext=(4, 3), textcoords="offset points",
+                 family=dmc.MONO, size=5.6, color=dmc.INK, zorder=5)
+print("= edges: " + "; ".join(f"{t} {place(r)} {val(r)}" for t, r, val in edges))
 
 types = Counter(df["type"])
 trad = types.get("Traditional Cache", 0) / len(df)
@@ -218,4 +257,6 @@ dmc.save(fig, DAY, alt=(
     f"Map of {total:,} geocaches found by {FINDER} from {first:%Y} to {last:%Y}, as small dots coloured from pale gold "
     f"for early years to dark red for recent ones. The main map covers the West Coast, where most are, thickest in "
     f"{', '.join(k for k, _ in places.most_common(3))}. A small world map below shows finds in {n_countries} countries, "
-    f"and a bar chart shows finds per year, with the most in {best}."))
+    f"and a bar chart shows finds per year, with the most in {best}. The farthest finds: north in {place(edges[0][1])}, "
+    f"south in {place(edges[1][1])}, east in {place(edges[2][1])}, west in {place(edges[3][1])}, and farthest from "
+    f"home in {place(edges[4][1])}, {edges[4][1]['km']:,.0f} km away."))
