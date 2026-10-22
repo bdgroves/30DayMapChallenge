@@ -207,7 +207,7 @@ types = Counter(df["type"])
 trad = types.get("Traditional Cache", 0) / len(df)
 first, last = g["found"].min(), g["found"].max()
 dmc.frame(
-    fig, DAY, title=f"{total:,} finds",
+    fig, DAY, title=f"{total:,} caches",
     subtitle=(f"Every geocache I've found as {FINDER}, from {first:%B %Y} to {last:%B %Y}, one dot each,\n"
               f"coloured by the year I found it: {n_places} states and countries, {n_countries} countries."),
     source="Geocaching.com 'My Finds' pocket query · Natural Earth" + (" · " + basemap.CREDIT if MAPBOX else ""),
