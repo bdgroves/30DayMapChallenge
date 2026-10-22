@@ -207,8 +207,8 @@ def preview(days: list[dict], which: str) -> None:
     for name, (_, keys) in PLATFORMS.items():                 # says whether keys exist, never what they are
         missing = [k for k in keys if not os.environ.get(k)]
         msg = f"{name}: " + ("keys found" if not missing else "missing " + ", ".join(missing))
-        if not missing:
-            msg += "; " + check_login(name)
+        if not missing and (name != "x" or os.environ.get("CHECK_X_LOGIN") == "true"):
+            msg += "; " + check_login(name)        # X bills each sign-in check, so it's opt-in
         print(f"::warning title=Keys::{msg}" if os.environ.get("GITHUB_ACTIONS") else msg)
 
 

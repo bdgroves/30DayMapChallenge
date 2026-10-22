@@ -16,6 +16,10 @@ on:
       day:
         description: 'Day number, or "all" for preview. Blank = today (Pacific).'
         required: false
+      check_x:
+        description: "Preview: also sign in to X to test the keys (X bills about a cent each time)"
+        type: boolean
+        default: false
       only:
         description: "Post to one platform only (blank = both)"
         type: choice
@@ -48,6 +52,7 @@ jobs:
           X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET || secrets.TWITTER_ACCESS_SECRET }}
           BSKY_HANDLE: ${{ vars.BSKY_HANDLE || secrets.BLUESKY_HANDLE }}
           BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD || secrets.BLUESKY_APP_PASSWORD }}
+          CHECK_X_LOGIN: ${{ inputs.check_x }}
         run: python 2026/toolkit/post.py --preview "${{ inputs.day || 'all' }}"
 
       - name: Post
