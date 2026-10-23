@@ -229,9 +229,23 @@ def lahar(es):
     cache = DATA / "lahar_dnr.geojson"
     if not cache.exists():
         bb = (min(A[0], B[0]) - 0.05, min(A[1], B[1]) - 0.05, max(A[0], B[0]) + 0.05, max(A[1], B[1]) + 0.05)
-        js = fetch.json_get(LAHAR_SERVICE + "/query", dict(
-            geometry=",".join(map(str, bb)), geometryType="esriGeometryEnvelope", inSR=4326, outSR=4326,
-            spatialRel="esriSpatialRelIntersects", outFields="*", returnGeometry="true", f="geojson"))
+        try:
+            js = fetch.json_get(LAHAR_SERVICE + "/query", dict(
+                geometry=",".join(map(str, bb)), geometryType="esriGeometryEnvelope", inSR=4326, outSR=4326,
+                spatialRel="esriSpatialRelIntersects", outFields="*", returnGeometry="true", f="geojson"))
+        except Exception as e:  # noqa: BLE001
+            # DNR's service is down: fall back on the zones this script clipped to the ribbon last time
+            # (committed in out/), which carry everything the line needs. Left as they are, not rewritten.
+            kept = OUT / "lahar_ribbon.geojson"
+            if not kept.exists():
+                raise
+            from shapely.geometry import shape
+            print(f"  DNR lahar service failed ({str(e)[:80]}); using the zones kept in {kept.name}")
+            flags = {}
+            for f in json.loads(kept.read_text())["features"]:
+                flags[f["properties"]["layer"]] = contains_xy(shape(f["geometry"]), es, np.zeros_like(es))
+                print(f"  {f['properties']['value']!r}: {flags[f['properties']['layer']].mean() * L / 1000:.1f} km of the line inside")
+            return flags
         cache.write_text(json.dumps(js))
     g = gpd.read_file(cache)
     print(f"  hazard polygons: {len(g)}; columns {[c for c in g.columns if c != 'geometry']}")

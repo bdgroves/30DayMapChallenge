@@ -43,8 +43,22 @@ def nldi(path, name):
 
 fl = nldi(f"{SITE}/navigation/UT/flowlines?distance=2000", "flowlines.geojson")
 basin = gpd.GeoDataFrame.from_features(nldi(f"{SITE}/basin", "basin.geojson")["features"], crs=4326).to_crs(CRS)
-gages = gpd.GeoDataFrame.from_features(nldi(f"{SITE}/navigation/UT/nwissite?distance=2000", "gages.geojson")["features"],
-                                       crs=4326).to_crs(CRS)
+try:
+    gfeats = nldi(f"{SITE}/navigation/UT/nwissite?distance=2000", "gages.geojson")["features"]
+except SystemExit:
+    # NLDI's gage navigation has stopped answering; place our five gages one by one from USGS's
+    # monitoring-locations API instead (cached as data/gages_ogc.geojson).
+    cache = DATA / "gages_ogc.geojson"
+    if not cache.exists():
+        gfeats = []
+        for sid in GAGES:
+            js = json.loads(fetch.get(f"https://api.waterdata.usgs.gov/ogcapi/v0/collections/monitoring-locations/items/USGS-{sid}?f=json",
+                                      DATA / f"gage_{sid}.json", timeout=120))
+            gfeats.append({"type": "Feature", "properties": {"identifier": f"USGS-{sid}"}, "geometry": js["geometry"]})
+        cache.write_text(json.dumps({"type": "FeatureCollection", "features": gfeats}))
+    gfeats = json.loads(cache.read_text())["features"]
+    print(f"  gages from USGS monitoring-locations: {len(gfeats)}")
+gages = gpd.GeoDataFrame.from_features(gfeats, crs=4326).to_crs(CRS)
 
 # ── Strahler order from the geometry ─────────────────────────────────────────
 lines = []
