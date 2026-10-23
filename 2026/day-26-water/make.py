@@ -109,11 +109,26 @@ bb = Transformer.from_crs(CRS, 4326, always_xy=True).transform_bounds(l - pad, b
 z, ztf = terrain.dem(bb, crs=CRS, res=30)
 ax.imshow(terrain.relief(z, 30, strength=0.6, exaggerate=1.2), extent=terrain.extent(ztf, z.shape), interpolation="bilinear")
 from matplotlib.colors import LinearSegmentedColormap  # noqa: E402
-LAKE = LinearSegmentedColormap.from_list("tahoe", ["#cfe3ea", "#7fb0c4", dmc.LAKE, "#1f3a4a", "#0f2230"])  # shallow water stays blue
-ax.imshow(depth, extent=(l, r, b, t), cmap=LAKE, vmin=0, vmax=520, interpolation="antialiased")
-cs = ax.contour(np.flipud(depth.filled(np.nan)), levels=[100, 200, 300, 400, 500], extent=(l, r, b, t),
-                colors=[dmc.PARCHMENT], linewidths=0.4, alpha=0.7)
-ax.clabel(cs, fmt=lambda v: f"{v:.0f} m", fontsize=6, colors=dmc.PARCHMENT)
+from matplotlib.colors import PowerNorm  # noqa: E402
+from scipy.ndimage import gaussian_filter  # noqa: E402
+# Tahoe's own colors: jade over the sandy shallows, cobalt over the deep basin. A power scale spends
+# more of the ramp on the slopes, where the floor changes, and less on the flat 450-500 m basin.
+LAKE = LinearSegmentedColormap.from_list("tahoe", ["#d4efe6", "#8fd3cf", "#3aa6c2", "#1f6fa8", "#16457f", "#0d2a55"])
+norm = PowerNorm(0.55, vmin=0, vmax=depth.max())
+rgb = LAKE(norm(depth.filled(0)))[..., :3]
+# the lake floor's own relief from the 10 m multibeam: slides, canyons and the flat basin floor
+floor = gaussian_filter(np.where(depth.mask, SURFACE, elev.filled(SURFACE)).astype("float64"), 1.2)
+hs = terrain.hillshade(floor, 10, exaggerate=3.0)
+shade = 0.62 + 0.55 * (hs - np.sin(np.radians(40)))
+rgb = np.clip(rgb * shade[..., None], 0, 1)
+ax.imshow(np.dstack([rgb, (~depth.mask).astype(float)]), extent=(l, r, b, t), interpolation="antialiased", zorder=2)
+smooth = gaussian_filter(depth.filled(0).astype("float64"), 4)
+smooth[depth.mask] = np.nan
+cs = ax.contour(np.flipud(smooth), levels=[100, 200, 300, 400], extent=(l, r, b, t),
+                colors=["white"], linewidths=0.45, alpha=0.55, zorder=3)
+ax.clabel(cs, fmt=lambda v: f"{v:.0f} m", fontsize=6, colors="white", inline_spacing=2)
+shore = np.flipud(gaussian_filter((~depth.mask).astype("float64"), 1.5))
+ax.contour(shore, levels=[0.5], extent=(l, r, b, t), colors=["#2c4a5c"], linewidths=0.7, zorder=4)
 iy, ix = np.unravel_index(np.ma.argmax(depth), depth.shape)
 dx, dy = tf * (ix + 0.5, iy + 0.5)
 ax.scatter([dx], [dy], s=20, marker="v", color=dmc.LAVA, zorder=5)
@@ -136,7 +151,7 @@ cx0 = mp.x1 + 0.07
 cax = fig.add_axes((cx0, mp.y0 + 0.02, 0.95 - cx0, mp.height * 0.80))
 cm = LAKE
 for y, row in yr.iterrows():
-    cax.bar(y, row["mean"], width=0.78, bottom=0, color=cm(min(row["mean"], 34) / 34 * 0.55 + 0.1), lw=0)
+    cax.bar(y, row["mean"], width=0.62, bottom=0, color=cm(PowerNorm(0.55, vmin=0, vmax=depth.max())(row["mean"] * 9)), lw=0)
 cax.axhline(TARGET_M, color=dmc.LAVA, lw=0.9, ls=(0, (4, 2)))
 cax.text(yr.index.max(), TARGET_M - 0.5, f"Target: {TARGET_M:g} m,\nthe 1967–71 average", family=dmc.MONO, size=6.2,
          color=dmc.LAVA, va="bottom", ha="right")
