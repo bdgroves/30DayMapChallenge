@@ -60,7 +60,7 @@ ax.legend(handles=[Patch(color=dmc.CREAM, ec=dmc.MIST, label=f"Nobody: {pct_area
 b.dissolve().boundary.plot(ax=ax, color=dmc.INK, lw=0.8)
 ax.set_aspect("equal")
 to = Transformer.from_crs(4326, CRS, always_xy=True)
-for name, (lon, lat), dx, ha in [("Las Vegas", (-115.14, 36.17), -12000, "right"), ("Reno", (-119.81, 39.53), 12000, "left"),
+for name, (lon, lat), dx, ha in [("Las Vegas", (-115.14, 36.17), 26000, "left"), ("Reno", (-119.81, 39.53), 12000, "left"),
                                  ("Elko", (-115.76, 40.83), 12000, "left"), ("Ely", (-114.89, 39.25), 12000, "left"),
                                  ("Tonopah", (-117.23, 38.07), 12000, "left"), ("Winnemucca", (-117.74, 40.97), 12000, "left"),
                                  ("Austin", (-117.07, 39.49), 12000, "left"), ("Pahrump", (-115.98, 36.21), -12000, "right")]:
