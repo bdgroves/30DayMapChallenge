@@ -157,26 +157,96 @@ if rivers:
     if big:
         gpd.GeoSeries(big, crs=4326).to_crs(CRS).plot(ax=ax, color=WATER, lw=1.5, zorder=1)
 
-# the hops: every field speckled in Washington's statewide smell mix. Fields don't record their
-# variety, so each dot's colour is drawn at random in proportion to the state's acreage by leading
-# aroma (seeded, so the map renders the same every time). The mix is statewide, not per field.
+# the hops: every field ruled into trellis rows coloured in Washington's statewide smell mix. Fields
+# don't record their variety, so each row's colour is drawn at random in proportion to the state's
+# acreage by leading aroma (seeded, so the map renders the same every time). Statewide, not per field.
 FIELD_BASE, FIELD_EDGE = "#efe6cc", "#4a4234"
 f.plot(ax=ax, color=FIELD_BASE, lw=0, zorder=3)
 rng = np.random.default_rng(19)
 mix = np.array([by_fam[k] for k in fams]) / classed
 PALETTE = np.array([FAMILY_COLOUR.get(k, dmc.ASH) for k in fams])
-n_dots = np.maximum(6, np.round(f["ExactAcres"].to_numpy() * 7)).astype(int)
-pts = f.geometry.buffer(-12).sample_points(size=n_dots, rng=rng).explode(index_parts=False)
-pts = pts[~pts.is_empty]
-ax.scatter(pts.x, pts.y, s=0.16, c=PALETTE[rng.choice(len(fams), size=len(pts), p=mix)], lw=0, zorder=3.5)
-f.boundary.plot(ax=ax, color=FIELD_EDGE, lw=0.22, zorder=3.6)
-print(f"= {len(pts):,} smell dots")
+
+# ── closer: the densest hop country, every yard ruled into trellis rows ──────
+from matplotlib.collections import LineCollection  # noqa: E402
+from shapely import affinity  # noqa: E402
+
+HALF = 2600                                            # a 5.2 km square
+cen = f.geometry.centroid
+cx_, cy_ = cen.x.to_numpy(), cen.y.to_numpy()
+acres = f["ExactAcres"].to_numpy()
+score = [acres[(abs(cx_ - x) < HALF) & (abs(cy_ - y) < HALF)].sum() for x, y in zip(cx_, cy_)]
+k = int(np.argmax(score))
+qx, qy = cx_[k], cy_[k]
+win = (qx - HALF, qy - HALF, qx + HALF, qy + HALF)
+near = min(((n, gpd.GeoSeries([pt], crs=4326).to_crs(CRS).iloc[0]) for n, _, pt in towns),
+           key=lambda t: (t[1].x - qx) ** 2 + (t[1].y - qy) ** 2)[0] if towns else "the valley"
+ROW = 38                                               # metres between drawn rows (real rows are about 4 m)
+MAIN_ROW = 110                                         # coarser rows on the main map
+
+
+def trellis(poly, ROW=ROW):
+    """Parallel rows along a field's long axis, clipped to the field."""
+    rect = poly.minimum_rotated_rectangle
+    c = list(rect.exterior.coords)
+    e = max(((c[i], c[i + 1]) for i in range(4)), key=lambda p: (p[1][0] - p[0][0]) ** 2 + (p[1][1] - p[0][1]) ** 2)
+    ang = np.degrees(np.arctan2(e[1][1] - e[0][1], e[1][0] - e[0][0]))
+    o = poly.centroid
+    r = affinity.rotate(poly, -ang, origin=o)
+    bx0, by0, bx1, by1 = r.bounds
+    out = []
+    n = max(1, int((by1 - by0) // ROW))                # evenly spaced, at least one row per field
+    for yv in by0 + (np.arange(n) + 0.5) * (by1 - by0) / n:
+        seg = LineString([(bx0 - 10, yv), (bx1 + 10, yv)]).intersection(r.buffer(-6))
+        for g in getattr(seg, "geoms", [seg]):
+            if g.geom_type == "LineString" and g.length > 20:
+                out.append(np.asarray(affinity.rotate(g, ang, origin=o).coords))
+    return out
+
+
+main_segs = [sg for poly in f.geometry for part in getattr(poly, "geoms", [poly]) for sg in trellis(part, MAIN_ROW)]
+ax.add_collection(LineCollection(main_segs, colors=PALETTE[rng.choice(len(fams), size=len(main_segs), p=mix)],
+                                 linewidths=0.42, capstyle="butt", zorder=3.5))
+f.boundary.plot(ax=ax, color=FIELD_EDGE, lw=0.12, alpha=0.7, zorder=3.6)
+print(f"= main map: {len(main_segs):,} rows")
+
+iax = ax.inset_axes([0.655, 0.505, 0.335, 0.475])
+iax.imshow(np.dstack([rgb, np.ones_like(alpha)]), extent=terrain.extent(tf, z.shape), zorder=0, interpolation="bilinear")
+for geoms, lw in ((small, 1.0), (big, 3.0)):
+    if geoms:
+        gpd.GeoSeries(geoms, crs=4326).to_crs(CRS).plot(ax=iax, color=WATER, lw=lw, zorder=1)
+inwin = f[f.intersects(__import__("shapely").geometry.box(*win))]
+inwin.plot(ax=iax, color=FIELD_BASE, lw=0, zorder=2)
+segs = [sg for poly in inwin.geometry for part in getattr(poly, "geoms", [poly]) for sg in trellis(part)]
+iax.add_collection(LineCollection(segs, colors=PALETTE[rng.choice(len(fams), size=len(segs), p=mix)],
+                                  linewidths=0.85, capstyle="butt", zorder=3))
+inwin.boundary.plot(ax=iax, color=FIELD_EDGE, lw=0.45, zorder=4)
+iax.set_xlim(win[0], win[2])
+iax.set_ylim(win[1], win[3])
+iax.set_aspect("equal")
+iax.set_xticks([])
+iax.set_xlabel("")
+iax.set_ylabel("")
+iax.set_yticks([])
+for sp in iax.spines.values():
+    sp.set_edgecolor(dmc.INK)
+    sp.set_linewidth(0.8)
+ax.indicate_inset_zoom(iax, edgecolor=dmc.INK, alpha=0.6, lw=0.6)
+iax.add_patch(__import__("matplotlib").patches.Rectangle((0, 0.855), 1, 0.145, transform=iax.transAxes,
+                                                          color=dmc.PARCHMENT, alpha=0.92, zorder=5))
+iax.text(0.03, 0.965, f"CLOSER: THE HOP YARDS NEAR {near.upper()}", transform=iax.transAxes, family=dmc.MONO,
+         size=6.2, color=dmc.INK, va="center", zorder=6)
+iax.text(0.03, 0.89, f"{len(inwin)} yards, {inwin['ExactAcres'].sum():,.0f} acres. Rows drawn {ROW} m apart;\nthe real ones are about 4 m.",
+         transform=iax.transAxes, size=5.4, linespacing=1.3, style="italic", color=dmc.STONE,
+         va="center", zorder=6)
+dmc.scalebar(iax, 1, loc=(0.06, 0.06))
+print(f"= inset near {near}: {len(inwin)} yards, {len(segs):,} rows")
 
 # ridge names along the high ground, towns as small dots
 # one label per ridge (its longest piece), skipped if it would run off the map or into another
 taken = []
 renderer = fig.canvas.get_renderer()
 box_px = ax.get_window_extent(renderer)
+taken.append(iax.get_window_extent(renderer).expanded(1.03, 1.03))
 best = {}
 for name, line in ridges:
     g = gpd.GeoSeries([line], crs=4326).to_crs(CRS).iloc[0]
@@ -207,70 +277,6 @@ for name, kind, pt in sorted(towns, key=lambda t: t[1] != "city"):
 dmc.place_labels(ax, items, size=7, zorder=6, taken=taken)
 dmc.scalebar(ax, 10, loc=(0.04, 0.08))
 
-# ── closer: the densest hop country, every yard ruled into trellis rows ──────
-from matplotlib.collections import LineCollection  # noqa: E402
-from shapely import affinity  # noqa: E402
-
-HALF = 2600                                            # a 5.2 km square
-cen = f.geometry.centroid
-cx_, cy_ = cen.x.to_numpy(), cen.y.to_numpy()
-acres = f["ExactAcres"].to_numpy()
-score = [acres[(abs(cx_ - x) < HALF) & (abs(cy_ - y) < HALF)].sum() for x, y in zip(cx_, cy_)]
-k = int(np.argmax(score))
-qx, qy = cx_[k], cy_[k]
-win = (qx - HALF, qy - HALF, qx + HALF, qy + HALF)
-near = min(((n, gpd.GeoSeries([pt], crs=4326).to_crs(CRS).iloc[0]) for n, _, pt in towns),
-           key=lambda t: (t[1].x - qx) ** 2 + (t[1].y - qy) ** 2)[0] if towns else "the valley"
-ROW = 38                                               # metres between drawn rows (real rows are about 4 m)
-
-
-def trellis(poly):
-    """Parallel rows along a field's long axis, clipped to the field."""
-    rect = poly.minimum_rotated_rectangle
-    c = list(rect.exterior.coords)
-    e = max(((c[i], c[i + 1]) for i in range(4)), key=lambda p: (p[1][0] - p[0][0]) ** 2 + (p[1][1] - p[0][1]) ** 2)
-    ang = np.degrees(np.arctan2(e[1][1] - e[0][1], e[1][0] - e[0][0]))
-    o = poly.centroid
-    r = affinity.rotate(poly, -ang, origin=o)
-    bx0, by0, bx1, by1 = r.bounds
-    out = []
-    for yv in np.arange(by0 + ROW / 2, by1, ROW):
-        seg = LineString([(bx0 - 10, yv), (bx1 + 10, yv)]).intersection(r.buffer(-6))
-        for g in getattr(seg, "geoms", [seg]):
-            if g.geom_type == "LineString" and g.length > 20:
-                out.append(np.asarray(affinity.rotate(g, ang, origin=o).coords))
-    return out
-
-
-iax = ax.inset_axes([0.655, 0.505, 0.335, 0.475])
-iax.imshow(np.dstack([rgb, np.ones_like(alpha)]), extent=terrain.extent(tf, z.shape), zorder=0, interpolation="bilinear")
-for geoms, lw in ((small, 1.0), (big, 3.0)):
-    if geoms:
-        gpd.GeoSeries(geoms, crs=4326).to_crs(CRS).plot(ax=iax, color=WATER, lw=lw, zorder=1)
-inwin = f[f.intersects(__import__("shapely").geometry.box(*win))]
-inwin.plot(ax=iax, color=FIELD_BASE, lw=0, zorder=2)
-segs = [sg for poly in inwin.geometry for part in getattr(poly, "geoms", [poly]) for sg in trellis(part)]
-iax.add_collection(LineCollection(segs, colors=PALETTE[rng.choice(len(fams), size=len(segs), p=mix)],
-                                  linewidths=0.85, capstyle="butt", zorder=3))
-inwin.boundary.plot(ax=iax, color=FIELD_EDGE, lw=0.45, zorder=4)
-iax.set_xlim(win[0], win[2])
-iax.set_ylim(win[1], win[3])
-iax.set_aspect("equal")
-iax.set_xticks([])
-iax.set_yticks([])
-for sp in iax.spines.values():
-    sp.set_edgecolor(dmc.INK)
-    sp.set_linewidth(0.8)
-ax.indicate_inset_zoom(iax, edgecolor=dmc.INK, alpha=0.6, lw=0.6)
-iax.add_patch(__import__("matplotlib").patches.Rectangle((0, 0.88), 1, 0.12, transform=iax.transAxes,
-                                                          color=dmc.PARCHMENT, alpha=0.92, zorder=5))
-iax.text(0.03, 0.955, f"CLOSER: THE HOP YARDS NEAR {near.upper()}", transform=iax.transAxes, family=dmc.MONO,
-         size=6.2, color=dmc.INK, va="center", zorder=6)
-iax.text(0.03, 0.91, f"{len(inwin)} yards, {inwin['ExactAcres'].sum():,.0f} acres, ruled in rows {ROW} m apart "
-         "(real rows are about 4 m)", transform=iax.transAxes, size=5.4, style="italic", color=dmc.STONE,
-         va="center", zorder=6)
-dmc.scalebar(iax, 1, loc=(0.06, 0.06))
-print(f"= inset near {near}: {len(inwin)} yards, {len(segs):,} rows")
 
 # aroma panel
 px, top = 0.65, 0.76
