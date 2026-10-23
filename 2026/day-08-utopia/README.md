@@ -20,7 +20,7 @@ Every place in the United States named Paradise, Eden, Utopia, Arcadia or Shangr
 ```
 Day 8 of #30DayMapChallenge · Utopia
 Paradise, Eden, Utopia
-#placenames
+#placenames #maps
 https://brooksgroves.com/30DayMapChallenge/2026/share/day-08.html
 ```
 

@@ -28,7 +28,7 @@ Washington's tsunami sirens, each with the one-mile circle it's designed to be h
 Day 11 of #30DayMapChallenge · Sound
 Where the tsunami sirens reach
 There's more behind it on the page.
-#tsunami #PugetSound
+#tsunami #Washington
 https://brooksgroves.com/30DayMapChallenge/2026/share/day-11.html
 ```
 

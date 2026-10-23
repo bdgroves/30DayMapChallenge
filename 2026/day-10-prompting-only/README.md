@@ -29,7 +29,7 @@ Big Creek's watershed above Groveland as a 1960s line-printer map: a FORTRAN pro
 Day 10 of #30DayMapChallenge · Prompting only
 A map made only by asking
 There's more behind it on the page.
-#FORTRAN #AI
+#FORTRAN #retrocomputing
 https://brooksgroves.com/30DayMapChallenge/2026/share/day-10.html
 ```
 
