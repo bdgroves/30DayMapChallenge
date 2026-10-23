@@ -6,8 +6,8 @@
  "repo": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026",
  "counts": {
   "idea": 2,
-  "data": 1,
-  "draft": 16,
+  "data": 0,
+  "draft": 17,
   "done": 11,
   "posted": 0
  },
@@ -632,26 +632,20 @@
    "date": "2026-11-16",
    "weekday": "Mon",
    "theme": "Collaborative map",
-   "title": "Your favourite Sierra trailheads",
-   "pitch": "Made with whoever answers: I asked on X for everyone's favourite Sierra Nevada trailhead, and every reply goes on the map, bigger the more people name it.",
-   "status": "data",
+   "title": "Washington's favourite outdoors, by vote",
+   "pitch": "Made by the people who voted: every outdoor winner of KING 5 Evening's Best Northwest Escapes viewer poll I could find, bigger the more it won. Deception Pass leads.",
+   "status": "draft",
    "tools": [
-    "X",
     "Python",
     "Mapbox"
    ],
    "data": [
-    "Replies on X (names of trailheads only)",
-    "OpenStreetMap trailheads (Overpass API)"
+    "KING 5 Evening, Best Northwest Escapes winners lists"
    ],
    "data_links": [
     {
-     "name": "Replies on X (names of trailheads only)",
-     "url": "https://x.com/bdgroves"
-    },
-    {
-     "name": "OpenStreetMap trailheads (Overpass API)",
-     "url": "https://overpass-api.de/"
+     "name": "KING 5 Evening, Best Northwest Escapes winners lists",
+     "url": "https://www.king5.com/best-nw-escapes"
     }
    ],
    "deeper": [],
@@ -662,8 +656,8 @@
    "post": null,
    "link": null,
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-16.html",
-   "hashtags": "#SierraNevada #hiking",
-   "post_text": "Day 16 of #30DayMapChallenge · Collaborative map\nYour favourite Sierra trailheads\n#SierraNevada #hiking"
+   "hashtags": "#PNW #hiking",
+   "post_text": "Day 16 of #30DayMapChallenge · Collaborative map\nWashington's favourite outdoors, by vote\n#PNW #hiking"
   },
   {
    "day": 17,

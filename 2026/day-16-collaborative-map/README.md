@@ -1,27 +1,26 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 16 · Collaborative map
 
-**Monday, November 16, 2026** · status: 📦 data in hand
+**Monday, November 16, 2026** · status: ✏️ draft
 
-## Your favourite Sierra trailheads
+## Washington's favourite outdoors, by vote
 
-Made with whoever answers: I asked on X for everyone's favourite Sierra Nevada trailhead, and every reply goes on the map, bigger the more people name it.
+Made by the people who voted: every outdoor winner of KING 5 Evening's Best Northwest Escapes viewer poll I could find, bigger the more it won. Deception Pass leads.
 
 **Data**
 
-- [Replies on X (names of trailheads only)](https://x.com/bdgroves)
-- [OpenStreetMap trailheads (Overpass API)](https://overpass-api.de/)
+- [KING 5 Evening, Best Northwest Escapes winners lists](https://www.king5.com/best-nw-escapes)
 
-**Tools:** X, Python, Mapbox
+**Tools:** Python, Mapbox
 
-**Prep:** Asked on X on October 3. Paste each reply's trailhead into answers.csv (no handles); render; add any unplaced names to places.csv.
+**Prep:** Drafted from the 2017, 2018, 2022, 2023 and 2024 winners lists (winners.csv). 2019-2021 and 2025 still to add if the lists can be read.
 
 **Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
 
 ```
 Day 16 of #30DayMapChallenge · Collaborative map
-Your favourite Sierra trailheads
-#SierraNevada #hiking
+Washington's favourite outdoors, by vote
+#PNW #hiking
 https://brooksgroves.com/30DayMapChallenge/2026/share/day-16.html
 ```
 
