@@ -113,13 +113,13 @@ from matplotlib.colors import PowerNorm  # noqa: E402
 from scipy.ndimage import gaussian_filter  # noqa: E402
 # Tahoe's own colors: jade over the sandy shallows, cobalt over the deep basin. A power scale spends
 # more of the ramp on the slopes, where the floor changes, and less on the flat 450-500 m basin.
-LAKE = LinearSegmentedColormap.from_list("tahoe", ["#d4efe6", "#8fd3cf", "#3aa6c2", "#1f6fa8", "#16457f", "#0d2a55"])
+LAKE = LinearSegmentedColormap.from_list("tahoe", ["#cdeee4", "#86d0cc", "#3fa7c4", "#2479b0", "#1b5a96", "#174a82"])
 norm = PowerNorm(0.55, vmin=0, vmax=depth.max())
 rgb = LAKE(norm(depth.filled(0)))[..., :3]
 # the lake floor's own relief from the 10 m multibeam: slides, canyons and the flat basin floor
 floor = gaussian_filter(np.where(depth.mask, SURFACE, elev.filled(SURFACE)).astype("float64"), 1.2)
 hs = terrain.hillshade(floor, 10, exaggerate=3.0)
-shade = 0.62 + 0.55 * (hs - np.sin(np.radians(40)))
+shade = 1.0 + 0.85 * (hs - np.sin(np.radians(40)))      # flat floor keeps its color
 rgb = np.clip(rgb * shade[..., None], 0, 1)
 ax.imshow(np.dstack([rgb, (~depth.mask).astype(float)]), extent=(l, r, b, t), interpolation="antialiased", zorder=2)
 smooth = gaussian_filter(depth.filled(0).astype("float64"), 4)
@@ -151,7 +151,7 @@ cx0 = mp.x1 + 0.07
 cax = fig.add_axes((cx0, mp.y0 + 0.02, 0.95 - cx0, mp.height * 0.80))
 cm = LAKE
 for y, row in yr.iterrows():
-    cax.bar(y, row["mean"], width=0.62, bottom=0, color=cm(PowerNorm(0.55, vmin=0, vmax=depth.max())(row["mean"] * 9)), lw=0)
+    cax.bar(y, row["mean"], width=0.62, bottom=0, color="#3a86b0", lw=0)
 cax.axhline(TARGET_M, color=dmc.LAVA, lw=0.9, ls=(0, (4, 2)))
 cax.text(yr.index.max(), TARGET_M - 0.5, f"Target: {TARGET_M:g} m,\nthe 1967–71 average", family=dmc.MONO, size=6.2,
          color=dmc.LAVA, va="bottom", ha="right")
