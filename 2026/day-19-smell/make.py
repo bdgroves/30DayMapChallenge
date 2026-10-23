@@ -156,8 +156,18 @@ if rivers:
     if big:
         gpd.GeoSeries(big, crs=4326).to_crs(CRS).plot(ax=ax, color=WATER, lw=1.5, zorder=1)
 
-# the hops, in hop green, on top
-f.plot(ax=ax, color="#5f7d2c", edgecolor="#2f4220", lw=0.2, zorder=3)
+# the hops: every field speckled in Washington's statewide smell mix. Fields don't record their
+# variety, so each dot's colour is drawn at random in proportion to the state's acreage by leading
+# aroma (seeded, so the map renders the same every time). The mix is statewide, not per field.
+f.plot(ax=ax, color="#e6dcc0", edgecolor="#8c8466", lw=0.2, zorder=3)
+rng = np.random.default_rng(19)
+mix = np.array([by_fam[k] for k in fams]) / classed
+n_dots = np.maximum(4, np.round(f["ExactAcres"].to_numpy() * 2.2)).astype(int)
+pts = f.geometry.sample_points(size=n_dots, rng=rng).explode(index_parts=False)
+pts = pts[~pts.is_empty]
+cols = np.array([FAMILY_COLOUR.get(k, dmc.ASH) for k in fams])[rng.choice(len(fams), size=len(pts), p=mix)]
+ax.scatter(pts.x, pts.y, s=0.9, c=cols, lw=0, zorder=3.5)
+print(f"= {len(pts):,} smell dots")
 
 # ridge names along the high ground, towns as small dots
 # one label per ridge (its longest piece), skipped if it would run off the map or into another
@@ -219,8 +229,8 @@ dmc.frame(
               f"by acreage, mostly\n{tax[lead]['label'].lower()}, led by {sorted(names[lead], reverse=True)[0][1]}. "
               f"The aroma of each variety comes from HopLove, my hop database."),
     source="WSDA Agricultural Land Use 2024 · USDA NASS National Hop Report 2025 · HopLove · Copernicus DEM · © OpenStreetMap",
-    note="Fields don't record their variety, so the map shows where the hops grow and the panel what they smell like.",
+    note="Fields don't record their variety, so every field is speckled in the statewide mix from the panel, not its own crop.",
 )
 dmc.save(fig, DAY, alt=(
-    f"Map of Yakima County's {len(fields):,} hop fields in green over shaded relief of the valley and its ridges, with the Yakima River, beside bars of Washington's "
+    f"Map of Yakima County's {len(fields):,} hop fields, each speckled in the colours of Washington's statewide hop smells, over shaded relief of the valley and its ridges, with the Yakima River, beside bars of Washington's "
     f"{YEAR} hop acreage by each variety's leading aroma: " + ", ".join(f"{tax[f]['label'].lower()} {by_fam[f]:,.0f} acres" for f in fams[:4]) + "."))
