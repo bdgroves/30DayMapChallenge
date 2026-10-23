@@ -5,7 +5,7 @@
 
 ## Where you can see Rainier from
 
-A viewshed from the summit of Mount Rainier over 30 m terrain, with Earth's curvature and refraction, showing every place in Washington with a line of sight to the mountain.
+A viewshed from the summit of Mount Rainier over 90 m terrain, with Earth's curvature and refraction, showing every place in Washington with a line of sight to the mountain.
 
 **Data**
 
