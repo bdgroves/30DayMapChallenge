@@ -145,7 +145,7 @@ ax.set_aspect("equal")
 gpt = gpd.GeoSeries(gpd.points_from_xy([-116.87], [36.46]), crs=4326).to_crs(CRS).iloc[0]   # Furnace Creek
 dmc.label(ax, gpt.x + 60000, gpt.y - 40000, "Death Valley", size=7.5, style="italic", zorder=5)
 ax.scatter([gpt.x], [gpt.y], s=10, color=dmc.INK, zorder=5)
-dmc.scalebar(ax, 500, loc=(0.05, 0.05))
+dmc.scalebar(ax, 500, loc=(0.31, 0.035))
 
 lx = fig.add_axes((0.08, 0.135, 0.26, 0.016))
 grad = np.linspace(0, 1, 256)[None, :]
