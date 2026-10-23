@@ -124,8 +124,8 @@ ax.imshow(terrain.relief(z, 90 * SHOW, strength=0.55, exaggerate=2.2, water="#dd
           extent=terrain.extent(tf, z.shape), interpolation="bilinear")
 ax.imshow(np.where(v, 1.0, np.nan), extent=terrain.extent(tf, v.shape), cmap=ListedColormap([dmc.LAVA]),
           alpha=0.62, interpolation="nearest")
-x0, y0 = to_utm.transform(-125.0, 44.9)
-x1, y1 = to_utm.transform(-117.4, 49.45)
+x0, y0 = to_utm.transform(-125.0, 44.78)          # low enough that Salem sits inside the frame
+x1, y1 = to_utm.transform(-117.4, 49.33)
 ax.set_xlim(x0, x1)
 ax.set_ylim(y0, y1)
 for km in (100, 200, 300):
