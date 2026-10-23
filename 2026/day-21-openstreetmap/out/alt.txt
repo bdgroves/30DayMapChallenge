@@ -1,1 +1,1 @@
-Map of Groveland and Big Oak Flat, California, drawn only from OpenStreetMap: 3,437 buildings in red, roads in black, paths dashed, streams in blue and 52 named places in gold along Highway 120.
+Map of Groveland and Big Oak Flat, California, drawn only from OpenStreetMap: 3,437 buildings, roads, paths and named places, each colored by the year it was last edited, from pale tan for 2007 to dark plum for 2026. A panel says 101 volunteers drew it, 4,488 features in all, 39% untouched since first drawn, with a bar chart of features by year last edited; the busiest year is 2023.
