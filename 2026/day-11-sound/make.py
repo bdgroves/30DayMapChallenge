@@ -119,6 +119,34 @@ for name, lon, lat, ha in [("Long Beach", -124.054, 46.352, "left"), ("Ocean Sho
     dmc.label(ax, x + 9000, y, name, size=7.5, va="center", zorder=6)
 ax.set_xlim(vb[0], vb[2])
 ax.set_ylim(vb[1], vb[3])
+
+# ── close-up: Grays Harbor, where the rings are big enough to see ───────────
+IN = (-124.25, 46.85, -123.95, 47.03)                # Westport to Ocean Shores
+ib = gpd.GeoSeries([box(*IN)], crs=4326).to_crs(CRS).total_bounds
+iax = ax.inset_axes([0.31, 0.36, 0.34, 0.28])
+iax.set_xlim(ib[0], ib[2])
+iax.set_ylim(ib[1], ib[3])
+iax.set_aspect("equal")
+if not (MAPBOX and basemap.mapbox(iax, style="mapbox/light-v11")):
+    iax.set_facecolor(dmc.CREAM)
+if zones is not None and len(zones):
+    zones.to_crs(CRS).plot(ax=iax, color=dmc.LAVA, alpha=0.35, lw=0, zorder=2)
+rings.plot(ax=iax, facecolor=dmc.LAKE, alpha=0.45, edgecolor="none", zorder=3)
+rings.boundary.plot(ax=iax, color="#1f3a4a", lw=0.7, zorder=4)
+iax.scatter(s.geometry.x, s.geometry.y, s=7, color=dmc.INK, zorder=5)
+for name, lon, lat in [("Ocean Shores", -124.156, 46.973), ("Westport", -124.104, 46.89)]:
+    x, y = gpd.GeoSeries.from_xy([lon], [lat], crs=4326).to_crs(CRS).iloc[0].coords[0]
+    dmc.label(iax, x + 1500, y, name, size=7, va="center", zorder=6)
+iax.set_xlim(ib[0], ib[2])
+iax.set_ylim(ib[1], ib[3])
+iax.set_xticks([])
+iax.set_yticks([])
+for sp in iax.spines.values():
+    sp.set_color(dmc.INK)
+    sp.set_linewidth(0.8)
+iax.text(0.03, 0.97, "GRAYS HARBOR, CLOSER", transform=iax.transAxes, family=dmc.MONO, size=6, va="top",
+         color=dmc.INK, zorder=7, bbox=dict(facecolor=dmc.PARCHMENT, edgecolor="none", pad=1.5, alpha=0.9))
+ax.indicate_inset_zoom(iax, edgecolor=dmc.INK, alpha=0.8)
 k_m = 1000 / 0.682 if CRS == "EPSG:3857" else 1000
 dmc.scalebar(ax, 25, loc=(0.06, 0.08), crs_units_per_km=k_m)
 from matplotlib.patches import Patch  # noqa: E402

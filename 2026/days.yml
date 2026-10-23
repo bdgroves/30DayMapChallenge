@@ -128,7 +128,7 @@ days:
     tools: [Python, geopandas]
     prep: "Drafted from the GNIS national file."
     status: draft
-    hashtags: "#placenames"
+    hashtags: "#placenames #maps"
 
   - day: 9
     theme: Urban-rural
@@ -159,7 +159,7 @@ days:
     tools: [Claude, FORTRAN (gfortran), Python]
     prep: "Drafted. Rule: no hand edits; every change is asked for in words and logged in PROMPTS.md."
     status: draft
-    hashtags: "#FORTRAN #AI"
+    hashtags: "#FORTRAN #retrocomputing"
     deeper:
       - name: "The prompts, and the FORTRAN"
         url: https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-10-prompting-only
@@ -184,7 +184,7 @@ days:
     tools: [Python, geopandas, Mapbox]
     prep: "Drafted. If Pierce County shares its lahar siren locations, the original idea can come back."
     status: draft
-    hashtags: "#tsunami #PugetSound"
+    hashtags: "#tsunami #Washington"
     deeper:
       - name: "PUGET-TIDES: tides of Puget Sound in FORTRAN"
         url: https://brooksgroves.com/puget-tides/

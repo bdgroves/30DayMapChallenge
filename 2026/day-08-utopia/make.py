@@ -110,8 +110,10 @@ def plural(w):
 
 
 others = [plural(c) for c in cls.index if c.lower() != "populated place"][:3]
-fig.text(px, 0.69, "places named for heaven on earth.\nOnly " + f"{len(towns):,}" + " of them are towns. Most\n"
-         f"are {others[0]}, {others[1]}\nand {others[2]}.", size=8.5, va="top", linespacing=1.55)
+import textwrap  # noqa: E402
+blurb = (f"places named for heaven on earth. Only {len(towns):,} of them are towns. Most are "
+         f"{others[0]}, {others[1]} and {others[2]}.")
+fig.text(px, 0.69, textwrap.fill(blurb, 34), size=8.5, va="top", linespacing=1.55)
 y = 0.50
 for k, (_, colour) in WORDS.items():
     fig.add_artist(Line2D([px + 0.006], [y], marker="o", color=colour, ms=6, lw=0, transform=fig.transFigure))
