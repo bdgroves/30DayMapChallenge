@@ -35,7 +35,7 @@ days:
         url: https://overpass-api.de/
     tools: [Python, geopandas, matplotlib]
     prep: "Drafted from OpenStreetMap. (The Strava heatmap idea is kept as make_strava.py for later.)"
-    status: draft
+    status: done
     hashtags: "#Vancouver #StanleyPark"
 
   - day: 3
@@ -50,7 +50,7 @@ days:
     deeper:
       - name: "Blog: Thirty Minutes, Fifty Years of Fire"
         url: https://brooksgroves.com/blog/tuolumne-watershed-post.html
-    status: draft
+    status: done
     hashtags: "#wildfire #SierraNevada"
 
   - day: 4
@@ -62,7 +62,7 @@ days:
         url: https://earthquake.usgs.gov/fdsnws/event/1/
     tools: [Python, scikit-learn (DBSCAN), matplotlib]
     prep: "Drafted. Re-run in November to pick up the latest earthquakes."
-    status: draft
+    status: done
     hashtags: "#MountRainier #earthquakes"
     deeper:
       - name: "lahar-watch: the network watching Rainier"
@@ -86,7 +86,7 @@ days:
         url: https://brooksgroves.com/rainier-snowpack
       - name: "lahar-watch: the network watching Rainier"
         url: https://brooksgroves.com/lahar-watch/
-    status: draft
+    status: done
     hashtags: "#MountRainier #viewshed"
 
   - day: 6
@@ -102,7 +102,7 @@ days:
         url: https://www.naturalearthdata.com/
     tools: [Python, geopandas, matplotlib]
     prep: "Drafted: Cook's chart georeferenced from its own Mercator graticule (fit within 3 px), today's coast over it, Tasman's coast and an inset of his chart."
-    status: draft
+    status: done
     hashtags: "#NewZealand #historicalmaps"
     deeper:
       - name: "My review of A Draught of the South Land, Cartographic Perspectives"

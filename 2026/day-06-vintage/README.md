@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 6 · Vintage
 
-**Friday, November 6, 2026** · status: ✏️ draft
+**Friday, November 6, 2026** · status: ✅ done
 
 ## Tasman to Cook
 

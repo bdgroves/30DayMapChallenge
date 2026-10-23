@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 3 · Polygons
 
-**Tuesday, November 3, 2026** · status: ✏️ draft
+**Tuesday, November 3, 2026** · status: ✅ done
 
 ## Every fire around Groveland
 

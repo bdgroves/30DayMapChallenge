@@ -43,16 +43,16 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - Before posting: **21** (re-render after your OSM evening).
 
 <!-- table:start -->
-**1 of 30 done** · 💡 idea 2 · 📦 data in hand 1 · ✏️ draft 26 · ✅ done 1 · 📣 posted 0
+**6 of 30 done** · 💡 idea 2 · 📦 data in hand 1 · ✏️ draft 21 · ✅ done 6 · 📣 posted 0
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
 | 1 | Sun Nov 1 | Points | [1,190 caches](day-01-points/) | ✅ done |
-| 2 | Mon Nov 2 | Lines | [The Seawall](day-02-lines/) | ✏️ draft |
-| 3 | Tue Nov 3 | Polygons | [Every fire around Groveland](day-03-polygons/) | ✏️ draft |
-| 4 | Wed Nov 4 | Clusters | [Rainier's swarms](day-04-clusters/) | ✏️ draft |
-| 5 | Thu Nov 5 | Sight | [Where you can see Rainier from](day-05-sight/) | ✏️ draft |
-| 6 | Fri Nov 6 | Vintage | [Tasman to Cook](day-06-vintage/) | ✏️ draft |
+| 2 | Mon Nov 2 | Lines | [The Seawall](day-02-lines/) | ✅ done |
+| 3 | Tue Nov 3 | Polygons | [Every fire around Groveland](day-03-polygons/) | ✅ done |
+| 4 | Wed Nov 4 | Clusters | [Rainier's swarms](day-04-clusters/) | ✅ done |
+| 5 | Thu Nov 5 | Sight | [Where you can see Rainier from](day-05-sight/) | ✅ done |
+| 6 | Fri Nov 6 | Vintage | [Tasman to Cook](day-06-vintage/) | ✅ done |
 | 7 | Sat Nov 7 | 10 minute map | [Ten minutes, on the clock](day-07-10-minute-map/) | 💡 idea |
 | 8 | Sun Nov 8 | Utopia | [Paradise, Eden, Utopia](day-08-utopia/) | ✏️ draft |
 | 9 | Mon Nov 9 | Urban-rural | [Tacoma to Paradise](day-09-urban-rural/) | ✏️ draft |

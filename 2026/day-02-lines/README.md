@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 2 · Lines
 
-**Monday, November 2, 2026** · status: ✏️ draft
+**Monday, November 2, 2026** · status: ✅ done
 
 ## The Seawall
 
