@@ -19,7 +19,7 @@ Always `git pull --rebase` before working: bots and Actions commit often.
 - [ ] **Mark days `done`** as they're finished; Days 27-30 (incl. the Day 30 napkin scan) before Nov 27.
 - [ ] **Day 21 (30DayMapChallenge):** Brooks makes his OpenStreetMap edits, then re-render the "after" map.
 - [ ] **Day 16:** now "Washington's favorite outdoors, by vote" from KING 5 Evening's Best Northwest Escapes winners (2015-2026, 54 wins). 2015, 2019, 2025, 2026 rows come from Brooks's compiled list (source column in winners.csv); verify against KING 5's pages if they can be read.
-- [ ] **American spelling** done across 2026 (23 Oct); Days 9 and 24 still need a re-render (WA DNR / USGS NLDI were down) to pick it up.
+- [x] **American spelling** across 2026, all maps re-rendered (23 Oct). Days 9 and 24 now fall back when WA DNR / NLDI gage navigation are down.
 - [ ] **Delete two stale branches** in the GitHub web UI: `smoke-monitors` and `dmc-day2-runs` (harmless; the session can't delete branches).
 - [ ] **Read the personal lines** in the two fish posts and tweak anything that doesn't sound like him; add which fish his UNR lab worked on if he remembers.
 
