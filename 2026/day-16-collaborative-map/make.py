@@ -2,13 +2,14 @@
 Day 16 · Collaborative map — Washington's favorite outdoors, by vote
 
 Made by other people: every outdoor winner of KING 5 Evening's "Best Northwest Escapes" viewer
-poll that I could read (2017, 2018, 2022, 2023, 2024), one dot per place, bigger the more
+poll I could find (2015-2026), one dot per place, bigger the more
 categories it has won. The polls publish winners only (no runners-up, no vote counts), so this
 is who won, not by how much. Lodging, restaurants and businesses (skydiving, ziplines, glamping)
 are left out; places outdoors are in.
 
-winners.csv   one row per category won: year, category, place, lon, lat, kind
-              (water, park, coast or view). Placed by hand. Add a year's list and re-render.
+winners.csv   one row per category won: year, category, place, lon, lat, kind (water, park, coast
+              or view), source (king5: read on KING 5's own winners page; list: from Brooks's
+              compiled list, for years whose pages couldn't be read). Placed by hand.
 
 Basemap: Mapbox Light; without a token, Census state outlines.
 """
@@ -83,35 +84,38 @@ for i, (k, (c, lab)) in enumerate(KIND.items()):
     fig.add_artist(Line2D([x + 0.004], [yk], marker="o", ms=5, color=c, mec=dmc.WHITE, transform=fig.transFigure))
     fig.text(x + 0.014, yk, lab, size=6.8, va="center", color=dmc.INK)
 y = 0.69
-fig.text(px, y, "WON MORE THAN ONCE", family=dmc.MONO, size=7.2, color=dmc.INK)
+fig.text(px, y, "MOST WINS", family=dmc.MONO, size=7.2, color=dmc.INK)
 y -= 0.04
-for p in [q for q in places if len(wins[q]) > 1]:
+for p in [q for q in places if len(wins[q]) >= 3]:
     n, c = len(wins[p]), KIND[where[p][2]][0]
-    fig.text(px, y, p, size=7.4, weight="bold" if n > 2 else "normal", color=dmc.INK, va="center")
-    fig.text(0.965, y, f"{n}", family=dmc.MONO, size=7.2, color=c, ha="right", va="center")
-    y -= 0.021
-    fig.text(px, y, " · ".join(f"{cat} '{yr % 100:02d}" for yr, cat in sorted(wins[p])), size=5.6, style="italic",
-             color=dmc.STONE, va="center")
-    y -= 0.029
-once = [q for q in places if len(wins[q]) == 1]
-if once:
-    y -= 0.005
-    fig.text(px, y, "ONCE EACH", family=dmc.MONO, size=7.2, color=dmc.INK)
-    txt = ", ".join(f"{q} ('{wins[q][0][0] % 100:02d})" for q in sorted(once))
-    fig.text(px, y - 0.018, textwrap.fill(txt, 74), size=5.9, color=dmc.STONE, va="top", linespacing=1.35)
+    fig.text(px, y, p, size=7.6, weight="bold", color=dmc.INK, va="center")
+    fig.text(0.965, y, f"{n}", family=dmc.MONO, size=7.4, color=c, ha="right", va="center")
+    detail = textwrap.fill(" · ".join(f"{cat} '{yr % 100:02d}" for yr, cat in sorted(wins[p])), 96)
+    fig.text(px, y - 0.014, detail, size=5.5, style="italic", color=dmc.STONE, va="top", linespacing=1.3)
+    y -= 0.03 + 0.016 * (detail.count("\n") + 1)
+for head, group in (("TWICE", [q for q in places if len(wins[q]) == 2]), ("ONCE", [q for q in places if len(wins[q]) == 1])):
+    if not group:
+        continue
+    y -= 0.008
+    fig.text(px, y, head, family=dmc.MONO, size=7.2, color=dmc.INK)
+    txt = textwrap.fill(", ".join(sorted(group)), 70)
+    fig.text(px, y - 0.018, txt, size=6.3, color=dmc.STONE, va="top", linespacing=1.4)
+    y -= 0.03 + 0.021 * (txt.count("\n") + 1)
 
 lead = places[0]
-yrs = ", ".join(str(v) for v in years[:-1]) + f" and {years[-1]}"
+listed = sorted({int(r["year"]) for r in rows if r.get("source") == "list"})
+lead_cats = sorted({c.split(" (")[0].lower() for _, c in wins[lead]})
 dmc.frame(
     fig, DAY,
     title="Washington's favorite outdoors, by vote",
-    subtitle=(f"Every outdoor winner of KING 5 Evening's Best Northwest Escapes viewer poll from {yrs}, bigger the more it won.\n"
-              f"{len(places)} places, {len(rows)} wins. {lead} has won {len(wins[lead])} times: "
-              + ", ".join(f"{c.lower()} {y}" for y, c in sorted(wins[lead])) + "."),
-    source="KING 5 Evening, Best Northwest Escapes winners lists · places by hand" + (" · " + basemap.CREDIT if drawn else ""),
-    note="Made by the people who voted. The polls publish winners only, so size counts wins, not votes. Lodging and businesses left out.",
+    subtitle=(f"Every outdoor winner of KING 5 Evening's Best Northwest Escapes viewer poll I could find, {years[0]} to {years[-1]}, "
+              f"bigger the more it won.\n{len(places)} places, {len(rows)} wins. {lead} has won {len(wins[lead])} times: "
+              + ", ".join(lead_cats[:-1]) + f" and {lead_cats[-1]}."),
+    source="KING 5 Evening, Best Northwest Escapes winners · places by hand" + (" · " + basemap.CREDIT if drawn else ""),
+    note=("Made by the people who voted. Winners only, so size counts wins, not votes; lodging and businesses left out. "
+          + (", ".join(map(str, listed)) + " from a compiled list; other years from KING 5's own pages." if listed else "")),
 )
 dmc.save(fig, DAY, alt=(
     f"Map of Washington with colored dots at {len(places)} outdoor places that won KING 5 Evening's Best Northwest Escapes "
-    f"viewer poll in {yrs}, bigger for more wins. {lead} has won most, {len(wins[lead])} times; "
+    f"viewer poll from {years[0]} to {years[-1]}, bigger for more wins. {lead} has won most, {len(wins[lead])} times; "
     + ", ".join(f"{p} {len(wins[p])}" for p in places[1:6]) + ". A list beside the map ranks them."))

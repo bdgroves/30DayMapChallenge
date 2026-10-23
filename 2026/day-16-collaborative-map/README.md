@@ -13,7 +13,7 @@ Made by the people who voted: every outdoor winner of KING 5 Evening's Best Nort
 
 **Tools:** Python, Mapbox
 
-**Prep:** Drafted from the 2017, 2018, 2022, 2023 and 2024 winners lists (winners.csv). 2019-2021 and 2025 still to add if the lists can be read.
+**Prep:** Drafted: 2017, 2018 and 2022-24 read on KING 5's pages; 2015, 2019, 2025 and 2026 from Brooks's compiled list (source column in winners.csv). 2020-21 not found.
 
 **Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
 
