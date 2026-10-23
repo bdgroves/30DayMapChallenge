@@ -110,13 +110,15 @@ days:
 
   - day: 7
     theme: 10 minute map
-    title: "Ten minutes, on the clock"
-    pitch: "Whatever the day brings, made in ten minutes with a timer visible in the corner of the screenshot."
-    data: []
-    tools: [Whatever is open]
-    prep: "Nothing. That's the point."
-    status: idea
-    hashtags: "#cartography"
+    title: "Every fire since 1950, Los Angeles"
+    pitch: "Made in QGIS against the clock, finished at 5:09: every CAL FIRE perimeter around Los Angeles since 1950, stacked and colored by year, with the Palisades and Eaton fires of January 2025 outlined in white."
+    data:
+      - name: "CAL FIRE FRAP fire perimeters"
+        url: https://www.fire.ca.gov/what-we-do/fire-resource-assessment-program/fire-perimeters
+    tools: [QGIS, QGIS MCP]
+    prep: "Made Oct 23 in QGIS, 13:53:06 to 13:58:15, clock in the corner. Project saved as Downloads/day-07-ten-minutes.qgz on Brooks's machine; the image is out/map.png (no make.py: the point was to make it live)."
+    status: done
+    hashtags: "#wildfire #QGIS"
 
   - day: 8
     theme: Utopia

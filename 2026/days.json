@@ -5,10 +5,10 @@
  "author": "Brooks Groves",
  "repo": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026",
  "counts": {
-  "idea": 2,
+  "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 28,
+  "done": 29,
   "posted": 0
  },
  "days": [
@@ -261,24 +261,32 @@
    "date": "2026-11-07",
    "weekday": "Sat",
    "theme": "10 minute map",
-   "title": "Ten minutes, on the clock",
-   "pitch": "Whatever the day brings, made in ten minutes with a timer visible in the corner of the screenshot.",
-   "status": "idea",
+   "title": "Every fire since 1950, Los Angeles",
+   "pitch": "Made in QGIS against the clock, finished at 5:09: every CAL FIRE perimeter around Los Angeles since 1950, stacked and colored by year, with the Palisades and Eaton fires of January 2025 outlined in white.",
+   "status": "done",
    "tools": [
-    "Whatever is open"
+    "QGIS",
+    "QGIS MCP"
    ],
-   "data": [],
-   "data_links": [],
+   "data": [
+    "CAL FIRE FRAP fire perimeters"
+   ],
+   "data_links": [
+    {
+     "name": "CAL FIRE FRAP fire perimeters",
+     "url": "https://www.fire.ca.gov/what-we-do/fire-resource-assessment-program/fire-perimeters"
+    }
+   ],
    "deeper": [],
    "folder": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026/day-07-10-minute-map",
-   "image": null,
-   "thumb": null,
-   "alt": "",
+   "image": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-07-10-minute-map/out/map.png",
+   "thumb": "https://raw.githubusercontent.com/bdgroves/30DayMapChallenge/main/2026/day-07-10-minute-map/out/thumb.jpg",
+   "alt": "Dark map of the Los Angeles basin and its mountains, covered in 2,438 overlapping fire perimeters since 1950, colored from dark brown for the oldest to pale tan for the newest; burned ground blankets the Santa Monica, San Gabriel and Santa Susana mountains. The Palisades and Eaton fires of January 2025 are outlined in white, on the coast west of Santa Monica and above Altadena. A clock in the corner reads 05:09 of 10:00.",
    "post": null,
    "link": null,
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-07.html",
-   "hashtags": "#cartography",
-   "post_text": "Day 7 of #30DayMapChallenge · 10 minute map\nTen minutes, on the clock\n#cartography"
+   "hashtags": "#wildfire #QGIS",
+   "post_text": "Day 7 of #30DayMapChallenge · 10 minute map\nEvery fire since 1950, Los Angeles\n#wildfire #QGIS"
   },
   {
    "day": 8,
