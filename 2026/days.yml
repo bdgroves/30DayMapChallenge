@@ -23,7 +23,7 @@ days:
     deeper:
       - name: "Maps: every geocache, on the map page"
         url: https://brooksgroves.com/maps.html
-    status: draft
+    status: done
     hashtags: "#geocaching #GIS"
 
   - day: 2
