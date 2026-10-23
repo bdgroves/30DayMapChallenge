@@ -15,6 +15,7 @@ Always `git pull --rebase` before working: bots and Actions commit often.
 
 ### Waiting on Brooks
 - [x] **Auto-posting keys** set 22 Oct (new X app "30DMC Map Poster", Read and write; Bluesky app password). The preview run signs in to both without posting: "signed in as @bdgroves" on X, signed in on Bluesky. Still check X Billing → Credits has a balance.
+- [ ] **Review status (22 Oct):** Days 1-6 and 8-12 reviewed, improved and `done`. Days 13-15 reviewed (only Day 13's pitch fixed) but **on hold**: Brooks wants to dig into the two interactive ones (13, 14) properly before marking them. Day 7 (10-minute map) still to make. Days 16-30 not yet reviewed.
 - [ ] **Mark days `done`** as they're finished; Days 27-30 (incl. the Day 30 napkin scan) before Nov 27.
 - [ ] **Day 21 (30DayMapChallenge):** Brooks makes his OpenStreetMap edits, then re-render the "after" map.
 - [ ] **Day 16:** waiting on the trailhead replies.
