@@ -83,27 +83,37 @@ for i, (k, (c, lab)) in enumerate(KIND.items()):
     x, yk = px + (i % 2) * 0.15, 0.775 - (i // 2) * 0.03
     fig.add_artist(Line2D([x + 0.004], [yk], marker="o", ms=5, color=c, mec=dmc.WHITE, transform=fig.transFigure))
     fig.text(x + 0.014, yk, lab, size=6.8, va="center", color=dmc.INK)
+renderer = fig.canvas.get_renderer()
+FH = fig.get_figheight() * fig.dpi
+
+
+def below(t, gap):
+    """The figure y just under text t, less a gap."""
+    return t.get_window_extent(renderer).y0 / FH - gap
+
+
 y = 0.69
-fig.text(px, y, "MOST WINS", family=dmc.MONO, size=7.2, color=dmc.INK)
-y -= 0.04
+fig.text(px, y, "MOST WINS", family=dmc.MONO, size=7.2, color=dmc.INK, va="top")
+y -= 0.035
 for p in [q for q in places if len(wins[q]) >= 3]:
     n, c = len(wins[p]), KIND[where[p][2]][0]
-    fig.text(px, y, p, size=7.6, weight="bold", color=dmc.INK, va="center")
-    fig.text(0.965, y, f"{n}", family=dmc.MONO, size=7.4, color=c, ha="right", va="center")
+    t = fig.text(px, y, p, size=7.6, weight="bold", color=dmc.INK, va="top")
+    fig.text(0.965, y, f"{n}", family=dmc.MONO, size=7.4, color=c, ha="right", va="top")
     detail = textwrap.fill(" · ".join(f"{cat} '{yr % 100:02d}" for yr, cat in sorted(wins[p])), 96)
-    fig.text(px, y - 0.014, detail, size=5.5, style="italic", color=dmc.STONE, va="top", linespacing=1.3)
-    y -= 0.03 + 0.016 * (detail.count("\n") + 1)
+    t = fig.text(px, below(t, 0.004), detail, size=5.5, style="italic", color=dmc.STONE, va="top", linespacing=1.35)
+    y = below(t, 0.018)
 for head, group in (("TWICE", [q for q in places if len(wins[q]) == 2]), ("ONCE", [q for q in places if len(wins[q]) == 1])):
     if not group:
         continue
-    y -= 0.008
-    fig.text(px, y, head, family=dmc.MONO, size=7.2, color=dmc.INK)
-    txt = textwrap.fill(", ".join(sorted(group)), 70)
-    fig.text(px, y - 0.018, txt, size=6.3, color=dmc.STONE, va="top", linespacing=1.4)
-    y -= 0.03 + 0.021 * (txt.count("\n") + 1)
+    y -= 0.006
+    t = fig.text(px, y, head, family=dmc.MONO, size=7.2, color=dmc.INK, va="top")
+    t = fig.text(px, below(t, 0.008), textwrap.fill(", ".join(sorted(group)), 70), size=6.3, color=dmc.STONE,
+                 va="top", linespacing=1.4)
+    y = below(t, 0.02)
 
 lead = places[0]
-listed = sorted({int(r["year"]) for r in rows if r.get("source") == "list"})
+own = {int(r["year"]) for r in rows if r.get("source") != "list"}
+listed = sorted({int(r["year"]) for r in rows} - own)
 lead_cats = sorted({c.split(" (")[0].lower() for _, c in wins[lead]})
 dmc.frame(
     fig, DAY,
@@ -113,7 +123,8 @@ dmc.frame(
               + ", ".join(lead_cats[:-1]) + f" and {lead_cats[-1]}."),
     source="KING 5 Evening, Best Northwest Escapes winners · places by hand" + (" · " + basemap.CREDIT if drawn else ""),
     note=("Made by the people who voted. Winners only, so size counts wins, not votes; lodging and businesses left out. "
-          + (", ".join(map(str, listed)) + " from a compiled list; other years from KING 5's own pages." if listed else "")),
+          + (", ".join(map(str, listed[:-1])) + f" and {listed[-1]}" + " (and a few winners in other years) from a compiled list; "
+             "the rest from KING 5's own pages." if listed else "")),
 )
 dmc.save(fig, DAY, alt=(
     f"Map of Washington with colored dots at {len(places)} outdoor places that won KING 5 Evening's Best Northwest Escapes "
