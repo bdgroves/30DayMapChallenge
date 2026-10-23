@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 25 · Is this a map?
 
-**Wednesday, November 25, 2026** · status: ✏️ draft
+**Wednesday, November 25, 2026** · status: ✅ done
 
 ## The Beast Quake
 

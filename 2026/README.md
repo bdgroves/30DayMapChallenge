@@ -43,7 +43,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - Before posting: **21** (re-render after your OSM evening).
 
 <!-- table:start -->
-**14 of 30 done** · 💡 idea 2 · 📦 data in hand 0 · ✏️ draft 14 · ✅ done 14 · 📣 posted 0
+**27 of 30 done** · 💡 idea 2 · 📦 data in hand 0 · ✏️ draft 1 · ✅ done 27 · 📣 posted 0
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -62,19 +62,19 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 13 | Fri Nov 13 | Interactions | [Follow a raindrop](day-13-interactions/) | ✅ done |
 | 14 | Sat Nov 14 | Borgesian map | [1:1](day-14-borgesian-map/) | ✅ done |
 | 15 | Sun Nov 15 | Inside out | [Inside Kīlauea](day-15-inside-out/) | ✅ done |
-| 16 | Mon Nov 16 | Collaborative map | [Washington's favorite outdoors, by vote](day-16-collaborative-map/) | ✏️ draft |
-| 17 | Tue Nov 17 | Light & dark | [Great Basin's dark sky](day-17-light-and-dark/) | ✏️ draft |
-| 18 | Wed Nov 18 | NULL | [Nobody lives here](day-18-null/) | ✏️ draft |
-| 19 | Thu Nov 19 | Smell | [What the Yakima Valley smells like](day-19-smell/) | ✏️ draft |
-| 20 | Fri Nov 20 | Hexagons | [Kangaroo rats in hexagons](day-20-hexagons/) | ✏️ draft |
+| 16 | Mon Nov 16 | Collaborative map | [Washington's favorite outdoors, by vote](day-16-collaborative-map/) | ✅ done |
+| 17 | Tue Nov 17 | Light & dark | [Great Basin's dark sky](day-17-light-and-dark/) | ✅ done |
+| 18 | Wed Nov 18 | NULL | [Nobody lives here](day-18-null/) | ✅ done |
+| 19 | Thu Nov 19 | Smell | [What the Yakima Valley smells like](day-19-smell/) | ✅ done |
+| 20 | Fri Nov 20 | Hexagons | [Kangaroo rats in hexagons](day-20-hexagons/) | ✅ done |
 | 21 | Sat Nov 21 | OpenStreetMap | [Groveland, by volunteers](day-21-openstreetmap/) | ✏️ draft |
-| 22 | Sun Nov 22 | Projections | [The world from Groveland](day-22-projections/) | ✏️ draft |
-| 23 | Mon Nov 23 | Taste | [Every brewery I've checked into](day-23-taste/) | ✏️ draft |
-| 24 | Tue Nov 24 | Network | [Every stream that reaches Modesto](day-24-network/) | ✏️ draft |
-| 25 | Wed Nov 25 | Is this a map? | [The Beast Quake](day-25-is-this-a-map/) | ✏️ draft |
-| 26 | Thu Nov 26 | Water | [Lake Tahoe, clear and deep](day-26-water/) | ✏️ draft |
-| 27 | Fri Nov 27 | New tool | [Every building in Washington](day-27-new-tool/) | ✏️ draft |
-| 28 | Sat Nov 28 | Feeling | [Did you feel it? Nisqually, 2001](day-28-feeling/) | ✏️ draft |
-| 29 | Sun Nov 29 | Raster | [When Rainier's snow melted](day-29-raster/) | ✏️ draft |
+| 22 | Sun Nov 22 | Projections | [The world from Groveland](day-22-projections/) | ✅ done |
+| 23 | Mon Nov 23 | Taste | [Every brewery I've checked into](day-23-taste/) | ✅ done |
+| 24 | Tue Nov 24 | Network | [Every stream that reaches Modesto](day-24-network/) | ✅ done |
+| 25 | Wed Nov 25 | Is this a map? | [The Beast Quake](day-25-is-this-a-map/) | ✅ done |
+| 26 | Thu Nov 26 | Water | [Lake Tahoe, clear and deep](day-26-water/) | ✅ done |
+| 27 | Fri Nov 27 | New tool | [Every building in Washington](day-27-new-tool/) | ✅ done |
+| 28 | Sat Nov 28 | Feeling | [Did you feel it? Nisqually, 2001](day-28-feeling/) | ✅ done |
+| 29 | Sun Nov 29 | Raster | [When Rainier's snow melted](day-29-raster/) | ✅ done |
 | 30 | Mon Nov 30 | Pen & paper | [If you hit the third cattle guard](day-30-pen-and-paper/) | 💡 idea |
 <!-- table:end -->

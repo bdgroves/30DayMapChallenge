@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 24 · Network
 
-**Tuesday, November 24, 2026** · status: ✏️ draft
+**Tuesday, November 24, 2026** · status: ✅ done
 
 ## Every stream that reaches Modesto
 

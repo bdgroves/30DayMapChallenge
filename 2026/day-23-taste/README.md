@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 23 · Taste
 
-**Monday, November 23, 2026** · status: ✏️ draft
+**Monday, November 23, 2026** · status: ✅ done
 
 ## Every brewery I've checked into
 

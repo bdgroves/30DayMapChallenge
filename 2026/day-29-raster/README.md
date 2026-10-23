@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 29 · Raster
 
-**Sunday, November 29, 2026** · status: ✏️ draft
+**Sunday, November 29, 2026** · status: ✅ done
 
 ## When Rainier's snow melted
 

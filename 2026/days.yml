@@ -270,7 +270,7 @@ days:
         url: https://www.king5.com/best-nw-escapes
     tools: [Python, Mapbox]
     prep: "Drafted: 2017, 2018 and 2022-24 read on KING 5's pages; 2015, 2019, 2025 and 2026 from Brooks's compiled list (source column in winners.csv). 2020-21 not found."
-    status: draft
+    status: done
     hashtags: "#PNW #hiking"
 
   - day: 17
@@ -284,7 +284,7 @@ days:
         url: https://darksky.org/places/great-basin-national-park-dark-sky-park/
     tools: [Python, matplotlib]
     prep: "Drafted from the Black Marble composite NASA GIBS serves without a login. With the Earthdata secrets added to this repo it could use VNP46A4 annual radiance instead."
-    status: draft
+    status: done
     hashtags: "#DarkSky #GreatBasin"
 
   - day: 18
@@ -296,7 +296,7 @@ days:
         url: https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
     tools: [Python, geopandas]
     prep: "Drafted (2020 TIGER/Line blocks)."
-    status: draft
+    status: done
     hashtags: "#census #dataviz"
 
   - day: 19
@@ -312,7 +312,7 @@ days:
         url: https://github.com/bdgroves/hoplove
     tools: [Python]
     prep: "Drafted: WSDA 2024 hop fields in Yakima County; WA 2025 acreage by leading aroma from HopLove."
-    status: draft
+    status: done
     hashtags: "#hops #YakimaValley"
     deeper:
       - name: "HopLove: know your hops"
@@ -329,7 +329,7 @@ days:
         url: https://www.gbif.org/
     tools: [Python, h3]
     prep: "Drafted from the GBIF search API. For the citable version: add GBIF_USER, GBIF_PWD and GBIF_EMAIL as repo secrets and run the \"GBIF download for Day 20\" Action; it requests the download, waits for the DOI, re-renders from it and cites it."
-    status: draft
+    status: done
     hashtags: "#DeathValley #GBIF"
     deeper:
       - name: "DIPODOMYS: Death Valley's kangaroo rats"
@@ -364,7 +364,7 @@ days:
     deeper:
       - name: "Maps: the countries I've been to"
         url: https://brooksgroves.com/maps.html
-    status: draft
+    status: done
     hashtags: "#projections #Groveland"
 
   - day: 23
@@ -377,7 +377,7 @@ days:
         note: "Export is a Supporter feature."
     tools: [Python]
     prep: "Drafted from the year of beer history HopLove keeps (Untappd); breweries placed with Open Brewery DB."
-    status: draft
+    status: done
     hashtags: "#craftbeer #PNW"
     deeper:
       - name: "HopLove: every hop in 2,000 Northwest beers"
@@ -392,7 +392,7 @@ days:
         url: https://labs.waterdata.usgs.gov/about-nldi/
     tools: [Python, geopandas]
     prep: "Drafted (NLDI flowlines; Strahler order computed on the network)."
-    status: draft
+    status: done
     hashtags: "#rivers #TuolumneRiver"
     deeper:
       - name: "SIERRA-FLOW: Sierra rivers in COBOL"
@@ -418,7 +418,7 @@ days:
         url: https://pnsn.org/data-research/experiments/seahawks
       - name: "AFTERSHOCK: live earthquake monitor"
         url: https://brooksgroves.com/aftershock
-    status: draft
+    status: done
     hashtags: "#BeastQuake #Seahawks"
 
   - day: 26
@@ -432,7 +432,7 @@ days:
         url: https://pubs.usgs.gov/dds/dds-55/
     tools: [Python, rasterio, matplotlib]
     prep: "Drafted: depth from the 1998 USGS multibeam grid, clarity from TERC's index station."
-    status: draft
+    status: done
     hashtags: "#LakeTahoe #water"
     deeper:
       - name: "secchi: a modern Secchi disk for Lake Tahoe"
@@ -449,7 +449,7 @@ days:
         url: https://overturemaps.org/
     tools: [DuckDB spatial]
     prep: "Drafted: DuckDB query straight against Overture on S3, gridded. A lonboard interactive could follow; the still stands on its own."
-    status: draft
+    status: done
     hashtags: "#DuckDB #OvertureMaps"
 
   - day: 28
@@ -461,7 +461,7 @@ days:
         url: https://earthquake.usgs.gov/earthquakes/eventpage/uw10530748/dyfi/intensity
     tools: [Python, geopandas, matplotlib]
     prep: "Drafted already, as the toolkit's test map."
-    status: draft
+    status: done
     hashtags: "#earthquake #Nisqually"
     script: make.py
     deeper:
@@ -481,7 +481,7 @@ days:
         url: https://brooksgroves.com/rainier-snowpack
     tools: [Python, rasterio, STAC]
     prep: "Drafted. No login needed: Sentinel-2 comes from AWS open data, SNOTEL from the tracker's own archive."
-    status: draft
+    status: done
     hashtags: "#MountRainier #snowpack"
     deeper:
       - name: "STORM CHASER: Rainier snowpack, live"

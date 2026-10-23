@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 19 · Smell
 
-**Thursday, November 19, 2026** · status: ✏️ draft
+**Thursday, November 19, 2026** · status: ✅ done
 
 ## What the Yakima Valley smells like
 

@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 27 · New tool
 
-**Friday, November 27, 2026** · status: ✏️ draft
+**Friday, November 27, 2026** · status: ✅ done
 
 ## Every building in Washington
 

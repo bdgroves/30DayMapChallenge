@@ -7,8 +7,8 @@
  "counts": {
   "idea": 2,
   "data": 0,
-  "draft": 14,
-  "done": 14,
+  "draft": 1,
+  "done": 27,
   "posted": 0
  },
  "days": [
@@ -634,7 +634,7 @@
    "theme": "Collaborative map",
    "title": "Washington's favorite outdoors, by vote",
    "pitch": "Made by the people who voted: every outdoor winner of KING 5 Evening's Best Northwest Escapes viewer poll I could find, bigger the more it won. Deception Pass leads.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "Mapbox"
@@ -666,7 +666,7 @@
    "theme": "Light & dark",
    "title": "Great Basin's dark sky",
    "pitch": "Night lights across Nevada and Utah, with Great Basin National Park's dark sky set against the glow of Las Vegas and Salt Lake City.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "matplotlib"
@@ -703,7 +703,7 @@
    "theme": "NULL",
    "title": "Nobody lives here",
    "pitch": "Nevada's 2020 census blocks with a population of zero. Most of the state is null.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "geopandas"
@@ -735,7 +735,7 @@
    "theme": "Smell",
    "title": "What the Yakima Valley smells like",
    "pitch": "Washington's hop fields, and its hop acreage sorted by the first smell HopLove lists for each variety: tropical fruit, citrus, resin, spice, berry and more.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python"
    ],
@@ -785,7 +785,7 @@
    "theme": "Hexagons",
    "title": "Kangaroo rats in hexagons",
    "pitch": "Every Dipodomys observation across the Southwest and Great Basin, binned into H3 hexagons. A return to my 2023 Day 1.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "h3"
@@ -863,7 +863,7 @@
    "theme": "Projections",
    "title": "The world from Groveland",
    "pitch": "An azimuthal equidistant map centered on Groveland, where I grew up, with straight lines (true distances) to everywhere I've been since, from Namibia to Guadeloupe.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "cartopy or pyproj"
@@ -900,7 +900,7 @@
    "theme": "Taste",
    "title": "Every brewery I've checked into",
    "pitch": "My Untappd check-ins, mapped by brewery, sized by how many beers.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python"
    ],
@@ -936,7 +936,7 @@
    "theme": "Network",
    "title": "Every stream that reaches Modesto",
    "pitch": "The whole Tuolumne river network above Modesto, by stream order, with the SIERRA-FLOW gages on it.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "geopandas"
@@ -977,7 +977,7 @@
    "theme": "Is this a map?",
    "title": "The Beast Quake",
    "pitch": "January 8, 2011: the Seahawks' playoff win over the Saints on the seismometer across the street from the stadium, ten minutes a line, with Marshawn Lynch's 67-yard touchdown run shaking the ground at 4:42 PM. A map of a game, or of a place?",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "ObsPy"
@@ -1027,7 +1027,7 @@
    "theme": "Water",
    "title": "Lake Tahoe, clear and deep",
    "pitch": "Tahoe's floor, 497 m at the deepest, and beside it the lake's clarity on the same downward axis: how far a Secchi disk could be seen each year since 1968, from the record my SECCHI project keeps.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "rasterio",
@@ -1074,7 +1074,7 @@
    "theme": "New tool",
    "title": "Every building in Washington",
    "pitch": "All 3.8 million building footprints in Washington from Overture Maps, counted into half-kilometer cells by one DuckDB query run straight against Overture's files on S3. New to me.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "DuckDB spatial"
    ],
@@ -1105,7 +1105,7 @@
    "theme": "Feeling",
    "title": "Did you feel it? Nisqually, 2001",
    "pitch": "The M6.8 Nisqually earthquake of February 28, 2001, as the people who felt it reported it, from USGS \"Did You Feel It?\".",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "geopandas",
@@ -1147,7 +1147,7 @@
    "theme": "Raster",
    "title": "When Rainier's snow melted",
    "pitch": "Every 30 m patch of Mount Rainier colored by the day it lost its snow in 2026, from Sentinel-2's scene classification, with the glaciers that never melted in white and Paradise's SNOTEL record from my snowpack tracker as ground truth.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "rasterio",

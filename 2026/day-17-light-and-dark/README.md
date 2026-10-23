@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 17 · Light & dark
 
-**Tuesday, November 17, 2026** · status: ✏️ draft
+**Tuesday, November 17, 2026** · status: ✅ done
 
 ## Great Basin's dark sky
 
