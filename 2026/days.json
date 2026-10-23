@@ -514,7 +514,7 @@
    "weekday": "Fri",
    "theme": "Interactions",
    "title": "Follow a raindrop",
-   "pitch": "Click anywhere in the Sierra and watch where the water goes, river by river, to the sea, using the USGS's navigation service.",
+   "pitch": "Click anywhere in the lower 48 and watch where the water goes, river by river, to the sea or a lake with no outlet, using the USGS's navigation service. From Groveland, it is 279 km to the Delta.",
    "status": "draft",
    "tools": [
     "MapLibre GL JS",

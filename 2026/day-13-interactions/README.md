@@ -5,7 +5,7 @@
 
 ## Follow a raindrop
 
-Click anywhere in the Sierra and watch where the water goes, river by river, to the sea, using the USGS's navigation service.
+Click anywhere in the lower 48 and watch where the water goes, river by river, to the sea or a lake with no outlet, using the USGS's navigation service. From Groveland, it is 279 km to the Delta.
 
 **Data**
 
