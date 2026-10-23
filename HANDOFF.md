@@ -18,7 +18,8 @@ Always `git pull --rebase` before working: bots and Actions commit often.
 - [ ] **Review status (22 Oct):** Days 1-6 and 8-12 reviewed, improved and `done`. Days 13-15 reviewed (only Day 13's pitch fixed) but **on hold**: Brooks wants to dig into the two interactive ones (13, 14) properly before marking them. Day 7 (10-minute map) still to make. Days 16-30 reviewed 22 Oct: 17-20 and 22-29 fixed where needed and waiting on Brooks's say to mark `done`; 16 needs the X replies, 21 is the before map (pitch promises the after, once Brooks does his OSM edits), 30 needs the napkin. Day 27 no longer mentions lonboard; add it back if the interactive gets built.
 - [ ] **Mark days `done`** as they're finished; Days 27-30 (incl. the Day 30 napkin scan) before Nov 27.
 - [ ] **Day 21 (30DayMapChallenge):** Brooks makes his OpenStreetMap edits, then re-render the "after" map.
-- [ ] **Day 16:** waiting on the trailhead replies.
+- [ ] **Day 16:** now "Washington's favorite outdoors, by vote" from KING 5 Evening's Best Northwest Escapes winners (2015-2026, 54 wins). 2015, 2019, 2025, 2026 rows come from Brooks's compiled list (source column in winners.csv); verify against KING 5's pages if they can be read.
+- [ ] **American spelling** done across 2026 (23 Oct); Days 9 and 24 still need a re-render (WA DNR / USGS NLDI were down) to pick it up.
 - [ ] **Delete two stale branches** in the GitHub web UI: `smoke-monitors` and `dmc-day2-runs` (harmless; the session can't delete branches).
 - [ ] **Read the personal lines** in the two fish posts and tweak anything that doesn't sound like him; add which fish his UNR lab worked on if he remembers.
 
