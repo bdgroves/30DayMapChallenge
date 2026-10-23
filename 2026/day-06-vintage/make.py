@@ -41,7 +41,7 @@ API = "https://commons.wikimedia.org/w/api.php"
 COOK = "File:Chart of New Zealand, explored in 1769 and 1770 by Lieut. I- Cook,Commander of His Majesty's Bark Endeavour. RMG F0293.tiff"
 TASMAN = "File:Tasman Map SLNSWSLNSW FL19288478.jpg"
 WIDTH = 4000
-R = 6378137.0                                       # Web Mercator sphere, metres
+R = 6378137.0                                       # Web Mercator sphere, meters
 
 
 def commons(title, name):
@@ -75,7 +75,7 @@ print(f"= graticule fit: x {np.abs(rx).max():.1f} px, y {np.abs(ry).max():.1f} p
 
 
 def px_to_m(x, y):
-    """Pixel on the full image to Web Mercator metres (east longitude, south negative)."""
+    """Pixel on the full image to Web Mercator meters (east longitude, south negative)."""
     lonw = (x / s - ax_) / bx_
     m = (y / s - ay_) / by_
     return R * np.radians(360 - lonw), -R * m

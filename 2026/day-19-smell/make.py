@@ -157,8 +157,8 @@ if rivers:
     if big:
         gpd.GeoSeries(big, crs=4326).to_crs(CRS).plot(ax=ax, color=WATER, lw=1.5, zorder=1)
 
-# the hops: every field ruled into trellis rows coloured in Washington's statewide smell mix. Fields
-# don't record their variety, so each row's colour is drawn at random in proportion to the state's
+# the hops: every field ruled into trellis rows colored in Washington's statewide smell mix. Fields
+# don't record their variety, so each row's color is drawn at random in proportion to the state's
 # acreage by leading aroma (seeded, so the map renders the same every time). Statewide, not per field.
 FIELD_BASE, FIELD_EDGE = "#efe6cc", "#4a4234"
 f.plot(ax=ax, color=FIELD_BASE, lw=0, zorder=3)
@@ -180,7 +180,7 @@ qx, qy = cx_[k], cy_[k]
 win = (qx - HALF, qy - HALF, qx + HALF, qy + HALF)
 near = min(((n, gpd.GeoSeries([pt], crs=4326).to_crs(CRS).iloc[0]) for n, _, pt in towns),
            key=lambda t: (t[1].x - qx) ** 2 + (t[1].y - qy) ** 2)[0] if towns else "the valley"
-ROW = 38                                               # metres between drawn rows (real rows are about 4 m)
+ROW = 38                                               # meters between drawn rows (real rows are about 4 m)
 MAIN_ROW = 110                                         # coarser rows on the main map
 
 
@@ -303,8 +303,8 @@ dmc.frame(
               f"by acreage, mostly\n{tax[lead]['label'].lower()}, led by {sorted(names[lead], reverse=True)[0][1]}. "
               f"The aroma of each variety comes from HopLove, my hop database."),
     source="WSDA Agricultural Land Use 2024 · USDA NASS National Hop Report 2025 · HopLove · Copernicus DEM · © OpenStreetMap",
-    note="Fields don't record their variety: every field and row is coloured at random in the statewide mix from the panel, not by its own crop.",
+    note="Fields don't record their variety: every field and row is colored at random in the statewide mix from the panel, not by its own crop.",
 )
 dmc.save(fig, DAY, alt=(
-    f"Map of Yakima County's {len(fields):,} hop fields, each ruled into trellis rows coloured in Washington's statewide mix of hop smells, with a close-up of the yards near Union Gap, over shaded relief of the valley and its ridges, with the Yakima River, beside bars of Washington's "
+    f"Map of Yakima County's {len(fields):,} hop fields, each ruled into trellis rows colored in Washington's statewide mix of hop smells, with a close-up of the yards near Union Gap, over shaded relief of the valley and its ridges, with the Yakima River, beside bars of Washington's "
     f"{YEAR} hop acreage by each variety's leading aroma: " + ", ".join(f"{tax[f]['label'].lower()} {by_fam[f]:,.0f} acres" for f in fams[:4]) + "."))

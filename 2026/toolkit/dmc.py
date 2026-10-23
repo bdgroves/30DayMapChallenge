@@ -43,7 +43,7 @@ PALETTE = dict(ink=INK, parchment=PARCHMENT, cream=CREAM, white=WHITE, stone=STO
                mist=MIST, gold=GOLD, lava=LAVA, sage=SAGE, lake=LAKE, night=NIGHT)
 CATEGORICAL = [LAVA, LAKE, GOLD, SAGE, "#8a5a83", ASH]
 
-# sequential ramps that start at the paper colour
+# sequential ramps that start at the paper color
 SEQ_HEAT = LinearSegmentedColormap.from_list("dmc_heat", [CREAM, "#e8c48a", GOLD, LAVA, "#6e1f17"])
 SEQ_WATER = LinearSegmentedColormap.from_list("dmc_water", [CREAM, "#a9c4cf", LAKE, "#1f3a4a"])
 SEQ_LAND = LinearSegmentedColormap.from_list("dmc_land", [CREAM, "#c9d1b0", SAGE, "#3e5238"])
@@ -177,7 +177,7 @@ def crop(fig, png: Path, dest: Path, ax=None) -> None:
 
 
 def scalebar(ax, km: float, loc=(0.05, 0.05), color=INK, crs_units_per_km: float = 1000) -> None:
-    """A plain scale bar for projected axes in metres."""
+    """A plain scale bar for projected axes in meters."""
     x0, x1 = ax.get_xlim()
     y0, y1 = ax.get_ylim()
     x = x0 + (x1 - x0) * loc[0]
@@ -216,7 +216,7 @@ def place_labels(ax, items, gap: float = 4, taken=None, **kw):
 
 
 def label(ax, x, y, text, size=8, color=INK, halo=PARCHMENT, **kw):
-    """A place label with a paper-coloured halo so it reads over anything."""
+    """A place label with a paper-colored halo so it reads over anything."""
     import matplotlib.patheffects as pe
     kw.setdefault("clip_on", True)                # labels outside the map aren't drawn
     kw.setdefault("family", TEXT)

@@ -5,7 +5,7 @@
 
 ## The world from Groveland
 
-An azimuthal equidistant map centred on Groveland, where I grew up, with straight lines (true distances) to everywhere I've been since, from Namibia to Guadeloupe.
+An azimuthal equidistant map centered on Groveland, where I grew up, with straight lines (true distances) to everywhere I've been since, from Namibia to Guadeloupe.
 
 **Data**
 

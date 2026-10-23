@@ -1,5 +1,5 @@
 """
-Day 16 · Collaborative map — Washington's favourite outdoors, by vote
+Day 16 · Collaborative map — Washington's favorite outdoors, by vote
 
 Made by other people: every outdoor winner of KING 5 Evening's "Best Northwest Escapes" viewer
 poll that I could read (2017, 2018, 2022, 2023, 2024), one dot per place, bigger the more
@@ -73,7 +73,7 @@ dmc.place_labels(ax, [(r.geometry.x, r.geometry.y, r["name"] + (f" · {r['n']}" 
                       for _, r in g.iterrows()], gap=6, size=6.8, zorder=5)
 dmc.scalebar(ax, 50, loc=(0.04, 0.05))
 
-# the panel: what the colours mean, then the places that won more than once, then the rest
+# the panel: what the colors mean, then the places that won more than once, then the rest
 import textwrap  # noqa: E402
 from matplotlib.lines import Line2D  # noqa: E402
 
@@ -104,7 +104,7 @@ lead = places[0]
 yrs = ", ".join(str(v) for v in years[:-1]) + f" and {years[-1]}"
 dmc.frame(
     fig, DAY,
-    title="Washington's favourite outdoors, by vote",
+    title="Washington's favorite outdoors, by vote",
     subtitle=(f"Every outdoor winner of KING 5 Evening's Best Northwest Escapes viewer poll from {yrs}, bigger the more it won.\n"
               f"{len(places)} places, {len(rows)} wins. {lead} has won {len(wins[lead])} times: "
               + ", ".join(f"{c.lower()} {y}" for y, c in sorted(wins[lead])) + "."),
@@ -112,6 +112,6 @@ dmc.frame(
     note="Made by the people who voted. The polls publish winners only, so size counts wins, not votes. Lodging and businesses left out.",
 )
 dmc.save(fig, DAY, alt=(
-    f"Map of Washington with coloured dots at {len(places)} outdoor places that won KING 5 Evening's Best Northwest Escapes "
+    f"Map of Washington with colored dots at {len(places)} outdoor places that won KING 5 Evening's Best Northwest Escapes "
     f"viewer poll in {yrs}, bigger for more wins. {lead} has won most, {len(wins[lead])} times; "
     + ", ".join(f"{p} {len(wins[p])}" for p in places[1:6]) + ". A list beside the map ranks them."))

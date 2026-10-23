@@ -5,7 +5,7 @@
 
 ## Every building in Washington
 
-All 3.8 million building footprints in Washington from Overture Maps, counted into half-kilometre cells by one DuckDB query run straight against Overture's files on S3. New to me.
+All 3.8 million building footprints in Washington from Overture Maps, counted into half-kilometer cells by one DuckDB query run straight against Overture's files on S3. New to me.
 
 **Data**
 

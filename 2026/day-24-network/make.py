@@ -65,7 +65,7 @@ for i, ds in down.items():
         up[j].append(i)
 # Braids and reservoir paths split and rejoin; counted naively, every rejoin would bump the order.
 # So keep one path to the outlet per line: walk up from the outlet, breadth first, and give each
-# line the downstream neighbour it was first reached from. A braid's other branch becomes a side
+# line the downstream neighbor it was first reached from. A braid's other branch becomes a side
 # stream of order 1, which never raises the order of the river it joins.
 outlets = [i for i in range(len(lines)) if not down[i]]
 outlet = max(outlets, key=lambda i: len(up[i])) if outlets else 0
@@ -167,5 +167,5 @@ dmc.frame(
     note="Hetch Hetchy, Cherry and Don Pedro reservoirs sit on the river; NHDPlus runs flowlines through them.",
 )
 dmc.save(fig, DAY, alt=(
-    f"Map of the Tuolumne River basin above Modesto, {area:,.0f} square kilometres of the Sierra Nevada, with "
-    f"{km:,.0f} kilometres of streams drawn thicker by stream order up to order {maxo}, and the five SIERRA-FLOW gages marked."))
+    f"Map of the Tuolumne River basin above Modesto, {area:,.0f} square kilometers of the Sierra Nevada, with "
+    f"{km:,.0f} kilometers of streams drawn thicker by stream order up to order {maxo}, and the five SIERRA-FLOW gages marked."))

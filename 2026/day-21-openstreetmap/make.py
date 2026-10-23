@@ -119,7 +119,7 @@ towns = [(*gpd.GeoSeries([Point(lon, lat)], crs=4326).to_crs(CRS).iloc[0].coords
 dmc.place_labels(ax, towns, gap=0, taken=taken, size=10, family=dmc.MONO, color="#8a8378", halo=dmc.PARCHMENT, zorder=7)
 items = [i for i in items if not (i[1] in seen or seen.add(i[1]))]          # one label per name
 placed = dmc.place_labels(ax, [(x, y, n) for _, n, x, y in items], taken=taken, size=5.6, zorder=6)
-print(f"  labelled {len(placed)} of {len(named)} named places")
+print(f"  labeled {len(placed)} of {len(named)} named places")
 dmc.scalebar(ax, 1, loc=(0.03, 0.05))
 from matplotlib.lines import Line2D  # noqa: E402
 ax.legend(handles=[Line2D([], [], marker="s", ls="", color=dmc.LAVA, label=f"{len(bld):,} buildings"),

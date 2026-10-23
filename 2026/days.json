@@ -18,7 +18,7 @@
    "weekday": "Sun",
    "theme": "Points",
    "title": "1,190 caches",
-   "pitch": "Every geocache I've found as Hipparchus, one dot each, coloured by year. Twenty-odd years of where curiosity has taken me.",
+   "pitch": "Every geocache I've found as Hipparchus, one dot each, colored by year. Twenty-odd years of where curiosity has taken me.",
    "status": "done",
    "tools": [
     "Python",
@@ -632,7 +632,7 @@
    "date": "2026-11-16",
    "weekday": "Mon",
    "theme": "Collaborative map",
-   "title": "Washington's favourite outdoors, by vote",
+   "title": "Washington's favorite outdoors, by vote",
    "pitch": "Made by the people who voted: every outdoor winner of KING 5 Evening's Best Northwest Escapes viewer poll I could find, bigger the more it won. Deception Pass leads.",
    "status": "draft",
    "tools": [
@@ -657,7 +657,7 @@
    "link": null,
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-16.html",
    "hashtags": "#PNW #hiking",
-   "post_text": "Day 16 of #30DayMapChallenge · Collaborative map\nWashington's favourite outdoors, by vote\n#PNW #hiking"
+   "post_text": "Day 16 of #30DayMapChallenge · Collaborative map\nWashington's favorite outdoors, by vote\n#PNW #hiking"
   },
   {
    "day": 17,
@@ -862,7 +862,7 @@
    "weekday": "Sun",
    "theme": "Projections",
    "title": "The world from Groveland",
-   "pitch": "An azimuthal equidistant map centred on Groveland, where I grew up, with straight lines (true distances) to everywhere I've been since, from Namibia to Guadeloupe.",
+   "pitch": "An azimuthal equidistant map centered on Groveland, where I grew up, with straight lines (true distances) to everywhere I've been since, from Namibia to Guadeloupe.",
    "status": "draft",
    "tools": [
     "Python",
@@ -1073,7 +1073,7 @@
    "weekday": "Fri",
    "theme": "New tool",
    "title": "Every building in Washington",
-   "pitch": "All 3.8 million building footprints in Washington from Overture Maps, counted into half-kilometre cells by one DuckDB query run straight against Overture's files on S3. New to me.",
+   "pitch": "All 3.8 million building footprints in Washington from Overture Maps, counted into half-kilometer cells by one DuckDB query run straight against Overture's files on S3. New to me.",
    "status": "draft",
    "tools": [
     "DuckDB spatial"
@@ -1146,7 +1146,7 @@
    "weekday": "Sun",
    "theme": "Raster",
    "title": "When Rainier's snow melted",
-   "pitch": "Every 30 m patch of Mount Rainier coloured by the day it lost its snow in 2026, from Sentinel-2's scene classification, with the glaciers that never melted in white and Paradise's SNOTEL record from my snowpack tracker as ground truth.",
+   "pitch": "Every 30 m patch of Mount Rainier colored by the day it lost its snow in 2026, from Sentinel-2's scene classification, with the glaciers that never melted in white and Paradise's SNOTEL record from my snowpack tracker as ground truth.",
    "status": "draft",
    "tools": [
     "Python",

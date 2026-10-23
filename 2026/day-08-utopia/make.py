@@ -25,7 +25,7 @@ HERE = Path(__file__).resolve().parent
 DATA = HERE / "data"
 GNIS = "https://prd-tnm.s3.amazonaws.com/StagedProducts/GeographicNames/DomesticNames/DomesticNames_National_Text.zip"
 CRS = "EPSG:5070"                                    # CONUS Albers equal-area
-WORDS = {                                            # label: (pattern, colour)
+WORDS = {                                            # label: (pattern, color)
     "Paradise": (r"\bparadise\b", dmc.LAVA),
     "Eden": (r"\beden\b", dmc.SAGE),
     "Arcadia": (r"\barcadia\b", dmc.LAKE),
@@ -77,9 +77,9 @@ out48 = len(pts) - len(in48)
 fig, ax = dmc.figure("wide", map_box=(0.03, 0.12, 0.70, 0.68))
 lower48.plot(ax=ax, color=dmc.CREAM, edgecolor=dmc.MIST, lw=0.5)
 lower48.dissolve().boundary.plot(ax=ax, color=dmc.STONE, lw=0.6)
-for k, (_, colour) in sorted(WORDS.items(), key=lambda kv: -counts.get(kv[0], 0)):
+for k, (_, color) in sorted(WORDS.items(), key=lambda kv: -counts.get(kv[0], 0)):
     g = in48[in48["word"] == k]
-    ax.scatter(g.geometry.x, g.geometry.y, s=4 if k in ("Paradise", "Eden") else 9, color=colour,
+    ax.scatter(g.geometry.x, g.geometry.y, s=4 if k in ("Paradise", "Eden") else 9, color=color,
                alpha=0.75, lw=0, zorder=3)
 # a few the map should name
 for nm, st_, dx, dy, ha in [("Paradise", "Washington", 0, 60000, "center"), ("Utopia", "Texas", 0, -70000, "center"),
@@ -115,8 +115,8 @@ blurb = (f"places named for heaven on earth. Only {len(towns):,} of them are tow
          f"{others[0]}, {others[1]} and {others[2]}.")
 fig.text(px, 0.69, textwrap.fill(blurb, 34), size=8.5, va="top", linespacing=1.55)
 y = 0.50
-for k, (_, colour) in WORDS.items():
-    fig.add_artist(Line2D([px + 0.006], [y], marker="o", color=colour, ms=6, lw=0, transform=fig.transFigure))
+for k, (_, color) in WORDS.items():
+    fig.add_artist(Line2D([px + 0.006], [y], marker="o", color=color, ms=6, lw=0, transform=fig.transFigure))
     fig.text(px + 0.02, y, k, size=9.5, va="center")
     fig.text(0.965, y, f"{counts.get(k, 0):,}", family=dmc.MONO, size=8.5, ha="right", va="center", color=dmc.STONE)
     y -= 0.042

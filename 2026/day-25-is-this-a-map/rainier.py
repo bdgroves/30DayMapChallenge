@@ -71,7 +71,7 @@ print(f"= {len(q)} located earthquakes within 15 km, largest M{q['mag'].max() if
 fig, ax = dmc.figure("portrait", map_box=(0.10, 0.115, 0.84, 0.70))
 per = int(3600 * srate)
 scale = np.percentile(np.abs(data[data != 0]), 99.5) * 2.2 if np.any(data) else 1
-colours = [dmc.INK, dmc.LAVA, dmc.LAKE, dmc.SAGE]
+colors = [dmc.INK, dmc.LAVA, dmc.LAKE, dmc.SAGE]
 for h in range(24):
     a = max(0, h * per - offs)
     b = max(0, (h + 1) * per - offs)
@@ -87,7 +87,7 @@ for h in range(24):
         ys = np.c_[y[:n].reshape(-1, step).min(1), y[:n].reshape(-1, step).max(1)].ravel()
     else:
         xs, ys = x, y
-    ax.plot(xs, ys, color=colours[h % 4], lw=0.35, solid_joinstyle="round")
+    ax.plot(xs, ys, color=colors[h % 4], lw=0.35, solid_joinstyle="round")
 for _, e in q.iterrows():
     t = pd.Timestamp(e["time"]).tz_localize(None) if pd.Timestamp(e["time"]).tzinfo is None else pd.Timestamp(e["time"]).tz_convert(None)
     sec = (t - pd.Timestamp(START.replace(tzinfo=None))).total_seconds()

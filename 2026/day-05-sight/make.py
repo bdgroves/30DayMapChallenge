@@ -155,12 +155,12 @@ seen_list = [k for k, s in vis_places.items() if s]
 dmc.frame(
     fig, DAY,
     subtitle=(f"Every place with a clear line of sight to the summit, in red: {area:,.0f} km² of ground, the farthest\n"
-              f"{dist[far]/1000:.0f} km to the {compass}. Cities in red have a view within a kilometre of downtown."),
+              f"{dist[far]/1000:.0f} km to the {compass}. Cities in red have a view within a kilometer of downtown."),
     source="Copernicus DEM GLO-90 · gdal_viewshed (Earth curvature, refraction 0.857)",
     note="Terrain only, at 90 m: trees, buildings and weather can hide the mountain from places marked as visible.",
 )
 dmc.save(fig, DAY, alt=(
     f"Shaded relief map of Washington and northern Oregon with the areas that can see Mount Rainier's summit "
-    f"shaded red: {area:,.0f} square kilometres of land, reaching {dist[far]/1000:.0f} km to the {compass} at the farthest. "
+    f"shaded red: {area:,.0f} square kilometers of land, reaching {dist[far]/1000:.0f} km to the {compass} at the farthest. "
     f"Cities with a line of sight: {', '.join(seen_list)}. "
     f"Cities without: {', '.join(k for k, s in vis_places.items() if not s)}."))

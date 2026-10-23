@@ -3,7 +3,7 @@
 
 **Monday, November 16, 2026** · status: ✏️ draft
 
-## Washington's favourite outdoors, by vote
+## Washington's favorite outdoors, by vote
 
 Made by the people who voted: every outdoor winner of KING 5 Evening's Best Northwest Escapes viewer poll I could find, bigger the more it won. Deception Pass leads.
 
@@ -19,7 +19,7 @@ Made by the people who voted: every outdoor winner of KING 5 Evening's Best Nort
 
 ```
 Day 16 of #30DayMapChallenge · Collaborative map
-Washington's favourite outdoors, by vote
+Washington's favorite outdoors, by vote
 #PNW #hiking
 https://brooksgroves.com/30DayMapChallenge/2026/share/day-16.html
 ```

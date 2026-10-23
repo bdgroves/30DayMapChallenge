@@ -13,13 +13,13 @@ days:
   - day: 1
     theme: Points
     title: "1,190 caches"
-    pitch: "Every geocache I've found as Hipparchus, one dot each, coloured by year. Twenty-odd years of where curiosity has taken me."
+    pitch: "Every geocache I've found as Hipparchus, one dot each, colored by year. Twenty-odd years of where curiosity has taken me."
     data:
       - name: "Geocaching \"My Finds\" pocket query (GPX)"
         url: https://www.geocaching.com/pocket/
         note: "Premium feature; can be run once every 3 days. Request it in October."
     tools: [Python, geopandas, matplotlib]
-    prep: "Drafted from the My Finds pocket query (October 3). finds.csv holds positions rounded to about a kilometre; the GPX stays out of the repo. To refresh, drop a new pocket query in data/ and run make.py --from-gpx."
+    prep: "Drafted from the My Finds pocket query (October 3). finds.csv holds positions rounded to about a kilometer; the GPX stays out of the repo. To refresh, drop a new pocket query in data/ and run make.py --from-gpx."
     deeper:
       - name: "Maps: every geocache, on the map page"
         url: https://brooksgroves.com/maps.html
@@ -263,7 +263,7 @@ days:
 
   - day: 16
     theme: Collaborative map
-    title: "Washington's favourite outdoors, by vote"
+    title: "Washington's favorite outdoors, by vote"
     pitch: "Made by the people who voted: every outdoor winner of KING 5 Evening's Best Northwest Escapes viewer poll I could find, bigger the more it won. Deception Pass leads."
     data:
       - name: "KING 5 Evening, Best Northwest Escapes winners lists"
@@ -355,7 +355,7 @@ days:
   - day: 22
     theme: Projections
     title: "The world from Groveland"
-    pitch: "An azimuthal equidistant map centred on Groveland, where I grew up, with straight lines (true distances) to everywhere I've been since, from Namibia to Guadeloupe."
+    pitch: "An azimuthal equidistant map centered on Groveland, where I grew up, with straight lines (true distances) to everywhere I've been since, from Namibia to Guadeloupe."
     data:
       - name: "Natural Earth"
         url: https://www.naturalearthdata.com/
@@ -443,7 +443,7 @@ days:
   - day: 27
     theme: New tool
     title: "Every building in Washington"
-    pitch: "All 3.8 million building footprints in Washington from Overture Maps, counted into half-kilometre cells by one DuckDB query run straight against Overture's files on S3. New to me."
+    pitch: "All 3.8 million building footprints in Washington from Overture Maps, counted into half-kilometer cells by one DuckDB query run straight against Overture's files on S3. New to me."
     data:
       - name: "Overture Maps buildings"
         url: https://overturemaps.org/
@@ -473,7 +473,7 @@ days:
   - day: 29
     theme: Raster
     title: "When Rainier's snow melted"
-    pitch: "Every 30 m patch of Mount Rainier coloured by the day it lost its snow in 2026, from Sentinel-2's scene classification, with the glaciers that never melted in white and Paradise's SNOTEL record from my snowpack tracker as ground truth."
+    pitch: "Every 30 m patch of Mount Rainier colored by the day it lost its snow in 2026, from Sentinel-2's scene classification, with the glaciers that never melted in white and Paradise's SNOTEL record from my snowpack tracker as ground truth."
     data:
       - name: "Sentinel-2 L2A scene classification (Earth Search, AWS open data)"
         url: https://earth-search.aws.element84.com/v1

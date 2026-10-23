@@ -3,7 +3,7 @@ basemap — Mapbox basemaps for the 2026 challenge (Mapbox is this year's sponso
 
     import basemap
     fig, ax = dmc.figure("square")
-    ax.set_xlim(x0, x1); ax.set_ylim(y0, y1)      # EPSG:3857 metres (Web Mercator)
+    ax.set_xlim(x0, x1); ax.set_ylim(y0, y1)      # EPSG:3857 meters (Web Mercator)
     basemap.mapbox(ax)                            # fills the axes with the house Mapbox style
     ... plot your data in EPSG:3857 on top ...
     dmc.frame(..., source="... · " + basemap.CREDIT)
@@ -64,7 +64,7 @@ def mapbox(ax, style: str | None = None, token: str | None = None, alpha: float 
     x0, x1, y0, y1 = cx - sw / 2, cx + sw / 2, cy - sh / 2, cy + sh / 2
     ax.set_aspect("equal", adjustable="box")
     want_w = bbox.width * 300 / 2                  # CSS pixels at 300 dpi output, @2x image
-    res = (x1 - x0) / min(want_w, MAX_PX)          # metres per CSS pixel
+    res = (x1 - x0) / min(want_w, MAX_PX)          # meters per CSS pixel
     if (y1 - y0) / res > MAX_PX:
         res = (y1 - y0) / MAX_PX
     w, h = int(round((x1 - x0) / res)), int(round((y1 - y0) / res))
@@ -86,7 +86,7 @@ def mapbox(ax, style: str | None = None, token: str | None = None, alpha: float 
     import numpy as np
     from PIL import Image
     img = np.asarray(Image.open(cached).convert("RGBA"))   # satellite styles come back as JPEG
-    # the image covers exactly w × h CSS pixels at res, centred on the axes centre
+    # the image covers exactly w × h CSS pixels at res, centered on the axes center
     # (fractional zoom is rounded to 2 decimals by Mapbox, so recompute res from it)
     res = EARTH / (TILE * 2 ** round(zoom, 2))
     cx, cy = (x0 + x1) / 2, (y0 + y1) / 2

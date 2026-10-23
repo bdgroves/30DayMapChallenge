@@ -1,11 +1,11 @@
 """
 Day 1 · Points — every geocache I've found
 
-One dot per cache, coloured by the year I found it. The main map is where most of them are; a small
+One dot per cache, colored by the year I found it. The main map is where most of them are; a small
 world map below has every find, so the ones in Australia, Iceland and the rest are on the map too.
 
 Data: finds.csv, made from my Geocaching "My Finds" pocket query: position rounded to 0.01° (about a
-kilometre), the date of my own "Found it" log, cache type, state and country. The pocket query itself
+kilometer), the date of my own "Found it" log, cache type, state and country. The pocket query itself
 (the GPX, with everyone's logs and exact coordinates) stays out of the repository: Geocaching's terms
 limit sharing it. To rebuild finds.csv from a new pocket query, put the .zip or .gpx in data/ and run
 this with --from-gpx.
@@ -150,7 +150,7 @@ for sp in ax.spines.values():
     sp.set_linewidth(0.6)
 
 # ── the world: every find ───────────────────────────────────────────────────
-WORLD = "+proj=eqearth +lon_0=-150 +datum=WGS84 +units=m"     # Pacific-centred: home, Australia, NZ together
+WORLD = "+proj=eqearth +lon_0=-150 +datum=WGS84 +units=m"     # Pacific-centered: home, Australia, NZ together
 wax = fig.add_axes((0.60, 0.62, 0.35, 0.17))
 wax.set_axis_off()
 land = countries[countries["ADM0_A3"] != "ATA"].copy()
@@ -171,7 +171,7 @@ fig.text(0.60, 0.795, f"EVERY FIND · {n_countries} COUNTRIES", family=dmc.MONO,
 # ── finds per year and where ────────────────────────────────────────────────
 yax = fig.add_axes((0.60, 0.40, 0.35, 0.08))
 per = g.groupby("year").size().reindex(range(g["year"].min(), g["year"].max() + 1), fill_value=0)
-yax.bar(per.index, per.values, color=dmc.ASH, width=0.8)    # height is the count; colour is only for the map
+yax.bar(per.index, per.values, color=dmc.ASH, width=0.8)    # height is the count; color is only for the map
 for y in per.sort_values(ascending=False).index[:1]:
     yax.text(y, per[y] + per.max() * 0.03, f"{per[y]}", ha="center", va="bottom", family=dmc.MONO, size=6, color=dmc.INK)
 yax.set_ylim(0, per.max() * 1.18)
@@ -185,7 +185,7 @@ for t in yax.get_xticklabels():
     t.set_fontfamily(dmc.MONO)
 best = int(per.idxmax())
 fig.text(0.60, 0.495, f"FINDS PER YEAR · MOST IN {best}: {per.max()}", family=dmc.MONO, size=6.8, color=dmc.STONE)
-# the dots' colour key: year found
+# the dots' color key: year found
 kax = fig.add_axes((0.60, 0.565, 0.35, 0.012))
 kax.imshow(np.linspace(0.28, 1, 256)[None, :], aspect="auto", cmap=dmc.SEQ_HEAT, vmin=0, vmax=1,
            extent=(g["year"].min(), g["year"].max(), 0, 1))
@@ -250,13 +250,13 @@ first, last = g["found"].min(), g["found"].max()
 dmc.frame(
     fig, DAY, title=f"{total:,} caches",
     subtitle=(f"Every geocache I've found as {FINDER}, from {first:%B %Y} to {last:%B %Y}, one dot each,\n"
-              f"coloured by the year I found it: {n_places} states and countries, {n_countries} countries."),
+              f"colored by the year I found it: {n_places} states and countries, {n_countries} countries."),
     source="Geocaching.com 'My Finds' pocket query · Natural Earth" + (" · " + basemap.CREDIT if MAPBOX else ""),
-    note=(f"{trad:.0%} traditional caches. Positions rounded to about a kilometre"
+    note=(f"{trad:.0%} traditional caches. Positions rounded to about a kilometer"
           + (f"; {nowhere} locationless caches have no place to draw." if nowhere else ".")),
 )
 dmc.save(fig, DAY, alt=(
-    f"Map of {total:,} geocaches found by {FINDER} from {first:%Y} to {last:%Y}, as small dots coloured from pale gold "
+    f"Map of {total:,} geocaches found by {FINDER} from {first:%Y} to {last:%Y}, as small dots colored from pale gold "
     f"for early years to dark red for recent ones. The main map covers the West Coast, where most are, thickest in "
     f"{', '.join(k for k, _ in places.most_common(3))}. A small world map below shows finds in {n_countries} countries, "
     f"and a bar chart shows finds per year, with the most in {best}. The farthest finds: north in {place(edges[0][1])}, "

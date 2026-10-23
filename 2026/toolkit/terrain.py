@@ -53,7 +53,7 @@ def tiles(bounds, res: int = 30) -> list[Path]:
 
 
 def dem(bounds, crs: str = "EPSG:32610", res: float = 30, src_res: int | None = None):
-    """Elevation (metres) for lon/lat bounds, reprojected to crs at res metres. Returns (z, transform).
+    """Elevation (meters) for lon/lat bounds, reprojected to crs at res meters. Returns (z, transform).
 
     Sea and missing tiles come back as 0, which is how the Copernicus DEM stores the ocean.
     """
@@ -99,7 +99,7 @@ def relief(z, res: float, paper="#f5f0e8", shadow="#7a7268", water="#dfe6e3", st
     """RGB image: parchment lit by a hillshade, with water (z <= 0) as a flat pale tint."""
     from matplotlib.colors import to_rgb
     hs = hillshade(z, res, exaggerate=exaggerate)
-    # flat ground (hs ≈ sin(alt)) should read as paper, not grey
+    # flat ground (hs ≈ sin(alt)) should read as paper, not gray
     flat = np.sin(np.radians(40))
     t = np.clip((flat - hs) / flat, -0.4, 1) * strength
     p, s = np.array(to_rgb(paper)), np.array(to_rgb(shadow))

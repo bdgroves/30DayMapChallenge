@@ -61,7 +61,7 @@ for c in swarms.index:
                      x=g["x"].median(), y=g["y"].median(), depth=g["depth"].median()))
 info.sort(key=lambda d: -d["n"])
 top = info[:5]
-colour = {d["c"]: dmc.CATEGORICAL[i] for i, d in enumerate(top)}
+color = {d["c"]: dmc.CATEGORICAL[i] for i, d in enumerate(top)}
 for d in info:
     print(f"  swarm {d['start']:%b %Y}: {d['n']} quakes, M{d['mmax']:.1f} max, {d['depth']:.1f} km deep")
 in_swarm = q["c"].isin(swarms.index)
@@ -80,9 +80,9 @@ bg = q[~in_swarm]
 ax.scatter(bg["x"], bg["y"], s=2 + 1.2 * np.clip(bg["mag"], 0, 4) ** 2, color=dmc.ASH, alpha=0.35, lw=0)
 for d in top:                       # largest first, so smaller clusters stay visible on top
     g = q[q["c"] == d["c"]]
-    ax.scatter(g["x"], g["y"], s=3 + 1.6 * np.clip(g["mag"], 0, 4) ** 2, color=colour[d["c"]], alpha=0.75,
+    ax.scatter(g["x"], g["y"], s=3 + 1.6 * np.clip(g["mag"], 0, 4) ** 2, color=color[d["c"]], alpha=0.75,
                lw=0, zorder=3)
-other = q[in_swarm & ~q["c"].isin(colour)]
+other = q[in_swarm & ~q["c"].isin(color)]
 ax.scatter(other["x"], other["y"], s=3, color=dmc.INK, alpha=0.5, lw=0, zorder=2)
 
 ax.scatter([sx], [sy], marker="^", s=90, color=dmc.INK, edgecolor=dmc.PARCHMENT, lw=0.8, zorder=5)
@@ -103,11 +103,11 @@ ax.add_patch(plt.Rectangle((sx - Z, sy - Z), 2 * Z, 2 * Z, fill=False, ec=dmc.IN
 iax = fig.add_axes((0.625, 0.283, 0.2, 0.2))
 iax.imshow(terrain.relief(z, 30, strength=0.6), extent=terrain.extent(tf, z.shape), interpolation="bilinear")
 near = q[(abs(q["x"] - sx) < Z) & (abs(q["y"] - sy) < Z)]
-nb = near[~near["c"].isin(colour)]
+nb = near[~near["c"].isin(color)]
 iax.scatter(nb["x"], nb["y"], s=3, color=dmc.ASH, alpha=0.4, lw=0)
 for d in top:                       # largest first, so smaller clusters stay visible on top
     g = near[near["c"] == d["c"]]
-    iax.scatter(g["x"], g["y"], s=5 + 2 * np.clip(g["mag"], 0, 4) ** 2, color=colour[d["c"]], alpha=0.7, lw=0)
+    iax.scatter(g["x"], g["y"], s=5 + 2 * np.clip(g["mag"], 0, 4) ** 2, color=color[d["c"]], alpha=0.7, lw=0)
 iax.scatter([sx], [sy], marker="^", s=60, color=dmc.INK, edgecolor=dmc.PARCHMENT, lw=0.8, zorder=5)
 iax.set_xlim(sx - Z, sx + Z)
 iax.set_ylim(sy - Z, sy + Z)
@@ -123,7 +123,7 @@ lx = 0.055
 fig.text(lx, 0.245, "THE BIGGEST CLUSTERS", family=dmc.MONO, size=7, color=dmc.STONE)
 for i, d in enumerate(top):
     y = 0.226 - i * 0.017
-    fig.patches.append(plt.Circle((lx + 0.006, y + 0.004), 0.004, color=colour[d["c"]], transform=fig.transFigure,
+    fig.patches.append(plt.Circle((lx + 0.006, y + 0.004), 0.004, color=color[d["c"]], transform=fig.transFigure,
                                   figure=fig))
     when = f"{d['start']:%b %Y}" if d["start"].strftime("%Y%m") == d["end"].strftime("%Y%m") else \
         f"{d['start']:%b}–{d['end']:%b %Y}" if d["start"].year == d["end"].year else f"{d['start']:%b %Y}–{d['end']:%b %Y}"
@@ -132,17 +132,17 @@ for i, d in enumerate(top):
     fig.text(lx + 0.20, y, f"{d['n']:,} quakes · largest M{d['mmax']:.1f} · {days} days",
              family=dmc.MONO, size=6.8, color=dmc.STONE, va="center")
 
-# timeline: quakes per month, swarms coloured
+# timeline: quakes per month, swarms colored
 tax = fig.add_axes((0.56, 0.115, 0.39, 0.13))
 months = pd.period_range(q["time"].min().to_period("M"), q["time"].max().to_period("M"), freq="M")
 q["m"] = q["time"].dt.to_period("M")
-base = q[~q["c"].isin(colour)].groupby("m").size().reindex(months, fill_value=0)
+base = q[~q["c"].isin(color)].groupby("m").size().reindex(months, fill_value=0)
 xs = months.to_timestamp()
 tax.bar(xs, base.values, width=28, color=dmc.ASH, alpha=0.6, lw=0)
 bottom = base.values.astype(float)
 for d in top:
     s = q[q["c"] == d["c"]].groupby("m").size().reindex(months, fill_value=0).values
-    tax.bar(xs, s, width=28, bottom=bottom, color=colour[d["c"]], lw=0)
+    tax.bar(xs, s, width=28, bottom=bottom, color=color[d["c"]], lw=0)
     bottom += s
 tax.set_xlim(xs.min() - pd.Timedelta(days=60), xs.max() + pd.Timedelta(days=60))
 tax.set_yscale("symlog", linthresh=10)
@@ -168,6 +168,6 @@ dmc.frame(
 )
 dmc.save(fig, DAY, alt=(
     f"Shaded relief map of Mount Rainier with {len(q):,} earthquakes since 2000 as dots within a 30 km circle. "
-    f"Most are grey background quakes, with coloured clusters marking swarms; the largest, {big['n']:,} quakes "
+    f"Most are gray background quakes, with colored clusters marking swarms; the largest, {big['n']:,} quakes "
     f"in {big['start']:%B %Y}, sits {'just under' if np.hypot(big['x']-sx, big['y']-sy) < 5000 else 'near'} the summit. "
     f"A bar chart of quakes per month shows a spike for each swarm."))

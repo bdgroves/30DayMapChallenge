@@ -5,7 +5,7 @@
 
 ## When Rainier's snow melted
 
-Every 30 m patch of Mount Rainier coloured by the day it lost its snow in 2026, from Sentinel-2's scene classification, with the glaciers that never melted in white and Paradise's SNOTEL record from my snowpack tracker as ground truth.
+Every 30 m patch of Mount Rainier colored by the day it lost its snow in 2026, from Sentinel-2's scene classification, with the glaciers that never melted in white and Paradise's SNOTEL record from my snowpack tracker as ground truth.
 
 **Data**
 

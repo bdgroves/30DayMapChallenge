@@ -149,7 +149,7 @@ dmc.frame(
 )
 dmc.save(fig, DAY, alt=(
     f"Map of the Pacific Northwest showing how strongly people felt the magnitude {props['mag']:.1f} "
-    f"Nisqually earthquake of {when:%B} {when.day}, {when.year}. Small squares coloured from pale "
+    f"Nisqually earthquake of {when:%B} {when.day}, {when.year}. Small squares colored from pale "
     f"(weak) to dark red (very strong) cover western Washington, strongest around the epicenter at the "
     f"south end of Puget Sound near Olympia, Lakewood and Tacoma, and fading toward Portland, "
     f"Vancouver and Spokane. Based on {responses:,} 'Did You Feel It?' reports."))

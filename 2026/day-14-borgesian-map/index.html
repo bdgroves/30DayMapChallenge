@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>1:1 — Day 14 · #30DayMapChallenge 2026</title>
-<meta name="description" content="Big Creek's watershed near Groveland at full size, one metre on the map to one metre on the ground. Scroll as far as you like.">
+<meta name="description" content="Big Creek's watershed near Groveland at full size, one meter on the map to one meter on the ground. Scroll as far as you like.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Libre+Baskerville:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -38,9 +38,9 @@ p{font-size:13px;line-height:1.6;color:#3d3830}
   <a class="back" href="../#day-14">← #30DayMapChallenge 2026</a>
   <div class="k" style="margin-top:.5rem">Day 14 · Borgesian map</div>
   <h1>1:1</h1>
-  <p>Big Creek's watershed above Groveland, drawn at the size of the land itself: a metre of map for every metre of ground. Borges imagined a map of an empire the size of the empire, left to rot in the desert. Here it is for one creek.</p>
-  <p class="long" style="margin-top:.45rem;color:var(--stone);font-style:italic">Drag, scroll, or use the arrow keys. The faint grid is 10 cm, the darker lines a metre. The red line is the edge of the watershed, the blue lines are its streams.</p>
-  <div class="odo"><span id="trav">You have travelled</span><b id="dist">0 m</b><span id="where">Loading the watershed…</span></div>
+  <p>Big Creek's watershed above Groveland, drawn at the size of the land itself: a meter of map for every meter of ground. Borges imagined a map of an empire the size of the empire, left to rot in the desert. Here it is for one creek.</p>
+  <p class="long" style="margin-top:.45rem;color:var(--stone);font-style:italic">Drag, scroll, or use the arrow keys. The faint grid is 10 cm, the darker lines a meter. The red line is the edge of the watershed, the blue lines are its streams.</p>
+  <div class="odo"><span id="trav">You have traveled</span><b id="dist">0 m</b><span id="where">Loading the watershed…</span></div>
   <div class="speed" role="group" aria-label="Walking speed">
     <button aria-pressed="true" data-s="1">walk</button><button aria-pressed="false" data-s="100">run ×100</button><button aria-pressed="false" data-s="10000">fly ×10,000</button>
   </div>
@@ -55,10 +55,10 @@ const cv = document.getElementById('c'), cx = cv.getContext('2d');
 const mv = document.getElementById('m'), mx = mv.getContext('2d');
 const $ = id => document.getElementById(id);
 let lon0, lat0, basin = [], streams = [], bbox, segs = [];
-let pos = {x: 0, y: 0}, travelled = 0, speed = 1, total = 0;
+let pos = {x: 0, y: 0}, traveled = 0, speed = 1, total = 0;
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 
-function proj([lon, lat]){            // local equirectangular metres, true to within a few metres over a basin this size
+function proj([lon, lat]){            // local equirectangular meters, true to within a few meters over a basin this size
   const R = 6371008.8, r = Math.PI / 180;
   return [R * (lon - lon0) * r * Math.cos(lat0 * r), R * (lat - lat0) * r];
 }
@@ -109,7 +109,7 @@ function draw(){
   cx.setTransform(dpr, 0, 0, dpr, 0, 0);
   cx.fillStyle = css('--parchment'); cx.fillRect(0, 0, W, H);
   const toS = (x, y) => [W / 2 + (x - pos.x) * PX_PER_M, H / 2 - (y - pos.y) * PX_PER_M];
-  // graph paper: a line every 10 cm, darker every metre, so you can feel yourself move
+  // graph paper: a line every 10 cm, darker every meter, so you can feel yourself move
   const G = 0.1, gx0 = Math.floor((pos.x - W / 2 / PX_PER_M) / G), gy0 = Math.floor((pos.y - H / 2 / PX_PER_M) / G);
   for (let i = gx0; i * G <= pos.x + W / 2 / PX_PER_M + G; i++){ const [sx] = toS(i * G, 0);
     cx.strokeStyle = css('--mist'); cx.lineWidth = i % 10 === 0 ? 2 : 0.6; cx.beginPath(); cx.moveTo(sx, 0); cx.lineTo(sx, H); cx.stroke(); }
@@ -127,7 +127,7 @@ function draw(){
   }
   // you are here
   cx.fillStyle = css('--gold'); cx.beginPath(); cx.arc(W / 2, H / 2, 5, 0, 7); cx.fill();
-  $('dist').textContent = fmt(travelled);
+  $('dist').textContent = fmt(traveled);
   if (bbox){
     const n = nearest();
     $('where').textContent = `The streams alone run ${fmt(total)}: ${hours(total)} of scrolling at a screen a second${speed > 1 ? `, at ×${speed.toLocaleString()}` : ''}.`;
@@ -150,7 +150,7 @@ function mini(){
 
 function move(dxPx, dyPx){
   const dx = dxPx / PX_PER_M * speed, dy = dyPx / PX_PER_M * speed;
-  pos.x += dx; pos.y += dy; travelled += Math.hypot(dx, dy);
+  pos.x += dx; pos.y += dy; traveled += Math.hypot(dx, dy);
   requestAnimationFrame(draw);
 }
 cv.addEventListener('wheel', e => { e.preventDefault(); const f = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? innerHeight : 1;

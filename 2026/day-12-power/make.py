@@ -119,5 +119,5 @@ dmc.frame(
 )
 dmc.save(fig, DAY, alt=(
     ("Map" if drawn else "Shaded-relief map") + f" from San Francisco east to Yosemite. Gold lines are San Francisco's power lines running "
-    f"from powerhouses below Groveland to the Bay Area; blue is the Hetch Hetchy aqueduct; grey is every other "
+    f"from powerhouses below Groveland to the Bay Area; blue is the Hetch Hetchy aqueduct; gray is every other "
     f"high-voltage line in the region."))

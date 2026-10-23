@@ -98,5 +98,5 @@ dmc.frame(
     note="Depths are below sea level; the summit rim stands about 1.2 km above it.",
 )
 dmc.save(fig, DAY, alt=(
-    f"Left, a shaded-relief map of Kīlauea's summit dotted with {len(q):,} earthquake epicentres since {FIRST}; "
+    f"Left, a shaded-relief map of Kīlauea's summit dotted with {len(q):,} earthquake epicenters since {FIRST}; "
     f"right, a north-south cross-section through Halema‘uma‘u showing where the earthquakes cluster with depth."))

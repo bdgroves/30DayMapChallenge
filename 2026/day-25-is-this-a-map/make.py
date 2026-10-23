@@ -105,7 +105,7 @@ print(f"= loudest 20 s at {peak_local:%I:%M:%S %p} PST, {env[picks[0]] / env[pic
 fig, ax = dmc.figure("portrait", map_box=(0.12, 0.115, 0.82, 0.70))
 per = int(ROW_MIN * 60 * srate)
 scale = np.percentile(np.abs(data[data != 0]), 99.0) * 2.5 if np.any(data) else 1
-colours = [dmc.INK, dmc.LAKE]
+colors = [dmc.INK, dmc.LAKE]
 for r in range(ROWS):
     a = max(0, r * per - offs)
     b = max(0, (r + 1) * per - offs)
@@ -121,7 +121,7 @@ for r in range(ROWS):
         ys = np.c_[y[:n].reshape(-1, step).min(1), y[:n].reshape(-1, step).max(1)].ravel()
     else:
         xs, ys = x, y
-    ax.plot(xs, ys, color=colours[r % 2], lw=0.4, solid_joinstyle="round")
+    ax.plot(xs, ys, color=colors[r % 2], lw=0.4, solid_joinstyle="round")
 
 # the run
 pr = int((peak_i + offs) // per)
@@ -154,4 +154,4 @@ dmc.frame(
 dmc.save(fig, DAY, alt=(
     f"A helicorder of the afternoon of January 8, 2011, at seismic station KDK beside the Seahawks' stadium: "
     f"{ROWS} wiggly lines, ten minutes each, from 12:50 to 5:10 pm. The biggest burst, at {peak_local:%-I:%M %p}, "
-    f"is labelled as Marshawn Lynch's 67-yard touchdown run, the Beast Quake."))
+    f"is labeled as Marshawn Lynch's 67-yard touchdown run, the Beast Quake."))

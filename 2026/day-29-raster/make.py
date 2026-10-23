@@ -165,7 +165,7 @@ ax.set_ylim(t - H * RES, t)
 ax.set_aspect("equal")
 dmc.scalebar(ax, 5, loc=(0.05, 0.05))
 
-# colour key, by month
+# color key, by month
 kax = fig.add_axes((0.30, 0.235, 0.40, 0.010))
 kax.imshow(np.linspace(0, 1, 256)[None], aspect="auto", cmap=cmap, extent=(lo, hi, 0, 1))
 kax.set_yticks([])
@@ -204,13 +204,13 @@ fig.text(0.10, 0.200, "PARADISE SNOTEL, SNOW WATER EQUIVALENT (INCHES), FROM MY 
 dmc.frame(
     fig, DAY,
     title="When Rainier's snow melted",
-    subtitle=(f"Every 30 m patch of the mountain coloured by the day it lost its snow in 2026, from {len(dates)} days\n"
+    subtitle=(f"Every 30 m patch of the mountain colored by the day it lost its snow in 2026, from {len(dates)} days\n"
               f"of Sentinel-2 views. The glaciers, in white, never did."),
     source="Copernicus Sentinel-2 L2A and DEM · NRCS SNOTEL via my snowpack tracker",
-    note="Uncoloured: no snow seen after March 1, or snow hidden under forest. Snow counts when two clear views in a row show it.",
+    note="Uncolored: no snow seen after March 1, or snow hidden under forest. Snow counts when two clear views in a row show it.",
 )
 dmc.save(fig, DAY, alt=(
-    "Map of Mount Rainier with every 30 metre patch coloured by the date its snow melted in 2026, from tan in April in the "
+    "Map of Mount Rainier with every 30 meter patch colored by the date its snow melted in 2026, from tan in April in the "
     "valleys to deep blue in August high on the mountain, with the glaciers in white where the snow never melted. Below, "
     "Paradise SNOTEL's snow water equivalent through the 2026 water year against its median, with the satellite's "
     "melt-out date for Paradise marked."))

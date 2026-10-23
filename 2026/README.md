@@ -62,7 +62,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 13 | Fri Nov 13 | Interactions | [Follow a raindrop](day-13-interactions/) | ✏️ draft |
 | 14 | Sat Nov 14 | Borgesian map | [1:1](day-14-borgesian-map/) | ✏️ draft |
 | 15 | Sun Nov 15 | Inside out | [Inside Kīlauea](day-15-inside-out/) | ✏️ draft |
-| 16 | Mon Nov 16 | Collaborative map | [Washington's favourite outdoors, by vote](day-16-collaborative-map/) | ✏️ draft |
+| 16 | Mon Nov 16 | Collaborative map | [Washington's favorite outdoors, by vote](day-16-collaborative-map/) | ✏️ draft |
 | 17 | Tue Nov 17 | Light & dark | [Great Basin's dark sky](day-17-light-and-dark/) | ✏️ draft |
 | 18 | Wed Nov 18 | NULL | [Nobody lives here](day-18-null/) | ✏️ draft |
 | 19 | Thu Nov 19 | Smell | [What the Yakima Valley smells like](day-19-smell/) | ✏️ draft |

@@ -71,7 +71,7 @@ if not grid_p.exists():
 df = pd.read_csv(grid_p)
 rel = json.loads(meta_p.read_text())["release"]
 
-# keep cells whose centre is in Washington
+# keep cells whose center is in Washington
 wa = fetch.shapes(fetch.STATES, DATA / "states.zip")
 wa = wa[wa["STUSPS"] == "WA"].to_crs(4326).geometry.union_all()
 cx = BB[0] + (df["gx"] + 0.5) * DX
@@ -124,12 +124,12 @@ fig.text(x0, y - 0.01, f"{total:,} footprints", family=dmc.MONO, size=8, color=d
 
 dmc.frame(
     fig, DAY,
-    subtitle=(f"{total:,} building footprints from Overture Maps, counted into half-kilometre cells by one DuckDB query run\n"
+    subtitle=(f"{total:,} building footprints from Overture Maps, counted into half-kilometer cells by one DuckDB query run\n"
               f"against Overture's files on S3. Brighter means more buildings."),
     source=f"Overture Maps Foundation, buildings, release {rel} (ODbL) · U.S. Census Bureau",
-    note="Each footprint is counted once, in the cell holding the centre of its bounding box.",
+    note="Each footprint is counted once, in the cell holding the center of its bounding box.",
 )
 dmc.save(fig, DAY, alt=(
-    f"Dark map of Washington State where each half-kilometre cell glows by how many of Overture Maps' {total:,} building "
+    f"Dark map of Washington State where each half-kilometer cell glows by how many of Overture Maps' {total:,} building "
     f"footprints it holds, brightest around Puget Sound and Spokane. A panel "
     f"shows who drew the footprints, led by {NICE.get(by_src.index[0], by_src.index[0])} at {by_src.iloc[0] / total:.0%}."))

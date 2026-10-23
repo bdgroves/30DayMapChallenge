@@ -112,13 +112,13 @@ print(f"  {cells.iloc[0]} starts/ends near the most common spot; trimming {PRIVA
 # busiest area for the map: densest 5 km cell of all points
 allpts = np.vstack([a[::20] for _, a in xy])
 dense = pd.Series(list(map(tuple, np.round(allpts / 5000).astype(int)))).value_counts().index[0]
-centre = np.array(dense) * 5000.0
+center = np.array(dense) * 5000.0
 R = RADIUS_KM * 1000
 
 segs, cols, dist = [], [], {}
 for k, a in xy:
     keep = np.hypot(*(a - home).T) > PRIVACY_M
-    near = np.hypot(*(a - centre).T) < R * 1.5
+    near = np.hypot(*(a - center).T) < R * 1.5
     step = np.hypot(*np.diff(a, axis=0).T)
     dist[k] = dist.get(k, 0) + step[step < 500].sum() / 1000
     m = keep & near
@@ -138,14 +138,14 @@ if MAPBOX:
     P = lambda a: np.c_[back.transform(a[:, 0], a[:, 1])]  # noqa: E731
 else:
     P = lambda a: a  # noqa: E731
-corners = P(np.array([[centre[0] - R, centre[1] - R * 0.65 / 0.90], [centre[0] + R, centre[1] + R * 0.65 / 0.90]]))
+corners = P(np.array([[center[0] - R, center[1] - R * 0.65 / 0.90], [center[0] + R, center[1] + R * 0.65 / 0.90]]))
 ax.set_xlim(corners[0, 0], corners[1, 0])
 ax.set_ylim(corners[0, 1], corners[1, 1])
 ax.set_aspect("equal")
 if MAPBOX and not basemap.mapbox(ax):
     MAPBOX, P = False, (lambda a: a)
-    ax.set_xlim(centre[0] - R, centre[0] + R)
-    ax.set_ylim(centre[1] - R * 0.65 / 0.90, centre[1] + R * 0.65 / 0.90)
+    ax.set_xlim(center[0] - R, center[0] + R)
+    ax.set_ylim(center[1] - R * 0.65 / 0.90, center[1] + R * 0.65 / 0.90)
 ax.add_collection(LineCollection([P(sg) for sg in segs], colors=cols, linewidths=0.6, alpha=0.26,
                                  capstyle="round", zorder=2))
 
@@ -156,7 +156,7 @@ for name, (lon, lat) in {"Lakewood": (-122.518, 47.172), "Tacoma": (-122.444, 47
                          "DuPont": (-122.631, 47.097), "Puyallup": (-122.293, 47.185),
                          "Gig Harbor": (-122.580, 47.329)}.items():
     x, y = to_xy(lon, lat)
-    if abs(x - centre[0]) < R * 0.95 and abs(y - centre[1]) < R * 0.75:
+    if abs(x - center[0]) < R * 0.95 and abs(y - center[1]) < R * 0.75:
         dmc.label(ax, *draw_xy(x, y), name, size=8, ha="center", va="center", style="italic", color=dmc.STONE)
 dmc.scalebar(ax, 5, loc=(0.86, 0.04), crs_units_per_km=1000 / np.cos(np.radians(lat0)) if MAPBOX else 1000)
 
@@ -176,5 +176,5 @@ dmc.frame(
     note=f"Tracks are trimmed {PRIVACY_M} m around home, as a Strava privacy zone would.",
 )
 dmc.save(fig, DAY, alt=(
-    f"A tangle of faint coloured lines around the South Sound, one for each of {len(tracks):,} runs, rides and swims; "
+    f"A tangle of faint colored lines around the South Sound, one for each of {len(tracks):,} runs, rides and swims; "
     f"red for runs, blue for rides. Routes repeated many times show as darker lines."))

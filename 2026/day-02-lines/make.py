@@ -1,7 +1,7 @@
 """
 Day 2 · Lines — The Seawall
 
-The path around Stanley Park in Vancouver: the Seawall, about nine kilometres of it between the
+The path around Stanley Park in Vancouver: the Seawall, about nine kilometers of it between the
 park and the sea. One line, drawn from OpenStreetMap, with the landmarks along the way.
 
 (make_strava.py is the earlier plan for this day, every Strava activity near home, kept for later.)

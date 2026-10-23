@@ -5,7 +5,7 @@
 
 ## 1,190 caches
 
-Every geocache I've found as Hipparchus, one dot each, coloured by year. Twenty-odd years of where curiosity has taken me.
+Every geocache I've found as Hipparchus, one dot each, colored by year. Twenty-odd years of where curiosity has taken me.
 
 **Data**
 
@@ -13,7 +13,7 @@ Every geocache I've found as Hipparchus, one dot each, coloured by year. Twenty-
 
 **Tools:** Python, geopandas, matplotlib
 
-**Prep:** Drafted from the My Finds pocket query (October 3). finds.csv holds positions rounded to about a kilometre; the GPX stays out of the repo. To refresh, drop a new pocket query in data/ and run make.py --from-gpx.
+**Prep:** Drafted from the My Finds pocket query (October 3). finds.csv holds positions rounded to about a kilometer; the GPX stays out of the repo. To refresh, drop a new pocket query in data/ and run make.py --from-gpx.
 
 **Go deeper**
 

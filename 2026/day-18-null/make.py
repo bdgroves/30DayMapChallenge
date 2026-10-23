@@ -1,7 +1,7 @@
 """
 Day 18 · NULL — Nobody lives here
 
-Nevada's 2020 census blocks, coloured by whether anyone lives in them. A block with a
+Nevada's 2020 census blocks, colored by whether anyone lives in them. A block with a
 population of zero is NULL; most of the state is.
 
 Downloads (cached in data/): Census TIGER/Line 2020 tabulation blocks for Nevada (POP20 is in
@@ -77,6 +77,6 @@ dmc.frame(
     note="A block is the smallest area the census counts. In the desert one can be hundreds of square miles.",
 )
 dmc.save(fig, DAY, alt=(
-    f"Map of Nevada's census blocks: {pct_area:.0%} of the land is pale, where nobody lived in 2020; light grey "
+    f"Map of Nevada's census blocks: {pct_area:.0%} of the land is pale, where nobody lived in 2020; light gray "
     f"blocks hold a few people each; black specks around Las Vegas, Reno and the towns hold nine in ten "
     f"Nevadans on {half:.1%} of the land."))

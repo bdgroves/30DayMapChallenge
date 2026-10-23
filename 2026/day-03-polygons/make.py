@@ -1,7 +1,7 @@
 """
 Day 3 · Polygons — Every fire around Groveland
 
-Every recorded fire perimeter touching Tuolumne County since 1900, coloured by year and laid
+Every recorded fire perimeter touching Tuolumne County since 1900, colored by year and laid
 semi-transparent so ground that burned again and again shows darker. The Rim Fire (2013) is
 outlined. Counts of how much of the county has burned come from a 100 m grid of the perimeters.
 
@@ -167,7 +167,7 @@ for i, (_, f) in enumerate(largest.iterrows()):
 dmc.frame(
     fig, DAY,
     subtitle=(f"{len(fires):,} recorded fire perimeters touching Tuolumne County since {FIRST}, oldest pale, newest red.\n"
-              f"Where they overlap, the colour deepens. Groveland sits at the western edge of the Rim Fire."),
+              f"Where they overlap, the color deepens. Groveland sits at the western edge of the Rim Fire."),
     source="CAL FIRE FRAP fire perimeters (April 2026) · U.S. Census Bureau · Copernicus DEM GLO-90",
     note="Older records are incomplete: some early fires were never mapped, so the oldest decades are undercounted.",
 )

@@ -2,7 +2,7 @@
 Day 9 · Urban-rural — Tacoma to Paradise
 
 One straight line from the Port of Tacoma to Paradise on Mount Rainier, about 74 km, laid out flat as
-a ribbon of satellite photo, with what changes along it stacked underneath on the same kilometre
+a ribbon of satellite photo, with what changes along it stacked underneath on the same kilometer
 scale: people, buildings, trees, and the ground itself, with the stretches that sit in Rainier's
 lahar hazard zones marked. It is Patrick Geddes's Valley Section, the sea-to-mountain transect he
 drew for teaching how work and settlement change with the land, run for real.
@@ -15,7 +15,7 @@ Two stages:
 Downloads:
   Census 2020 TIGER/Line blocks for Washington (POP20)
   Microsoft Global ML Building Footprints (the quadkey files that cover the corridor)
-  ESA WorldCover 2021 10 m land cover, Sentinel-2 L2A true colour (Microsoft Planetary Computer)
+  ESA WorldCover 2021 10 m land cover, Sentinel-2 L2A true color (Microsoft Planetary Computer)
   USGS volcano hazard areas for Rainier, as compiled by WA DNR (2016)
   Copernicus GLO-30 DEM (toolkit/terrain.py)
 """
@@ -57,7 +57,7 @@ nx, ny = -uy, ux                                   # across it (north-east is +)
 
 
 def st(x, y):
-    """UTM → (s along the line from the port, t across it, + to the north-east), metres."""
+    """UTM → (s along the line from the port, t across it, + to the north-east), meters."""
     dx, dy = np.asarray(x) - ax_, np.asarray(y) - ay_
     return dx * ux + dy * uy, dx * nx + dy * ny
 
@@ -186,7 +186,7 @@ def worldcover():
 
 
 def sentinel():
-    """The clearest summer Sentinel-2 day over the ribbon, true colour on the ribbon grid."""
+    """The clearest summer Sentinel-2 day over the ribbon, true color on the ribbon grid."""
     cache = DATA / "s2_ribbon.npy"
     if cache.exists():
         return np.load(cache)
@@ -377,11 +377,11 @@ def draw():
         fig.text(cx, 0.717, name.upper(), family=dmc.MONO, size=6.4, color=dmc.INK, ha="center", va="bottom")
         fig.text(cx, 0.739, trade, family=dmc.TEXT, style="italic", size=7, color=dmc.STONE, ha="center", va="bottom")
 
-    def panel(y0, h, label, colour, y, log=False, fmt=lambda v, _: f"{v:,.0f}", ylim=None, lx=0.996, ha="right"):
+    def panel(y0, h, label, color, y, log=False, fmt=lambda v, _: f"{v:,.0f}", ylim=None, lx=0.996, ha="right"):
         a = fig.add_axes((X0, y0, X1 - X0, h))
         a.set_facecolor("none")
-        a.fill_between(km, y, color=colour, alpha=0.28, lw=0, step="mid")
-        a.step(km, y, where="mid", color=colour, lw=1.0)
+        a.fill_between(km, y, color=color, alpha=0.28, lw=0, step="mid")
+        a.step(km, y, where="mid", color=color, lw=1.0)
         if log:
             a.set_yscale("symlog", linthresh=10)
         a.set_xlim(0, Lk)
@@ -389,7 +389,7 @@ def draw():
             a.set_ylim(*ylim)
         style(a, fmt)
         a.tick_params(labelbottom=False)
-        a.text(lx, 0.92, label, transform=a.transAxes, family=dmc.MONO, size=6.3, color=colour, va="top", ha=ha)
+        a.text(lx, 0.92, label, transform=a.transAxes, family=dmc.MONO, size=6.3, color=color, va="top", ha=ha)
         return a
 
     def style(a, fmt):
@@ -525,14 +525,14 @@ SUMMIT = (-121.7603, 46.8529)          # Columbia Crest
 SUMMIT_OFF = abs(st(*to.transform(*SUMMIT))[1]) / 1000
 LAHAR_SHOW = ["lahars"]               # the lahar areas, not the near-volcano zone
 SUMMARY = {
-    "subtitle": ("A straight line from the Port of Tacoma to Paradise on Mount Rainier, 74 km, laid out flat. Within a kilometre\n"
+    "subtitle": ("A straight line from the Port of Tacoma to Paradise on Mount Rainier, 74 km, laid out flat. Within a kilometer\n"
                  "of it live 35,700 people, nearly all in the first 33 km; then 29 km of forest with almost nobody, then rock and ice.\n"
                  "Patrick Geddes drew this sea-to-mountain slice as his Valley Section; the red is where lahars could run."),
     "alt": ("A long horizontal satellite-photo ribbon of the 74 km straight line from the Port of Tacoma to Paradise on Mount "
-            "Rainier, with Rainier's lahar hazard zones outlined in red on the valley floors, labelled above with zones after "
+            "Rainier, with Rainier's lahar hazard zones outlined in red on the valley floors, labeled above with zones after "
             "Patrick Geddes's Valley Section: port, city and suburb, acreage and farm, forest, rock and ice. Below it, stacked "
-            "profiles on the same kilometre scale: people per square kilometre, high through Fife and Puyallup and falling to "
-            "almost none after km 33; buildings per square kilometre, peaking in Puyallup; tree cover, rising to near 100% "
+            "profiles on the same kilometer scale: people per square kilometer, high through Fife and Puyallup and falling to "
+            "almost none after km 33; buildings per square kilometer, peaking in Puyallup; tree cover, rising to near 100% "
             "through the forest and dropping to zero on the mountain; and ground elevation, flat near sea level along the "
             "Puyallup valley, climbing to about 9,000 ft on Rainier's south-west flank and ending at Paradise at about 5,400 ft, with "
             "a red band marking the stretches inside a lahar hazard zone."),
