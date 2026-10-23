@@ -231,13 +231,13 @@ for sp in iax.spines.values():
     sp.set_edgecolor(dmc.INK)
     sp.set_linewidth(0.8)
 ax.indicate_inset_zoom(iax, edgecolor=dmc.INK, alpha=0.6, lw=0.6)
-iax.add_patch(__import__("matplotlib").patches.Rectangle((0, 0.855), 1, 0.145, transform=iax.transAxes,
+iax.add_patch(__import__("matplotlib").patches.Rectangle((0, 0.83), 1, 0.17, transform=iax.transAxes,
                                                           color=dmc.PARCHMENT, alpha=0.92, zorder=5))
 iax.text(0.03, 0.965, f"CLOSER: THE HOP YARDS NEAR {near.upper()}", transform=iax.transAxes, family=dmc.MONO,
          size=6.2, color=dmc.INK, va="center", zorder=6)
-iax.text(0.03, 0.89, f"{len(inwin)} yards, {inwin['ExactAcres'].sum():,.0f} acres. Rows drawn {ROW} m apart;\nthe real ones are about 4 m.",
-         transform=iax.transAxes, size=5.4, linespacing=1.3, style="italic", color=dmc.STONE,
-         va="center", zorder=6)
+iax.text(0.03, 0.935, f"{len(inwin)} yards, {inwin['ExactAcres'].sum():,.0f} acres. Rows drawn {ROW} m apart;\nthe real ones are about 4 m.",
+         transform=iax.transAxes, size=5.4, linespacing=1.15, style="italic", color=dmc.STONE,
+         va="top", zorder=6)
 dmc.scalebar(iax, 1, loc=(0.06, 0.06))
 print(f"= inset near {near}: {len(inwin)} yards, {len(segs):,} rows")
 
