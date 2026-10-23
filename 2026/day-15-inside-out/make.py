@@ -73,14 +73,14 @@ ax.set_ylim(sy - R, sy + R)
 ax.set_aspect("equal")
 dmc.scalebar(ax, 5, loc=(0.05, 0.05))
 
-cx = fig.add_axes((0.50, 0.14, 0.46, 0.60))
+cx = fig.add_axes((0.50, 0.165, 0.46, 0.575))
 H, xe, ye = np.histogram2d(sl["n"], sl["depth"], bins=[np.arange(-RADIUS, RADIUS + 0.1, 0.25), np.arange(-1, 12.01, 0.125)])
 cx.imshow(H.T, origin="upper", extent=(-RADIUS, RADIUS, 12, -1), aspect="auto", cmap=dmc.SEQ_HEAT,
           norm=LogNorm(1, max(2, H.max())), interpolation="nearest")
 cx.set_ylim(12, -1)
 cx.set_xlim(-RADIUS, RADIUS)
 cx.axhline(0, color=dmc.STONE, lw=0.6)
-cx.set_xlabel("km south of Halema‘uma‘u (-)   ·   km north (+)", family=dmc.MONO, fontsize=7.5, color=dmc.STONE)
+cx.set_xlabel("km south of Halema‘uma‘u (-)   ·   km north (+)", family=dmc.MONO, fontsize=7.5, color=dmc.STONE, labelpad=2)
 cx.set_ylabel("depth below sea level, km", family=dmc.MONO, fontsize=7.5, color=dmc.STONE)
 cx.tick_params(labelsize=7, colors=dmc.STONE)
 for t in cx.get_xticklabels() + cx.get_yticklabels():

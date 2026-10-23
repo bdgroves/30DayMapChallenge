@@ -109,6 +109,10 @@ for i, (t, c, w) in enumerate(lg):
     y = 0.73 - i * 0.03
     fig.add_artist(__import__("matplotlib").lines.Line2D([0.72, 0.75], [y, y], transform=fig.transFigure, color=c, lw=w + 0.6))
     fig.text(0.758, y, t, size=8, va="center")
+y = 0.73 - len(lg) * 0.03
+fig.add_artist(__import__("matplotlib").lines.Line2D([0.735], [y], transform=fig.transFigure, marker="s", ms=6, lw=0,
+                                                      color=dmc.LAVA, mec=dmc.PARCHMENT, mew=0.8))
+fig.text(0.758, y, "Powerhouses", size=8, va="center")
 
 dmc.frame(
     fig, DAY,

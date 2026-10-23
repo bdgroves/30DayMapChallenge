@@ -148,6 +148,13 @@ for sp in ax.spines.values():
     sp.set_visible(True)
     sp.set_color(dmc.MIST)
     sp.set_linewidth(0.6)
+# the dots bury the basemap's own Seattle and Tacoma: name them off to the side, with a leader
+for name, (lon, lat), (llon, llat) in (("Seattle", (-122.33, 47.61), (-121.55, 47.80)),
+                                       ("Tacoma", (-122.44, 47.25), (-121.55, 47.05))):
+    (px_, lx_), (py_, ly_) = [gpd.GeoSeries.from_xy([lon, llon], [lat, llat], crs=4326).to_crs(CRS).x.to_numpy(),
+                              gpd.GeoSeries.from_xy([lon, llon], [lat, llat], crs=4326).to_crs(CRS).y.to_numpy()]
+    ax.plot([px_, lx_], [py_, ly_], color=dmc.INK, lw=0.5, zorder=6)
+    dmc.label(ax, lx_, ly_, " " + name, size=7.5, ha="left", va="center", zorder=7)
 
 # ── the world: every find ───────────────────────────────────────────────────
 WORLD = "+proj=eqearth +lon_0=-150 +datum=WGS84 +units=m"     # Pacific-centered: home, Australia, NZ together
@@ -196,7 +203,7 @@ for t in kax.get_xticklabels():
     t.set_fontfamily(dmc.MONO)
 for sp in kax.spines.values():
     sp.set_visible(False)
-fig.text(0.60, 0.585, "DOT COLOUR · YEAR FOUND", family=dmc.MONO, size=6.8, color=dmc.STONE)
+fig.text(0.60, 0.585, "DOT COLOR · YEAR FOUND", family=dmc.MONO, size=6.8, color=dmc.STONE)
 fig.text(0.60, 0.335, "MOST FINDS", family=dmc.MONO, size=6.8, color=dmc.STONE)
 for i, (k, c) in enumerate(places.most_common(5)):
     y = 0.31 - i * 0.02
