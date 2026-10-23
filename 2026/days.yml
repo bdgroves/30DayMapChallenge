@@ -304,7 +304,7 @@ days:
   - day: 19
     theme: Smell
     title: "What the Yakima Valley smells like"
-    pitch: "Washington's hop acreage by variety, coloured by aroma (citrus, pine, tropical, earthy) from HopLore."
+    pitch: "Washington's hop fields, and its hop acreage sorted by the first smell HopLove lists for each variety: tropical fruit, citrus, resin, spice, berry and more."
     data:
       - name: "USDA NASS National Hop Report (acreage by variety and state)"
         url: https://www.nass.usda.gov/
@@ -445,14 +445,14 @@ days:
   - day: 27
     theme: New tool
     title: "Every building in Washington"
-    pitch: "Every building in Washington from Overture Maps, queried with DuckDB's spatial extension and drawn with lonboard. Both new to me."
+    pitch: "All 3.8 million building footprints in Washington from Overture Maps, counted into half-kilometre cells by one DuckDB query run straight against Overture's files on S3. New to me."
     data:
       - name: "Overture Maps buildings"
         url: https://overturemaps.org/
-    tools: [DuckDB spatial, lonboard]
-    prep: "Drafted: DuckDB query straight against Overture on S3, gridded. Still to do: the lonboard interactive."
+    tools: [DuckDB spatial]
+    prep: "Drafted: DuckDB query straight against Overture on S3, gridded. A lonboard interactive could follow; the still stands on its own."
     status: draft
-    hashtags: "#lonboard #Python"
+    hashtags: "#DuckDB #OvertureMaps"
 
   - day: 28
     theme: Feeling

@@ -740,7 +740,7 @@
    "weekday": "Thu",
    "theme": "Smell",
    "title": "What the Yakima Valley smells like",
-   "pitch": "Washington's hop acreage by variety, coloured by aroma (citrus, pine, tropical, earthy) from HopLore.",
+   "pitch": "Washington's hop fields, and its hop acreage sorted by the first smell HopLove lists for each variety: tropical fruit, citrus, resin, spice, berry and more.",
    "status": "draft",
    "tools": [
     "Python"
@@ -1079,11 +1079,10 @@
    "weekday": "Fri",
    "theme": "New tool",
    "title": "Every building in Washington",
-   "pitch": "Every building in Washington from Overture Maps, queried with DuckDB's spatial extension and drawn with lonboard. Both new to me.",
+   "pitch": "All 3.8 million building footprints in Washington from Overture Maps, counted into half-kilometre cells by one DuckDB query run straight against Overture's files on S3. New to me.",
    "status": "draft",
    "tools": [
-    "DuckDB spatial",
-    "lonboard"
+    "DuckDB spatial"
    ],
    "data": [
     "Overture Maps buildings"
@@ -1102,8 +1101,8 @@
    "post": null,
    "link": null,
    "share": "https://brooksgroves.com/30DayMapChallenge/2026/share/day-27.html",
-   "hashtags": "#lonboard #Python",
-   "post_text": "Day 27 of #30DayMapChallenge · New tool\nEvery building in Washington\n#lonboard #Python"
+   "hashtags": "#DuckDB #OvertureMaps",
+   "post_text": "Day 27 of #30DayMapChallenge · New tool\nEvery building in Washington\n#DuckDB #OvertureMaps"
   },
   {
    "day": 28,

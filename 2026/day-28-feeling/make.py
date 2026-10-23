@@ -123,7 +123,7 @@ for name, (x, y) in cities.items():
     p = gpd.GeoSeries([Point(x, y)], crs=4326).to_crs(CRS).iloc[0]
     if frame_box[0] < p.x < frame_box[2] and frame_box[1] < p.y < frame_box[3]:
         ax.scatter([p.x], [p.y], s=7, color=dmc.INK, zorder=4)
-        dx, dy, ha = {"Lakewood": (-8000, 9000, "right"), "Olympia": (-7000, -3000, "right"),
+        dx, dy, ha = {"Lakewood": (-6000, 16000, "right"), "Olympia": (-7000, -3000, "right"),
                       "Vancouver": (-7000, 0, "right")}.get(name, (7000, 0, "left"))
         dmc.label(ax, p.x + dx, p.y + dy, name, size=7.5, ha=ha, va="center")
 

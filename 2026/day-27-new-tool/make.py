@@ -103,7 +103,9 @@ ax.set_aspect(1 / np.cos(np.radians(47.3)))
 for name, lon, lat in [("Seattle", -122.33, 47.61), ("Spokane", -117.43, 47.66), ("Yakima", -120.51, 46.60),
                        ("Tri-Cities", -119.2, 46.23), ("Bellingham", -122.48, 48.75), ("Wenatchee", -120.31, 47.42),
                        ("Vancouver", -122.67, 45.64)]:
-    ax.text(lon + 0.07, lat, name, family=dmc.MONO, size=7, color=dmc.MIST, va="center", zorder=3)
+    ax.text(lon + 0.07, lat, name, family=dmc.MONO, size=7, color=dmc.MIST, va="center", zorder=3,
+            path_effects=[__import__("matplotlib.patheffects").patheffects.withStroke(linewidth=2.5,
+                                                                                       foreground=dmc.NIGHT)])
 
 # where the footprints came from
 NICE = {"OpenStreetMap": "OpenStreetMap volunteers", "Microsoft ML Buildings": "Microsoft, machine-learned",

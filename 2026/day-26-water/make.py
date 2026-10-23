@@ -138,8 +138,8 @@ cm = LAKE
 for y, row in yr.iterrows():
     cax.bar(y, row["mean"], width=0.78, bottom=0, color=cm(min(row["mean"], 34) / 34 * 0.55 + 0.1), lw=0)
 cax.axhline(TARGET_M, color=dmc.LAVA, lw=0.9, ls=(0, (4, 2)))
-cax.text(yr.index.min(), TARGET_M + 0.6, f"Target: {TARGET_M:g} m, the 1967–71 average", family=dmc.MONO, size=6.2,
-         color=dmc.LAVA, va="top")
+cax.text(yr.index.max(), TARGET_M - 0.5, f"Target: {TARGET_M:g} m,\nthe 1967–71 average", family=dmc.MONO, size=6.2,
+         color=dmc.LAVA, va="bottom", ha="right")
 cax.set_ylim(36, 0)                                # surface at the top, deeper below
 cax.set_xlim(yr.index.min() - 1, yr.index.max() + 1)
 cax.axhline(0, color=dmc.LAKE, lw=1.2)

@@ -5,7 +5,7 @@
 
 ## What the Yakima Valley smells like
 
-Washington's hop acreage by variety, coloured by aroma (citrus, pine, tropical, earthy) from HopLore.
+Washington's hop fields, and its hop acreage sorted by the first smell HopLove lists for each variety: tropical fruit, citrus, resin, spice, berry and more.
 
 **Data**
 
