@@ -5,7 +5,7 @@
 
 ## Groveland, by volunteers
 
-Everything OpenStreetMap knows about Groveland and Big Oak Flat, after I add what's missing.
+Everything OpenStreetMap knows about Groveland and Big Oak Flat, the towns where I grew up, colored by the year a volunteer last touched it, and how many people drew it.
 
 **Data**
 
@@ -13,7 +13,7 @@ Everything OpenStreetMap knows about Groveland and Big Oak Flat, after I add wha
 
 **Tools:** Python, osmnx
 
-**Prep:** Drafted as the before map, straight from Overpass. After an evening of OSM edits, re-render with make.py --refresh.
+**Prep:** Drafted from Overpass with edit metadata (out meta). Any OSM edits Brooks makes show up as 2026: re-render with make.py --refresh.
 
 **Go deeper**
 

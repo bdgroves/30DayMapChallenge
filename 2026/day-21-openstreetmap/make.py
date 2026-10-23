@@ -2,9 +2,11 @@
 Day 21 · OpenStreetMap — Groveland, by volunteers
 
 Everything OpenStreetMap holds for Groveland and Big Oak Flat, the two old gold-rush towns on
-Highway 120 where I grew up, drawn straight from the raw data with nothing added: every
-building, road, path, stream and named place volunteers have mapped. The map is a draft of
-"before": the plan is to spend an October evening adding what's missing, then draw it again.
+Highway 120 where I grew up, drawn straight from the raw data with nothing added, and colored by
+when a volunteer last touched it. Overpass's "out meta" gives every feature its last-edit date,
+its version and the account that made that edit; the map shows the dates, and the panel counts
+the people (never their names). Version 1 means nobody has edited it since it was first drawn.
+Any edits I make before posting simply show up as 2026.
 
 Downloads (cached in data/): OpenStreetMap via the Overpass API.
 """
@@ -30,17 +32,17 @@ BBOX = (37.806, -120.317, 37.856, -120.171)            # S, W, N, E: Big Oak Fla
 OVERPASS = "https://overpass-api.de/api/interpreter"
 REFRESH = "--refresh" in sys.argv                       # re-download after editing OSM
 
-name = "groveland_wide.json"
+name = "groveland_meta.json"
 if REFRESH and (DATA / name).exists():
     (DATA / name).unlink()
-q = f"[out:json][timeout:180];nwr({','.join(map(str, BBOX))});out geom;"
+q = f"[out:json][timeout:180];nwr({','.join(map(str, BBOX))});out meta geom;"
 js = json.loads(fetch.get(OVERPASS + "?" + urllib.parse.urlencode({"data": q}), DATA / name, timeout=300))
 els = js["elements"]
 stamp = js.get("osm3s", {}).get("timestamp_osm_base", "")[:10]
 
 polys, lines, points = [], [], []
 for e in els:
-    t = e.get("tags", {})
+    t = {**e.get("tags", {}), "_year": int(e.get("timestamp", "1900")[:4]), "_v": e.get("version", 1)}
     if e["type"] == "node":
         if t:
             points.append({"geometry": Point(e["lon"], e["lat"]), **t})
@@ -76,20 +78,33 @@ kinds = Counter(e["type"] for e in els)
 print(f"= OSM {stamp}: {len(els):,} elements ({dict(kinds)}); {len(bld):,} buildings, {road_km:.0f} km of highway=*, "
       f"{len(named)} named places, {len(water)} waterways")
 
+# who and when
+feat = [e for e in els if e.get("tags") or e["type"] != "node"]   # untagged nodes are just way vertices
+mappers = len({e.get("uid") for e in feat if e.get("uid")})
+years = Counter(int(e["timestamp"][:4]) for e in feat if e.get("timestamp"))
+v1 = sum(1 for e in feat if e.get("version") == 1) / max(1, len(feat))
+y0, y1 = min(years), max(years)
+oldest_b = int(bld["_year"].min()) if len(bld) else y0
+print(f"= {len(feat):,} features by {mappers} mappers, edited {y0}-{y1}; {v1:.0%} still version 1; "
+      f"buildings last touched {dict(sorted(Counter(bld['_year']).items()))}")
+
 # ── map ──────────────────────────────────────────────────────────────────────
-fig, ax = dmc.figure("wide", map_box=(0.03, 0.08, 0.94, 0.72))
+import numpy as np  # noqa: E402
+from matplotlib.colors import LinearSegmentedColormap, Normalize  # noqa: E402
+RAMP = LinearSegmentedColormap.from_list("yr", ["#cfc3a6", "#c8922a", "#c0392b", "#6e1f17", "#2b1a3a"])
+NORM = Normalize(y0, y1)
+yc = lambda g: RAMP(NORM(g["_year"].to_numpy()))  # noqa: E731
+fig, ax = dmc.figure("wide", map_box=(0.03, 0.08, 0.64, 0.72))
 GREEN = {"forest", "wood", "grass", "meadow", "scrub", "park", "golf_course", "recreation_ground", "pitch", "cemetery"}
 
 
 def fill(r):
     kind = r.get("landuse") or r.get("leisure") or r.get("natural") or r.get("amenity")
     if kind in GREEN:
-        return "#dde3cf"
+        return "#e4e6d8"
     if kind == "water":
-        return "#cfe0e6"
-    if kind == "parking":
-        return "#e6e0d4"
-    return dmc.CREAM
+        return "#d8e4e8"
+    return "#ebe5d8"
 
 
 if len(land):
@@ -99,41 +114,55 @@ W = {"motorway": 2.4, "trunk": 2.2, "primary": 2.2, "secondary": 1.6, "tertiary"
 for kind, g in roads.groupby(col(roads, "highway")):
     w = W.get(kind, 0.4)
     dashed = kind in ("track", "path", "footway", "bridleway", "cycleway")
-    g.plot(ax=ax, color=dmc.STONE if dashed else dmc.INK, lw=w, ls="dashed" if dashed else "solid",
-           alpha=0.85, zorder=3 if w > 1 else 2)
-water.plot(ax=ax, color=dmc.LAKE, lw=0.6, alpha=0.8, zorder=2)
-bld.plot(ax=ax, color=dmc.LAVA, lw=0, zorder=4)
-named.plot(ax=ax, color=dmc.GOLD, markersize=10, edgecolor=dmc.INK, lw=0.4, zorder=5)
+    g.plot(ax=ax, color=yc(g), lw=w, ls="dashed" if dashed else "solid", zorder=3 if w > 1 else 2)
+water.plot(ax=ax, color=dmc.LAKE, lw=0.6, alpha=0.6, zorder=2)
+bld.plot(ax=ax, color=yc(bld), lw=0, zorder=4)
+named.plot(ax=ax, color=yc(named), markersize=12, edgecolor=dmc.INK, lw=0.4, zorder=5)
 b = gpd.GeoSeries([Point(BBOX[1], BBOX[0]), Point(BBOX[3], BBOX[2])], crs=4326).to_crs(CRS)
-ax.set_xlim(b.iloc[0].x, b.iloc[1].x)
-ax.set_ylim(b.iloc[0].y, b.iloc[1].y)
+cx, cy = (b.iloc[0].x + b.iloc[1].x) / 2, (b.iloc[0].y + b.iloc[1].y) / 2
+bw = ax.get_position().width * fig.get_figwidth()
+bh = ax.get_position().height * fig.get_figheight()
+hy = (b.iloc[1].y - b.iloc[0].y) / 2
+ax.set_xlim(cx - hy * bw / bh, cx + hy * bw / bh)
+ax.set_ylim(cy - hy, cy + hy)
 ax.set_aspect("equal")
 ax.apply_aspect()
-# label what fits without overlapping: schools, museums and civic places first, then the rest
-rank = lambda r: 0 if (r.get("amenity") in ("school", "library", "townhall", "post_office", "fire_station")  # noqa: E731
-                       or r.get("tourism") == "museum" or r.get("historic")) else 1
-items = sorted(((rank(r), r["name"], r.geometry.x, r.geometry.y) for _, r in named.iterrows()))
-taken, seen = [], set()
+taken = []
 towns = [(*gpd.GeoSeries([Point(lon, lat)], crs=4326).to_crs(CRS).iloc[0].coords[0], nm)
          for nm, lon, lat in [("GROVELAND", -120.2305, 37.8395), ("BIG OAK FLAT", -120.2585, 37.8245)]]
-dmc.place_labels(ax, towns, gap=0, taken=taken, size=10, family=dmc.MONO, color="#8a8378", halo=dmc.PARCHMENT, zorder=7)
-items = [i for i in items if not (i[1] in seen or seen.add(i[1]))]          # one label per name
-placed = dmc.place_labels(ax, [(x, y, n) for _, n, x, y in items], taken=taken, size=5.6, zorder=6)
-print(f"  labeled {len(placed)} of {len(named)} named places")
+dmc.place_labels(ax, towns, gap=0, taken=taken, size=10, family=dmc.MONO, color="#6b6560", halo=dmc.PARCHMENT, zorder=7)
 dmc.scalebar(ax, 1, loc=(0.03, 0.05))
-from matplotlib.lines import Line2D  # noqa: E402
-ax.legend(handles=[Line2D([], [], marker="s", ls="", color=dmc.LAVA, label=f"{len(bld):,} buildings"),
-                   Line2D([], [], color=dmc.INK, lw=1.4, label=f"{road_km:.0f} km of road and path"),
-                   Line2D([], [], marker="o", ls="", color=dmc.GOLD, mec=dmc.INK, label=f"{len(named)} named places")],
-          loc="lower right", fontsize=7.5, frameon=True, facecolor=dmc.PARCHMENT, edgecolor=dmc.MIST, framealpha=0.92)
+
+# panel: the color key as a bar chart of features by the year they were last edited
+px = 0.70
+fig.text(px, 0.775, f"{mappers}", family=dmc.TITLE, weight=900, size=40, color=dmc.LAVA, va="top")
+fig.text(px, 0.665, f"volunteers drew this map. {len(feat):,} features,\nlast edited between {y0} and {y1}.\n"
+         f"{v1:.0%} haven't been touched since they were drawn.", size=8.5, color=dmc.INK, va="top", linespacing=1.6)
+cax = fig.add_axes((px, 0.17, 0.26, 0.32))
+ys = np.arange(y0, y1 + 1)
+cax.bar(ys, [years.get(y, 0) for y in ys], color=RAMP(NORM(ys)), width=0.8)
+for sp in ("top", "right", "left"):
+    cax.spines[sp].set_visible(False)
+cax.spines["bottom"].set_color(dmc.MIST)
+cax.tick_params(labelsize=6.5, colors=dmc.STONE, length=2)
+cax.set_yticks([])
+cax.set_xticks([t for t in range(y0, y1 + 1) if t % 4 == y1 % 4])
+for tl in cax.get_xticklabels():
+    tl.set_fontfamily(dmc.MONO)
+top = max(years, key=years.get)
+cax.text(top, years[top], f"{years[top]:,}", ha="center", va="bottom", family=dmc.MONO, size=6.5, color=dmc.INK)
+fig.text(px, 0.515, "FEATURES BY THE YEAR THEY WERE LAST EDITED", family=dmc.MONO, size=6.8, color=dmc.STONE)
+fig.text(px, 0.495, "Each is drawn in its year's color on the map.", size=6.8, style="italic", color=dmc.STONE)
 
 dmc.frame(
     fig, DAY,
-    subtitle=(f"Everything OpenStreetMap's volunteers have mapped in the two gold-rush towns on Highway 120 where I grew up:\n"
-              f"{len(bld):,} buildings, {road_km:.0f} km of road and path, {len(named)} named places. Before I add what's missing."),
+    subtitle=(f"Everything OpenStreetMap's volunteers have mapped in the two gold-rush towns on Highway 120 where I grew up,\n"
+              f"{len(bld):,} buildings and {road_km:.0f} km of road and path, colored by the year someone last touched it."),
     source=f"© OpenStreetMap contributors (ODbL), via the Overpass API, data as of {stamp}",
-    note="Drawn from the raw OSM data with nothing added: what isn't here hasn't been mapped yet.",
+    note="Last edit, not first drawing: a road fixed last year shows last year. Mappers are counted, never named.",
 )
 dmc.save(fig, DAY, alt=(
-    f"Map of Groveland and Big Oak Flat, California, drawn only from OpenStreetMap: {len(bld):,} buildings in red, "
-    f"roads in black, paths dashed, streams in blue and {len(named)} named places in gold along Highway 120."))
+    f"Map of Groveland and Big Oak Flat, California, drawn only from OpenStreetMap: {len(bld):,} buildings, roads, paths "
+    f"and named places, each colored by the year it was last edited, from pale tan for {y0} to dark plum for {y1}. "
+    f"A panel says {mappers} volunteers drew it, {len(feat):,} features in all, {v1:.0%} untouched since first drawn, "
+    f"with a bar chart of features by year last edited; the busiest year is {top}."))

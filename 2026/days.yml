@@ -344,12 +344,12 @@ days:
   - day: 21
     theme: OpenStreetMap
     title: "Groveland, by volunteers"
-    pitch: "Everything OpenStreetMap knows about Groveland and Big Oak Flat, after I add what's missing."
+    pitch: "Everything OpenStreetMap knows about Groveland and Big Oak Flat, the towns where I grew up, colored by the year a volunteer last touched it, and how many people drew it."
     data:
       - name: "OpenStreetMap (Overpass API or Geofabrik extract)"
         url: https://download.geofabrik.de/north-america/us/california.html
     tools: [Python, osmnx]
-    prep: "Drafted as the before map, straight from Overpass. After an evening of OSM edits, re-render with make.py --refresh."
+    prep: "Drafted from Overpass with edit metadata (out meta). Any OSM edits Brooks makes show up as 2026: re-render with make.py --refresh."
     status: draft
     hashtags: "#OpenStreetMap #Groveland"
     deeper:
