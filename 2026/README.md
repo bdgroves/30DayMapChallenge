@@ -43,7 +43,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - Before posting: **21** (re-render after your OSM evening).
 
 <!-- table:start -->
-**11 of 30 done** · 💡 idea 2 · 📦 data in hand 0 · ✏️ draft 17 · ✅ done 11 · 📣 posted 0
+**14 of 30 done** · 💡 idea 2 · 📦 data in hand 0 · ✏️ draft 14 · ✅ done 14 · 📣 posted 0
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -59,9 +59,9 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 10 | Tue Nov 10 | Prompting only | [A map made only by asking](day-10-prompting-only/) | ✅ done |
 | 11 | Wed Nov 11 | Sound | [Where the tsunami sirens reach](day-11-sound/) | ✅ done |
 | 12 | Thu Nov 12 | Power | [The Tuolumne powers San Francisco](day-12-power/) | ✅ done |
-| 13 | Fri Nov 13 | Interactions | [Follow a raindrop](day-13-interactions/) | ✏️ draft |
-| 14 | Sat Nov 14 | Borgesian map | [1:1](day-14-borgesian-map/) | ✏️ draft |
-| 15 | Sun Nov 15 | Inside out | [Inside Kīlauea](day-15-inside-out/) | ✏️ draft |
+| 13 | Fri Nov 13 | Interactions | [Follow a raindrop](day-13-interactions/) | ✅ done |
+| 14 | Sat Nov 14 | Borgesian map | [1:1](day-14-borgesian-map/) | ✅ done |
+| 15 | Sun Nov 15 | Inside out | [Inside Kīlauea](day-15-inside-out/) | ✅ done |
 | 16 | Mon Nov 16 | Collaborative map | [Washington's favorite outdoors, by vote](day-16-collaborative-map/) | ✏️ draft |
 | 17 | Tue Nov 17 | Light & dark | [Great Basin's dark sky](day-17-light-and-dark/) | ✏️ draft |
 | 18 | Wed Nov 18 | NULL | [Nobody lives here](day-18-null/) | ✏️ draft |

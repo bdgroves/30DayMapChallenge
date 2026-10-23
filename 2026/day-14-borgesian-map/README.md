@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 14 · Borgesian map
 
-**Saturday, November 14, 2026** · status: ✏️ draft
+**Saturday, November 14, 2026** · status: ✅ done
 
 ## 1:1
 

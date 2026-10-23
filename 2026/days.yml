@@ -219,7 +219,7 @@ days:
         url: https://labs.waterdata.usgs.gov/about-nldi/
     tools: [MapLibre GL JS, NLDI API]
     prep: "Drafted as an interactive page (day-13-interactions/index.html), with a still from the live page for posts."
-    status: draft
+    status: done
     hashtags: "#hydrology #SierraNevada"
     link: day-13-interactions/
     deeper:
@@ -238,7 +238,7 @@ days:
     tools: [HTML, canvas]
     prep: "Drafted as a page (day-14-borgesian-map/index.html): the basin and streams from NLDI at 96 CSS px to the inch, an odometer, a minimap and three speeds. A still from the live page is in out/."
     link: day-14-borgesian-map/
-    status: draft
+    status: done
     hashtags: "#Borges #cartography"
     deeper:
       - name: "Blog: The Creek That Isn't There (Big Creek)"
@@ -253,7 +253,7 @@ days:
         url: https://earthquake.usgs.gov/fdsnws/event/1/
     tools: [Python, matplotlib or forge3d]
     prep: "Drafted from ComCat since 2019."
-    status: draft
+    status: done
     hashtags: "#Kilauea #volcano"
     deeper:
       - name: "PELE: Hawaiʻi volcanoes, live"

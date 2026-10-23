@@ -7,8 +7,8 @@
  "counts": {
   "idea": 2,
   "data": 0,
-  "draft": 17,
-  "done": 11,
+  "draft": 14,
+  "done": 14,
   "posted": 0
  },
  "days": [
@@ -515,7 +515,7 @@
    "theme": "Interactions",
    "title": "Follow a raindrop",
    "pitch": "Click anywhere in the lower 48 and watch where the water goes, river by river, to the sea or a lake with no outlet, using the USGS's navigation service. From Groveland, it is 279 km to the Delta.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "MapLibre GL JS",
     "NLDI API"
@@ -556,7 +556,7 @@
    "theme": "Borgesian map",
    "title": "1:1",
    "pitch": "Borges's map the size of the empire, made literal. Big Creek's watershed at full scale as a page you can scroll for miles, with an odometer showing how far you've gone.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "HTML",
     "canvas"
@@ -593,7 +593,7 @@
    "theme": "Inside out",
    "title": "Inside Kīlauea",
    "pitch": "The earthquakes beneath Kīlauea's summit in cross-section, sketching the magma plumbing that the surface hides.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "matplotlib or forge3d"
