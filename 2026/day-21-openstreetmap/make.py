@@ -94,7 +94,7 @@ from matplotlib.colors import LinearSegmentedColormap, Normalize  # noqa: E402
 RAMP = LinearSegmentedColormap.from_list("yr", ["#cfc3a6", "#c8922a", "#c0392b", "#6e1f17", "#2b1a3a"])
 NORM = Normalize(y0, y1)
 yc = lambda g: RAMP(NORM(g["_year"].to_numpy()))  # noqa: E731
-fig, ax = dmc.figure("wide", map_box=(0.03, 0.08, 0.64, 0.72))
+fig, ax = dmc.figure("wide", map_box=(0.03, 0.17, 0.645, 0.56))
 GREEN = {"forest", "wood", "grass", "meadow", "scrub", "park", "golf_course", "recreation_ground", "pitch", "cemetery"}
 
 
@@ -114,17 +114,13 @@ W = {"motorway": 2.4, "trunk": 2.2, "primary": 2.2, "secondary": 1.6, "tertiary"
 for kind, g in roads.groupby(col(roads, "highway")):
     w = W.get(kind, 0.4)
     dashed = kind in ("track", "path", "footway", "bridleway", "cycleway")
-    g.plot(ax=ax, color=yc(g), lw=w, ls="dashed" if dashed else "solid", zorder=3 if w > 1 else 2)
+    g.plot(ax=ax, color=yc(g), lw=w * 0.75, ls="dashed" if dashed else "solid", zorder=3 if w > 1 else 2)
 water.plot(ax=ax, color=dmc.LAKE, lw=0.6, alpha=0.6, zorder=2)
-bld.plot(ax=ax, color=yc(bld), lw=0, zorder=4)
+bld.plot(ax=ax, color=yc(bld), edgecolor=yc(bld), lw=0.6, zorder=4)
 named.plot(ax=ax, color=yc(named), markersize=12, edgecolor=dmc.INK, lw=0.4, zorder=5)
 b = gpd.GeoSeries([Point(BBOX[1], BBOX[0]), Point(BBOX[3], BBOX[2])], crs=4326).to_crs(CRS)
-cx, cy = (b.iloc[0].x + b.iloc[1].x) / 2, (b.iloc[0].y + b.iloc[1].y) / 2
-bw = ax.get_position().width * fig.get_figwidth()
-bh = ax.get_position().height * fig.get_figheight()
-hy = (b.iloc[1].y - b.iloc[0].y) / 2
-ax.set_xlim(cx - hy * bw / bh, cx + hy * bw / bh)
-ax.set_ylim(cy - hy, cy + hy)
+ax.set_xlim(b.iloc[0].x, b.iloc[1].x)
+ax.set_ylim(b.iloc[0].y, b.iloc[1].y)
 ax.set_aspect("equal")
 ax.apply_aspect()
 taken = []
