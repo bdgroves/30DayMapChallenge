@@ -92,24 +92,24 @@ def below(t, gap):
     return t.get_window_extent(renderer).y0 / FH - gap
 
 
-y = 0.69
+y = 0.715
 fig.text(px, y, "MOST WINS", family=dmc.MONO, size=7.2, color=dmc.INK, va="top")
-y -= 0.035
+y -= 0.03
 for p in [q for q in places if len(wins[q]) >= 3]:
     n, c = len(wins[p]), KIND[where[p][2]][0]
     t = fig.text(px, y, p, size=7.6, weight="bold", color=dmc.INK, va="top")
     fig.text(0.965, y, f"{n}", family=dmc.MONO, size=7.4, color=c, ha="right", va="top")
     detail = textwrap.fill(" · ".join(f"{cat} '{yr % 100:02d}" for yr, cat in sorted(wins[p])), 96)
     t = fig.text(px, below(t, 0.004), detail, size=5.5, style="italic", color=dmc.STONE, va="top", linespacing=1.35)
-    y = below(t, 0.018)
+    y = below(t, 0.011)
 for head, group in (("TWICE", [q for q in places if len(wins[q]) == 2]), ("ONCE", [q for q in places if len(wins[q]) == 1])):
     if not group:
         continue
-    y -= 0.006
+    y -= 0.002
     t = fig.text(px, y, head, family=dmc.MONO, size=7.2, color=dmc.INK, va="top")
     t = fig.text(px, below(t, 0.008), textwrap.fill(", ".join(sorted(group)), 70), size=6.3, color=dmc.STONE,
                  va="top", linespacing=1.4)
-    y = below(t, 0.02)
+    y = below(t, 0.012)
 
 lead = places[0]
 own = {int(r["year"]) for r in rows if r.get("source") != "list"}
