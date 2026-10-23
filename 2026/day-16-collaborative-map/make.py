@@ -10,7 +10,7 @@ are left out; places outdoors are in.
 winners.csv   one row per category won: year, category, place, lon, lat, kind
               (water, park, coast or view). Placed by hand. Add a year's list and re-render.
 
-Basemap: Mapbox Outdoors; without a token, Census state outlines.
+Basemap: Mapbox Light; without a token, Census state outlines.
 """
 import csv
 import sys
@@ -51,14 +51,19 @@ g = gpd.GeoDataFrame({"name": places, "n": [len(wins[p]) for p in places], "kind
                      geometry=gpd.points_from_xy([where[p][0] for p in places], [where[p][1] for p in places]),
                      crs=4326).to_crs(CRS)
 view = gpd.GeoSeries([box(-124.9, 45.55, -119.9, 49.05)], crs=4326).to_crs(CRS).total_bounds
+# widen the window east to fill the map box rather than leave paper at the sides
+bw, bh = ax.get_position().width * fig.get_figwidth(), ax.get_position().height * fig.get_figheight()
+want = (view[3] - view[1]) * bw / bh
+if want > view[2] - view[0]:
+    view[2] = view[0] + want
 ax.set_xlim(view[0], view[2])
 ax.set_ylim(view[1], view[3])
 ax.set_aspect("equal")
-drawn = MAPBOX and basemap.mapbox(ax, style="mapbox/outdoors-v12", alpha=0.85)
+drawn = MAPBOX and basemap.mapbox(ax, style="mapbox/light-v11")
 if not drawn:
     st = fetch.shapes(fetch.STATES, DATA / "states.zip")
     st[st["STUSPS"].isin(["WA", "OR", "ID"])].to_crs(CRS).plot(ax=ax, color=dmc.CREAM, edgecolor=dmc.MIST, lw=0.6)
-size = 26 + 70 * (g["n"].to_numpy() - 1) + 20 * (g["n"].to_numpy() > 1)
+size = 30 * g["n"].to_numpy() ** 1.6 + 14
 ax.scatter(g.geometry.x, g.geometry.y, s=size, color=[KIND[k][0] for k in g["kind"]], alpha=0.9,
            edgecolor=dmc.WHITE, lw=0.9, zorder=4)
 ax.set_xlim(view[0], view[2])
@@ -87,13 +92,13 @@ for p in [q for q in places if len(wins[q]) > 1]:
     y -= 0.021
     fig.text(px, y, " · ".join(f"{cat} '{yr % 100:02d}" for yr, cat in sorted(wins[p])), size=5.6, style="italic",
              color=dmc.STONE, va="center")
-    y -= 0.033
+    y -= 0.029
 once = [q for q in places if len(wins[q]) == 1]
 if once:
     y -= 0.005
     fig.text(px, y, "ONCE EACH", family=dmc.MONO, size=7.2, color=dmc.INK)
     txt = ", ".join(f"{q} ('{wins[q][0][0] % 100:02d})" for q in sorted(once))
-    fig.text(px, y - 0.018, textwrap.fill(txt, 62), size=6.2, color=dmc.STONE, va="top", linespacing=1.45)
+    fig.text(px, y - 0.018, textwrap.fill(txt, 74), size=5.9, color=dmc.STONE, va="top", linespacing=1.35)
 
 lead = places[0]
 yrs = ", ".join(str(v) for v in years[:-1]) + f" and {years[-1]}"
