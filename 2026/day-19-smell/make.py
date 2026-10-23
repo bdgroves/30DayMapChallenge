@@ -306,5 +306,5 @@ dmc.frame(
     note="Fields don't record their variety: every field and row is coloured at random in the statewide mix from the panel, not by its own crop.",
 )
 dmc.save(fig, DAY, alt=(
-    f"Map of Yakima County's {len(fields):,} hop fields, each speckled in the colours of Washington's statewide hop smells, over shaded relief of the valley and its ridges, with the Yakima River, beside bars of Washington's "
+    f"Map of Yakima County's {len(fields):,} hop fields, each ruled into trellis rows coloured in Washington's statewide mix of hop smells, with a close-up of the yards near Union Gap, over shaded relief of the valley and its ridges, with the Yakima River, beside bars of Washington's "
     f"{YEAR} hop acreage by each variety's leading aroma: " + ", ".join(f"{tax[f]['label'].lower()} {by_fam[f]:,.0f} acres" for f in fams[:4]) + "."))
