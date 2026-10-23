@@ -146,6 +146,7 @@ for el in osm.get("elements", []):
         towns.append((t.get("name", ""), t.get("place"), Point(el["lon"], el["lat"])))
 print(f"= OSM: {len(rivers)} river ways, {len(canals)} named canals, {len(towns)} towns, {len(ridges)} named ridges")
 WATER = "#5b8fa8"
+big, small = [], []
 if canals:
     gpd.GeoSeries([g for _, g in canals], crs=4326).to_crs(CRS).plot(ax=ax, color=WATER, lw=0.4, alpha=0.4, zorder=1)
 if rivers:
@@ -159,14 +160,16 @@ if rivers:
 # the hops: every field speckled in Washington's statewide smell mix. Fields don't record their
 # variety, so each dot's colour is drawn at random in proportion to the state's acreage by leading
 # aroma (seeded, so the map renders the same every time). The mix is statewide, not per field.
-f.plot(ax=ax, color="#e6dcc0", edgecolor="#8c8466", lw=0.2, zorder=3)
+FIELD_BASE, FIELD_EDGE = "#efe6cc", "#4a4234"
+f.plot(ax=ax, color=FIELD_BASE, lw=0, zorder=3)
 rng = np.random.default_rng(19)
 mix = np.array([by_fam[k] for k in fams]) / classed
-n_dots = np.maximum(4, np.round(f["ExactAcres"].to_numpy() * 2.2)).astype(int)
-pts = f.geometry.sample_points(size=n_dots, rng=rng).explode(index_parts=False)
+PALETTE = np.array([FAMILY_COLOUR.get(k, dmc.ASH) for k in fams])
+n_dots = np.maximum(6, np.round(f["ExactAcres"].to_numpy() * 7)).astype(int)
+pts = f.geometry.buffer(-12).sample_points(size=n_dots, rng=rng).explode(index_parts=False)
 pts = pts[~pts.is_empty]
-cols = np.array([FAMILY_COLOUR.get(k, dmc.ASH) for k in fams])[rng.choice(len(fams), size=len(pts), p=mix)]
-ax.scatter(pts.x, pts.y, s=0.9, c=cols, lw=0, zorder=3.5)
+ax.scatter(pts.x, pts.y, s=0.16, c=PALETTE[rng.choice(len(fams), size=len(pts), p=mix)], lw=0, zorder=3.5)
+f.boundary.plot(ax=ax, color=FIELD_EDGE, lw=0.22, zorder=3.6)
 print(f"= {len(pts):,} smell dots")
 
 # ridge names along the high ground, towns as small dots
@@ -204,6 +207,71 @@ for name, kind, pt in sorted(towns, key=lambda t: t[1] != "city"):
 dmc.place_labels(ax, items, size=7, zorder=6, taken=taken)
 dmc.scalebar(ax, 10, loc=(0.04, 0.08))
 
+# ── closer: the densest hop country, every yard ruled into trellis rows ──────
+from matplotlib.collections import LineCollection  # noqa: E402
+from shapely import affinity  # noqa: E402
+
+HALF = 2600                                            # a 5.2 km square
+cen = f.geometry.centroid
+cx_, cy_ = cen.x.to_numpy(), cen.y.to_numpy()
+acres = f["ExactAcres"].to_numpy()
+score = [acres[(abs(cx_ - x) < HALF) & (abs(cy_ - y) < HALF)].sum() for x, y in zip(cx_, cy_)]
+k = int(np.argmax(score))
+qx, qy = cx_[k], cy_[k]
+win = (qx - HALF, qy - HALF, qx + HALF, qy + HALF)
+near = min(((n, gpd.GeoSeries([pt], crs=4326).to_crs(CRS).iloc[0]) for n, _, pt in towns),
+           key=lambda t: (t[1].x - qx) ** 2 + (t[1].y - qy) ** 2)[0] if towns else "the valley"
+ROW = 38                                               # metres between drawn rows (real rows are about 4 m)
+
+
+def trellis(poly):
+    """Parallel rows along a field's long axis, clipped to the field."""
+    rect = poly.minimum_rotated_rectangle
+    c = list(rect.exterior.coords)
+    e = max(((c[i], c[i + 1]) for i in range(4)), key=lambda p: (p[1][0] - p[0][0]) ** 2 + (p[1][1] - p[0][1]) ** 2)
+    ang = np.degrees(np.arctan2(e[1][1] - e[0][1], e[1][0] - e[0][0]))
+    o = poly.centroid
+    r = affinity.rotate(poly, -ang, origin=o)
+    bx0, by0, bx1, by1 = r.bounds
+    out = []
+    for yv in np.arange(by0 + ROW / 2, by1, ROW):
+        seg = LineString([(bx0 - 10, yv), (bx1 + 10, yv)]).intersection(r.buffer(-6))
+        for g in getattr(seg, "geoms", [seg]):
+            if g.geom_type == "LineString" and g.length > 20:
+                out.append(np.asarray(affinity.rotate(g, ang, origin=o).coords))
+    return out
+
+
+iax = ax.inset_axes([0.655, 0.505, 0.335, 0.475])
+iax.imshow(np.dstack([rgb, np.ones_like(alpha)]), extent=terrain.extent(tf, z.shape), zorder=0, interpolation="bilinear")
+for geoms, lw in ((small, 1.0), (big, 3.0)):
+    if geoms:
+        gpd.GeoSeries(geoms, crs=4326).to_crs(CRS).plot(ax=iax, color=WATER, lw=lw, zorder=1)
+inwin = f[f.intersects(__import__("shapely").geometry.box(*win))]
+inwin.plot(ax=iax, color=FIELD_BASE, lw=0, zorder=2)
+segs = [sg for poly in inwin.geometry for part in getattr(poly, "geoms", [poly]) for sg in trellis(part)]
+iax.add_collection(LineCollection(segs, colors=PALETTE[rng.choice(len(fams), size=len(segs), p=mix)],
+                                  linewidths=0.85, capstyle="butt", zorder=3))
+inwin.boundary.plot(ax=iax, color=FIELD_EDGE, lw=0.45, zorder=4)
+iax.set_xlim(win[0], win[2])
+iax.set_ylim(win[1], win[3])
+iax.set_aspect("equal")
+iax.set_xticks([])
+iax.set_yticks([])
+for sp in iax.spines.values():
+    sp.set_edgecolor(dmc.INK)
+    sp.set_linewidth(0.8)
+ax.indicate_inset_zoom(iax, edgecolor=dmc.INK, alpha=0.6, lw=0.6)
+iax.add_patch(__import__("matplotlib").patches.Rectangle((0, 0.88), 1, 0.12, transform=iax.transAxes,
+                                                          color=dmc.PARCHMENT, alpha=0.92, zorder=5))
+iax.text(0.03, 0.955, f"CLOSER: THE HOP YARDS NEAR {near.upper()}", transform=iax.transAxes, family=dmc.MONO,
+         size=6.2, color=dmc.INK, va="center", zorder=6)
+iax.text(0.03, 0.91, f"{len(inwin)} yards, {inwin['ExactAcres'].sum():,.0f} acres, ruled in rows {ROW} m apart "
+         "(real rows are about 4 m)", transform=iax.transAxes, size=5.4, style="italic", color=dmc.STONE,
+         va="center", zorder=6)
+dmc.scalebar(iax, 1, loc=(0.06, 0.06))
+print(f"= inset near {near}: {len(inwin)} yards, {len(segs):,} rows")
+
 # aroma panel
 px, top = 0.65, 0.76
 fig.text(px, top + 0.02, f"WASHINGTON'S HOPS, {YEAR}, BY THEIR FIRST SMELL", family=dmc.MONO, size=7.5, color=dmc.INK)
@@ -229,7 +297,7 @@ dmc.frame(
               f"by acreage, mostly\n{tax[lead]['label'].lower()}, led by {sorted(names[lead], reverse=True)[0][1]}. "
               f"The aroma of each variety comes from HopLove, my hop database."),
     source="WSDA Agricultural Land Use 2024 · USDA NASS National Hop Report 2025 · HopLove · Copernicus DEM · © OpenStreetMap",
-    note="Fields don't record their variety, so every field is speckled in the statewide mix from the panel, not its own crop.",
+    note="Fields don't record their variety: every field and row is coloured at random in the statewide mix from the panel, not by its own crop.",
 )
 dmc.save(fig, DAY, alt=(
     f"Map of Yakima County's {len(fields):,} hop fields, each speckled in the colours of Washington's statewide hop smells, over shaded relief of the valley and its ridges, with the Yakima River, beside bars of Washington's "
