@@ -141,6 +141,8 @@ iax.set_xlim(ib[0], ib[2])
 iax.set_ylim(ib[1], ib[3])
 iax.set_xticks([])
 iax.set_yticks([])
+iax.set_xlabel("")
+iax.set_ylabel("")
 for sp in iax.spines.values():
     sp.set_color(dmc.INK)
     sp.set_linewidth(0.8)
