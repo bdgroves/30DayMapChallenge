@@ -43,7 +43,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - Before posting: **21** (re-render after your OSM evening).
 
 <!-- table:start -->
-**27 of 30 done** · 💡 idea 2 · 📦 data in hand 0 · ✏️ draft 1 · ✅ done 27 · 📣 posted 0
+**28 of 30 done** · 💡 idea 2 · 📦 data in hand 0 · ✏️ draft 0 · ✅ done 28 · 📣 posted 0
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -67,7 +67,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 18 | Wed Nov 18 | NULL | [Nobody lives here](day-18-null/) | ✅ done |
 | 19 | Thu Nov 19 | Smell | [What the Yakima Valley smells like](day-19-smell/) | ✅ done |
 | 20 | Fri Nov 20 | Hexagons | [Kangaroo rats in hexagons](day-20-hexagons/) | ✅ done |
-| 21 | Sat Nov 21 | OpenStreetMap | [Groveland, by volunteers](day-21-openstreetmap/) | ✏️ draft |
+| 21 | Sat Nov 21 | OpenStreetMap | [Groveland, by volunteers](day-21-openstreetmap/) | ✅ done |
 | 22 | Sun Nov 22 | Projections | [The world from Groveland](day-22-projections/) | ✅ done |
 | 23 | Mon Nov 23 | Taste | [Every brewery I've checked into](day-23-taste/) | ✅ done |
 | 24 | Tue Nov 24 | Network | [Every stream that reaches Modesto](day-24-network/) | ✅ done |

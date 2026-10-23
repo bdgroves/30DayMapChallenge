@@ -127,7 +127,11 @@ taken = []
 towns = [(*gpd.GeoSeries([Point(lon, lat)], crs=4326).to_crs(CRS).iloc[0].coords[0], nm)
          for nm, lon, lat in [("GROVELAND", -120.2305, 37.8395), ("BIG OAK FLAT", -120.2585, 37.8245)]]
 dmc.place_labels(ax, towns, gap=0, taken=taken, size=10, family=dmc.MONO, color="#6b6560", halo=dmc.PARCHMENT, zorder=7)
+ax.add_patch(__import__("matplotlib").patches.Rectangle((0.012, 0.015), 0.105, 0.11, transform=ax.transAxes,
+                                                       color=dmc.PARCHMENT, alpha=0.92, zorder=8))
 dmc.scalebar(ax, 1, loc=(0.03, 0.05))
+ax.lines[-1].set_zorder(9)
+ax.texts[-1].set_zorder(9)
 
 # panel: the color key as a bar chart of features by the year they were last edited
 px = 0.70

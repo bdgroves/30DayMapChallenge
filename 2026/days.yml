@@ -350,7 +350,7 @@ days:
         url: https://download.geofabrik.de/north-america/us/california.html
     tools: [Python, osmnx]
     prep: "Drafted from Overpass with edit metadata (out meta). Any OSM edits Brooks makes show up as 2026: re-render with make.py --refresh."
-    status: draft
+    status: done
     hashtags: "#OpenStreetMap #Groveland"
     deeper:
       - name: "Blog: Mother Lode, the holes in the hills where I grew up"

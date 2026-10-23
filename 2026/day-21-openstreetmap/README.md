@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 21 · OpenStreetMap
 
-**Saturday, November 21, 2026** · status: ✏️ draft
+**Saturday, November 21, 2026** · status: ✅ done
 
 ## Groveland, by volunteers
 
