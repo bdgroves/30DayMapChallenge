@@ -11,7 +11,7 @@ The earthquakes beneath Kīlauea's summit in cross-section, sketching the magma 
 
 - [USGS ComCat (HVO-located earthquakes)](https://earthquake.usgs.gov/fdsnws/event/1/)
 
-**Tools:** Python, matplotlib or forge3d
+**Tools:** Python, matplotlib
 
 **Prep:** Drafted from ComCat since 2019.
 

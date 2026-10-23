@@ -9,10 +9,10 @@ Hetch Hetchy's dams, the powerhouse at Moccasin just below Groveland, and the li
 
 **Data**
 
-- [EIA U.S. Energy Atlas (power plants, transmission lines)](https://atlas.eia.gov/)
+- [OpenStreetMap power lines, powerhouses and the Hetch Hetchy aqueduct (Overpass API)](https://overpass-api.de/)
 - [SFPUC Hetch Hetchy Regional Water System](https://www.sfpuc.gov/)
 
-**Tools:** Python, geopandas
+**Tools:** Python, geopandas, Mapbox
 
 **Prep:** Drafted from OpenStreetMap (Overpass).
 

@@ -77,9 +77,9 @@ days:
     title: "Where you can see Rainier from"
     pitch: "A viewshed from the summit of Mount Rainier over 90 m terrain, with Earth's curvature and refraction, showing every place in Washington with a line of sight to the mountain."
     data:
-      - name: "Copernicus DEM GLO-30 (AWS open data)"
+      - name: "Copernicus DEM GLO-90 (AWS open data)"
         url: https://registry.opendata.aws/copernicus-dem/
-    tools: [Python, rasterio, a viewshed routine (GDAL gdal_viewshed)]
+    tools: [Python, rasterio, GDAL gdal_viewshed]
     prep: "Drafted (Copernicus GLO-90 and gdal_viewshed)."
     deeper:
       - name: "STORM CHASER: Rainier snowpack, live"
@@ -137,8 +137,12 @@ days:
     data:
       - name: "Census 2020 blocks and population"
         url: https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
-      - name: "GHSL built-up surface"
-        url: https://human-settlement.emergency.copernicus.eu/
+      - name: "Microsoft US Building Footprints"
+        url: https://github.com/microsoft/GlobalMLBuildingFootprints
+      - name: "ESA WorldCover 2021 and Sentinel-2 L2A (Microsoft Planetary Computer)"
+        url: https://planetarycomputer.microsoft.com/
+      - name: "USGS volcano hazard areas for Rainier, via WA DNR"
+        url: https://www.dnr.wa.gov/programs-and-services/geology/geologic-hazards/volcanoes-and-lahars
     tools: [Python, rasterio, matplotlib]
     prep: "Drafted (2020 census blocks, Copernicus DEM)."
     deeper:
@@ -196,11 +200,11 @@ days:
     title: "The Tuolumne powers San Francisco"
     pitch: "Hetch Hetchy's dams, the powerhouse at Moccasin just below Groveland, and the lines that carry the Tuolumne's power to San Francisco."
     data:
-      - name: "EIA U.S. Energy Atlas (power plants, transmission lines)"
-        url: https://atlas.eia.gov/
+      - name: "OpenStreetMap power lines, powerhouses and the Hetch Hetchy aqueduct (Overpass API)"
+        url: https://overpass-api.de/
       - name: "SFPUC Hetch Hetchy Regional Water System"
         url: https://www.sfpuc.gov/
-    tools: [Python, geopandas]
+    tools: [Python, geopandas, Mapbox]
     prep: "Drafted from OpenStreetMap (Overpass)."
     status: done
     hashtags: "#HetchHetchy #hydropower"
@@ -251,7 +255,7 @@ days:
     data:
       - name: "USGS ComCat (HVO-located earthquakes)"
         url: https://earthquake.usgs.gov/fdsnws/event/1/
-    tools: [Python, matplotlib or forge3d]
+    tools: [Python, matplotlib]
     prep: "Drafted from ComCat since 2019."
     status: done
     hashtags: "#Kilauea #volcano"
@@ -359,7 +363,7 @@ days:
     data:
       - name: "Natural Earth"
         url: https://www.naturalearthdata.com/
-    tools: [Python, cartopy or pyproj]
+    tools: [Python, pyproj]
     prep: "Places come from the Countries Visited layer on brooksgroves.com/maps.html (37 countries; where there are geocache finds, the middle of them), plus Lakewood, Brenham, Reno and the Ruby Mountains. Add a country there and to places.csv, then re-render."
     deeper:
       - name: "Maps: the countries I've been to"

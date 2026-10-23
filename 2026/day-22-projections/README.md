@@ -11,7 +11,7 @@ An azimuthal equidistant map centered on Groveland, where I grew up, with straig
 
 - [Natural Earth](https://www.naturalearthdata.com/)
 
-**Tools:** Python, cartopy or pyproj
+**Tools:** Python, pyproj
 
 **Prep:** Places come from the Countries Visited layer on brooksgroves.com/maps.html (37 countries; where there are geocache finds, the middle of them), plus Lakewood, Brenham, Reno and the Ruby Mountains. Add a country there and to places.csv, then re-render.
 

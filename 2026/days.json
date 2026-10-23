@@ -177,14 +177,14 @@
    "tools": [
     "Python",
     "rasterio",
-    "a viewshed routine (GDAL gdal_viewshed)"
+    "GDAL gdal_viewshed"
    ],
    "data": [
-    "Copernicus DEM GLO-30 (AWS open data)"
+    "Copernicus DEM GLO-90 (AWS open data)"
    ],
    "data_links": [
     {
-     "name": "Copernicus DEM GLO-30 (AWS open data)",
+     "name": "Copernicus DEM GLO-90 (AWS open data)",
      "url": "https://registry.opendata.aws/copernicus-dem/"
     }
    ],
@@ -327,7 +327,9 @@
    ],
    "data": [
     "Census 2020 blocks and population",
-    "GHSL built-up surface"
+    "Microsoft US Building Footprints",
+    "ESA WorldCover 2021 and Sentinel-2 L2A (Microsoft Planetary Computer)",
+    "USGS volcano hazard areas for Rainier, via WA DNR"
    ],
    "data_links": [
     {
@@ -335,8 +337,16 @@
      "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html"
     },
     {
-     "name": "GHSL built-up surface",
-     "url": "https://human-settlement.emergency.copernicus.eu/"
+     "name": "Microsoft US Building Footprints",
+     "url": "https://github.com/microsoft/GlobalMLBuildingFootprints"
+    },
+    {
+     "name": "ESA WorldCover 2021 and Sentinel-2 L2A (Microsoft Planetary Computer)",
+     "url": "https://planetarycomputer.microsoft.com/"
+    },
+    {
+     "name": "USGS volcano hazard areas for Rainier, via WA DNR",
+     "url": "https://www.dnr.wa.gov/programs-and-services/geology/geologic-hazards/volcanoes-and-lahars"
     }
    ],
    "deeper": [
@@ -472,16 +482,17 @@
    "status": "done",
    "tools": [
     "Python",
-    "geopandas"
+    "geopandas",
+    "Mapbox"
    ],
    "data": [
-    "EIA U.S. Energy Atlas (power plants, transmission lines)",
+    "OpenStreetMap power lines, powerhouses and the Hetch Hetchy aqueduct (Overpass API)",
     "SFPUC Hetch Hetchy Regional Water System"
    ],
    "data_links": [
     {
-     "name": "EIA U.S. Energy Atlas (power plants, transmission lines)",
-     "url": "https://atlas.eia.gov/"
+     "name": "OpenStreetMap power lines, powerhouses and the Hetch Hetchy aqueduct (Overpass API)",
+     "url": "https://overpass-api.de/"
     },
     {
      "name": "SFPUC Hetch Hetchy Regional Water System",
@@ -596,7 +607,7 @@
    "status": "done",
    "tools": [
     "Python",
-    "matplotlib or forge3d"
+    "matplotlib"
    ],
    "data": [
     "USGS ComCat (HVO-located earthquakes)"
@@ -866,7 +877,7 @@
    "status": "done",
    "tools": [
     "Python",
-    "cartopy or pyproj"
+    "pyproj"
    ],
    "data": [
     "Natural Earth"

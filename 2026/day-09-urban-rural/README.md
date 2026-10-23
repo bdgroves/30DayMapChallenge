@@ -10,7 +10,9 @@ One line from the Port of Tacoma to Paradise on Rainier, and what changes along 
 **Data**
 
 - [Census 2020 blocks and population](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html)
-- [GHSL built-up surface](https://human-settlement.emergency.copernicus.eu/)
+- [Microsoft US Building Footprints](https://github.com/microsoft/GlobalMLBuildingFootprints)
+- [ESA WorldCover 2021 and Sentinel-2 L2A (Microsoft Planetary Computer)](https://planetarycomputer.microsoft.com/)
+- [USGS volcano hazard areas for Rainier, via WA DNR](https://www.dnr.wa.gov/programs-and-services/geology/geologic-hazards/volcanoes-and-lahars)
 
 **Tools:** Python, rasterio, matplotlib
 

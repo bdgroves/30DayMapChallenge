@@ -9,9 +9,9 @@ A viewshed from the summit of Mount Rainier over 90 m terrain, with Earth's curv
 
 **Data**
 
-- [Copernicus DEM GLO-30 (AWS open data)](https://registry.opendata.aws/copernicus-dem/)
+- [Copernicus DEM GLO-90 (AWS open data)](https://registry.opendata.aws/copernicus-dem/)
 
-**Tools:** Python, rasterio, a viewshed routine (GDAL gdal_viewshed)
+**Tools:** Python, rasterio, GDAL gdal_viewshed
 
 **Prep:** Drafted (Copernicus GLO-90 and gdal_viewshed).
 
