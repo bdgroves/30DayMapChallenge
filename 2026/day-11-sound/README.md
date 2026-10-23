@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 11 · Sound
 
-**Wednesday, November 11, 2026** · status: ✏️ draft
+**Wednesday, November 11, 2026** · status: ✅ done
 
 ## Where the tsunami sirens reach
 

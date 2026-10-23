@@ -127,7 +127,7 @@ days:
         url: https://www.usgs.gov/us-board-on-geographic-names/download-gnis-data
     tools: [Python, geopandas]
     prep: "Drafted from the GNIS national file."
-    status: draft
+    status: done
     hashtags: "#placenames #maps"
 
   - day: 9
@@ -144,7 +144,7 @@ days:
     deeper:
       - name: "Blog: Rainier snowpack"
         url: https://brooksgroves.com/blog/rainier-snowpack-post.html
-    status: draft
+    status: done
     hashtags: "#Tacoma #MountRainier"
 
   - day: 10
@@ -158,7 +158,7 @@ days:
         url: https://registry.opendata.aws/copernicus-dem/
     tools: [Claude, FORTRAN (gfortran), Python]
     prep: "Drafted. Rule: no hand edits; every change is asked for in words and logged in PROMPTS.md."
-    status: draft
+    status: done
     hashtags: "#FORTRAN #retrocomputing"
     deeper:
       - name: "The prompts, and the FORTRAN"
@@ -183,7 +183,7 @@ days:
         url: https://www.graysharbor.us/departments/emergency_management/ahab.php
     tools: [Python, geopandas, Mapbox]
     prep: "Drafted. If Pierce County shares its lahar siren locations, the original idea can come back."
-    status: draft
+    status: done
     hashtags: "#tsunami #Washington"
     deeper:
       - name: "PUGET-TIDES: tides of Puget Sound in FORTRAN"
@@ -202,7 +202,7 @@ days:
         url: https://www.sfpuc.gov/
     tools: [Python, geopandas]
     prep: "Drafted from OpenStreetMap (Overpass)."
-    status: draft
+    status: done
     hashtags: "#HetchHetchy #hydropower"
     deeper:
       - name: "SIERRA-FLOW: Sierra rivers in COBOL"

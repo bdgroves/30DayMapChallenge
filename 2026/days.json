@@ -7,8 +7,8 @@
  "counts": {
   "idea": 2,
   "data": 1,
-  "draft": 21,
-  "done": 6,
+  "draft": 16,
+  "done": 11,
   "posted": 0
  },
  "days": [
@@ -287,7 +287,7 @@
    "theme": "Utopia",
    "title": "Paradise, Eden, Utopia",
    "pitch": "Every place in the United States named Paradise, Eden, Utopia, Arcadia or Shangri-La, from Paradise on Rainier to Utopia, Texas.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "geopandas"
@@ -319,7 +319,7 @@
    "theme": "Urban-rural",
    "title": "Tacoma to Paradise",
    "pitch": "One line from the Port of Tacoma to Paradise on Rainier, and what changes along it: people, buildings, trees and elevation.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "rasterio",
@@ -362,7 +362,7 @@
    "theme": "Prompting only",
    "title": "A map made only by asking",
    "pitch": "Big Creek's watershed above Groveland as a 1960s line-printer map: a FORTRAN program, written entirely from a one-sentence prompt, prints the basin in eight overprinted tones on green-bar paper, the way SYMAP did. The prompts are posted with it.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Claude",
     "FORTRAN (gfortran)",
@@ -417,7 +417,7 @@
    "theme": "Sound",
    "title": "Where the tsunami sirens reach",
    "pitch": "Washington's tsunami sirens, each with the one-mile circle it's designed to be heard in, over the tsunami hazard zones they're there to empty. (Pierce County's lahar sirens were the first idea, but their locations aren't published.)",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "geopandas",
@@ -469,7 +469,7 @@
    "theme": "Power",
    "title": "The Tuolumne powers San Francisco",
    "pitch": "Hetch Hetchy's dams, the powerhouse at Moccasin just below Groveland, and the lines that carry the Tuolumne's power to San Francisco.",
-   "status": "draft",
+   "status": "done",
    "tools": [
     "Python",
     "geopandas"

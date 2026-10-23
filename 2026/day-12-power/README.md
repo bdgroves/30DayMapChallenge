@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 12 · Power
 
-**Thursday, November 12, 2026** · status: ✏️ draft
+**Thursday, November 12, 2026** · status: ✅ done
 
 ## The Tuolumne powers San Francisco
 

@@ -43,7 +43,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - Before posting: **21** (re-render after your OSM evening).
 
 <!-- table:start -->
-**6 of 30 done** · 💡 idea 2 · 📦 data in hand 1 · ✏️ draft 21 · ✅ done 6 · 📣 posted 0
+**11 of 30 done** · 💡 idea 2 · 📦 data in hand 1 · ✏️ draft 16 · ✅ done 11 · 📣 posted 0
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -54,11 +54,11 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 5 | Thu Nov 5 | Sight | [Where you can see Rainier from](day-05-sight/) | ✅ done |
 | 6 | Fri Nov 6 | Vintage | [Tasman to Cook](day-06-vintage/) | ✅ done |
 | 7 | Sat Nov 7 | 10 minute map | [Ten minutes, on the clock](day-07-10-minute-map/) | 💡 idea |
-| 8 | Sun Nov 8 | Utopia | [Paradise, Eden, Utopia](day-08-utopia/) | ✏️ draft |
-| 9 | Mon Nov 9 | Urban-rural | [Tacoma to Paradise](day-09-urban-rural/) | ✏️ draft |
-| 10 | Tue Nov 10 | Prompting only | [A map made only by asking](day-10-prompting-only/) | ✏️ draft |
-| 11 | Wed Nov 11 | Sound | [Where the tsunami sirens reach](day-11-sound/) | ✏️ draft |
-| 12 | Thu Nov 12 | Power | [The Tuolumne powers San Francisco](day-12-power/) | ✏️ draft |
+| 8 | Sun Nov 8 | Utopia | [Paradise, Eden, Utopia](day-08-utopia/) | ✅ done |
+| 9 | Mon Nov 9 | Urban-rural | [Tacoma to Paradise](day-09-urban-rural/) | ✅ done |
+| 10 | Tue Nov 10 | Prompting only | [A map made only by asking](day-10-prompting-only/) | ✅ done |
+| 11 | Wed Nov 11 | Sound | [Where the tsunami sirens reach](day-11-sound/) | ✅ done |
+| 12 | Thu Nov 12 | Power | [The Tuolumne powers San Francisco](day-12-power/) | ✅ done |
 | 13 | Fri Nov 13 | Interactions | [Follow a raindrop](day-13-interactions/) | ✏️ draft |
 | 14 | Sat Nov 14 | Borgesian map | [1:1](day-14-borgesian-map/) | ✏️ draft |
 | 15 | Sun Nov 15 | Inside out | [Inside Kīlauea](day-15-inside-out/) | ✏️ draft |
