@@ -153,5 +153,5 @@ dmc.frame(
 )
 dmc.save(fig, DAY, alt=(
     f"A helicorder of the afternoon of January 8, 2011, at seismic station KDK beside the Seahawks' stadium: "
-    f"{ROWS} wiggly lines, ten minutes each, from 12:50 to 5:10 pm. The biggest burst, at {peak_local:%-I:%M %p}, "
+    f"{ROWS} wiggly lines, ten minutes each, from 12:50 to 5:10 PM. The biggest burst, at {peak_local:%-I:%M %p}, "
     f"is labeled as Marshawn Lynch's 67-yard touchdown run, the Beast Quake."))

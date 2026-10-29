@@ -459,7 +459,7 @@ def draw():
     rax.text(Lk - 0.2, hk - 0.25, "north-east side up", size=5.6, family=dmc.MONO, color=dmc.WHITE, ha="right", va="top",
              zorder=5, path_effects=[pe.withStroke(linewidth=1.6, foreground="#1c1a16")])
     top = int(np.argmax(ft))
-    for k, text, dx, dy, ha in [(ekm[top], f"{ft[top]:,.0f} ft on Rainier's south-west flank, {SUMMIT_OFF:.0f} km from the summit", -6, 6, "right"),
+    for k, text, dx, dy, ha in [(ekm[top], f"{ft[top]:,.0f} ft on Rainier's southwest flank, {SUMMIT_OFF:.0f} km from the summit", -6, 6, "right"),
                                 (ekm[-1], f"Paradise, {ft[-1]:,.0f} ft", -4, -30, "right"),
                                 (12.9, "Puyallup, on the valley floor", 0, 18, "center")]:
         i = int(np.argmin(np.abs(ekm - k)))
@@ -548,7 +548,7 @@ SUMMARY = {
             "profiles on the same kilometer scale: people per square kilometer, high through Fife and Puyallup and falling to "
             "almost none after km 33; buildings per square kilometer, peaking in Puyallup; tree cover, rising to near 100% "
             "through the forest and dropping to zero on the mountain; and ground elevation, flat near sea level along the "
-            "Puyallup valley, climbing to about 9,000 ft on Rainier's south-west flank and ending at Paradise at about 5,400 ft, with "
+            "Puyallup valley, climbing to about 9,000 ft on Rainier's southwest flank and ending at Paradise at about 5,400 ft, with "
             "a red band marking the stretches inside a lahar hazard zone."),
 }
 

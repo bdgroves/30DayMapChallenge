@@ -182,7 +182,7 @@ dmc.frame(
     subtitle=(f"Lake Tahoe is {depth.max():.0f} m deep. In {best} you could see {yr.loc[best, 'mean']:.0f} m down into it; in {last}, "
               f"{yr.loc[last, 'mean']:.0f} m.\nThe floor from the USGS multibeam survey, and the lake's clarity on the same downward axis."),
     source="USGS DDS-55 bathymetry · UC Davis TERC Secchi record (CC BY 4.0) · Copernicus DEM",
-    note="Depth below a surface of 1,897 m. Clarity averages each year's months first; quote TERC's own annual figures.",
+    note="Depth below a surface of 1,897 m. Clarity averages each year's months first, so a year can differ a little from TERC's own figure.",
 )
 dmc.save(fig, DAY, alt=(
     f"Map of Lake Tahoe's floor shaded blue by depth to {depth.max():.0f} m, with 100 m contours, the deepest point and TERC's "

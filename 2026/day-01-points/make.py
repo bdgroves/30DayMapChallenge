@@ -110,6 +110,7 @@ g = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df["lon"], df["lat"]), crs=
 places = Counter(df["where"].replace("", "Elsewhere"))
 n_places = len([k for k in places if k != "Elsewhere"])
 n_countries = df["country"].nunique()
+n_states = df.loc[df["country"] == "United States", "state"].replace("", np.nan).nunique()
 print(f"= {total} finds ({nowhere} locationless), {g['found'].min():%Y-%m-%d} to {g['found'].max():%Y-%m-%d}; "
       f"{n_places} states and countries, {n_countries} countries")
 
@@ -257,7 +258,7 @@ first, last = g["found"].min(), g["found"].max()
 dmc.frame(
     fig, DAY, title=f"{total:,} caches",
     subtitle=(f"Every geocache I've found as {FINDER}, from {first:%B %Y} to {last:%B %Y}, one dot each,\n"
-              f"colored by the year I found it: {n_places} states and countries, {n_countries} countries."),
+              f"colored by the year I found it: {n_states} states and {n_countries} countries."),
     source="Geocaching.com 'My Finds' pocket query · Natural Earth" + (" · " + basemap.CREDIT if MAPBOX else ""),
     note=(f"{trad:.0%} traditional caches. Positions rounded to about a kilometer"
           + (f"; {nowhere} locationless caches have no place to draw." if nowhere else ".")),
