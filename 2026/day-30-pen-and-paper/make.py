@@ -2,8 +2,8 @@
 Day 30 · Pen & paper — If you hit the third cattle guard
 
 The hot-spring napkin from my memoir story "If You Hit the Third Cattle Guard", redrawn by hand
-in bar ink on a cocktail napkin: the springs outside Bridgeport, the roads between them, and the
-notes around the edge, counted in cattle guards. Drawn from memory, the way the original was, and
+in bar ink on a cocktail napkin: the springs from Bridgeport to Long Valley, the roads between them,
+and the notes around the edge, counted in cattle guards. Drawn from memory, the way the original was, and
 left that way: no real map laid over it, no coordinates.
 
 This script only frames the scan. Put the scan (or a good phone photo, shot flat in daylight)
@@ -33,11 +33,14 @@ ax.set_aspect("equal")
 dmc.frame(
     fig, DAY,
     title="If you hit the third cattle guard",
-    subtitle=("The hot springs outside Bridgeport, drawn from memory on a bar napkin, the way a stranger drew them\n"
-              "for us at the Iron Door forty years ago: no miles, just cattle guards. Close the gate. Go around the guns."),
+    subtitle=("The Eastern Sierra hot springs, Bridgeport to Long Valley, drawn from memory on an Iron Door napkin, the way\n"
+              "a stranger in that bar drew them in the 1980s: no miles, just cattle guards. Close the gate. Go around the guns."),
     source="Pen, a cocktail napkin, and memory",
-    note="The story behind it: \"If You Hit the Third Cattle Guard\", at memoir.brooksgroves.com",
+    note="The story behind it: \"If You Hit the Third Cattle Guard\", brooksgroves.com/blog/cattle-guard.html",
 )
 dmc.save(fig, DAY, alt=(
-    "A hand-drawn map on a cocktail napkin in ink: hot springs outside Bridgeport, California joined by rough lines for "
-    "dirt roads, with notes around the edge counting cattle guards instead of miles."))
+    "A hand-drawn ink map on an Iron Door Saloon cocktail napkin of the Eastern Sierra hot springs, from Buckeye and "
+    "Travertine near Bridgeport, past Mono Lake and Mammoth, to the big spring in Long Valley. Highway 395 runs down the "
+    "middle, with Tioga Pass from Groveland on the left. Notes in the margins give directions in cattle guards instead "
+    "of miles: close the gate, go around the guns, and if you hit the third cattle guard on Benton Crossing Road, turn "
+    "around."))
