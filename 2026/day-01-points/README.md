@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 1 · Points
 
-**Sunday, November 1, 2026** · status: ✅ done
+**Sunday, November 1, 2026** · status: 📣 posted
 
 ## 1,190 caches
 
