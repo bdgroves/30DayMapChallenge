@@ -35,7 +35,7 @@ days:
         url: https://overpass-api.de/
     tools: [Python, geopandas, matplotlib]
     prep: "Drafted from OpenStreetMap. (The Strava heatmap idea is kept as make_strava.py for later.)"
-    status: done
+    status: posted
     hashtags: "#Vancouver #StanleyPark"
 
   - day: 3

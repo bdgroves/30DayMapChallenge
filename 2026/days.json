@@ -8,8 +8,8 @@
   "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 28,
-  "posted": 1
+  "done": 27,
+  "posted": 2
  },
  "days": [
   {
@@ -57,7 +57,7 @@
    "theme": "Lines",
    "title": "The Seawall",
    "pitch": "The path around Stanley Park in Vancouver: 8.8 km of Seawall between the forest and the sea, 10 km all the way round, on a Mapbox Outdoors basemap, with the landmarks along the way.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "geopandas",
