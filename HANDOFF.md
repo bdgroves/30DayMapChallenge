@@ -53,7 +53,7 @@ All three science posts have project cards on `ecology.html` (newest first: Pyra
 
 ## Auto-posting in November (`2026/toolkit/post.py`, workflow `dmc-2026-post.yml`)
 
-- Runs 8:07 AM Pacific every day in November (retry at 12:07 PM). Posts the day's map to X and
+- Runs from 5:07 AM Pacific every day in November (first run 13:07 UTC, retries through the day; GitHub often starts them late), aiming for about 6 AM Pacific. Posts the day's map to X and
   Bluesky **only if its status in `days.yml` is `done`**; anything else is skipped with a warning.
 - Text = the "Post it" text from `build.py` + the day's share link; image = `out/map.png` as a
   JPEG under 950 KB with `out/alt.txt` as alt text.

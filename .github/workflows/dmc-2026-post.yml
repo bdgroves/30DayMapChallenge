@@ -1,12 +1,13 @@
 name: Post the day's map (X and Bluesky)
 
 # Every morning in November: posts the day's map if its status in days.yml is `done`.
-# 16:07 UTC is 8:07 AM Pacific (PST from Nov 1). The later runs (9, 10, noon, 3 PM Pacific) are retries,
-# because GitHub sometimes skips a scheduled run (it skipped 8:07 on Nov 1). A retry only fills in a
-# platform that failed in the morning, and does nothing if everything went out.
+# Aimed at about 6 AM Pacific: 9 AM on the US East Coast and mid-afternoon in Europe, where much of the
+# #30DayMapChallenge crowd is. GitHub often starts scheduled runs late (1 to 3 hours on Nov 1) and sometimes
+# skips one, so the first run is set for 13:07 UTC (5:07 AM Pacific) and the rest are retries. A retry only
+# fills in a platform that hasn't posted yet, and does nothing once the day's map is out.
 on:
   schedule:
-    - cron: '7 16,17,18,20,23 * 11 *'
+    - cron: '7 13,14,15,16,18,21 * 11 *'
   workflow_dispatch:
     inputs:
       mode:
