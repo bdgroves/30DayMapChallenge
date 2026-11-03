@@ -50,7 +50,7 @@ days:
     deeper:
       - name: "Blog: Thirty Minutes, Fifty Years of Fire"
         url: https://brooksgroves.com/blog/tuolumne-watershed-post.html
-    status: done
+    status: posted
     hashtags: "#wildfire #SierraNevada"
 
   - day: 4
