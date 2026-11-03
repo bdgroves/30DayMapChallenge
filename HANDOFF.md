@@ -67,6 +67,7 @@ All three science posts have project cards on `ecology.html` (newest first: Pyra
   A platform without keys is skipped.
 - X is pay-per-use (~$0.20 a post with a link, Feb 2026 pricing); 30 posts ≈ $6.
 - Cruise: away from Nov 27, so Days 27-30 must be `done` before then.
+- **Nov 3 fix:** GitHub was starting the scheduled runs 5+ hours late or dropping them (Days 1-3 all went out by hand). The cron is now every 30 min, 13:07-23:37 UTC (5:07 AM-3:37 PM Pacific). Backup: a Claude scheduled task, "30DayMapChallenge daily post backup", dispatches the workflow at 6:15 AM Pacific Nov 4-30 if the day isn't posted yet.
 
 ## How the data tools work
 - **GBIF:** add `gbif/requests/<slug>.json` (`name`, optional `synonyms`, `rank`, `kingdom`, `elevation: true/false`) and push. The "GBIF downloads" Action uses repo secrets `GBIF_USER/GBIF_PWD/GBIF_EMAIL`, waits for the DOI, and commits `gbif/downloads/<slug>.json` (key, DOI, citation) and `gbif/data/<slug>.csv.gz` (+ `dem_m` ground elevation). Matching refuses a broader rank so a subspecies can't pull a whole species.
