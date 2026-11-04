@@ -8,8 +8,8 @@
   "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 26,
-  "posted": 3
+  "done": 25,
+  "posted": 4
  },
  "days": [
   {
@@ -127,7 +127,7 @@
    "theme": "Clusters",
    "title": "Rainier's swarms",
    "pitch": "Earthquakes within 30 km of Mount Rainier since 2000, grouped into swarms by space and time. The July 2025 swarm, the largest ever recorded there, stands out.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "scikit-learn (DBSCAN)",

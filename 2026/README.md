@@ -43,14 +43,14 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - Before posting: **21** (re-render after your OSM evening).
 
 <!-- table:start -->
-**29 of 30 done** · 💡 idea 1 · 📦 data in hand 0 · ✏️ draft 0 · ✅ done 26 · 📣 posted 3
+**29 of 30 done** · 💡 idea 1 · 📦 data in hand 0 · ✏️ draft 0 · ✅ done 25 · 📣 posted 4
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
 | 1 | Sun Nov 1 | Points | [1,190 caches](day-01-points/) | 📣 posted |
 | 2 | Mon Nov 2 | Lines | [The Seawall](day-02-lines/) | 📣 posted |
 | 3 | Tue Nov 3 | Polygons | [Every fire around Groveland](day-03-polygons/) | 📣 posted |
-| 4 | Wed Nov 4 | Clusters | [Rainier's swarms](day-04-clusters/) | ✅ done |
+| 4 | Wed Nov 4 | Clusters | [Rainier's swarms](day-04-clusters/) | 📣 posted |
 | 5 | Thu Nov 5 | Sight | [Where you can see Rainier from](day-05-sight/) | ✅ done |
 | 6 | Fri Nov 6 | Vintage | [Tasman to Cook](day-06-vintage/) | ✅ done |
 | 7 | Sat Nov 7 | 10 minute map | [Every fire since 1950, Los Angeles](day-07-10-minute-map/) | ✅ done |

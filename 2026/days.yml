@@ -62,7 +62,7 @@ days:
         url: https://earthquake.usgs.gov/fdsnws/event/1/
     tools: [Python, scikit-learn (DBSCAN), matplotlib]
     prep: "Drafted. Re-run in November to pick up the latest earthquakes."
-    status: done
+    status: posted
     hashtags: "#MountRainier #earthquakes"
     deeper:
       - name: "lahar-watch: the network watching Rainier"

@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 4 · Clusters
 
-**Wednesday, November 4, 2026** · status: ✅ done
+**Wednesday, November 4, 2026** · status: 📣 posted
 
 ## Rainier's swarms
 
