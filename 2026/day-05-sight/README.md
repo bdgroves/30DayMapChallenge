@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 5 · Sight
 
-**Thursday, November 5, 2026** · status: ✅ done
+**Thursday, November 5, 2026** · status: 📣 posted
 
 ## Where you can see Rainier from
 

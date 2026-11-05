@@ -8,8 +8,8 @@
   "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 25,
-  "posted": 4
+  "done": 24,
+  "posted": 5
  },
  "days": [
   {
@@ -173,7 +173,7 @@
    "theme": "Sight",
    "title": "Where you can see Rainier from",
    "pitch": "A viewshed from the summit of Mount Rainier over 90 m terrain, with Earth's curvature and refraction, showing every place in Washington with a line of sight to the mountain.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "rasterio",
