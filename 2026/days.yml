@@ -102,7 +102,7 @@ days:
         url: https://www.naturalearthdata.com/
     tools: [Python, geopandas, matplotlib]
     prep: "Drafted: Cook's chart georeferenced from its own Mercator graticule (fit within 3 px), today's coast over it, Tasman's coast and an inset of his chart."
-    status: done
+    status: posted
     hashtags: "#NewZealand #historicalmaps"
     deeper:
       - name: "My review of A Draught of the South Land, Cartographic Perspectives"

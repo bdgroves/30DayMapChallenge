@@ -8,8 +8,8 @@
   "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 24,
-  "posted": 5
+  "done": 23,
+  "posted": 6
  },
  "days": [
   {
@@ -215,7 +215,7 @@
    "theme": "Vintage",
    "title": "Tasman to Cook",
    "pitch": "James Cook's 1772 chart of New Zealand, lined up with today's coast, with the stretches Abel Tasman saw in 1642–43 in gold. A map version of my Cartographic Perspectives article.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "geopandas",
