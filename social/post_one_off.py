@@ -16,7 +16,9 @@ F = Path(a.folder)
 rd = lambda n, d="": (F / n).read_text(encoding="utf-8").strip() if (F / n).exists() else d
 text_x = rd("text_x.txt"); text_b = rd("text_bsky.txt", text_x)
 video = (F / "film.mp4").read_bytes() if (F / "film.mp4").exists() else None
-alt = rd("alt.txt"); still = (F / "fallback.jpg").read_bytes(); still_alt = rd("fallback_alt.txt", alt)
+alt = rd("alt.txt", rd("fallback_alt.txt")); still = (F / "fallback.jpg").read_bytes(); still_alt = rd("fallback_alt.txt", alt)
+reply_to = rd("reply_to.txt")                     # folder of an earlier post to reply under
+parent = json.loads((F.parent / reply_to / "posted.json").read_text()) if reply_to else {}
 done_path = F / "posted.json"
 done = json.loads(done_path.read_text()) if done_path.exists() else {}
 X_URL = 23
@@ -74,10 +76,12 @@ def post_x():
     import requests
     kind = "video"
     try:
+        if video is None:
+            raise RuntimeError("no film in this folder")
         mid = x_upload_video(video)
         alt_text = alt
     except Exception as e:
-        print("  x: video failed, posting the still instead:", e)
+        print("  x: posting the still:", e)
         mid, alt_text, kind = x_upload_image(still), still_alt, "image"
     try:
         requests.post("https://api.x.com/2/media/metadata", auth=x_auth(), timeout=60,
@@ -85,7 +89,9 @@ def post_x():
     except Exception as e:
         print("  x: alt text not set", e)
     r = requests.post("https://api.x.com/2/tweets", auth=x_auth(), timeout=60,
-                      json={"text": text_x, "media": {"media_ids": [mid]}})
+                      json=dict({"text": text_x, "media": {"media_ids": [mid]}},
+                                **({"reply": {"in_reply_to_tweet_id": parent["x"]["url"].rsplit("/", 1)[-1]}}
+                                   if parent.get("x") else {})))
     if r.status_code >= 300:
         raise RuntimeError(f"tweet {r.status_code}: {r.text[:400]}")
     return f"https://x.com/i/status/{r.json()['data']['id']}", kind
@@ -110,12 +116,23 @@ def bsky_text(text):
 def post_bsky():
     from atproto import Client
     c = Client(); c.login(os.environ["BSKY_HANDLE"], os.environ["BSKY_APP_PASSWORD"])
+    reply = None
+    if parent.get("bluesky"):
+        from atproto import models
+        url = parent["bluesky"]["url"]; handle = url.split("/profile/")[1].split("/")[0]
+        post = c.get_post(url.rsplit("/", 1)[-1], handle)
+        ref = models.create_strong_ref(post)
+        rec = post.value
+        root = rec.reply.root if getattr(rec, "reply", None) else ref
+        reply = models.AppBskyFeedPost.ReplyRef(root=root, parent=ref)
     kind = "video"
     try:
-        res = c.send_video(text=bsky_text(text_b), video=video, video_alt=alt[:2000])
+        if video is None:
+            raise RuntimeError("no film in this folder")
+        res = c.send_video(text=bsky_text(text_b), video=video, video_alt=alt[:2000], reply_to=reply)
     except Exception as e:
-        print("  bluesky: video failed, posting the still instead:", e)
-        res, kind = c.send_image(text=bsky_text(text_b), image=still, image_alt=still_alt[:2000]), "image"
+        print("  bluesky: posting the still:", e)
+        res, kind = c.send_image(text=bsky_text(text_b), image=still, image_alt=still_alt[:2000], reply_to=reply), "image"
     rkey = res.uri.rsplit("/", 1)[-1]
     return f"https://bsky.app/profile/{os.environ['BSKY_HANDLE']}/post/{rkey}", kind
 
