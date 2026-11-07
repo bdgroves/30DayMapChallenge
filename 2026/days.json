@@ -8,8 +8,8 @@
   "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 23,
-  "posted": 6
+  "done": 22,
+  "posted": 7
  },
  "days": [
   {
@@ -263,7 +263,7 @@
    "theme": "10 minute map",
    "title": "Every fire since 1950, Los Angeles",
    "pitch": "Made in QGIS against the clock, finished at 5:09: every CAL FIRE perimeter around Los Angeles since 1950, stacked and colored by year, with the Palisades and Eaton fires of January 2025 outlined in white.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "QGIS",
     "QGIS MCP"

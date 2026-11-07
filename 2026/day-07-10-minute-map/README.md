@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 7 · 10 minute map
 
-**Saturday, November 7, 2026** · status: ✅ done
+**Saturday, November 7, 2026** · status: 📣 posted
 
 ## Every fire since 1950, Los Angeles
 

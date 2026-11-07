@@ -117,7 +117,7 @@ days:
         url: https://www.fire.ca.gov/what-we-do/fire-resource-assessment-program/fire-perimeters
     tools: [QGIS, QGIS MCP]
     prep: "Made Oct 23 in QGIS, 13:53:06 to 13:58:15, clock in the corner. Project saved as Downloads/day-07-ten-minutes.qgz on Brooks's machine; the image is out/map.png (no make.py: the point was to make it live)."
-    status: done
+    status: posted
     hashtags: "#wildfire #QGIS"
 
   - day: 8
