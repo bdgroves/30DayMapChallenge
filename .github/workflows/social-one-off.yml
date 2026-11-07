@@ -1,0 +1,41 @@
+name: Post a one-off to X and Bluesky
+
+# Manual only. Posts the item in social/<folder> (video with a still as fallback),
+# then commits <folder>/posted.json so a rerun never double-posts.
+on:
+  workflow_dispatch:
+    inputs:
+      folder:
+        description: "Folder under social/, e.g. 2026-11-07-tuolumne-migration"
+        required: true
+      dry_run:
+        description: "Only print what would be posted"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -q requests requests-oauthlib atproto
+      - name: Post
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY || secrets.TWITTER_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET || secrets.TWITTER_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN || secrets.TWITTER_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET || secrets.TWITTER_ACCESS_SECRET }}
+          BSKY_HANDLE: ${{ vars.BSKY_HANDLE || secrets.BLUESKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD || secrets.BLUESKY_APP_PASSWORD }}
+        run: python social/post_one_off.py "social/${{ inputs.folder }}" ${{ inputs.dry_run && '--dry-run' || '' }}
+      - name: Record what was posted
+        if: always() && !inputs.dry_run
+        run: |
+          git add "social/${{ inputs.folder }}/posted.json" 2>/dev/null || exit 0
+          git -c user.name="github-actions" -c user.email="github-actions@users.noreply.github.com" commit -q -m "social: posted ${{ inputs.folder }}" || exit 0
+          git pull -q --rebase && git push -q
