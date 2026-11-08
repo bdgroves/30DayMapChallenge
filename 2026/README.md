@@ -43,7 +43,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - Before posting: **21** (re-render after your OSM evening).
 
 <!-- table:start -->
-**29 of 30 done** · 💡 idea 1 · 📦 data in hand 0 · ✏️ draft 0 · ✅ done 22 · 📣 posted 7
+**29 of 30 done** · 💡 idea 1 · 📦 data in hand 0 · ✏️ draft 0 · ✅ done 21 · 📣 posted 8
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -54,7 +54,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 5 | Thu Nov 5 | Sight | [Where you can see Rainier from](day-05-sight/) | 📣 posted |
 | 6 | Fri Nov 6 | Vintage | [Tasman to Cook](day-06-vintage/) | 📣 posted |
 | 7 | Sat Nov 7 | 10 minute map | [Every fire since 1950, Los Angeles](day-07-10-minute-map/) | 📣 posted |
-| 8 | Sun Nov 8 | Utopia | [Paradise, Eden, Utopia](day-08-utopia/) | ✅ done |
+| 8 | Sun Nov 8 | Utopia | [Paradise, Eden, Utopia](day-08-utopia/) | 📣 posted |
 | 9 | Mon Nov 9 | Urban-rural | [Tacoma to Paradise](day-09-urban-rural/) | ✅ done |
 | 10 | Tue Nov 10 | Prompting only | [A map made only by asking](day-10-prompting-only/) | ✅ done |
 | 11 | Wed Nov 11 | Sound | [Where the tsunami sirens reach](day-11-sound/) | ✅ done |

@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 8 · Utopia
 
-**Sunday, November 8, 2026** · status: ✅ done
+**Sunday, November 8, 2026** · status: 📣 posted
 
 ## Paradise, Eden, Utopia
 

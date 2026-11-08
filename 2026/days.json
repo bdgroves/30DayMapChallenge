@@ -8,8 +8,8 @@
   "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 22,
-  "posted": 7
+  "done": 21,
+  "posted": 8
  },
  "days": [
   {
@@ -295,7 +295,7 @@
    "theme": "Utopia",
    "title": "Paradise, Eden, Utopia",
    "pitch": "Every place in the United States named Paradise, Eden, Utopia, Arcadia or Shangri-La, from Paradise on Rainier to Utopia, Texas.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "geopandas"
