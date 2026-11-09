@@ -150,7 +150,7 @@ days:
     deeper:
       - name: "Blog: Rainier snowpack"
         url: https://brooksgroves.com/blog/rainier-snowpack-post.html
-    status: done
+    status: posted
     hashtags: "#Tacoma #MountRainier"
 
   - day: 10

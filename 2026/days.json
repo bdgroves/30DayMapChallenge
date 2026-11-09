@@ -8,8 +8,8 @@
   "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 21,
-  "posted": 8
+  "done": 20,
+  "posted": 9
  },
  "days": [
   {
@@ -327,7 +327,7 @@
    "theme": "Urban-rural",
    "title": "Tacoma to Paradise",
    "pitch": "One line from the Port of Tacoma to Paradise on Rainier, and what changes along it: people, buildings, trees and elevation.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "rasterio",
