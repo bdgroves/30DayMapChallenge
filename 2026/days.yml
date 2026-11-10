@@ -164,7 +164,7 @@ days:
         url: https://registry.opendata.aws/copernicus-dem/
     tools: [Claude, FORTRAN (gfortran), Python]
     prep: "Drafted. Rule: no hand edits; every change is asked for in words and logged in PROMPTS.md."
-    status: done
+    status: posted
     hashtags: "#FORTRAN #retrocomputing"
     deeper:
       - name: "The prompts, and the FORTRAN"

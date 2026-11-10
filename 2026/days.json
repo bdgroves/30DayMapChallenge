@@ -8,8 +8,8 @@
   "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 20,
-  "posted": 9
+  "done": 19,
+  "posted": 10
  },
  "days": [
   {
@@ -380,7 +380,7 @@
    "theme": "Prompting only",
    "title": "A map made only by asking",
    "pitch": "Big Creek's watershed above Groveland as a 1960s line-printer map: a FORTRAN program, written entirely from a one-sentence prompt, prints the basin in eight overprinted tones on green-bar paper, the way SYMAP did. The prompts are posted with it.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Claude",
     "FORTRAN (gfortran)",

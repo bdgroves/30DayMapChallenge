@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 10 · Prompting only
 
-**Tuesday, November 10, 2026** · status: ✅ done
+**Tuesday, November 10, 2026** · status: 📣 posted
 
 ## A map made only by asking
 
