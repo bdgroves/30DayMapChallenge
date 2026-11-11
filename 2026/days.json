@@ -8,8 +8,8 @@
   "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 19,
-  "posted": 10
+  "done": 18,
+  "posted": 11
  },
  "days": [
   {
@@ -435,7 +435,7 @@
    "theme": "Sound",
    "title": "Where the tsunami sirens reach",
    "pitch": "Washington's tsunami sirens, each with the one-mile circle it's designed to be heard in, over the tsunami hazard zones they're there to empty. (Pierce County's lahar sirens were the first idea, but their locations aren't published.)",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "geopandas",

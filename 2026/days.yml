@@ -189,7 +189,7 @@ days:
         url: https://www.graysharbor.us/departments/emergency_management/ahab.php
     tools: [Python, geopandas, Mapbox]
     prep: "Drafted. If Pierce County shares its lahar siren locations, the original idea can come back."
-    status: done
+    status: posted
     hashtags: "#tsunami #Washington"
     deeper:
       - name: "PUGET-TIDES: tides of Puget Sound in FORTRAN"
