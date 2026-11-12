@@ -208,7 +208,7 @@ days:
         url: https://www.sfpuc.gov/
     tools: [Python, geopandas, Mapbox]
     prep: "Drafted from OpenStreetMap (Overpass)."
-    status: done
+    status: posted
     hashtags: "#HetchHetchy #hydropower"
     deeper:
       - name: "SIERRA-FLOW: Sierra rivers in COBOL"

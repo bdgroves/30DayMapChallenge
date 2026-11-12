@@ -8,8 +8,8 @@
   "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 18,
-  "posted": 11
+  "done": 17,
+  "posted": 12
  },
  "days": [
   {
@@ -487,7 +487,7 @@
    "theme": "Power",
    "title": "The Tuolumne powers San Francisco",
    "pitch": "Hetch Hetchy's dams, the powerhouse at Moccasin just below Groveland, and the lines that carry the Tuolumne's power to San Francisco.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "geopandas",
