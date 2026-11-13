@@ -225,7 +225,7 @@ days:
         url: https://labs.waterdata.usgs.gov/about-nldi/
     tools: [MapLibre GL JS, NLDI API]
     prep: "Drafted as an interactive page (day-13-interactions/index.html), with a still from the live page for posts."
-    status: done
+    status: posted
     hashtags: "#hydrology #SierraNevada"
     link: day-13-interactions/
     deeper:

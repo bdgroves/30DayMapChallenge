@@ -8,8 +8,8 @@
   "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 17,
-  "posted": 12
+  "done": 16,
+  "posted": 13
  },
  "days": [
   {
@@ -534,7 +534,7 @@
    "theme": "Interactions",
    "title": "Follow a raindrop",
    "pitch": "Click anywhere in the lower 48 and watch where the water goes, river by river, to the sea or a lake with no outlet, using the USGS's navigation service. From Groveland, it is 279 km to the Delta.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "MapLibre GL JS",
     "NLDI API"
