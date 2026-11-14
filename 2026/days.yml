@@ -244,7 +244,7 @@ days:
     tools: [HTML, canvas]
     prep: "Drafted as a page (day-14-borgesian-map/index.html): the basin and streams from NLDI at 96 CSS px to the inch, an odometer, a minimap and three speeds. A still from the live page is in out/."
     link: day-14-borgesian-map/
-    status: done
+    status: posted
     hashtags: "#Borges #cartography"
     deeper:
       - name: "Blog: The Creek That Isn't There (Big Creek)"
