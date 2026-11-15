@@ -43,7 +43,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - Before posting: **21** (re-render after your OSM evening).
 
 <!-- table:start -->
-**29 of 30 done** · 💡 idea 1 · 📦 data in hand 0 · ✏️ draft 0 · ✅ done 15 · 📣 posted 14
+**29 of 30 done** · 💡 idea 1 · 📦 data in hand 0 · ✏️ draft 0 · ✅ done 14 · 📣 posted 15
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -61,7 +61,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 12 | Thu Nov 12 | Power | [The Tuolumne powers San Francisco](day-12-power/) | 📣 posted |
 | 13 | Fri Nov 13 | Interactions | [Follow a raindrop](day-13-interactions/) | 📣 posted |
 | 14 | Sat Nov 14 | Borgesian map | [1:1](day-14-borgesian-map/) | 📣 posted |
-| 15 | Sun Nov 15 | Inside out | [Inside Kīlauea](day-15-inside-out/) | ✅ done |
+| 15 | Sun Nov 15 | Inside out | [Inside Kīlauea](day-15-inside-out/) | 📣 posted |
 | 16 | Mon Nov 16 | Collaborative map | [Washington's favorite outdoors, by vote](day-16-collaborative-map/) | ✅ done |
 | 17 | Tue Nov 17 | Light & dark | [Great Basin's dark sky](day-17-light-and-dark/) | ✅ done |
 | 18 | Wed Nov 18 | NULL | [Nobody lives here](day-18-null/) | ✅ done |

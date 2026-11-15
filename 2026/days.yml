@@ -259,7 +259,7 @@ days:
         url: https://earthquake.usgs.gov/fdsnws/event/1/
     tools: [Python, matplotlib]
     prep: "Drafted from ComCat since 2019."
-    status: done
+    status: posted
     hashtags: "#Kilauea #volcano"
     deeper:
       - name: "PELE: Hawaiʻi volcanoes, live"

@@ -8,8 +8,8 @@
   "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 15,
-  "posted": 14
+  "done": 14,
+  "posted": 15
  },
  "days": [
   {
@@ -612,7 +612,7 @@
    "theme": "Inside out",
    "title": "Inside Kīlauea",
    "pitch": "The earthquakes beneath Kīlauea's summit in cross-section, sketching the magma plumbing that the surface hides.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "matplotlib"
