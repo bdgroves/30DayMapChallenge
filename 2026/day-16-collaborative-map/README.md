@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 16 · Collaborative map
 
-**Monday, November 16, 2026** · status: ✅ done
+**Monday, November 16, 2026** · status: 📣 posted
 
 ## Washington's favorite outdoors, by vote
 

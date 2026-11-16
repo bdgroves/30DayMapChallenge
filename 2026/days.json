@@ -8,8 +8,8 @@
   "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 14,
-  "posted": 15
+  "done": 13,
+  "posted": 16
  },
  "days": [
   {
@@ -653,7 +653,7 @@
    "theme": "Collaborative map",
    "title": "Washington's favorite outdoors, by vote",
    "pitch": "Made by the people who voted: every outdoor winner of KING 5 Evening's Best Northwest Escapes viewer poll I could find, bigger the more it won. Deception Pass leads.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "Mapbox"
