@@ -8,8 +8,8 @@
   "idea": 1,
   "data": 0,
   "draft": 0,
-  "done": 13,
-  "posted": 16
+  "done": 12,
+  "posted": 17
  },
  "days": [
   {
@@ -685,7 +685,7 @@
    "theme": "Light & dark",
    "title": "Great Basin's dark sky",
    "pitch": "Night lights across Nevada and Utah, with Great Basin National Park's dark sky set against the glow of Las Vegas and Salt Lake City.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "matplotlib"

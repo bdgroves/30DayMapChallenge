@@ -290,7 +290,7 @@ days:
         url: https://darksky.org/places/great-basin-national-park-dark-sky-park/
     tools: [Python, matplotlib]
     prep: "Drafted from the Black Marble composite NASA GIBS serves without a login. With the Earthdata secrets added to this repo it could use VNP46A4 annual radiance instead."
-    status: done
+    status: posted
     hashtags: "#DarkSky #GreatBasin"
 
   - day: 18
