@@ -43,7 +43,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - Before posting: **21** (re-render after your OSM evening).
 
 <!-- table:start -->
-**29 of 30 done** · 💡 idea 1 · 📦 data in hand 0 · ✏️ draft 0 · ✅ done 12 · 📣 posted 17
+**30 of 30 done** · 💡 idea 0 · 📦 data in hand 0 · ✏️ draft 0 · ✅ done 13 · 📣 posted 17
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -76,5 +76,5 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 27 | Fri Nov 27 | New tool | [Every building in Washington](day-27-new-tool/) | ✅ done |
 | 28 | Sat Nov 28 | Feeling | [Did you feel it? Nisqually, 2001](day-28-feeling/) | ✅ done |
 | 29 | Sun Nov 29 | Raster | [When Rainier's snow melted](day-29-raster/) | ✅ done |
-| 30 | Mon Nov 30 | Pen & paper | [If you hit the third cattle guard](day-30-pen-and-paper/) | 💡 idea |
+| 30 | Mon Nov 30 | Pen & paper | [If you hit the third cattle guard](day-30-pen-and-paper/) | ✅ done |
 <!-- table:end -->

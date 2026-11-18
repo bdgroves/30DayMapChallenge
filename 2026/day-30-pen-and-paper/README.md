@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 30 · Pen & paper
 
-**Monday, November 30, 2026** · status: 💡 idea
+**Monday, November 30, 2026** · status: ✅ done
 
 ## If you hit the third cattle guard
 

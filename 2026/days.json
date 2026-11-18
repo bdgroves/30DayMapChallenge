@@ -5,10 +5,10 @@
  "author": "Brooks Groves",
  "repo": "https://github.com/bdgroves/30DayMapChallenge/tree/main/2026",
  "counts": {
-  "idea": 1,
+  "idea": 0,
   "data": 0,
   "draft": 0,
-  "done": 12,
+  "done": 13,
   "posted": 17
  },
  "days": [
@@ -1213,7 +1213,7 @@
    "theme": "Pen & paper",
    "title": "If you hit the third cattle guard",
    "pitch": "The hot-spring napkin from my memoir, redrawn by hand in bar ink on a cocktail napkin: the springs from Bridgeport to Long Valley and the roads between them, with directions counted in cattle guards, not miles. Drawn from memory, like the original.",
-   "status": "idea",
+   "status": "done",
    "tools": [
     "Pen",
     "a cocktail napkin",
