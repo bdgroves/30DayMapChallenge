@@ -44,6 +44,8 @@ def post_text(d: dict) -> str:
     lines = [f"Day {d['day']} of #30DayMapChallenge · {d['theme']}", d["title"]]
     if d.get("deeper"):
         lines.append("There's more behind it on the page.")
+    if d.get("shoutout"):                    # optional thank-you line, e.g. a place that helped
+        lines.append(d["shoutout"].strip())
     if d.get("hashtags"):
         lines.append(d["hashtags"])
     return "\n".join(lines)

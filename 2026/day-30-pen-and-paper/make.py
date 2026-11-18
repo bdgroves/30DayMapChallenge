@@ -35,8 +35,9 @@ dmc.frame(
     title="If you hit the third cattle guard",
     subtitle=("The Eastern Sierra hot springs, Bridgeport to Long Valley, drawn from memory on an Iron Door napkin, the way\n"
               "a stranger in that bar drew them in the 1980s: no miles, just cattle guards. Close the gate. Go around the guns."),
-    source="Pen, a cocktail napkin, and memory",
-    note="The story behind it: \"If You Hit the Third Cattle Guard\", brooksgroves.com/blog/cattle-guard.html",
+    source="Pen, an Iron Door Saloon napkin (thanks to Chris Loh at the Iron Door), and memory",
+    note=("The story behind it: \"If You Hit the Third Cattle Guard\", brooksgroves.com/blog/cattle-guard.html   ·   "
+          "The saloon: irondoorsaloon.com, Groveland, CA"),
 )
 dmc.save(fig, DAY, alt=(
     "A hand-drawn black-ink map on a white Iron Door Saloon cocktail napkin, the saloon's blue and yellow logo on the "
