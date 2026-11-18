@@ -8,8 +8,8 @@
   "idea": 0,
   "data": 0,
   "draft": 0,
-  "done": 13,
-  "posted": 17
+  "done": 12,
+  "posted": 18
  },
  "days": [
   {
@@ -722,7 +722,7 @@
    "theme": "NULL",
    "title": "Nobody lives here",
    "pitch": "Nevada's 2020 census blocks with a population of zero. Most of the state is null.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "geopandas"

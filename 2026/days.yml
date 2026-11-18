@@ -302,7 +302,7 @@ days:
         url: https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
     tools: [Python, geopandas]
     prep: "Drafted (2020 TIGER/Line blocks)."
-    status: done
+    status: posted
     hashtags: "#census #dataviz"
 
   - day: 19
