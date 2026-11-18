@@ -27,7 +27,7 @@ if scan is None:
 
 im = Image.open(scan).convert("RGB")
 print(f"= napkin scan {im.size[0]}x{im.size[1]}")
-fig, ax = dmc.figure("portrait", map_box=(0.08, 0.10, 0.84, 0.70))
+fig, ax = dmc.figure("wide", map_box=(0.05, 0.11, 0.90, 0.66))   # the napkin is twice as wide as tall
 ax.imshow(im)
 ax.set_aspect("equal")
 dmc.frame(
@@ -39,8 +39,13 @@ dmc.frame(
     note="The story behind it: \"If You Hit the Third Cattle Guard\", brooksgroves.com/blog/cattle-guard.html",
 )
 dmc.save(fig, DAY, alt=(
-    "A hand-drawn ink map on an Iron Door Saloon cocktail napkin of the Eastern Sierra hot springs, from Buckeye and "
-    "Travertine near Bridgeport, past Mono Lake and Mammoth, to the big spring in Long Valley. Highway 395 runs down the "
-    "middle, with Tioga Pass from Groveland on the left. Notes in the margins give directions in cattle guards instead "
-    "of miles: close the gate, go around the guns, and if you hit the third cattle guard on Benton Crossing Road, turn "
-    "around."))
+    "A hand-drawn black-ink map on a white Iron Door Saloon cocktail napkin, the saloon's blue and yellow logo on the "
+    "right half. Across the top: \"If you hit the third cattle guard\". Highway 395 runs down the middle past "
+    "Bridgeport, Lee Vining and Mammoth, with arrows to Reno at the top and \"395 South, L.A. sucks\" at the bottom. "
+    "Up north: Twin Lakes and Buckeye, Travertine past \"go around the guns\", and a spring beyond a gate marked "
+    "\"close the gate, rancher hates hippies\". Mono Lake sits under \"Save Mono Lake\". On the left, Tioga Pass "
+    "and Highway 120 climb through hand-drawn mountains from the Iron Door in Groveland, where a bubble asks "
+    "\"You?\", with an arrow to SF. Down south, past the Green Church, Benton Crossing Road crosses three numbered "
+    "cattle guards, and a dirt track at the third leads to Wild Willy's. Around the edges: \"Don't let the cows "
+    "out\", Area 51 with \"don't go to the base\", a peace sign over \"No nukes\", a smiley face, and "
+    "\"Leave it better than you found it!\""))
