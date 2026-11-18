@@ -16,6 +16,8 @@ The hot-spring napkin from my memoir, redrawn by hand in bar ink on a cocktail n
 - [The story: If You Hit the Third Cattle Guard](https://brooksgroves.com/blog/cattle-guard.html)
 - [Blog: Over the Pass, Tioga Pass to Mono Lake](https://brooksgroves.com/blog/mono-flyover-post.html)
 - [Blog: Mother Lode, the holes in the hills where I grew up](https://brooksgroves.com/blog/mother-lode-post.html)
+- [The Historic Iron Door Saloon, Groveland (thanks to Chris Loh for the napkins)](https://www.irondoorsaloon.com)
+- [The Iron Door on Instagram: @the_iron_door_saloon](https://www.instagram.com/the_iron_door_saloon/)
 
 **Post it** (X, Bluesky, LinkedIn: paste this, the link shows the map card)
 
@@ -23,6 +25,7 @@ The hot-spring napkin from my memoir, redrawn by hand in bar ink on a cocktail n
 Day 30 of #30DayMapChallenge · Pen & paper
 If you hit the third cattle guard
 There's more behind it on the page.
+Napkins from Chris Loh at the Iron Door Saloon, Groveland: https://www.irondoorsaloon.com
 #handdrawnmap #EasternSierra
 https://brooksgroves.com/30DayMapChallenge/2026/share/day-30.html
 ```
