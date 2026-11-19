@@ -8,8 +8,8 @@
   "idea": 0,
   "data": 0,
   "draft": 0,
-  "done": 12,
-  "posted": 18
+  "done": 11,
+  "posted": 19
  },
  "days": [
   {
@@ -754,7 +754,7 @@
    "theme": "Smell",
    "title": "What the Yakima Valley smells like",
    "pitch": "Washington's hop fields, and its hop acreage sorted by the first smell HopLove lists for each variety: tropical fruit, citrus, resin, spice, berry and more.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python"
    ],
