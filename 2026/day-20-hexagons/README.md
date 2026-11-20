@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 20 · Hexagons
 
-**Friday, November 20, 2026** · status: ✅ done
+**Friday, November 20, 2026** · status: 📣 posted
 
 ## Kangaroo rats in hexagons
 
