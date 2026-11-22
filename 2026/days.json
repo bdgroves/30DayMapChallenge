@@ -8,8 +8,8 @@
   "idea": 0,
   "data": 0,
   "draft": 0,
-  "done": 9,
-  "posted": 21
+  "done": 8,
+  "posted": 22
  },
  "days": [
   {
@@ -882,7 +882,7 @@
    "theme": "Projections",
    "title": "The world from Groveland",
    "pitch": "An azimuthal equidistant map centered on Groveland, where I grew up, with straight lines (true distances) to everywhere I've been since, from Namibia to Guadeloupe.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "pyproj"
