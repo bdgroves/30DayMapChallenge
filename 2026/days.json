@@ -8,8 +8,8 @@
   "idea": 0,
   "data": 0,
   "draft": 0,
-  "done": 8,
-  "posted": 22
+  "done": 7,
+  "posted": 23
  },
  "days": [
   {
@@ -919,7 +919,7 @@
    "theme": "Taste",
    "title": "Every brewery I've checked into",
    "pitch": "My Untappd check-ins, mapped by brewery, sized by how many beers.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python"
    ],

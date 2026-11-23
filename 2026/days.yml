@@ -383,7 +383,7 @@ days:
         note: "Export is a Supporter feature."
     tools: [Python]
     prep: "Drafted from the year of beer history HopLove keeps (Untappd); breweries placed with Open Brewery DB."
-    status: done
+    status: posted
     hashtags: "#craftbeer #PNW"
     deeper:
       - name: "HopLove: every hop in 2,000 Northwest beers"
