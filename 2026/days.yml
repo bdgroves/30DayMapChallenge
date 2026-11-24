@@ -398,7 +398,7 @@ days:
         url: https://labs.waterdata.usgs.gov/about-nldi/
     tools: [Python, geopandas]
     prep: "Drafted (NLDI flowlines; Strahler order computed on the network)."
-    status: done
+    status: posted
     hashtags: "#rivers #TuolumneRiver"
     deeper:
       - name: "SIERRA-FLOW: Sierra rivers in COBOL"

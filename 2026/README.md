@@ -43,7 +43,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - Before posting: **21** (re-render after your OSM evening).
 
 <!-- table:start -->
-**30 of 30 done** · 💡 idea 0 · 📦 data in hand 0 · ✏️ draft 0 · ✅ done 7 · 📣 posted 23
+**30 of 30 done** · 💡 idea 0 · 📦 data in hand 0 · ✏️ draft 0 · ✅ done 6 · 📣 posted 24
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -70,7 +70,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 21 | Sat Nov 21 | OpenStreetMap | [Groveland, by volunteers](day-21-openstreetmap/) | 📣 posted |
 | 22 | Sun Nov 22 | Projections | [The world from Groveland](day-22-projections/) | 📣 posted |
 | 23 | Mon Nov 23 | Taste | [Every brewery I've checked into](day-23-taste/) | 📣 posted |
-| 24 | Tue Nov 24 | Network | [Every stream that reaches Modesto](day-24-network/) | ✅ done |
+| 24 | Tue Nov 24 | Network | [Every stream that reaches Modesto](day-24-network/) | 📣 posted |
 | 25 | Wed Nov 25 | Is this a map? | [The Beast Quake](day-25-is-this-a-map/) | ✅ done |
 | 26 | Thu Nov 26 | Water | [Lake Tahoe, clear and deep](day-26-water/) | ✅ done |
 | 27 | Fri Nov 27 | New tool | [Every building in Washington](day-27-new-tool/) | ✅ done |

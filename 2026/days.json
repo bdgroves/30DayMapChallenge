@@ -8,8 +8,8 @@
   "idea": 0,
   "data": 0,
   "draft": 0,
-  "done": 7,
-  "posted": 23
+  "done": 6,
+  "posted": 24
  },
  "days": [
   {
@@ -955,7 +955,7 @@
    "theme": "Network",
    "title": "Every stream that reaches Modesto",
    "pitch": "The whole Tuolumne river network above Modesto, by stream order, with the SIERRA-FLOW gages on it.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "geopandas"
