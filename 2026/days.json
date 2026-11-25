@@ -8,8 +8,8 @@
   "idea": 0,
   "data": 0,
   "draft": 0,
-  "done": 6,
-  "posted": 24
+  "done": 5,
+  "posted": 25
  },
  "days": [
   {
@@ -996,7 +996,7 @@
    "theme": "Is this a map?",
    "title": "The Beast Quake",
    "pitch": "January 8, 2011: the Seahawks' playoff win over the Saints on the seismometer across the street from the stadium, ten minutes a line, with Marshawn Lynch's 67-yard touchdown run shaking the ground at 4:42 PM. A map of a game, or of a place?",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "ObsPy"
