@@ -8,8 +8,8 @@
   "idea": 0,
   "data": 0,
   "draft": 0,
-  "done": 5,
-  "posted": 25
+  "done": 4,
+  "posted": 26
  },
  "days": [
   {
@@ -1046,7 +1046,7 @@
    "theme": "Water",
    "title": "Lake Tahoe, clear and deep",
    "pitch": "Tahoe's floor, 497 m at the deepest, and beside it the lake's clarity on the same downward axis: how far a Secchi disk could be seen each year since 1968, from the record my SECCHI project keeps.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "rasterio",

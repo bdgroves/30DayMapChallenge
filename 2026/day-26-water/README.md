@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 26 · Water
 
-**Thursday, November 26, 2026** · status: ✅ done
+**Thursday, November 26, 2026** · status: 📣 posted
 
 ## Lake Tahoe, clear and deep
 

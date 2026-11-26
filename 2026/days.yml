@@ -438,7 +438,7 @@ days:
         url: https://pubs.usgs.gov/dds/dds-55/
     tools: [Python, rasterio, matplotlib]
     prep: "Drafted: depth from the 1998 USGS multibeam grid, clarity from TERC's index station."
-    status: done
+    status: posted
     hashtags: "#LakeTahoe #water"
     deeper:
       - name: "secchi: a modern Secchi disk for Lake Tahoe"

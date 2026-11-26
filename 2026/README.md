@@ -43,7 +43,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 - Before posting: **21** (re-render after your OSM evening).
 
 <!-- table:start -->
-**30 of 30 done** · 💡 idea 0 · 📦 data in hand 0 · ✏️ draft 0 · ✅ done 5 · 📣 posted 25
+**30 of 30 done** · 💡 idea 0 · 📦 data in hand 0 · ✏️ draft 0 · ✅ done 4 · 📣 posted 26
 
 | Day | Date | Theme | Map | Status |
 |---:|---|---|---|---|
@@ -72,7 +72,7 @@ Mapbox basemaps go where streets, towns and water give the data its context: Lig
 | 23 | Mon Nov 23 | Taste | [Every brewery I've checked into](day-23-taste/) | 📣 posted |
 | 24 | Tue Nov 24 | Network | [Every stream that reaches Modesto](day-24-network/) | 📣 posted |
 | 25 | Wed Nov 25 | Is this a map? | [The Beast Quake](day-25-is-this-a-map/) | 📣 posted |
-| 26 | Thu Nov 26 | Water | [Lake Tahoe, clear and deep](day-26-water/) | ✅ done |
+| 26 | Thu Nov 26 | Water | [Lake Tahoe, clear and deep](day-26-water/) | 📣 posted |
 | 27 | Fri Nov 27 | New tool | [Every building in Washington](day-27-new-tool/) | ✅ done |
 | 28 | Sat Nov 28 | Feeling | [Did you feel it? Nisqually, 2001](day-28-feeling/) | ✅ done |
 | 29 | Sun Nov 29 | Raster | [When Rainier's snow melted](day-29-raster/) | ✅ done |
