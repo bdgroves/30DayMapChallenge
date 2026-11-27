@@ -8,8 +8,8 @@
   "idea": 0,
   "data": 0,
   "draft": 0,
-  "done": 4,
-  "posted": 26
+  "done": 3,
+  "posted": 27
  },
  "days": [
   {
@@ -1093,7 +1093,7 @@
    "theme": "New tool",
    "title": "Every building in Washington",
    "pitch": "All 3.8 million building footprints in Washington from Overture Maps, counted into half-kilometer cells by one DuckDB query run straight against Overture's files on S3. New to me.",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "DuckDB spatial"
    ],

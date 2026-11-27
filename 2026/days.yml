@@ -455,7 +455,7 @@ days:
         url: https://overturemaps.org/
     tools: [DuckDB spatial]
     prep: "Drafted: DuckDB query straight against Overture on S3, gridded. A lonboard interactive could follow; the still stands on its own."
-    status: done
+    status: posted
     hashtags: "#DuckDB #OvertureMaps"
 
   - day: 28
