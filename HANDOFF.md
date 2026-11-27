@@ -67,6 +67,10 @@ All three science posts have project cards on `ecology.html` (newest first: Pyra
   A platform without keys is skipped.
 - X is pay-per-use (~$0.20 a post with a link, Feb 2026 pricing); 30 posts ≈ $6.
 - Cruise: away from Nov 27, so Days 27-30 must be `done` before then.
+- **Round-up (Nov 30):** `social/2026-11-30-dmc-roundup/` holds the wrap-up post for X and Bluesky: all thirty
+  maps in one grid (`make.py` builds `fallback.jpg` and its alt text from `days.yml` and each `out/map.png`) and
+  `text_x.txt`. The post workflow's "Round-up post" step sends it on Nov 30 from 10 AM Pacific, once Day 30 is in
+  `posted.json` on both platforms. By hand: Actions → "Post a one-off to X and Bluesky", folder `2026-11-30-dmc-roundup`.
 - **Nov 3 fix:** GitHub was starting the scheduled runs 5+ hours late or dropping them (Days 1-3 all went out by hand). The cron is now every 30 min, 13:07-23:37 UTC (5:07 AM-3:37 PM Pacific). Backup: a Claude scheduled task, "30DayMapChallenge daily post backup", dispatches the workflow at 6:15 AM Pacific Nov 4-30 if the day isn't posted yet.
 
 ## How the data tools work

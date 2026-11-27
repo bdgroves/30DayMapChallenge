@@ -90,6 +90,36 @@ jobs:
           git commit -q -m "2026: posted day ${{ inputs.day || 'of the day' }} [skip ci]"
           for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
 
+      # Nov 30 only: the wrap-up post (all thirty maps in one image, social/2026-11-30-dmc-roundup),
+      # from 10 AM Pacific so it doesn't land on top of Day 30, and only once Day 30 is out on both.
+      # post_one_off.py skips a platform already in that folder's posted.json, so retries never double-post.
+      - name: Round-up post (Nov 30)
+        if: github.event_name == 'schedule' || inputs.mode == 'post'
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY || secrets.TWITTER_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET || secrets.TWITTER_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN || secrets.TWITTER_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET || secrets.TWITTER_ACCESS_SECRET }}
+          BSKY_HANDLE: ${{ vars.BSKY_HANDLE || secrets.BLUESKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD || secrets.BLUESKY_APP_PASSWORD }}
+        run: |
+          F=social/2026-11-30-dmc-roundup
+          [ "$(TZ=America/Los_Angeles date +%F)" = 2026-11-30 ] || exit 0
+          [ "$(TZ=America/Los_Angeles date +%-H)" -ge 10 ] || { echo "Round-up waits for 10 AM Pacific"; exit 0; }
+          git pull -q --rebase || true
+          python -c "import json,sys; p=json.load(open('2026/posted.json')).get('30',{}); sys.exit(0 if 'x' in p and 'bluesky' in p else 1)" \
+            || { echo "Day 30 isn't out on both platforms yet; the round-up waits"; exit 0; }
+          rc=0
+          python social/post_one_off.py "$F" || rc=$?
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "$F/posted.json" 2>/dev/null || true
+          if ! git diff --staged --quiet; then
+            git commit -q -m "social: posted the 2026 round-up [skip ci]"
+            for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
+          fi
+          exit $rc
+
       - name: Fail the run if a platform failed (GitHub emails you)
         if: github.event_name == 'schedule' || inputs.mode == 'post'
         run: grep -q 'RC=0' rc.txt
