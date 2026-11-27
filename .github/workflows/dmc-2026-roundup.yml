@@ -1,0 +1,66 @@
+name: "2026 round-up post (X and Bluesky, Dec 1)"
+
+# The X and Bluesky partner to the LinkedIn round-up: all thirty maps in one square image
+# (social/2026-12-01-dmc-roundup), linking to the blog review post. Goes out on Dec 1, 2026 from
+# 12:07 PM Pacific, with retries every 30 minutes because GitHub often starts scheduled runs late.
+# post_one_off.py skips a platform already in the folder's posted.json, so retries never double-post.
+# If the blog post isn't live yet, the post links to the gallery instead.
+on:
+  schedule:
+    - cron: '7,37 20-23 1 12 *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only print what would be posted"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dmc-2026-roundup
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -q requests requests-oauthlib atproto
+
+      - name: Post
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY || secrets.TWITTER_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET || secrets.TWITTER_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN || secrets.TWITTER_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET || secrets.TWITTER_ACCESS_SECRET }}
+          BSKY_HANDLE: ${{ vars.BSKY_HANDLE || secrets.BLUESKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD || secrets.BLUESKY_APP_PASSWORD }}
+          DRY: ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: |
+          F=social/2026-12-01-dmc-roundup
+          if [ "${{ github.event_name }}" = schedule ] && [ "$(TZ=America/Los_Angeles date +%F)" != 2026-12-01 ]; then
+            echo "Only on Dec 1, 2026"; exit 0
+          fi
+          BLOG=https://brooksgroves.com/blog/30daymapchallenge-2026.html
+          if curl -sfL -o /dev/null "$BLOG"; then
+            echo "Blog post is live"
+          else
+            echo "::warning::Blog post isn't live yet; linking the gallery instead"
+            sed -i "s#$BLOG#https://brooksgroves.com/30DayMapChallenge/2026/#" "$F/text_x.txt"
+          fi
+          python social/post_one_off.py "$F" $DRY
+
+      - name: Record what was posted
+        if: always() && !inputs.dry_run
+        run: |
+          F=social/2026-12-01-dmc-roundup
+          git checkout -- "$F/text_x.txt"
+          git add "$F/posted.json" 2>/dev/null || exit 0
+          git diff --staged --quiet && exit 0
+          git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" \
+            commit -q -m "social: posted the 2026 round-up [skip ci]"
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
