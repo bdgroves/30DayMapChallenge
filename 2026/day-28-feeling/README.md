@@ -1,7 +1,7 @@
 <!-- plan:start (generated from days.yml; edit there) -->
 # Day 28 · Feeling
 
-**Saturday, November 28, 2026** · status: ✅ done
+**Saturday, November 28, 2026** · status: 📣 posted
 
 ## Did you feel it? Nisqually, 2001
 

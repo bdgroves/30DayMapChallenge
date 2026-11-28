@@ -8,8 +8,8 @@
   "idea": 0,
   "data": 0,
   "draft": 0,
-  "done": 3,
-  "posted": 27
+  "done": 2,
+  "posted": 28
  },
  "days": [
   {
@@ -1124,7 +1124,7 @@
    "theme": "Feeling",
    "title": "Did you feel it? Nisqually, 2001",
    "pitch": "The M6.8 Nisqually earthquake of February 28, 2001, as the people who felt it reported it, from USGS \"Did You Feel It?\".",
-   "status": "done",
+   "status": "posted",
    "tools": [
     "Python",
     "geopandas",

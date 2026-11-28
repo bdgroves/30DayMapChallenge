@@ -467,7 +467,7 @@ days:
         url: https://earthquake.usgs.gov/earthquakes/eventpage/uw10530748/dyfi/intensity
     tools: [Python, geopandas, matplotlib]
     prep: "Drafted already, as the toolkit's test map."
-    status: done
+    status: posted
     hashtags: "#earthquake #Nisqually"
     script: make.py
     deeper:
